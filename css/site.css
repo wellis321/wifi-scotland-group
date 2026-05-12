@@ -381,6 +381,33 @@ a:hover {
 @media (min-width: 880px) {
     .hero-grid {
         grid-template-columns: 1.05fr 0.95fr;
+        grid-template-areas:
+            "copy media"
+            "card media";
+        align-items: stretch;
+    }
+
+    .hero-copy {
+        grid-area: copy;
+    }
+
+    .hero-side {
+        grid-area: media;
+        height: 100%;
+    }
+
+    .hero-card {
+        grid-area: card;
+        align-self: start;
+    }
+
+    .hero-media {
+        height: 100%;
+    }
+
+    .hero-media-img {
+        height: 100%;
+        aspect-ratio: auto;
     }
 }
 
@@ -616,14 +643,15 @@ a:hover {
 }
 
 .page-lede {
-    margin: 0 0 2rem;
+    margin-block: 0 2rem;
+    margin-inline: clamp(0.75rem, 3vw, 2rem);
 }
 
 .page-lede img {
     display: block;
     width: 100%;
     height: auto;
-    max-height: min(70vh, 640px);
+    max-height: min(70vh, 440px);
     object-fit: cover;
     border-radius: var(--radius);
     box-shadow: var(--shadow);

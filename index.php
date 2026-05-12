@@ -52,15 +52,15 @@ require_once __DIR__ . '/includes/header.php';
                     class="hero-media-img"
                 >
             </figure>
-            <aside class="hero-card" aria-labelledby="hero-card-title">
-                <h2 id="hero-card-title">Three things we believe</h2>
-                <ul class="hero-list">
-                    <li><strong>Access shapes participation.</strong> Work, learning, services, and democracy increasingly assume you can get online reliably.</li>
-                    <li><strong>Public money should mean public clarity.</strong> People deserve plain-language routes to schemes, vouchers, and support.</li>
-                    <li><strong>Communities innovate.</strong> Cooperative and non-profit models worldwide show different ways to own and govern networks.</li>
-                </ul>
-            </aside>
         </div>
+        <aside class="hero-card" aria-labelledby="hero-card-title">
+            <h2 id="hero-card-title">Three things we believe</h2>
+            <ul class="hero-list">
+                <li><strong>Access shapes participation.</strong> Work, learning, services, and democracy increasingly assume you can get online reliably.</li>
+                <li><strong>Public money should mean public clarity.</strong> People deserve plain-language routes to schemes, vouchers, and support.</li>
+                <li><strong>Communities innovate.</strong> Cooperative and non-profit models worldwide show different ways to own and govern networks.</li>
+            </ul>
+        </aside>
     </div>
 </section>
 
