@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-require_once dirname(__DIR__) . '/includes/bootstrap.php';
+require_once __DIR__ . '/includes/bootstrap.php';
 
 $pageTitle = 'Connectivity as a public good';
 $pageDescription = 'A Scotland-rooted campaign for affordable, reliable internet access—backed by evidence and community action.';
@@ -23,7 +23,7 @@ if (db_available()) {
 $pageOgImage = image_asset('hero-laptop-home.jpg');
 $pageOgImageAlt = 'Person using a laptop in a home workspace—illustrating everyday reliance on connectivity.';
 
-require_once dirname(__DIR__) . '/includes/header.php';
+require_once __DIR__ . '/includes/header.php';
 ?>
 <section class="hero">
     <div class="wrap hero-grid">
@@ -167,4 +167,4 @@ require_once dirname(__DIR__) . '/includes/header.php';
     </div>
 </section>
 
-<?php require_once dirname(__DIR__) . '/includes/footer.php'; ?>
+<?php require_once __DIR__ . '/includes/footer.php'; ?>

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-require_once dirname(__DIR__) . '/includes/bootstrap.php';
+require_once __DIR__ . '/includes/bootstrap.php';
 
 $pageTitle = 'Contact';
 $pageDescription = 'Reach ' . SITE_BRAND . ' with corrections, partnership ideas, or local stories about connectivity.';
@@ -71,7 +71,7 @@ $flashOk = flash_take('contact_ok');
 $pageOgImage = image_asset('card-community.jpg');
 $pageOgImageAlt = 'People collaborating with a laptop—representing community outreach.';
 
-require_once dirname(__DIR__) . '/includes/header.php';
+require_once __DIR__ . '/includes/header.php';
 ?>
 <header class="page-header">
     <div class="wrap">
@@ -123,4 +123,4 @@ require_once dirname(__DIR__) . '/includes/header.php';
     </div>
 </div>
 
-<?php require_once dirname(__DIR__) . '/includes/footer.php'; ?>
+<?php require_once __DIR__ . '/includes/footer.php'; ?>

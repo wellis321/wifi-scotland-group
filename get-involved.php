@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-require_once dirname(__DIR__) . '/includes/bootstrap.php';
+require_once __DIR__ . '/includes/bootstrap.php';
 
 $pageTitle = 'Get involved';
 $pageDescription = 'Practical ways to support better connectivity in your community—without needing to be a network engineer.';
@@ -11,7 +11,7 @@ $currentNav = 'involved';
 $pageOgImage = image_asset('card-community.jpg');
 $pageOgImageAlt = 'People meeting together around a laptop—representing community organising.';
 
-require_once dirname(__DIR__) . '/includes/header.php';
+require_once __DIR__ . '/includes/header.php';
 ?>
 <header class="page-header">
     <div class="wrap">
@@ -50,4 +50,4 @@ require_once dirname(__DIR__) . '/includes/header.php';
     </div>
 </div>
 
-<?php require_once dirname(__DIR__) . '/includes/footer.php'; ?>
+<?php require_once __DIR__ . '/includes/footer.php'; ?>

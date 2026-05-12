@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-require_once dirname(__DIR__) . '/includes/bootstrap.php';
+require_once __DIR__ . '/includes/bootstrap.php';
 
 $pageTitle = 'News & updates';
 $pageDescription = 'Campaign notes, explainers, and pointers to official connectivity updates in Scotland.';
@@ -24,7 +24,7 @@ if ($dbOk) {
 $pageOgImage = image_asset('card-fibre.jpg');
 $pageOgImageAlt = 'Fibre-optic cables close-up—representing physical internet infrastructure.';
 
-require_once dirname(__DIR__) . '/includes/header.php';
+require_once __DIR__ . '/includes/header.php';
 ?>
 <header class="page-header">
     <div class="wrap">
@@ -61,4 +61,4 @@ require_once dirname(__DIR__) . '/includes/header.php';
     </div>
 </div>
 
-<?php require_once dirname(__DIR__) . '/includes/footer.php'; ?>
+<?php require_once __DIR__ . '/includes/footer.php'; ?>

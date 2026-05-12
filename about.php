@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-require_once dirname(__DIR__) . '/includes/bootstrap.php';
+require_once __DIR__ . '/includes/bootstrap.php';
 
 $pageTitle = 'About the campaign';
 $pageDescription = 'What ' . SITE_BRAND . ' stands for, how we work, and how we relate to public policy in Scotland.';
@@ -11,7 +11,7 @@ $currentNav = 'about';
 $pageOgImage = image_asset('about-team.jpg');
 $pageOgImageAlt = 'People collaborating around a table—symbolising volunteer campaign work.';
 
-require_once dirname(__DIR__) . '/includes/header.php';
+require_once __DIR__ . '/includes/header.php';
 ?>
 <header class="page-header">
     <div class="wrap">
@@ -58,4 +58,4 @@ require_once dirname(__DIR__) . '/includes/header.php';
     </div>
 </div>
 
-<?php require_once dirname(__DIR__) . '/includes/footer.php'; ?>
+<?php require_once __DIR__ . '/includes/footer.php'; ?>

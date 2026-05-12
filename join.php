@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-require_once dirname(__DIR__) . '/includes/bootstrap.php';
+require_once __DIR__ . '/includes/bootstrap.php';
 
 $pageTitle = 'Join the group';
 $pageDescription = 'Sign up to hear about events, consultations, and volunteer opportunities from ' . SITE_BRAND . '.';
@@ -70,7 +70,7 @@ $flashOk = flash_take('join_ok');
 $pageOgImage = image_asset('card-community.jpg');
 $pageOgImageAlt = 'Community meeting with a laptop—symbolising people joining the campaign.';
 
-require_once dirname(__DIR__) . '/includes/header.php';
+require_once __DIR__ . '/includes/header.php';
 ?>
 <header class="page-header">
     <div class="wrap">
@@ -128,4 +128,4 @@ require_once dirname(__DIR__) . '/includes/header.php';
     </div>
 </div>
 
-<?php require_once dirname(__DIR__) . '/includes/footer.php'; ?>
+<?php require_once __DIR__ . '/includes/footer.php'; ?>

@@ -34,10 +34,10 @@ Volunteer-led PHP + MySQL site campaigning for affordable, reliable connectivity
      mysql -u root -p wifi_group < schema.sql
      ```
 
-4. **Run PHP’s built-in server** with `public/` as the document root (from the **repository root**):
+4. **Run PHP’s built-in server** from the **project root** (same folder as `index.php`):
 
    ```bash
-   php -S 127.0.0.1:8080 -t public
+   php -S 127.0.0.1:8080
    ```
 
    Open `http://127.0.0.1:8080/`.
@@ -48,15 +48,23 @@ If a `vendor/` directory exists from an older setup, you can delete it locally; 
 
 ## Project layout
 
-- `public/` — web root (`index.php`, other pages, `css/site.css`)
-- `includes/` — shared bootstrap (PDO, CSRF helpers) and layout partials
+- **Web root** (this repo root): `index.php`, other `*.php` pages, `css/`, `images/`, `.htaccess`
+- `includes/` — shared bootstrap (PDO, CSRF helpers) and layout partials (**blocked from direct web access** via `includes/.htaccess` on Apache)
 - `schema.sql` — database tables and seed data
 - `.env.example` — documented environment variables (safe to commit)
 - `.env` — your local or deployment secrets (**gitignored**; never commit)
 
+## Hostinger (fixed `public_html` root)
+
+Plans that **cannot** change the document root should upload the **contents of this repository** into **`public_html`** so that **`public_html/index.php`** exists (not nested inside another `public/` folder).
+
+- Place **`includes/`** as **`public_html/includes/`** (sibling of `index.php`).
+- Place **`.env`** as **`public_html/.env`** (or use hPanel environment variables). The root `.htaccess` tries to block HTTP access to `.env` on Apache.
+- Set **`APP_BASE_URL`** in `.env` to your live site URL (e.g. `https://grey-frog-720279.hostingersite.com`) so Open Graph image URLs resolve correctly.
+
 ## Security notes for production
 
-- Serve only the `public/` directory from your web server.
+- **`includes/`** must not be directly executable as public URLs; keep `includes/.htaccess` in place on Apache.
 - Keep database credentials out of version control (use `.env` locally or host-managed env vars) and restrict file permissions on any secrets file.
 - News article bodies in the database are rendered as HTML on `news-item.php`. The seed content is trusted; if you allow untrusted authors to post, add HTML sanitisation.
 - Add HTTPS, rate limiting, and outbound email or ticketing integration as appropriate—this starter stores messages in MySQL only.

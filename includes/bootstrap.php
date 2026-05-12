@@ -69,7 +69,7 @@ function base_url(string $path = ''): string
     return $path === '' ? $base . '/' : $base . '/' . $path;
 }
 
-/** Public image path (files live under /public/images/). */
+/** Public image path (files live under /images/ at web root). */
 function image_asset(string $filename): string
 {
     if ($filename === '' || preg_match('/[^A-Za-z0-9._-]/', $filename)) {

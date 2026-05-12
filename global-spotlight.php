@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-require_once dirname(__DIR__) . '/includes/bootstrap.php';
+require_once __DIR__ . '/includes/bootstrap.php';
 
 $pageTitle = 'Global spotlight';
 $pageDescription = 'Positive international examples of community connectivity—from mesh networks to mobile cultural centres.';
@@ -11,7 +11,7 @@ $currentNav = 'global';
 $pageOgImage = image_asset('card-global-network.jpg');
 $pageOgImageAlt = 'Illuminated view of Earth from space—symbolising global networks and shared infrastructure.';
 
-require_once dirname(__DIR__) . '/includes/header.php';
+require_once __DIR__ . '/includes/header.php';
 ?>
 <header class="page-header">
     <div class="wrap">
@@ -58,4 +58,4 @@ require_once dirname(__DIR__) . '/includes/header.php';
     </div>
 </div>
 
-<?php require_once dirname(__DIR__) . '/includes/footer.php'; ?>
+<?php require_once __DIR__ . '/includes/footer.php'; ?>

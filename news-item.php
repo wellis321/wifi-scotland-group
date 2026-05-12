@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-require_once dirname(__DIR__) . '/includes/bootstrap.php';
+require_once __DIR__ . '/includes/bootstrap.php';
 
 $slug = isset($_GET['slug']) ? (string) $_GET['slug'] : '';
 $article = null;
@@ -18,7 +18,7 @@ if (!$article) {
     $pageTitle = 'Article not found';
     $pageDescription = 'That news item could not be loaded.';
     $currentNav = 'news';
-    require_once dirname(__DIR__) . '/includes/header.php';
+    require_once __DIR__ . '/includes/header.php';
     ?>
     <header class="page-header">
         <div class="wrap">
@@ -32,7 +32,7 @@ if (!$article) {
         </div>
     </div>
     <?php
-    require_once dirname(__DIR__) . '/includes/footer.php';
+    require_once __DIR__ . '/includes/footer.php';
     return;
 }
 
@@ -42,7 +42,7 @@ $currentNav = 'news';
 $pageOgImage = image_asset('card-global-network.jpg');
 $pageOgImageAlt = 'Abstract view of Earth and networks—editorial sharing image for news.';
 
-require_once dirname(__DIR__) . '/includes/header.php';
+require_once __DIR__ . '/includes/header.php';
 ?>
 <header class="page-header">
     <div class="wrap">
@@ -61,4 +61,4 @@ require_once dirname(__DIR__) . '/includes/header.php';
     </div>
 </div>
 
-<?php require_once dirname(__DIR__) . '/includes/footer.php'; ?>
+<?php require_once __DIR__ . '/includes/footer.php'; ?>

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-require_once dirname(__DIR__) . '/includes/bootstrap.php';
+require_once __DIR__ . '/includes/bootstrap.php';
 
 $pageTitle = 'Scotland: government & councils';
 $pageDescription = 'High-level summaries of Scottish connectivity programmes and local-government digital work—with links to official sources.';
@@ -11,7 +11,7 @@ $currentNav = 'scotland';
 $pageOgImage = image_asset('scotland-landscape.jpg');
 $pageOgImageAlt = 'Misty mountain landscape in Scotland—evoking communities where geography shapes connectivity.';
 
-require_once dirname(__DIR__) . '/includes/header.php';
+require_once __DIR__ . '/includes/header.php';
 ?>
 <header class="page-header">
     <div class="wrap">
@@ -88,4 +88,4 @@ require_once dirname(__DIR__) . '/includes/header.php';
     </div>
 </div>
 
-<?php require_once dirname(__DIR__) . '/includes/footer.php'; ?>
+<?php require_once __DIR__ . '/includes/footer.php'; ?>

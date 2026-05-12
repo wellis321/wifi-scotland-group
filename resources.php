@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-require_once dirname(__DIR__) . '/includes/bootstrap.php';
+require_once __DIR__ . '/includes/bootstrap.php';
 
 $pageTitle = 'Resources & references';
 $pageDescription = 'Primary sources and regulators cited across ' . SITE_BRAND . '—bookmark this page for verification.';
@@ -11,7 +11,7 @@ $currentNav = 'resources';
 $pageOgImage = image_asset('card-fibre.jpg');
 $pageOgImageAlt = 'Network cabling in a rack—symbolising the physical layer behind policy debates.';
 
-require_once dirname(__DIR__) . '/includes/header.php';
+require_once __DIR__ . '/includes/header.php';
 ?>
 <header class="page-header">
     <div class="wrap">
@@ -56,4 +56,4 @@ require_once dirname(__DIR__) . '/includes/header.php';
     </div>
 </div>
 
-<?php require_once dirname(__DIR__) . '/includes/footer.php'; ?>
+<?php require_once __DIR__ . '/includes/footer.php'; ?>
