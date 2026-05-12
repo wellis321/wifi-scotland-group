@@ -9,10 +9,11 @@
     --signal: #e25540;
     --muted: #4a5562;
     --radius: 14px;
+    --btn-radius: 8px;
     --shadow: 0 18px 50px rgba(12, 17, 23, 0.12);
-    --max: 1120px;
-    --font-body: "DM Sans", system-ui, sans-serif;
-    --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+    --max: 1400px;
+    --font-body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --font-display: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
 *,
@@ -72,7 +73,7 @@ a:hover {
 }
 
 .wrap {
-    width: min(100% - 2.5rem, var(--max));
+    width: min(100% - clamp(1.25rem, 4vw, 2.5rem), var(--max));
     margin-inline: auto;
 }
 
@@ -101,7 +102,7 @@ a:hover {
     color: var(--ink);
     font-family: var(--font-display);
     font-weight: 700;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
 }
 
 .brand:hover {
@@ -260,7 +261,7 @@ a:hover {
     justify-content: center;
     gap: 0.4rem;
     padding: 0.65rem 1.15rem;
-    border-radius: 999px;
+    border-radius: var(--btn-radius);
     font-weight: 600;
     font-size: 0.95rem;
     border: none;
@@ -314,7 +315,7 @@ a:hover {
     margin-left: auto;
     background: var(--cream);
     border: 1px solid var(--line);
-    border-radius: 999px;
+    border-radius: var(--btn-radius);
     padding: 0.45rem 0.85rem;
     align-items: center;
     gap: 0.5rem;
@@ -337,10 +338,9 @@ a:hover {
 
 .hero {
     padding: 3.5rem 0 3rem;
-    background:
-        radial-gradient(900px 420px at 12% -10%, rgba(226, 85, 64, 0.18), transparent 60%),
-        radial-gradient(700px 380px at 88% 0%, rgba(31, 122, 107, 0.2), transparent 55%),
-        var(--cream);
+    /* Flat tint (no gradients): slight cool wash on cream */
+    background: #f3f6f5;
+    background: color-mix(in srgb, var(--cream) 94%, var(--accent) 6%);
     border-bottom: 1px solid var(--line);
 }
 
@@ -395,16 +395,17 @@ a:hover {
 
 .hero h1 {
     font-family: var(--font-display);
-    font-size: clamp(2.35rem, 4vw, 3.35rem);
-    line-height: 1.08;
-    letter-spacing: -0.03em;
+    font-size: clamp(2rem, 3.5vw, 2.85rem);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
     margin: 0 0 1rem;
 }
 
 .hero-lede {
     font-size: 1.15rem;
     color: var(--muted);
-    max-width: 46ch;
+    max-width: min(72ch, 100%);
     margin: 0 0 1.75rem;
 }
 
@@ -424,7 +425,8 @@ a:hover {
 
 .hero-card h2 {
     font-family: var(--font-display);
-    font-size: 1.25rem;
+    font-size: 1.15rem;
+    font-weight: 600;
     margin: 0 0 0.75rem;
 }
 
@@ -436,10 +438,11 @@ a:hover {
 
 .cta-global {
     padding: 2.5rem 0;
-    background:
-        linear-gradient(135deg, rgba(12, 17, 23, 0.97) 0%, rgba(31, 122, 107, 0.92) 55%, rgba(20, 92, 80, 0.95) 100%);
-    color: #f0ebe4;
-    border-block: 1px solid rgba(255, 255, 255, 0.12);
+    /* Flat tint, a touch stronger than hero so the band reads clearly */
+    background: #ecf1ef;
+    background: color-mix(in srgb, var(--paper) 90%, var(--accent) 10%);
+    color: var(--ink);
+    border-block: 1px solid var(--line);
 }
 
 .cta-global-inner {
@@ -461,28 +464,29 @@ a:hover {
     font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: rgba(255, 253, 248, 0.75);
+    color: var(--accent-dark);
 }
 
 .cta-global-copy h2 {
     font-family: var(--font-display);
-    font-size: clamp(1.65rem, 2.8vw, 2.25rem);
-    line-height: 1.15;
-    letter-spacing: -0.02em;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
     margin: 0 0 0.75rem;
-    color: #fffdf8;
+    color: var(--ink);
 }
 
 .cta-global-lede {
     margin: 0;
     font-size: 1.05rem;
     line-height: 1.6;
-    color: rgba(255, 253, 248, 0.88);
-    max-width: 58ch;
+    color: var(--muted);
+    max-width: min(78ch, 100%);
 }
 
 .cta-global-lede strong {
-    color: #fff;
+    color: var(--ink);
 }
 
 .cta-global-action {
@@ -499,7 +503,7 @@ a:hover {
 }
 
 .cta-global .btn-primary {
-    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 10px 24px rgba(31, 122, 107, 0.3);
     text-align: center;
     justify-content: center;
 }
@@ -507,7 +511,7 @@ a:hover {
 .cta-global-note {
     margin: 0;
     font-size: 0.88rem;
-    color: rgba(255, 253, 248, 0.72);
+    color: var(--muted);
     line-height: 1.45;
 }
 
@@ -537,13 +541,14 @@ a:hover {
 
 .section h2 {
     font-family: var(--font-display);
-    font-size: clamp(1.75rem, 2.4vw, 2.15rem);
-    letter-spacing: -0.02em;
+    font-size: clamp(1.6rem, 2.2vw, 2rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
     margin: 0 0 1rem;
 }
 
 .section-intro {
-    max-width: 62ch;
+    max-width: min(85ch, 100%);
     color: var(--muted);
     margin: 0 0 2rem;
 }
@@ -573,7 +578,8 @@ a:hover {
 .card h3 {
     font-family: var(--font-display);
     margin: 0 0 0.5rem;
-    font-size: 1.2rem;
+    font-size: 1.15rem;
+    font-weight: 600;
 }
 
 .card p {
@@ -617,7 +623,7 @@ a:hover {
     display: block;
     width: 100%;
     height: auto;
-    max-height: min(52vh, 420px);
+    max-height: min(70vh, 640px);
     object-fit: cover;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
@@ -698,20 +704,44 @@ a:hover {
 
 .page-header h1 {
     font-family: var(--font-display);
-    font-size: clamp(2rem, 3vw, 2.6rem);
+    font-size: clamp(1.85rem, 2.8vw, 2.35rem);
+    font-weight: 600;
     margin: 0 0 0.5rem;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
 }
 
 .page-header p {
     margin: 0;
-    max-width: 60ch;
+    max-width: min(88ch, 100%);
     color: var(--muted);
     font-size: 1.05rem;
 }
 
+/* Full width of .wrap so figures and tables can span the layout; copy stays readable */
 .prose {
-    max-width: 68ch;
+    max-width: 100%;
+    width: 100%;
+}
+
+.prose p,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose ul,
+.prose ol,
+.prose blockquote {
+    max-width: min(80ch, 100%);
+    margin-inline: auto;
+}
+
+.prose .table-scroll p,
+.prose table p {
+    max-width: none;
+}
+
+.prose .page-lede figcaption {
+    max-width: min(80ch, 100%);
+    margin-inline: auto;
 }
 
 .prose > * + * {
@@ -720,9 +750,11 @@ a:hover {
 
 .prose h2 {
     font-family: var(--font-display);
-    font-size: 1.45rem;
+    font-size: 1.35rem;
+    font-weight: 600;
     margin-top: 2.25rem;
     margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
 }
 
 .prose ul {
@@ -786,6 +818,11 @@ a:hover {
     margin: 1.5rem 0;
 }
 
+.prose .callout {
+    max-width: min(80ch, 100%);
+    margin-inline: auto;
+}
+
 .callout p {
     margin: 0;
 }
@@ -801,8 +838,10 @@ a:hover {
 
 .news-list h2 {
     font-family: var(--font-display);
-    font-size: 1.35rem;
+    font-size: 1.25rem;
+    font-weight: 600;
     margin: 0 0 0.35rem;
+    letter-spacing: -0.01em;
 }
 
 .news-list h2 a {
@@ -814,6 +853,51 @@ a:hover {
     color: var(--signal);
 }
 
+.scotland-story-grid .scotland-story-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.scotland-story-card__title {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: -0.01em;
+    line-height: 1.35;
+    color: var(--ink);
+}
+
+.scotland-story-card__summary {
+    margin: 0.15rem 0 0;
+}
+
+.scotland-story-card__links {
+    margin-top: auto;
+    padding-top: 1rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.scotland-story-card__also {
+    color: var(--muted);
+    font-weight: 400;
+    margin: 0 0.2rem;
+}
+
+.scotland-story-card__caveat {
+    margin: 0.75rem 0 0;
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.5;
+}
+
+.scotland-stories-footer-callout {
+    margin-top: 2.5rem;
+}
+
 .meta {
     font-size: 0.9rem;
     color: var(--muted);
@@ -821,7 +905,7 @@ a:hover {
 }
 
 .forms {
-    max-width: 520px;
+    max-width: min(40rem, 100%);
 }
 
 .form-row {
@@ -920,7 +1004,8 @@ a:hover {
 
 .footer-heading {
     font-family: var(--font-display);
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+    font-weight: 600;
     margin: 0 0 0.75rem;
 }
 
@@ -1019,5 +1104,249 @@ a:hover {
 
     .header-inner {
         flex-wrap: nowrap;
+    }
+}
+
+/* --- WiFi map (Leaflet) — patterns aligned with work-plan council map --- */
+.section--flush {
+    padding-top: 0;
+}
+
+.map-frame--wifi {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--cream);
+    box-shadow: var(--shadow);
+}
+
+.map-frame--wifi .map-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem 1rem;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--line);
+    background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 8%, transparent), color-mix(in srgb, var(--accent) 3%, transparent));
+}
+
+.map-toolbar-hint {
+    color: var(--muted);
+    font-size: 0.88rem;
+    margin-top: 0.15rem;
+}
+
+.map-legend {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.5rem;
+    color: var(--muted);
+    font-size: 0.88rem;
+}
+
+.map-legend-label {
+    margin-right: 0.25rem;
+}
+
+.map-swatch {
+    width: 14px;
+    height: 14px;
+    border-radius: 4px;
+    border: 1px solid rgba(12, 17, 23, 0.15);
+}
+
+.map-swatch.choro-1 {
+    background: rgba(31, 122, 107, 0.14);
+}
+
+.map-swatch.choro-2 {
+    background: rgba(31, 122, 107, 0.22);
+}
+
+.map-swatch.choro-3 {
+    background: rgba(31, 122, 107, 0.3);
+}
+
+.map-swatch.choro-4 {
+    background: rgba(31, 122, 107, 0.38);
+}
+
+.map-swatch.choro-5 {
+    background: rgba(31, 122, 107, 0.48);
+}
+
+.map-body {
+    position: relative;
+}
+
+.map-frame--wifi .map-canvas {
+    height: min(72vh, 760px);
+    min-height: 420px;
+    width: 100%;
+    z-index: 1;
+}
+
+.map-overlay {
+    position: absolute;
+    /* Sit above the map canvas (z-index: 1) but below the sticky site header
+       (z-index: 50) and its dropdowns (z-index: 80) so the navbar stays
+       clickable when scrolling past the map. Leaflet's internal panes are
+       confined to the map-canvas stacking context, so this still covers them. */
+    z-index: 2;
+    pointer-events: none;
+    top: 12px;
+}
+
+.map-overlay--list {
+    left: 12px;
+    width: min(420px, 46vw);
+}
+
+.map-overlay--detail {
+    right: 12px;
+    left: auto;
+    width: min(340px, 42vw);
+}
+
+.map-overlay-card {
+    pointer-events: auto;
+    background: color-mix(in srgb, var(--cream) 88%, transparent);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    overflow: hidden;
+}
+
+.map-overlay-card--detail {
+    max-height: min(560px, 70vh);
+    display: flex;
+    flex-direction: column;
+}
+
+.map-overlay-title {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.65rem 0.85rem;
+    border-bottom: 1px solid var(--line);
+    background: color-mix(in srgb, var(--cream) 70%, transparent);
+}
+
+.map-overlay-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 0.65rem;
+    row-gap: 0.1rem;
+    align-content: start;
+    max-height: min(520px, 62vh);
+    overflow: auto;
+    padding: 0.55rem 0.75rem 0.7rem;
+}
+
+.map-overlay-item {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    padding: 0.3rem 0.35rem;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    font: inherit;
+    font-size: 0.88rem;
+    line-height: 1.25;
+    text-align: left;
+    color: inherit;
+    cursor: pointer;
+}
+
+.map-overlay-item:hover,
+.map-overlay-item:focus-visible {
+    outline: none;
+    background: color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+.wifi-map-detail-body {
+    padding: 0.65rem 0.85rem 0.85rem;
+    overflow: auto;
+    font-size: 0.95rem;
+}
+
+.wifi-map-detail-intro {
+    margin: 0;
+    color: var(--muted);
+}
+
+.wifi-map-dl {
+    margin: 0;
+}
+
+.wifi-map-dl > div {
+    margin: 0.5rem 0 0;
+}
+
+.wifi-map-dl > div:first-child {
+    margin-top: 0;
+}
+
+.wifi-map-dl dt {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+}
+
+.wifi-map-dl dd {
+    margin: 0.15rem 0 0;
+}
+
+.wifi-map-detail-foot {
+    margin: 0.75rem 0 0;
+    font-size: 0.88rem;
+    color: var(--muted);
+}
+
+.map-error {
+    padding: 1rem 1.25rem;
+    color: var(--muted);
+}
+
+.prose--after-map {
+    margin-top: 1.75rem;
+    padding-bottom: 2rem;
+}
+
+.leaflet-container {
+    font-family: var(--font-body);
+}
+
+@media (max-width: 900px) {
+    .map-overlay--list {
+        position: relative;
+        width: 100%;
+        top: 0;
+        left: 0;
+        margin: 0;
+    }
+
+    .map-overlay--detail {
+        position: relative;
+        width: 100%;
+        top: 0;
+        right: 0;
+        margin-top: 0.5rem;
+    }
+
+    .map-frame--wifi .map-canvas {
+        height: 55vh;
+        min-height: 320px;
+    }
+
+    .map-overlay-list {
+        max-height: 220px;
     }
 }

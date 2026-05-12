@@ -1,0 +1,302 @@
+{
+    "meta": {
+        "version": 1,
+        "data_quality": "illustrative",
+        "description": "Placeholder statistics for map UI development. Replace with authoritative Ofcom, R100, or council open data when available.",
+        "next_steps": [
+            "Ingest official fixed broadband coverage CSV or API and join on council code (S12…).",
+            "Optionally aggregate member_signups.locality after normalising to council names or postcodes.",
+            "Serve this file from a CMS or regenerate on a schedule; keep APP_BASE_URL correct for absolute asset URLs."
+        ]
+    },
+    "by_code": {
+        "S12000005": {
+            "name": "Clackmannanshire",
+            "connectivity_index": 5,
+            "connectivity_label": "Higher",
+            "median_download_mbps_illustrative": 84,
+            "ultrafast_premises_pct_illustrative": 24,
+            "affordability_pressure": "Higher",
+            "last_updated": "2026-05-01"
+        },
+        "S12000006": {
+            "name": "Dumfries and Galloway",
+            "connectivity_index": 5,
+            "connectivity_label": "Higher",
+            "median_download_mbps_illustrative": 99,
+            "ultrafast_premises_pct_illustrative": 14,
+            "affordability_pressure": "Above average",
+            "last_updated": "2026-05-01"
+        },
+        "S12000008": {
+            "name": "East Ayrshire",
+            "connectivity_index": 1,
+            "connectivity_label": "Lower",
+            "median_download_mbps_illustrative": 110,
+            "ultrafast_premises_pct_illustrative": 55,
+            "affordability_pressure": "Below average",
+            "last_updated": "2026-05-01"
+        },
+        "S12000010": {
+            "name": "East Lothian",
+            "connectivity_index": 1,
+            "connectivity_label": "Lower",
+            "median_download_mbps_illustrative": 65,
+            "ultrafast_premises_pct_illustrative": 10,
+            "affordability_pressure": "Above average",
+            "last_updated": "2026-05-01"
+        },
+        "S12000011": {
+            "name": "East Renfrewshire",
+            "connectivity_index": 1,
+            "connectivity_label": "Lower",
+            "median_download_mbps_illustrative": 65,
+            "ultrafast_premises_pct_illustrative": 60,
+            "affordability_pressure": "Below average",
+            "last_updated": "2026-05-01"
+        },
+        "S12000013": {
+            "name": "Eilean Siar",
+            "connectivity_index": 4,
+            "connectivity_label": "Above average",
+            "median_download_mbps_illustrative": 73,
+            "ultrafast_premises_pct_illustrative": 28,
+            "affordability_pressure": "Lower",
+            "last_updated": "2026-05-01"
+        },
+        "S12000014": {
+            "name": "Falkirk",
+            "connectivity_index": 4,
+            "connectivity_label": "Above average",
+            "median_download_mbps_illustrative": 68,
+            "ultrafast_premises_pct_illustrative": 33,
+            "affordability_pressure": "Below average",
+            "last_updated": "2026-05-01"
+        },
+        "S12000015": {
+            "name": "Fife",
+            "connectivity_index": 1,
+            "connectivity_label": "Lower",
+            "median_download_mbps_illustrative": 115,
+            "ultrafast_premises_pct_illustrative": 35,
+            "affordability_pressure": "Above average",
+            "last_updated": "2026-05-01"
+        },
+        "S12000017": {
+            "name": "Highland",
+            "connectivity_index": 1,
+            "connectivity_label": "Lower",
+            "median_download_mbps_illustrative": 45,
+            "ultrafast_premises_pct_illustrative": 35,
+            "affordability_pressure": "Below average",
+            "last_updated": "2026-05-01"
+        },
+        "S12000018": {
+            "name": "Inverclyde",
+            "connectivity_index": 4,
+            "connectivity_label": "Above average",
+            "median_download_mbps_illustrative": 53,
+            "ultrafast_premises_pct_illustrative": 48,
+            "affordability_pressure": "Lower",
+            "last_updated": "2026-05-01"
+        },
+        "S12000019": {
+            "name": "Midlothian",
+            "connectivity_index": 1,
+            "connectivity_label": "Lower",
+            "median_download_mbps_illustrative": 75,
+            "ultrafast_premises_pct_illustrative": 30,
+            "affordability_pressure": "Lower",
+            "last_updated": "2026-05-01"
+        },
+        "S12000020": {
+            "name": "Moray",
+            "connectivity_index": 1,
+            "connectivity_label": "Lower",
+            "median_download_mbps_illustrative": 90,
+            "ultrafast_premises_pct_illustrative": 15,
+            "affordability_pressure": "Below average",
+            "last_updated": "2026-05-01"
+        },
+        "S12000021": {
+            "name": "North Ayrshire",
+            "connectivity_index": 3,
+            "connectivity_label": "Average",
+            "median_download_mbps_illustrative": 32,
+            "ultrafast_premises_pct_illustrative": 37,
+            "affordability_pressure": "Below average",
+            "last_updated": "2026-05-01"
+        },
+        "S12000023": {
+            "name": "Orkney Islands",
+            "connectivity_index": 3,
+            "connectivity_label": "Average",
+            "median_download_mbps_illustrative": 82,
+            "ultrafast_premises_pct_illustrative": 37,
+            "affordability_pressure": "Higher",
+            "last_updated": "2026-05-01"
+        },
+        "S12000024": {
+            "name": "Perth and Kinross",
+            "connectivity_index": 5,
+            "connectivity_label": "Higher",
+            "median_download_mbps_illustrative": 84,
+            "ultrafast_premises_pct_illustrative": 64,
+            "affordability_pressure": "Average",
+            "last_updated": "2026-05-01"
+        },
+        "S12000026": {
+            "name": "Scottish Borders",
+            "connectivity_index": 4,
+            "connectivity_label": "Above average",
+            "median_download_mbps_illustrative": 38,
+            "ultrafast_premises_pct_illustrative": 8,
+            "affordability_pressure": "Average",
+            "last_updated": "2026-05-01"
+        },
+        "S12000027": {
+            "name": "Shetland Islands",
+            "connectivity_index": 2,
+            "connectivity_label": "Below average",
+            "median_download_mbps_illustrative": 106,
+            "ultrafast_premises_pct_illustrative": 6,
+            "affordability_pressure": "Lower",
+            "last_updated": "2026-05-01"
+        },
+        "S12000028": {
+            "name": "South Ayrshire",
+            "connectivity_index": 2,
+            "connectivity_label": "Below average",
+            "median_download_mbps_illustrative": 86,
+            "ultrafast_premises_pct_illustrative": 21,
+            "affordability_pressure": "Average",
+            "last_updated": "2026-05-01"
+        },
+        "S12000029": {
+            "name": "South Lanarkshire",
+            "connectivity_index": 5,
+            "connectivity_label": "Higher",
+            "median_download_mbps_illustrative": 79,
+            "ultrafast_premises_pct_illustrative": 39,
+            "affordability_pressure": "Below average",
+            "last_updated": "2026-05-01"
+        },
+        "S12000030": {
+            "name": "Stirling",
+            "connectivity_index": 3,
+            "connectivity_label": "Average",
+            "median_download_mbps_illustrative": 57,
+            "ultrafast_premises_pct_illustrative": 12,
+            "affordability_pressure": "Above average",
+            "last_updated": "2026-05-01"
+        },
+        "S12000033": {
+            "name": "Aberdeen City",
+            "connectivity_index": 3,
+            "connectivity_label": "Average",
+            "median_download_mbps_illustrative": 62,
+            "ultrafast_premises_pct_illustrative": 62,
+            "affordability_pressure": "Average",
+            "last_updated": "2026-05-01"
+        },
+        "S12000034": {
+            "name": "Aberdeenshire",
+            "connectivity_index": 5,
+            "connectivity_label": "Higher",
+            "median_download_mbps_illustrative": 39,
+            "ultrafast_premises_pct_illustrative": 19,
+            "affordability_pressure": "Higher",
+            "last_updated": "2026-05-01"
+        },
+        "S12000035": {
+            "name": "Argyll and Bute",
+            "connectivity_index": 2,
+            "connectivity_label": "Below average",
+            "median_download_mbps_illustrative": 91,
+            "ultrafast_premises_pct_illustrative": 61,
+            "affordability_pressure": "Higher",
+            "last_updated": "2026-05-01"
+        },
+        "S12000036": {
+            "name": "City of Edinburgh",
+            "connectivity_index": 5,
+            "connectivity_label": "Higher",
+            "median_download_mbps_illustrative": 44,
+            "ultrafast_premises_pct_illustrative": 19,
+            "affordability_pressure": "Below average",
+            "last_updated": "2026-05-01"
+        },
+        "S12000038": {
+            "name": "Renfrewshire",
+            "connectivity_index": 2,
+            "connectivity_label": "Below average",
+            "median_download_mbps_illustrative": 116,
+            "ultrafast_premises_pct_illustrative": 26,
+            "affordability_pressure": "Lower",
+            "last_updated": "2026-05-01"
+        },
+        "S12000039": {
+            "name": "West Dunbartonshire",
+            "connectivity_index": 3,
+            "connectivity_label": "Average",
+            "median_download_mbps_illustrative": 107,
+            "ultrafast_premises_pct_illustrative": 32,
+            "affordability_pressure": "Lower",
+            "last_updated": "2026-05-01"
+        },
+        "S12000040": {
+            "name": "West Lothian",
+            "connectivity_index": 1,
+            "connectivity_label": "Lower",
+            "median_download_mbps_illustrative": 105,
+            "ultrafast_premises_pct_illustrative": 45,
+            "affordability_pressure": "Average",
+            "last_updated": "2026-05-01"
+        },
+        "S12000041": {
+            "name": "Angus",
+            "connectivity_index": 2,
+            "connectivity_label": "Below average",
+            "median_download_mbps_illustrative": 66,
+            "ultrafast_premises_pct_illustrative": 11,
+            "affordability_pressure": "Above average",
+            "last_updated": "2026-05-01"
+        },
+        "S12000042": {
+            "name": "Dundee City",
+            "connectivity_index": 3,
+            "connectivity_label": "Average",
+            "median_download_mbps_illustrative": 52,
+            "ultrafast_premises_pct_illustrative": 17,
+            "affordability_pressure": "Higher",
+            "last_updated": "2026-05-01"
+        },
+        "S12000044": {
+            "name": "North Lanarkshire",
+            "connectivity_index": 3,
+            "connectivity_label": "Average",
+            "median_download_mbps_illustrative": 107,
+            "ultrafast_premises_pct_illustrative": 22,
+            "affordability_pressure": "Higher",
+            "last_updated": "2026-05-01"
+        },
+        "S12000045": {
+            "name": "East Dunbartonshire",
+            "connectivity_index": 1,
+            "connectivity_label": "Lower",
+            "median_download_mbps_illustrative": 70,
+            "ultrafast_premises_pct_illustrative": 40,
+            "affordability_pressure": "Higher",
+            "last_updated": "2026-05-01"
+        },
+        "S12000046": {
+            "name": "Glasgow City",
+            "connectivity_index": 1,
+            "connectivity_label": "Lower",
+            "median_download_mbps_illustrative": 75,
+            "ultrafast_premises_pct_illustrative": 50,
+            "affordability_pressure": "Above average",
+            "last_updated": "2026-05-01"
+        }
+    }
+}

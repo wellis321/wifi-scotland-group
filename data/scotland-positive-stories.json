@@ -1,0 +1,72 @@
+[
+  {
+    "title": "R100: documented build progress and milestones",
+    "summary": "Scottish Government–backed Reaching 100% (R100) roll-out is reported through official channels with premises connected and programme context, including the commercial contract strand and rural emphasis.",
+    "when": "2024–ongoing",
+    "primary_label": "Scottish Government news",
+    "primary_url": "https://www.gov.scot/news/broadband-target-exceeded/",
+    "secondary_label": "Digital Connectivity (Apr 2024 milestone)",
+    "secondary_url": "https://digitalconnectivity.campaign.gov.scot/news/2024/04/broadband-connection-milestone-reached",
+    "caveat": "Treat headline figures as government communications; cross-check with evaluation or FOI if you need audit-style rigour."
+  },
+  {
+    "title": "Connecting Scotland: devices, connectivity, and inclusion at scale",
+    "summary": "Official programme materials describe tens of thousands of households helped with kit and connectivity, with formal evaluation publications on what the programme aimed to measure.",
+    "when": "2020–ongoing",
+    "primary_label": "Scottish Government news",
+    "primary_url": "https://www.gov.scot/news/more-than-60-000-households-helped-online",
+    "secondary_label": "Phase 2 evaluation (publication)",
+    "secondary_url": "https://www.gov.scot/publications/connecting-scotland-phase-2-evaluation/",
+    "caveat": "Self-published evaluation—good for programme aims; triangulate for independent impact claims."
+  },
+  {
+    "title": "Scottish Broadband Voucher Scheme (SBVS)",
+    "summary": "Official Digital Connectivity pages explain eligibility, subsidy levels, registered suppliers, and how vouchers unlock installs where commercial or R100 build does not reach.",
+    "when": "Ongoing",
+    "primary_label": "Scottish Broadband Voucher Scheme",
+    "primary_url": "https://digitalconnectivity.campaign.gov.scot/sbvs",
+    "caveat": "Rules have changed over time—quote only what the live page says."
+  },
+  {
+    "title": "Ofcom: Scotland connectivity snapshot",
+    "summary": "Connected Nations reporting includes Scotland-specific findings on full-fibre availability and mobile coverage trends—useful independent regulator evidence for an evidence-friendly tone.",
+    "when": "2024 reporting wave",
+    "primary_label": "Ofcom: advances in Scotland’s connectivity",
+    "primary_url": "https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/connected-nations-report-finds-big-advances-in-scotlands-connectivity-in-2024",
+    "secondary_label": "Nation reports hub (2024)",
+    "secondary_url": "https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/connected-nations-2024/nation-reports-2024",
+    "caveat": "Coverage metrics are not affordability or lived quality of experience."
+  },
+  {
+    "title": "Social housing full fibre: Hyperoptic Glenavon (case study)",
+    "summary": "A Scottish Government–published case study describes a Glasgow multi-storey social-rent project combining full fibre, a period of free connectivity, digital skills support, and building-management IoT elements.",
+    "when": "See publication date on gov.scot",
+    "primary_label": "Scotland’s Full Fibre Charter: Hyperoptic case study",
+    "primary_url": "https://www.gov.scot/publications/scotlands-full-fibre-charter-hyperoptic-case-study/",
+    "caveat": "Industry case study via government charter—an exemplar, not typical everywhere."
+  },
+  {
+    "title": "Mouswald: community voucher pooling and Fibre Community Partnership",
+    "summary": "Digital Connectivity documents residents combining support (including voucher-style mechanisms) to extend full fibre via Openreach’s Fibre Community Partnership model.",
+    "when": "Ongoing (dates on campaign page)",
+    "primary_label": "Full fibre speeds for Mouswald community",
+    "primary_url": "https://digitalconnectivity.campaign.gov.scot/full-fibre-speeds-for-mouswald-community",
+    "caveat": "Project comms can emphasise success; pair with neutral scheme pages (e.g. SBVS) for balance."
+  },
+  {
+    "title": "Library Wi‑Fi expansion (Scottish Library and Information Council)",
+    "summary": "SLIC documents Scottish Government–linked funding rounds that expanded Wi‑Fi across many public libraries—libraries remain key digital inclusion front doors.",
+    "when": "Historic funding (2014 on-page); ongoing relevance via library Wi‑Fi",
+    "primary_label": "WiFi projects in Scottish libraries (SLIC)",
+    "primary_url": "https://scottishlibraries.org/wifi-projects-in-scottish-libraries/",
+    "caveat": "Partly historical programme documentation—pair with a current council library page for “today” proof if needed."
+  },
+  {
+    "title": "Glasgow’s Digital Housing Strategy",
+    "summary": "Glasgow City Council publishes a multi-year strategy aimed at improving housing services while tackling digital exclusion in social rented housing.",
+    "when": "2022–2028 (per council page)",
+    "primary_label": "Glasgow City Council",
+    "primary_url": "https://www.glasgow.gov.uk/article/2692/Glasgow-s-Digital-Housing-Strategy-to-improve-housing-services-and-tackle-digital-exclusion",
+    "caveat": "Strategy expresses policy intent, not guaranteed outcomes."
+  }
+]

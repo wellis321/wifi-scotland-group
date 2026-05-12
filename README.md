@@ -48,7 +48,7 @@ If a `vendor/` directory exists from an older setup, you can delete it locally; 
 
 ## Project layout
 
-- **Web root** (this repo root): `index.php`, other `*.php` pages, `css/`, `images/`, `.htaccess`
+- **Web root** (this repo root): `index.php`, other `*.php` pages, `css/`, `js/`, `data/`, `api/`, `images/`, `.htaccess`
 - `includes/` — shared bootstrap (PDO, CSRF helpers) and layout partials (**blocked from direct web access** via `includes/.htaccess` on Apache)
 - `schema.sql` — database tables and seed data
 - `.env.example` — documented environment variables (safe to commit)
@@ -76,6 +76,9 @@ Plans that **cannot** change the document root should upload the **contents of t
 | `/index.php` | Home |
 | `/about.php` | About the campaign |
 | `/scotland.php` | Scotland policy snapshot + official links |
+| `/wifi-map.php` | Interactive Scotland council map + illustrative WiFi-style stats (`data/wifi-area-stats.json`, Leaflet) |
+| `/api/wifi-map-stats.php` | JSON API for map statistics (reads `data/wifi-area-stats.json`) |
+| `/why-it-matters.php` | Evidence on need for home connectivity, harms of exclusion, who is affected |
 | `/news.php` | News listing (from `news_items`) |
 | `/news-item.php?slug=…` | Single article |
 | `/get-involved.php` | Activist suggestions |

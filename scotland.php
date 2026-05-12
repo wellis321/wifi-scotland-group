@@ -17,6 +17,7 @@ require_once __DIR__ . '/includes/header.php';
     <div class="wrap">
         <h1>Scotland: policy, programmes, and councils</h1>
         <p>Scotland’s digital and connectivity landscape spans Scottish Government investment, UK-wide schemes delivered in Scotland, and local authority services. This page stays descriptive and points you to authoritative pages for numbers and eligibility rules.</p>
+        <p class="meta"><a href="/scotland-stories.php">Positive connectivity stories (curated sources)</a> — eight evidence-led items with links to official pages, Ofcom, SLIC, and a council strategy.</p>
     </div>
 </header>
 
