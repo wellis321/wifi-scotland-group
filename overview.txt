@@ -1,0 +1,9 @@
+This website should be a php and sql app that is aimed at raining public awarenss around the need for wifi access to be a neccessity in the modern world.
+
+Everybody shoould have acceess and this should be a campaigning website setting out Action taking pace in Scotland around wifi activities.
+
+We should provide information on Scottish government and local authority activity , reporting any news items, what people can do to get involved the ability to join the group and everything else commonly associated with a campaiging/information/activist group.
+Although its Scottish based we should highlight positive work being done from around the world in getting people connected in communicties or in any other way.
+ we should be a very modern website much like the https://www.theequalgroup.com/ in feel and purpose.
+
+ Please collect relevant information, reports and content for the site then generate a plan for page sttructures and go ahead and create those pages based on the content that should be on them.
