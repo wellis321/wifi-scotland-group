@@ -12,7 +12,7 @@ $pageOgImage    = image_asset('card-community.jpg');
 $pageOgImageAlt = 'People in a community meeting — representing local voices in Scotland connectivity policy.';
 
 $sidebarRelated = [
-    ['href' => '/scotland-stories.php', 'label' => 'Scotland: positive stories'],
+    ['href' => '/scotland-stories.php', 'label' => 'Scottish stories'],
     ['href' => '/wifi-map.php',         'label' => 'WiFi map by council area'],
     ['href' => '/why-it-matters.php',   'label' => 'Why it matters'],
     ['href' => '/get-help.php',         'label' => 'Help getting online'],

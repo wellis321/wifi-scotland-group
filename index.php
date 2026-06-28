@@ -71,7 +71,7 @@ require_once __DIR__ . '/includes/header.php';
         <div class="statement-band-stats" role="region" aria-label="Key statistics">
             <div class="statement-stat">
                 <span class="statement-stat__value">1 in 12</span>
-                <span class="statement-stat__label">households entitled to cheaper broadband actually use it</span>
+                <span class="statement-stat__label">of qualifying households ever use the social tariff they're owed</span>
             </div>
             <div class="statement-stat">
                 <span class="statement-stat__value">6.2m</span>

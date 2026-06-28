@@ -106,5 +106,54 @@ declare(strict_types=1);
 })();
 </script>
 <?= $pageExtraScripts ?? '' ?>
+
+<!-- Cookie notice -->
+<div id="wires-cookie-notice" class="cookie-notice" role="dialog" aria-label="Cookie notice" aria-live="polite" hidden>
+    <div class="cookie-notice__inner wrap">
+        <p class="cookie-notice__text">
+            This site uses a single security cookie to keep forms safe — it stores no personal data and is deleted when you close your browser.
+            We don't use advertising or tracking cookies.
+            <a href="/privacy.php">Privacy notice</a>
+        </p>
+        <button class="btn btn-sm cookie-notice__btn" id="wires-cookie-ok" type="button">Got it</button>
+    </div>
+</div>
+<script>
+(function () {
+    var notice = document.getElementById('wires-cookie-notice');
+    var btn    = document.getElementById('wires-cookie-ok');
+    if (!notice) return;
+
+    function setCookie(name, days) {
+        var expires = new Date(Date.now() + days * 864e5).toUTCString();
+        document.cookie = name + '=1; expires=' + expires + '; path=/; SameSite=Lax';
+    }
+
+    function hasCookie(name) {
+        return document.cookie.split('; ').some(function (c) {
+            return c.split('=')[0] === name;
+        });
+    }
+
+    if (!hasCookie('wires_ack')) {
+        notice.removeAttribute('hidden');
+        notice.focus();
+    }
+
+    if (btn) {
+        btn.addEventListener('click', function () {
+            setCookie('wires_ack', 365);
+            notice.setAttribute('hidden', '');
+        });
+    }
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !notice.hasAttribute('hidden')) {
+            setCookie('wires_ack', 365);
+            notice.setAttribute('hidden', '');
+        }
+    });
+})();
+</script>
 </body>
 </html>

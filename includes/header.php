@@ -32,7 +32,7 @@ $navStructure = [
         'items' => [
             ['id' => 'gethelp', 'href' => '/get-help.php', 'label' => 'Help getting online'],
             ['id' => 'scotland', 'href' => '/scotland.php', 'label' => 'Scotland'],
-            ['id' => 'scotlandstories', 'href' => '/scotland-stories.php', 'label' => 'Scotland stories'],
+            ['id' => 'scotlandstories', 'href' => '/scotland-stories.php', 'label' => 'Scottish stories'],
             ['id' => 'wifimap', 'href' => '/wifi-map.php', 'label' => 'WiFi map'],
             ['id' => 'whymatters', 'href' => '/why-it-matters.php', 'label' => 'Why it matters'],
             ['id' => 'news', 'href' => '/news.php', 'label' => 'News'],

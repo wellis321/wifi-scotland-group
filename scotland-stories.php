@@ -5,7 +5,7 @@ declare(strict_types=1);
 require_once __DIR__ . '/includes/bootstrap.php';
 require_once __DIR__ . '/includes/scotland_positive_stories.php';
 
-$pageTitle = 'Scotland: positive connectivity stories';
+$pageTitle = 'Scottish connectivity stories';
 $pageDescription = 'Eight verifiable Scottish stories on broadband roll-out, inclusion programmes, libraries, and local strategy—with primary source links.';
 $currentNav = 'scotlandstories';
 
@@ -18,7 +18,7 @@ require_once __DIR__ . '/includes/header.php';
 ?>
 <header class="page-header">
     <div class="wrap">
-        <h1>Scotland: positive connectivity stories</h1>
+        <h1>Scottish connectivity stories</h1>
         <p>
             Eight real examples from Scotland—national programmes, community broadband projects, library networks, and council plans. Each one links to the original source so you can check the details for yourself before quoting figures.
         </p>

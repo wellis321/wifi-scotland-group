@@ -1512,6 +1512,7 @@ a:hover {
     color: rgba(255, 255, 255, 0.6);
     margin-top: 0.4rem;
     line-height: 1.5;
+    text-wrap: balance;
 }
 
 .statement-band-source {
@@ -2370,6 +2371,53 @@ a:hover {
     font-size: 0.88rem;
     color: var(--muted);
     line-height: 1.55;
+}
+
+/* ─── Cookie notice ─────────────────────────────────────────────────────── */
+
+.cookie-notice {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 300;
+    background: var(--ink);
+    border-top: 3px solid var(--signal);
+    padding: 1rem 0;
+}
+
+.cookie-notice__inner {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+}
+
+.cookie-notice__text {
+    margin: 0;
+    flex: 1;
+    min-width: 0;
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.55;
+}
+
+.cookie-notice__text a {
+    color: #fff;
+    font-weight: 600;
+}
+
+.cookie-notice__btn {
+    background: #fff;
+    color: var(--ink);
+    border: none;
+    flex-shrink: 0;
+    font-weight: 700;
+}
+
+.cookie-notice__btn:hover {
+    background: rgba(255, 255, 255, 0.88);
+    color: var(--ink);
 }
 
 /* ─── Share strip ───────────────────────────────────────────────────────── */
