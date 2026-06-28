@@ -74,24 +74,24 @@ require_once __DIR__ . '/includes/header.php';
         <p class="paths-kicker">Find your way in</p>
         <h2 id="paths-heading" class="paths-heading">This campaign serves everyone affected</h2>
         <div class="paths-grid" role="list">
-            <div class="path-card" role="listitem">
+            <a class="path-card" href="/why-it-matters.php" role="listitem">
                 <p class="path-label">Residents</p>
                 <h3 class="path-heading">Understand your options</h3>
                 <p class="path-body">Learn what schemes exist, what you're entitled to, and how poor connectivity harms people through no fault of their own.</p>
-                <a class="path-link" href="/why-it-matters.php">Why it matters</a>
-            </div>
-            <div class="path-card" role="listitem">
+                <span class="path-link" aria-hidden="true">Why it matters →</span>
+            </a>
+            <a class="path-card" href="/get-involved.php" role="listitem">
                 <p class="path-label">Organisers</p>
                 <h3 class="path-heading">Get active with us</h3>
                 <p class="path-body">Find practical ways to campaign, raise questions at council level, and connect with others working on digital inclusion in Scotland.</p>
-                <a class="path-link" href="/get-involved.php">Get involved</a>
-            </div>
-            <div class="path-card" role="listitem">
+                <span class="path-link" aria-hidden="true">Get involved →</span>
+            </a>
+            <a class="path-card" href="/scotland.php" role="listitem">
                 <p class="path-label">Researchers &amp; press</p>
                 <h3 class="path-heading">Verify the evidence</h3>
                 <p class="path-body">Policy documents, official programmes, and cited sources—everything linked so you can check claims and go deeper.</p>
-                <a class="path-link" href="/scotland.php">Scotland policy</a>
-            </div>
+                <span class="path-link" aria-hidden="true">Scotland policy →</span>
+            </a>
         </div>
     </div>
 </section>

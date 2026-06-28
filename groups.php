@@ -5,7 +5,7 @@ declare(strict_types=1);
 require_once __DIR__ . '/includes/bootstrap.php';
 
 $pageTitle = 'Local groups';
-$pageDescription = 'Find a WIFI Scotland Group in your council area, or start one. Local groups map gaps, raise questions at council meetings, and give neighbours somewhere to turn.';
+$pageDescription = 'Find a WIRES local group in your council area, or start one. Local groups map gaps, raise questions at council meetings, and give neighbours somewhere to turn.';
 $currentNav = 'groups';
 
 $groups = [];

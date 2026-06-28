@@ -5,7 +5,7 @@ declare(strict_types=1);
 require_once __DIR__ . '/includes/bootstrap.php';
 
 $pageTitle = 'Start a local group';
-$pageDescription = 'A step-by-step guide to starting a WIFI Scotland Group in your council area. You do not need to be an expert—you need a concern and a couple of neighbours.';
+$pageDescription = 'A step-by-step guide to starting a WIRES local group in your council area. You do not need to be an expert—you need a concern and a couple of neighbours.';
 $currentNav = 'groups';
 
 require_once __DIR__ . '/includes/header.php';

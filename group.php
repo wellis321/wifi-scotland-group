@@ -73,7 +73,7 @@ $statusClass = match($group['status']) {
 $pageTitle = e($group['council_area']) . ' — Local group';
 $pageDescription = !empty($group['tagline'])
     ? (string) $group['tagline']
-    : 'The WIFI Scotland Group local chapter for ' . (string) $group['council_area'] . '.';
+    : 'WIRES local group for ' . (string) $group['council_area'] . '.';
 $currentNav = 'groups';
 
 require_once __DIR__ . '/includes/header.php';

@@ -1,4 +1,4 @@
--- MySQL / MariaDB schema for The WIFI Scotland Group campaign site
+-- MySQL / MariaDB schema for WIRES (wires.scot)
 -- Charset: utf8mb4 for full Unicode support
 
 SET NAMES utf8mb4;

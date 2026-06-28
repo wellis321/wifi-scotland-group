@@ -1,6 +1,6 @@
-# The WIFI Scotland Group
+# WIRES — wires.scot
 
-Volunteer-led PHP + MySQL site campaigning for affordable, reliable connectivity as essential infrastructure—Scotland-focused, with a global spotlight on community models.
+**Web Infrastructure Rights for Everyone in Scotland.** Volunteer-led PHP + MySQL campaign site for affordable, reliable connectivity as essential infrastructure—Scotland-focused, with a global spotlight on community models.
 
 ## Requirements
 
@@ -19,10 +19,10 @@ Volunteer-led PHP + MySQL site campaigning for affordable, reliable connectivity
 
    **MAMP:** If phpMyAdmin is at `http://localhost:8888/...`, MySQL usually listens on **`127.0.0.1:8889`**, not `3306`. Set `DB_PORT=8889` (and the same `DB_USER` / `DB_PASSWORD` you use to log into phpMyAdmin).
 
-2. **Create a database** (for example `wifi_group`) in phpMyAdmin or:
+2. **Create a database** (for example `wire_scotland`) in phpMyAdmin or:
 
    ```bash
-   mysql -u root -p -e "CREATE DATABASE wifi_group CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+   mysql -u root -p -e "CREATE DATABASE wire_scotland CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
    ```
 
 3. **Import the schema** (creates tables and seeds starter news articles):
@@ -31,7 +31,7 @@ Volunteer-led PHP + MySQL site campaigning for affordable, reliable connectivity
    - From the shell:
 
      ```bash
-     mysql -u root -p wifi_group < schema.sql
+     mysql -u root -p wire_scotland < schema.sql
      ```
 
 4. **Run PHP’s built-in server** from the **project root** (same folder as `index.php`):

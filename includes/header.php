@@ -106,7 +106,7 @@ $navGroupIsActive = static function (array $group) use ($currentNav): bool {
     <div class="wrap header-inner">
         <a class="brand" href="/index.php">
             <span class="brand-mark" aria-hidden="true"></span>
-            <span class="brand-text">The WIFI <span>Scotland Group</span></span>
+            <span class="brand-text">WIRES</span>
         </a>
         <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
             <span class="nav-toggle-bar"></span>

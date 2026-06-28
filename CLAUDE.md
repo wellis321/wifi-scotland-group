@@ -9,7 +9,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 cp .env.example .env
 
 # 2. Import schema and seed data
-mysql -u root -p wifi_group < schema.sql
+mysql -u root -p wire_scotland < schema.sql
 
 # 3. Run the built-in PHP server from the repo root
 php -S 127.0.0.1:8080

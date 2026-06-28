@@ -15,7 +15,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 $root = dirname(__DIR__);
 define('PROJECT_ROOT', $root);
 if (!defined('SITE_BRAND')) {
-    define('SITE_BRAND', 'The WIFI Scotland Group');
+    define('SITE_BRAND', 'WIRES');
 }
 
 require_once __DIR__ . '/env.php';
@@ -49,7 +49,7 @@ $GLOBALS['app_config'] = [
     'db' => [
         'host' => env_raw('DB_HOST') ?? '127.0.0.1',
         'port' => (int) (($p = env_raw('DB_PORT')) !== null && $p !== '' ? $p : '3306'),
-        'name' => env_raw('DB_NAME') ?? 'wifi_group',
+        'name' => env_raw('DB_NAME') ?? 'wire_scotland',
         'user' => env_raw('DB_USER') ?? 'root',
         'pass' => $dbPassword,
         'charset' => env_raw('DB_CHARSET') ?? 'utf8mb4',

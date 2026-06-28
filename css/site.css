@@ -1515,6 +1515,8 @@ a:hover {
     display: flex;
     flex-direction: column;
     transition: background 0.15s ease;
+    text-decoration: none;
+    color: inherit;
 }
 
 .path-card:hover {
