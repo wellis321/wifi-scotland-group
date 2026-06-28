@@ -167,6 +167,16 @@ require_once __DIR__ . '/includes/header.php';
 </div>
 <?php endif; ?>
 
+<div class="section">
+    <div class="wrap">
+        <div class="group-help-callout">
+            <h2>Help getting online in <?= e((string) $group['council_area']) ?></h2>
+            <p>There are national schemes that can help people in this area get connected or pay less—including social tariffs for people on benefits, free SIM cards, and rural broadband programmes.</p>
+            <a class="btn btn-primary" href="/get-help.php">See all schemes &rarr;</a>
+        </div>
+    </div>
+</div>
+
 <div class="section" aria-labelledby="contact-heading">
     <div class="wrap prose">
         <h2 id="contact-heading">Get in touch with this group</h2>

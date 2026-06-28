@@ -26,6 +26,7 @@ $navStructure = [
         'id' => 'policy',
         'label' => 'Policy',
         'items' => [
+            ['id' => 'gethelp', 'href' => '/get-help.php', 'label' => 'Help getting online'],
             ['id' => 'scotland', 'href' => '/scotland.php', 'label' => 'Scotland'],
             ['id' => 'scotlandstories', 'href' => '/scotland-stories.php', 'label' => 'Scotland stories'],
             ['id' => 'wifimap', 'href' => '/wifi-map.php', 'label' => 'WiFi map'],
@@ -106,7 +107,7 @@ $navGroupIsActive = static function (array $group) use ($currentNav): bool {
     <div class="wrap header-inner">
         <a class="brand" href="/index.php">
             <span class="brand-mark" aria-hidden="true"></span>
-            <span class="brand-text">WIRES</span>
+            <abbr class="brand-text" title="Web Infrastructure Rights for Everyone in Scotland">WIRES</abbr>
         </a>
         <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
             <span class="nav-toggle-bar"></span>

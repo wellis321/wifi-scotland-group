@@ -29,7 +29,7 @@ require_once __DIR__ . '/includes/header.php';
 <section class="hero">
     <div class="wrap hero-grid">
         <div class="hero-copy">
-            <p class="hero-kicker">Scotland · digital rights · community networks</p>
+            <p class="hero-kicker">Web Infrastructure Rights for Everyone in Scotland</p>
             <h1>Internet access should be treated like the essential infrastructure it already is.</h1>
             <p class="hero-lede">
                 <?= e(SITE_BRAND) ?> campaigns for dignified, affordable connectivity in homes and

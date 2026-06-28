@@ -6,7 +6,7 @@ declare(strict_types=1);
 <footer class="site-footer">
     <div class="wrap footer-grid">
         <div>
-            <p class="footer-lead"><strong><?= e(SITE_BRAND) ?></strong> is a volunteer-led campaign for dignified, affordable connectivity—starting in Scotland, learning from the world.</p>
+            <p class="footer-lead"><strong><?= e(SITE_BRAND) ?></strong> — Web Infrastructure Rights for Everyone in Scotland — is a volunteer-led campaign for dignified, affordable connectivity.</p>
             <p class="footer-small">We are independent and non-party; we signpost official sources and amplify community voices.</p>
         </div>
         <div>

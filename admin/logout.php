@@ -1,0 +1,10 @@
+<?php
+
+declare(strict_types=1);
+
+require_once dirname(__DIR__) . '/includes/bootstrap.php';
+
+$_SESSION = [];
+session_destroy();
+header('Location: /admin/login.php');
+exit;

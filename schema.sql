@@ -106,3 +106,85 @@ CREATE TABLE IF NOT EXISTS group_events (
 -- Existing installs: run these two lines to add the group_id column to news_items:
 -- ALTER TABLE news_items ADD COLUMN group_id INT UNSIGNED DEFAULT NULL AFTER published_at;
 -- ALTER TABLE news_items ADD KEY idx_news_group_id (group_id);
+
+-- ─── Help getting online: schemes & programmes ───────────────────────────────
+
+CREATE TABLE IF NOT EXISTS schemes (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  slug VARCHAR(100) NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  summary TEXT NOT NULL,
+  who_for TEXT NOT NULL,
+  what_you_get TEXT NOT NULL,
+  how_to_apply TEXT NOT NULL,
+  url VARCHAR(500) NOT NULL,
+  source_label VARCHAR(200) NOT NULL,
+  updated_month CHAR(7) NOT NULL DEFAULT '' COMMENT 'YYYY-MM — when we last verified this',
+  status ENUM('active','check','ended') NOT NULL DEFAULT 'active',
+  scope ENUM('uk','scotland') NOT NULL DEFAULT 'uk',
+  note TEXT DEFAULT NULL,
+  sort_order SMALLINT UNSIGNED NOT NULL DEFAULT 0,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  UNIQUE KEY uq_schemes_slug (slug),
+  KEY idx_schemes_updated (updated_month),
+  KEY idx_schemes_status (status)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO schemes (slug, name, summary, who_for, what_you_get, how_to_apply, url, source_label, updated_month, status, scope, note, sort_order) VALUES
+(
+  'social-tariffs',
+  'Social tariffs — cheaper broadband for people on benefits',
+  'Major broadband providers offer significantly cheaper deals for people receiving Universal Credit and other qualifying benefits. Around 532,000 UK households currently use them — most eligible people do not know they exist.',
+  'People claiming Universal Credit, Pension Credit, Employment and Support Allowance, Jobseeker\'s Allowance, or Income Support. Each provider has its own qualifying list — check directly with them.',
+  'Broadband packages from around £12.50–£20 per month with no mid-contract price rises and no exit fees. BT Home Essentials, Virgin Media Essential, Sky Broadband Basics, and Community Fibre all offer versions.',
+  'Check which providers cover your address on the Ofcom page below, confirm your benefit, and contact the provider. You do not need to wait for your current contract to end.',
+  'https://www.ofcom.org.uk/phones-and-broadband/saving-money/social-tariffs',
+  'Ofcom: social tariffs guide',
+  '2026-02', 'active', 'uk', '', 10
+),
+(
+  'r100',
+  'R100 — Reaching 100% broadband',
+  'The Scottish Government\'s £697m programme to bring superfast broadband to every premises in Scotland, including rural and remote areas that commercial providers have not reached. Over 96,000 premises already connected.',
+  'Households and businesses in areas without superfast broadband (30 Mbps+), particularly rural Scotland. Build is ongoing — your area may not be connected yet.',
+  'Superfast broadband infrastructure delivered via Openreach fibre. Build completion expected 2028.',
+  'Check the Scottish Government\'s broadband pages to see whether your area is included in the programme and what the expected delivery date is.',
+  'https://www.gov.scot/policies/digital/broadband-roll-out/',
+  'Scottish Government: R100 broadband roll-out',
+  '2026-01', 'active', 'scotland', 'Some areas are being built now; others are scheduled for later. Check your postcode on the official page.', 20
+),
+(
+  'uk-gigabit-voucher',
+  'UK Gigabit Broadband Voucher Scheme',
+  'Vouchers of up to £4,500 to help homes and businesses in rural areas pay for gigabit-capable broadband where commercial providers have not invested. Active Scottish contracts include the Borders, East Lothian, and North East Scotland.',
+  'Homes and businesses in rural areas not scheduled for a commercial gigabit upgrade and currently receiving less than 1 Gbps. Groups of premises can combine vouchers for larger installations.',
+  'Vouchers up to £4,500 for businesses and up to £1,500 for residential premises toward the cost of installation. Verify current amounts on the official page — they change.',
+  'Check eligibility and apply through Building Digital UK. A broadband supplier must be part of the application. Groups of neighbours can apply together.',
+  'https://www.gov.uk/government/publications/gigabit-broadband-voucher-scheme-information/gigabit-broadband-voucher-scheme-information',
+  'Building Digital UK: Gigabit Voucher Scheme',
+  '2025-12', 'active', 'uk', 'Some Scottish areas are excluded where public-funded programmes (R100) are already delivering coverage.', 30
+),
+(
+  'connecting-scotland',
+  'Connecting Scotland',
+  'A Scottish Government programme that provided devices and internet connections to digitally excluded people during and after the COVID-19 pandemic. The programme is currently being redesigned — check the official page for what is currently available.',
+  'People on low incomes who lack devices or connectivity. The original programme targeted specific groups; the redesigned version may have different eligibility.',
+  'Devices and subsidised or free internet connections. Exact offer depends on the current phase of the programme.',
+  'Visit the Connecting Scotland website to check what is currently available and how to apply or be referred.',
+  'https://connecting.scot/',
+  'Connecting Scotland',
+  '2025-01', 'check', 'scotland', 'New applications were paused as the Scottish Government redesigns the programme. Check the official page for current status.', 40
+),
+(
+  'national-databank',
+  'National Databank — free SIM cards with data',
+  'The Good Things Foundation distributes free SIM cards with data, calls, and texts to people who cannot afford to get online. Cards are available through over 1,600 community organisations including libraries, foodbanks, and charities.',
+  'People experiencing data poverty or on a low income who cannot afford a mobile data plan. Available through local partner organisations — no direct application to the Foundation.',
+  'Free SIM cards from Vodafone (40GB/month), O2 (25GB + rollover), and Three (24GB). No contract.',
+  'Ask at your local library, foodbank, or community centre whether they are a National Databank partner. You can also search for partner organisations on the Good Things Foundation website.',
+  'https://www.goodthingsfoundation.org/our-services/national-databank/',
+  'Good Things Foundation: National Databank',
+  '2024-12', 'check', 'uk', 'New partner organisations were not being accepted at the time we last checked. Existing network partners still distribute SIMs.', 50
+)
+ON DUPLICATE KEY UPDATE name = VALUES(name);

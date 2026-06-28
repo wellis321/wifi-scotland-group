@@ -1777,6 +1777,130 @@ a:hover {
     color: var(--signal);
 }
 
+/* ─── Help getting online / schemes ────────────────────────────────────── */
+
+.scheme-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.scheme-card {
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.scheme-card:first-child {
+    border-top: 1px solid var(--line);
+}
+
+.scheme-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.85rem;
+}
+
+.scheme-badges {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+
+.scheme-name {
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 2vw, 1.6rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--ink);
+    margin: 0 0 0.65rem;
+    letter-spacing: -0.005em;
+}
+
+.scheme-summary {
+    margin: 0 0 1.5rem;
+    color: var(--muted);
+    max-width: 72ch;
+    line-height: 1.7;
+}
+
+.scheme-details {
+    margin: 0 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.scheme-detail-row {
+    display: grid;
+    grid-template-columns: 8rem 1fr;
+    gap: 0.5rem 1.25rem;
+    align-items: start;
+}
+
+@media (max-width: 600px) {
+    .scheme-detail-row {
+        grid-template-columns: 1fr;
+        gap: 0.15rem;
+    }
+}
+
+.scheme-details dt {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--ink);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding-top: 0.1rem;
+}
+
+.scheme-details dd {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.65;
+    font-size: 0.97rem;
+}
+
+.scheme-note {
+    background: rgba(226, 85, 64, 0.08);
+    border-left: 3px solid var(--signal);
+    padding: 0.75rem 1rem;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 1.5rem;
+    font-size: 0.92rem;
+    color: var(--muted);
+}
+
+.scheme-note p {
+    margin: 0;
+}
+
+.scheme-source {
+    margin: 0;
+}
+
+/* Scheme callout on group pages */
+.group-help-callout {
+    background: color-mix(in srgb, var(--cream) 60%, var(--paper));
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.75rem 2rem;
+}
+
+.group-help-callout h2 {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin: 0 0 0.6rem;
+}
+
+.group-help-callout p {
+    margin: 0 0 1rem;
+    color: var(--muted);
+}
+
 /* ─── Local groups directory & group pages ──────────────────────────────── */
 
 .groups-empty {
