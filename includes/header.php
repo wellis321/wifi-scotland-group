@@ -15,7 +15,11 @@ $pageOgImage     = $pageOgImage     ?? null;
 $pageOgImageAlt  = $pageOgImageAlt  ?? '';
 $pageOgType      = $pageOgType      ?? 'website';
 
-$canonicalUrl = page_url(ltrim((string) ($_SERVER['REQUEST_URI'] ?? '/'), '/'));
+$_canonicalUri = (string) ($_SERVER['REQUEST_URI'] ?? '/');
+if ($_canonicalUri === '/index.php' || str_starts_with($_canonicalUri, '/index.php?')) {
+    $_canonicalUri = '/';
+}
+$canonicalUrl = page_url(ltrim($_canonicalUri, '/'));
 $ogImageAbs   = $pageOgImage !== null ? absolute_url_for_path($pageOgImage) : null;
 
 $navStructure = [

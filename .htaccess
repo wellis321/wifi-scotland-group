@@ -1,5 +1,11 @@
 DirectoryIndex index.php index.html
 
+# Redirect /index.php to / — prevents duplicate content for SEO
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^index\.php$ / [R=301,L]
+</IfModule>
+
 <IfModule mod_negotiation.c>
     Options -Indexes
 </IfModule>
