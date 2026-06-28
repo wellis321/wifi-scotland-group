@@ -1,0 +1,15 @@
+# Prevent any PHP (or other script) execution inside the images directory
+<Files "*.php">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Deny from all
+    </IfModule>
+</Files>
+<Files "*.php7">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+</Files>
+Options -ExecCGI

@@ -134,9 +134,19 @@ require_once __DIR__ . '/includes/admin_header.php';
         <p class="admin-hint">HTML supported: &lt;p&gt; &lt;strong&gt; &lt;em&gt; &lt;a href="..."&gt; &lt;ul&gt; &lt;li&gt; &lt;h2&gt; — Use the image panel below to insert inline images.</p>
     </div>
 
-    <?php if (!empty($availableImages)): ?>
     <div class="inserter-panel">
-        <p class="inserter-label">Insert image into body — click position to insert at cursor</p>
+        <p class="inserter-label">Images</p>
+        <form class="inserter-upload-row" method="post" action="/admin/upload.php" enctype="multipart/form-data">
+            <input type="hidden" name="csrf_token" value="<?= e(csrf_token()) ?>">
+            <input type="hidden" name="return_to" value="<?= e('/admin/news-edit.php' . ($slug ? '?slug=' . rawurlencode($slug) : '')) ?>">
+            <input type="file" name="image" accept="image/jpeg,image/png,image/webp,image/gif"
+                   style="font:inherit;font-size:0.85rem" required>
+            <button class="btn btn-primary" type="submit" style="padding:0.4rem 0.85rem;font-size:0.85rem">Upload</button>
+            <span class="admin-hint">JPEG, PNG, WebP · max 5 MB</span>
+        </form>
+
+    <?php if (!empty($availableImages)): ?>
+        <p class="inserter-label">Insert into body — click a position to insert at cursor</p>
         <div class="inserter-grid">
             <?php foreach ($availableImages as $img): ?>
                 <div class="inserter-item">
@@ -150,30 +160,91 @@ require_once __DIR__ . '/includes/admin_header.php';
                 </div>
             <?php endforeach; ?>
         </div>
-    </div>
-    <script>
-    (function () {
-        function insertAtCursor(el, text) {
-            var start = el.selectionStart, end = el.selectionEnd;
-            el.value = el.value.slice(0, start) + text + el.value.slice(end);
-            el.selectionStart = el.selectionEnd = start + text.length;
-            el.focus();
-        }
-        document.querySelectorAll('.inserter-btn').forEach(function (btn) {
-            btn.addEventListener('click', function () {
-                var img = this.dataset.img;
-                var pos = this.dataset.pos;
-                var html = '\n<figure class="article-img article-img--' + pos + '">\n'
-                         + '  <img src="/images/' + img + '" alt="">\n'
-                         + '  <figcaption>Caption text — edit or delete this line</figcaption>\n'
-                         + '</figure>\n';
-                insertAtCursor(document.getElementById('body'), html);
+        </div>
+        <script>
+        (function () {
+            function insertAtCursor(el, text) {
+                var start = el.selectionStart, end = el.selectionEnd;
+                el.value = el.value.slice(0, start) + text + el.value.slice(end);
+                el.selectionStart = el.selectionEnd = start + text.length;
+                el.focus();
+            }
+            document.querySelectorAll('.inserter-btn').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    var img = this.dataset.img;
+                    var pos = this.dataset.pos;
+                    var html = '\n<figure class="article-img article-img--' + pos + '">\n'
+                             + '  <img src="/images/' + img + '" alt="">\n'
+                             + '  <figcaption>Caption text — edit or delete this line</figcaption>\n'
+                             + '</figure>\n';
+                    insertAtCursor(document.getElementById('body'), html);
+                });
             });
-        });
-    })();
-    </script>
+        })();
+        </script>
     <?php endif; ?>
+    </div>
 
+    <?php
+    $filesDir       = PROJECT_ROOT . DIRECTORY_SEPARATOR . 'files';
+    $availableFiles = [];
+    if (is_dir($filesDir)) {
+        foreach (scandir($filesDir) as $df) {
+            if ($df === '.' || $df === '..' || str_starts_with($df, '.')) continue;
+            if (is_file($filesDir . DIRECTORY_SEPARATOR . $df)) $availableFiles[] = $df;
+        }
+    }
+    ?>
+    <div class="inserter-panel" style="margin-top:0.75rem">
+        <p class="inserter-label">Files</p>
+        <form class="inserter-upload-row" method="post" action="/admin/upload-file.php" enctype="multipart/form-data">
+            <input type="hidden" name="csrf_token" value="<?= e(csrf_token()) ?>">
+            <input type="hidden" name="return_to" value="<?= e('/admin/news-edit.php' . ($slug ? '?slug=' . rawurlencode($slug) : '')) ?>">
+            <input type="file" name="file" accept=".pdf,.doc,.docx,.odt,.xls,.xlsx,.csv,.txt"
+                   style="font:inherit;font-size:0.85rem" required>
+            <button class="btn btn-primary" type="submit" style="padding:0.4rem 0.85rem;font-size:0.85rem">Upload</button>
+            <span class="admin-hint">PDF, Word, Excel, CSV · max 20 MB</span>
+        </form>
+
+        <?php if (!empty($availableFiles)): ?>
+            <p class="inserter-label">Insert file link into body</p>
+            <div class="file-inserter-list">
+            <?php
+            $extColors = ['pdf'=>'#c0392b','docx'=>'#2980b9','doc'=>'#2980b9','xlsx'=>'#27ae60','xls'=>'#27ae60','csv'=>'#27ae60','odt'=>'#8e44ad','txt'=>'#7f8c8d'];
+            $extLabels = ['pdf'=>'PDF','docx'=>'Word','doc'=>'Word','xlsx'=>'Excel','xls'=>'Excel','csv'=>'CSV','odt'=>'ODF','txt'=>'Text'];
+            foreach ($availableFiles as $df):
+                $ext   = strtolower(pathinfo($df, PATHINFO_EXTENSION));
+                $badge = $extLabels[$ext] ?? strtoupper($ext);
+                $color = $extColors[$ext] ?? '#95a5a6';
+            ?>
+                <div class="file-inserter-row">
+                    <span class="file-type-badge" style="background:<?= e($color) ?>"><?= e($badge) ?></span>
+                    <span class="file-inserter-name"><?= e($df) ?></span>
+                    <button type="button" class="inserter-btn file-link-btn"
+                            style="margin-left:auto;border-radius:5px;border:1px solid var(--line);padding:0.25rem 0.6rem"
+                            data-file="<?= e($df) ?>" data-label="<?= e($badge) ?>">Insert link</button>
+                </div>
+            <?php endforeach; ?>
+            </div>
+            <script>
+            (function () {
+                document.querySelectorAll('.file-link-btn').forEach(function (btn) {
+                    btn.addEventListener('click', function () {
+                        var file  = this.dataset.file;
+                        var label = this.dataset.label;
+                        var name  = file.replace(/\.[^.]+$/, '').replace(/-/g, ' ');
+                        var html  = '<a href="/files/' + encodeURIComponent(file) + '">' + name + ' (' + label + ')</a>';
+                        var body  = document.getElementById('body');
+                        var s = body.selectionStart, e2 = body.selectionEnd;
+                        body.value = body.value.slice(0, s) + html + body.value.slice(e2);
+                        body.selectionStart = body.selectionEnd = s + html.length;
+                        body.focus();
+                    });
+                });
+            })();
+            </script>
+        <?php endif; ?>
+    </div>
 
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem">
         <div class="admin-field">

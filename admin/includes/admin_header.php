@@ -21,6 +21,8 @@
             <a href="/admin/groups.php" class="admin-nav-link <?= ($adminSection ?? '') === 'groups' ? 'is-active' : '' ?>">Groups</a>
             <a href="/admin/events.php" class="admin-nav-link <?= ($adminSection ?? '') === 'events' ? 'is-active' : '' ?>">Events</a>
             <a href="/admin/schemes.php" class="admin-nav-link <?= ($adminSection ?? '') === 'schemes' ? 'is-active' : '' ?>">Schemes</a>
+            <a href="/admin/media.php" class="admin-nav-link <?= ($adminSection ?? '') === 'media' ? 'is-active' : '' ?>">Media</a>
+            <a href="/admin/files.php" class="admin-nav-link <?= ($adminSection ?? '') === 'files' ? 'is-active' : '' ?>">Files</a>
         </nav>
         <div class="admin-header-actions">
             <a href="/" target="_blank" rel="noopener" class="admin-btn-sm">View site</a>
