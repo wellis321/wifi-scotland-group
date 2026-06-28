@@ -19,6 +19,7 @@ $today = date('Y-m-d');
 $static = [
     ['/',                     '1.0', 'weekly'],
     ['/about',                '0.8', 'monthly'],
+    ['/landscape',            '0.8', 'monthly'],
     ['/why-it-matters',       '0.8', 'monthly'],
     ['/scotland',             '0.8', 'monthly'],
     ['/scotland-stories',     '0.7', 'monthly'],

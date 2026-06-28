@@ -52,6 +52,7 @@ $navStructure = [
         'label' => 'Take part',
         'items' => [
             ['id' => 'about', 'href' => '/about', 'label' => 'About'],
+            ['id' => 'landscape', 'href' => '/landscape', 'label' => 'Why WIRES?'],
             ['id' => 'involved', 'href' => '/get-involved', 'label' => 'Get involved'],
             ['id' => 'groups', 'href' => '/groups', 'label' => 'Local groups'],
             ['id' => 'startgroup', 'href' => '/start-a-group', 'label' => 'Start a group'],

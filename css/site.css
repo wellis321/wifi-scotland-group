@@ -2151,7 +2151,7 @@ a:hover {
     color: var(--muted);
     font-size: 0.95rem;
     line-height: 1.65;
-    max-width: 65ch;
+    max-width: none;
 }
 
 .community-net-link {
