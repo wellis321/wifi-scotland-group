@@ -12,7 +12,7 @@ cp .env.example .env
 mysql -u root -p wire_scotland < schema.sql
 
 # 3. Run the built-in PHP server from the repo root
-php -S 127.0.0.1:8080
+php -S 127.0.0.1:8080 router.php
 ```
 
 **MAMP users:** MySQL listens on `127.0.0.1:8889`, not `3306`. Set `DB_PORT=8889`.

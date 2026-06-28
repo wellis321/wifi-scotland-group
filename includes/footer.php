@@ -4,12 +4,21 @@ declare(strict_types=1);
 ?>
 </main>
 <footer class="site-footer">
-    <div class="wrap footer-grid">
-        <div>
-            <p class="footer-lead"><strong><?= e(SITE_BRAND) ?></strong> — Web Infrastructure Rights for Everyone in Scotland — is a volunteer-led campaign for dignified, affordable connectivity.</p>
+    <div class="wrap footer-main">
+        <a href="/" class="footer-logo-link" aria-label="WIRES home">
+            <div class="footer-logo-circle">
+                <img src="/images/logo.png"
+                     alt="WIRES — Web Infrastructure Rights for Everyone in Scotland"
+                     width="400" height="218"
+                     loading="lazy"
+                     decoding="async">
+            </div>
+        </a>
+        <div class="footer-text">
+            <p class="footer-lead"><strong><?= e(SITE_BRAND) ?></strong> is a volunteer-led campaign for dignified, affordable connectivity in Scotland.</p>
             <p class="footer-small">We are independent and non-party; we signpost official sources and amplify community voices.</p>
         </div>
-        <div>
+        <div class="footer-explore">
             <h2 class="footer-heading">Explore</h2>
             <ul class="footer-links">
                 <li><a href="/privacy">Privacy</a></li>

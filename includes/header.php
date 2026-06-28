@@ -136,8 +136,12 @@ $navGroupIsActive = static function (array $group) use ($currentNav): bool {
 <header class="site-header">
     <div class="wrap header-inner">
         <a class="brand" href="/">
-            <span class="brand-mark" aria-hidden="true"></span>
-            <abbr class="brand-text" title="Web Infrastructure Rights for Everyone in Scotland">WIRES</abbr>
+            <img class="brand-logo"
+                 src="/images/logo.png"
+                 alt="WIRES — Web Infrastructure Rights for Everyone in Scotland"
+                 width="400" height="218"
+                 loading="eager"
+                 decoding="async">
         </a>
         <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
             <span class="nav-toggle-bar"></span>
