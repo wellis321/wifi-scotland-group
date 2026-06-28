@@ -1,9 +1,22 @@
 DirectoryIndex index.php index.html
 
-# Redirect /index.php to / — prevents duplicate content for SEO
+# Clean URLs — remove .php extension
 <IfModule mod_rewrite.c>
     RewriteEngine On
+
+    # Redirect /index.php to /
     RewriteRule ^index\.php$ / [R=301,L]
+
+    # Redirect other .php pages to extension-free URL
+    # Skip pages that use query strings for content (news-item, group, sitemap)
+    RewriteCond %{THE_REQUEST} \s/+(about|contact|join|privacy|terms|credits|scotland|scotland-stories|why-it-matters|get-involved|get-help|global-spotlight|resources|news|groups|group|start-a-group|write-to-councillor|supporters|join-as-organisation|wifi-map)\.php[\s?] [NC]
+    RewriteRule ^ /%1 [R=301,L,NE]
+
+    # Internally serve the .php file when clean URL is requested
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}.php -f
+    RewriteRule ^([^/]+)/?$ $1.php [L]
 </IfModule>
 
 <IfModule mod_negotiation.c>

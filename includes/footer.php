@@ -12,21 +12,21 @@ declare(strict_types=1);
         <div>
             <h2 class="footer-heading">Explore</h2>
             <ul class="footer-links">
-                <li><a href="/privacy.php">Privacy</a></li>
-                <li><a href="/credits.php">Image credits</a></li>
-                <li><a href="/resources.php">Resources &amp; references</a></li>
-                <li><a href="/contact.php">Contact</a></li>
+                <li><a href="/privacy">Privacy</a></li>
+                <li><a href="/credits">Image credits</a></li>
+                <li><a href="/resources">Resources &amp; references</a></li>
+                <li><a href="/contact">Contact</a></li>
             </ul>
         </div>
     </div>
     <div class="wrap footer-meta">
         <p>&copy; <?= date('Y') ?> <?= e(SITE_BRAND) ?> &mdash; Web Infrastructure Rights for Everyone in Scotland. Volunteer-led and independent.</p>
         <p class="footer-legal">
-            <a href="/privacy.php">Privacy</a>
+            <a href="/privacy">Privacy</a>
             <span aria-hidden="true">&middot;</span>
-            <a href="/terms.php">Terms of use</a>
+            <a href="/terms">Terms of use</a>
             <span aria-hidden="true">&middot;</span>
-            <a href="/credits.php">Image credits</a>
+            <a href="/credits">Image credits</a>
         </p>
     </div>
 </footer>

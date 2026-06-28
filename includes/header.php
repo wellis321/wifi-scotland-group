@@ -16,17 +16,20 @@ $pageOgImageAlt  = $pageOgImageAlt  ?? '';
 $pageOgType      = $pageOgType      ?? 'website';
 
 $_canonicalUri = (string) ($_SERVER['REQUEST_URI'] ?? '/');
+// Normalise /index.php → /
 if ($_canonicalUri === '/index.php' || str_starts_with($_canonicalUri, '/index.php?')) {
     $_canonicalUri = '/';
 }
-$canonicalUrl = page_url(ltrim($_canonicalUri, '/'));
+// Strip .php extension for canonical (matches the clean URL redirect)
+$_canonicalUri = preg_replace('/\.php(?=\?|$)/', '', $_canonicalUri);
+$canonicalUrl  = page_url(ltrim($_canonicalUri, '/'));
 $ogImageAbs   = $pageOgImage !== null ? absolute_url_for_path($pageOgImage) : null;
 
 $navStructure = [
     [
         'type' => 'link',
         'id' => 'home',
-        'href' => '/index.php',
+        'href' => '/',
         'label' => 'Home',
     ],
     [
@@ -34,13 +37,13 @@ $navStructure = [
         'id' => 'policy',
         'label' => 'Policy',
         'items' => [
-            ['id' => 'gethelp', 'href' => '/get-help.php', 'label' => 'Help getting online'],
-            ['id' => 'scotland', 'href' => '/scotland.php', 'label' => 'Scotland'],
-            ['id' => 'scotlandstories', 'href' => '/scotland-stories.php', 'label' => 'Scottish stories'],
-            ['id' => 'wifimap', 'href' => '/wifi-map.php', 'label' => 'WiFi map'],
-            ['id' => 'whymatters', 'href' => '/why-it-matters.php', 'label' => 'Why it matters'],
-            ['id' => 'news', 'href' => '/news.php', 'label' => 'News'],
-            ['id' => 'resources', 'href' => '/resources.php', 'label' => 'Resources'],
+            ['id' => 'gethelp', 'href' => '/get-help', 'label' => 'Help getting online'],
+            ['id' => 'scotland', 'href' => '/scotland', 'label' => 'Scotland'],
+            ['id' => 'scotlandstories', 'href' => '/scotland-stories', 'label' => 'Scottish stories'],
+            ['id' => 'wifimap', 'href' => '/wifi-map', 'label' => 'WiFi map'],
+            ['id' => 'whymatters', 'href' => '/why-it-matters', 'label' => 'Why it matters'],
+            ['id' => 'news', 'href' => '/news', 'label' => 'News'],
+            ['id' => 'resources', 'href' => '/resources', 'label' => 'Resources'],
         ],
     ],
     [
@@ -48,19 +51,19 @@ $navStructure = [
         'id' => 'takepart',
         'label' => 'Take part',
         'items' => [
-            ['id' => 'about', 'href' => '/about.php', 'label' => 'About'],
-            ['id' => 'involved', 'href' => '/get-involved.php', 'label' => 'Get involved'],
-            ['id' => 'groups', 'href' => '/groups.php', 'label' => 'Local groups'],
-            ['id' => 'startgroup', 'href' => '/start-a-group.php', 'label' => 'Start a group'],
-            ['id' => 'supporters', 'href' => '/supporters.php', 'label' => 'Supporters'],
-            ['id' => 'join', 'href' => '/join.php', 'label' => 'Join'],
-            ['id' => 'global', 'href' => '/global-spotlight.php', 'label' => 'Global spotlight'],
+            ['id' => 'about', 'href' => '/about', 'label' => 'About'],
+            ['id' => 'involved', 'href' => '/get-involved', 'label' => 'Get involved'],
+            ['id' => 'groups', 'href' => '/groups', 'label' => 'Local groups'],
+            ['id' => 'startgroup', 'href' => '/start-a-group', 'label' => 'Start a group'],
+            ['id' => 'supporters', 'href' => '/supporters', 'label' => 'Supporters'],
+            ['id' => 'join', 'href' => '/join', 'label' => 'Join'],
+            ['id' => 'global', 'href' => '/global-spotlight', 'label' => 'Global spotlight'],
         ],
     ],
     [
         'type' => 'link',
         'id' => 'contact',
-        'href' => '/contact.php',
+        'href' => '/contact',
         'label' => 'Contact',
     ],
 ];
@@ -132,7 +135,7 @@ $navGroupIsActive = static function (array $group) use ($currentNav): bool {
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
     <div class="wrap header-inner">
-        <a class="brand" href="/index.php">
+        <a class="brand" href="/">
             <span class="brand-mark" aria-hidden="true"></span>
             <abbr class="brand-text" title="Web Infrastructure Rights for Everyone in Scotland">WIRES</abbr>
         </a>
@@ -177,7 +180,7 @@ $navGroupIsActive = static function (array $group) use ($currentNav): bool {
                 <?php endforeach; ?>
             </ul>
         </nav>
-        <a class="btn btn-header" href="/join.php">Join the group</a>
+        <a class="btn btn-header" href="/join">Join the group</a>
     </div>
 </header>
 <main id="main">
