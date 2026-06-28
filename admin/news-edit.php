@@ -13,9 +13,25 @@ $isNew  = true;
 $slug   = isset($_GET['slug']) ? trim((string) $_GET['slug']) : '';
 
 if ($slug !== '' && db_available()) {
-    $s = db()->prepare('SELECT * FROM news_items WHERE slug = :slug LIMIT 1');
-    $s->execute(['slug' => $slug]);
-    $item = $s->fetch() ?: null;
+    // Try with all columns first; fall back to core columns if newer ones don't exist yet
+    try {
+        $s = db()->prepare(
+            'SELECT id, title, slug, summary, body, published_at, group_id, image_filename FROM news_items WHERE slug = :slug LIMIT 1'
+        );
+        $s->execute(['slug' => $slug]);
+        $item = $s->fetch() ?: null;
+    } catch (Throwable) {
+        try {
+            $s = db()->prepare(
+                'SELECT id, title, slug, summary, body, published_at FROM news_items WHERE slug = :slug LIMIT 1'
+            );
+            $s->execute(['slug' => $slug]);
+            $item = $s->fetch() ?: null;
+            flash_set('admin_err', 'Some columns are missing from the database. Run the ALTER TABLE migrations in phpMyAdmin — see schema.sql for the commands.');
+        } catch (Throwable) {
+            $item = null;
+        }
+    }
     if ($item) $isNew = false;
 }
 
@@ -115,8 +131,49 @@ require_once __DIR__ . '/includes/admin_header.php';
     <div class="admin-field">
         <label for="body">Body</label>
         <textarea id="body" name="body" class="tall" required><?= e((string) ($item['body'] ?? '')) ?></textarea>
-        <p class="admin-hint">HTML supported: &lt;p&gt; &lt;strong&gt; &lt;em&gt; &lt;a href="..."&gt; &lt;ul&gt; &lt;li&gt; &lt;h2&gt;</p>
+        <p class="admin-hint">HTML supported: &lt;p&gt; &lt;strong&gt; &lt;em&gt; &lt;a href="..."&gt; &lt;ul&gt; &lt;li&gt; &lt;h2&gt; — Use the image panel below to insert inline images.</p>
     </div>
+
+    <?php if (!empty($availableImages)): ?>
+    <div class="inserter-panel">
+        <p class="inserter-label">Insert image into body — click position to insert at cursor</p>
+        <div class="inserter-grid">
+            <?php foreach ($availableImages as $img): ?>
+                <div class="inserter-item">
+                    <img class="inserter-thumb" src="/images/<?= e($img) ?>" alt="">
+                    <p class="inserter-name"><?= e($img) ?></p>
+                    <div class="inserter-btns">
+                        <button type="button" class="inserter-btn" data-img="<?= e($img) ?>" data-pos="left">← Float left</button>
+                        <button type="button" class="inserter-btn" data-img="<?= e($img) ?>" data-pos="right">Float right →</button>
+                        <button type="button" class="inserter-btn" data-img="<?= e($img) ?>" data-pos="full">Full width</button>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <script>
+    (function () {
+        function insertAtCursor(el, text) {
+            var start = el.selectionStart, end = el.selectionEnd;
+            el.value = el.value.slice(0, start) + text + el.value.slice(end);
+            el.selectionStart = el.selectionEnd = start + text.length;
+            el.focus();
+        }
+        document.querySelectorAll('.inserter-btn').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var img = this.dataset.img;
+                var pos = this.dataset.pos;
+                var html = '\n<figure class="article-img article-img--' + pos + '">\n'
+                         + '  <img src="/images/' + img + '" alt="">\n'
+                         + '  <figcaption>Caption text — edit or delete this line</figcaption>\n'
+                         + '</figure>\n';
+                insertAtCursor(document.getElementById('body'), html);
+            });
+        });
+    })();
+    </script>
+    <?php endif; ?>
+
 
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem">
         <div class="admin-field">

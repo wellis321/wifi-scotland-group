@@ -1901,6 +1901,70 @@ a:hover {
     color: var(--muted);
 }
 
+/* ─── Article inline images (inserted into news body HTML) ─────────────── */
+
+.prose .article-img {
+    margin: 0;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--line);
+    box-shadow: 0 4px 16px rgba(12, 17, 23, 0.08);
+}
+
+.prose .article-img img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.prose .article-img figcaption {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.82rem;
+    color: var(--muted);
+    background: color-mix(in srgb, var(--cream) 80%, var(--paper));
+    border-top: 1px solid var(--line);
+    line-height: 1.45;
+}
+
+.prose .article-img--left {
+    float: left;
+    width: clamp(180px, 42%, 380px);
+    margin: 0.25rem 1.75rem 1rem 0;
+    clear: left;
+}
+
+.prose .article-img--right {
+    float: right;
+    width: clamp(180px, 42%, 380px);
+    margin: 0.25rem 0 1rem 1.75rem;
+    clear: right;
+}
+
+.prose .article-img--full {
+    float: none;
+    width: 100%;
+    margin: 1.75rem 0;
+    max-width: none !important;
+    margin-inline: 0 !important;
+}
+
+.prose::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+@media (max-width: 640px) {
+    .prose .article-img--left,
+    .prose .article-img--right {
+        float: none;
+        width: 100%;
+        margin: 1rem 0;
+        clear: both;
+    }
+}
+
 /* ─── Local groups directory & group pages ──────────────────────────────── */
 
 .groups-empty {

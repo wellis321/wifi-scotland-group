@@ -90,7 +90,7 @@ require_once __DIR__ . '/includes/admin_header.php';
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
         <div class="admin-field">
             <label for="council_area">Council area</label>
-            <input id="title" name="council_area" type="text" required value="<?= e((string)($item['council_area']??'')) ?>" placeholder="e.g. Dundee City">
+            <input id="council_area" name="council_area" type="text" required value="<?= e((string)($item['council_area']??'')) ?>" placeholder="e.g. Dundee City">
             <p class="admin-hint">Used as the page heading. Match official council name where possible.</p>
         </div>
         <div class="admin-field">
