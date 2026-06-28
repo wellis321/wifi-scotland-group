@@ -46,7 +46,7 @@ require_once __DIR__ . '/includes/header.php';
 ?>
 <header class="page-header">
     <div class="wrap">
-        <p class="meta"><?= e((string) $article['published_at']) ?></p>
+        <p class="meta"><time datetime="<?= e((string) $article['published_at']) ?>"><?= e(format_date((string) $article['published_at'])) ?></time></p>
         <h1><?= e((string) $article['title']) ?></h1>
         <?php if (!empty($article['summary'])): ?>
             <p><?= e((string) $article['summary']) ?></p>

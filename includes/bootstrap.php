@@ -3,6 +3,12 @@
 declare(strict_types=1);
 
 if (session_status() !== PHP_SESSION_ACTIVE) {
+    ini_set('session.cookie_httponly', '1');
+    ini_set('session.use_strict_mode', '1');
+    ini_set('session.cookie_samesite', 'Lax');
+    if (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') {
+        ini_set('session.cookie_secure', '1');
+    }
     session_start();
 }
 
@@ -187,6 +193,13 @@ function csrf_validate(mixed $token): bool
         return false;
     }
     return hash_equals((string) $_SESSION['_csrf'], $token);
+}
+
+/** Format a SQL date string (YYYY-MM-DD) as "1 January 2026". Returns the raw string on parse failure. */
+function format_date(string $sqlDate): string
+{
+    $ts = strtotime($sqlDate);
+    return $ts !== false ? date('j F Y', $ts) : $sqlDate;
 }
 
 function flash_set(string $key, string $message): void

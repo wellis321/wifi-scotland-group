@@ -49,7 +49,7 @@ require_once __DIR__ . '/includes/header.php';
             <div class="news-list">
                 <?php foreach ($items as $row): ?>
                     <article>
-                        <p class="meta"><?= e((string) $row['published_at']) ?></p>
+                        <p class="meta"><time datetime="<?= e((string) $row['published_at']) ?>"><?= e(format_date((string) $row['published_at'])) ?></time></p>
                         <h2><a href="<?= e('/news-item.php?slug=' . rawurlencode((string) $row['slug'])) ?>"><?= e((string) $row['title']) ?></a></h2>
                         <?php if (!empty($row['summary'])): ?>
                             <p><?= e((string) $row['summary']) ?></p>

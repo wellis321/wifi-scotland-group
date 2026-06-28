@@ -17,9 +17,9 @@ require_once __DIR__ . '/includes/header.php';
     <div class="wrap">
         <h1>Why home connectivity matters</h1>
         <p>
-            Most people experience <strong>fixed broadband</strong> at home through <strong>Wi‑Fi</strong>—a wireless link inside the building—not as a public right-of-way through streets.
-            This page summarises what credible UK and Scottish sources say about <em>why</em> reliable residential internet matters, what goes wrong when access is missing or too thin, and who bears the brunt.
-            It is campaigning context, <strong>not legal advice</strong>; always check live official pages before quoting figures in casework.
+            Most people experience <strong>fixed broadband</strong> at home through <strong>Wi‑Fi</strong>—the wireless signal your router broadcasts inside your home.
+            This page summarises what credible UK and Scottish sources say about <em>why</em> reliable home internet matters, what goes wrong when access is missing or unaffordable, and who is most affected.
+            It is campaigning context, <strong>not legal advice</strong>; always check official pages before quoting figures if you are dealing with a specific problem.
         </p>
     </div>
 </header>
@@ -62,7 +62,7 @@ require_once __DIR__ . '/includes/header.php';
         <ul>
             <li>
                 <a href="https://www.citizensadvice.org.uk/consumer/internet-and-phone/internet-broadband/if-you-cant-afford-your-broadband-bill-or-top-up/"<?= external_link_attrs('https://www.citizensadvice.org.uk/consumer/internet-and-phone/internet-broadband/if-you-cant-afford-your-broadband-bill-or-top-up/') ?>>If you can’t afford your broadband bill or top up</a>
-                (Citizens Advice, England and Wales—practical guidance, not a substitute for local advice if you need casework)
+                (Citizens Advice, England and Wales—practical guidance, not a substitute for local advice if you need help with a specific situation)
             </li>
             <li>
                 <a href="https://www.cas.org.uk/"<?= external_link_attrs('https://www.cas.org.uk/') ?>>Citizens Advice Scotland</a>

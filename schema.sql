@@ -35,10 +35,12 @@ CREATE TABLE IF NOT EXISTS news_items (
   summary VARCHAR(500) DEFAULT NULL,
   body MEDIUMTEXT NOT NULL,
   published_at DATE NOT NULL,
+  group_id INT UNSIGNED DEFAULT NULL COMMENT 'Optional: link to local_groups.id to tag as local news',
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id),
   UNIQUE KEY uq_news_items_slug (slug),
-  KEY idx_news_published (published_at)
+  KEY idx_news_published (published_at),
+  KEY idx_news_group_id (group_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Starter editorial items (factual framing; verify figures on official pages before quoting in press)
@@ -65,3 +67,42 @@ INSERT INTO news_items (title, slug, summary, body, published_at) VALUES
   '2026-03-20'
 )
 ON DUPLICATE KEY UPDATE title = VALUES(title);
+
+-- ─── Local groups ────────────────────────────────────────────────────────────
+
+CREATE TABLE IF NOT EXISTS local_groups (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  slug VARCHAR(100) NOT NULL,
+  council_area VARCHAR(120) NOT NULL COMMENT 'e.g. Dundee City, Highland, Glasgow City',
+  council_code VARCHAR(20) DEFAULT NULL COMMENT 'Scottish council code e.g. S12000042 — matches GeoJSON on wifi-map.php',
+  tagline VARCHAR(255) DEFAULT NULL COMMENT 'One-line description shown on the directory listing',
+  description MEDIUMTEXT DEFAULT NULL COMMENT 'Longer description — trusted HTML, admin-authored only',
+  contact_name VARCHAR(160) DEFAULT NULL,
+  contact_email VARCHAR(255) DEFAULT NULL,
+  social_url VARCHAR(500) DEFAULT NULL COMMENT 'Facebook group, Mastodon, etc.',
+  status ENUM('active','forming','seeking_organiser') NOT NULL DEFAULT 'forming',
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  UNIQUE KEY uq_local_groups_slug (slug),
+  KEY idx_local_groups_status (status)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS group_events (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  group_id INT UNSIGNED NOT NULL,
+  title VARCHAR(220) NOT NULL,
+  description TEXT DEFAULT NULL,
+  event_date DATE NOT NULL,
+  event_time VARCHAR(50) DEFAULT NULL COMMENT 'Plain text e.g. "7:00pm" — flexible for partial times',
+  location_text VARCHAR(300) DEFAULT NULL COMMENT 'e.g. Dundee Central Library, 1 The Waterfront',
+  online_url VARCHAR(500) DEFAULT NULL COMMENT 'Video call link if virtual or hybrid',
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  KEY idx_group_events_group (group_id),
+  KEY idx_group_events_date (event_date),
+  CONSTRAINT fk_group_events_group FOREIGN KEY (group_id) REFERENCES local_groups (id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Existing installs: run these two lines to add the group_id column to news_items:
+-- ALTER TABLE news_items ADD COLUMN group_id INT UNSIGNED DEFAULT NULL AFTER published_at;
+-- ALTER TABLE news_items ADD KEY idx_news_group_id (group_id);

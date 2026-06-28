@@ -83,10 +83,10 @@ require_once __DIR__ . '/includes/header.php';
     <div class="wrap join-grid">
         <div>
         <?php if ($flashOk): ?>
-            <p class="flash ok"><?= e($flashOk) ?></p>
+            <p class="flash ok" role="status"><?= e($flashOk) ?></p>
         <?php endif; ?>
         <?php if ($flashErr): ?>
-            <p class="flash err"><?= e($flashErr) ?></p>
+            <p class="flash err" role="alert"><?= e($flashErr) ?></p>
         <?php endif; ?>
 
         <form class="forms" method="post" action="/join.php" novalidate>
@@ -104,8 +104,8 @@ require_once __DIR__ . '/includes/header.php';
 
             <div class="form-row">
                 <label for="locality">Locality (optional)</label>
-                <input id="locality" name="locality" maxlength="120" placeholder="e.g. Dundee, Highland, Glasgow tenement district">
-                <p class="form-hint">Helps us invite you to nearby activities when we run them.</p>
+                <input id="locality" name="locality" maxlength="120" placeholder="e.g. Dundee, Highland, Glasgow tenement district" aria-describedby="locality-hint">
+                <p id="locality-hint" class="form-hint">Helps us invite you to nearby activities when we run them.</p>
             </div>
 
             <div class="form-row">

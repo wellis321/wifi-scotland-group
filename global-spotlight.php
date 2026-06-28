@@ -16,7 +16,7 @@ require_once __DIR__ . '/includes/header.php';
 <header class="page-header">
     <div class="wrap">
         <h1>Global spotlight</h1>
-        <p>Scotland does not have a monopoly on good ideas. These projects illustrate different ethics of ownership, transparency, and neighbourhood-scale infrastructure. Descriptions are short; follow the primary links for depth.</p>
+        <p>Scotland does not have a monopoly on good ideas. These projects show what it looks like when communities own and run their own networks—built around people, not profit. Descriptions are short; follow the links to go deeper.</p>
     </div>
 </header>
 

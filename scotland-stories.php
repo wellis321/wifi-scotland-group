@@ -20,8 +20,7 @@ require_once __DIR__ . '/includes/header.php';
     <div class="wrap">
         <h1>Scotland: positive connectivity stories</h1>
         <p>
-            These eight items were curated for evidence-friendly campaigning: national programmes, regulator reporting, a published housing case study,
-            a documented community build, library infrastructure history, and a council strategy. Each card links to a <strong>primary source</strong>—always read the original page before quoting figures.
+            Eight real examples from Scotland—national programmes, community broadband projects, library networks, and council plans. Each one links to the original source so you can check the details for yourself before quoting figures.
         </p>
     </div>
 </header>

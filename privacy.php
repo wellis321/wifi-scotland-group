@@ -23,7 +23,7 @@ require_once __DIR__ . '/includes/header.php';
         <ul>
             <li><strong>Join form:</strong> name, email, optional locality and interests text, plus a timestamp—stored in the <code>member_signups</code> table when the database is configured.</li>
             <li><strong>Contact form:</strong> name, email, subject, message body, and timestamp—stored in <code>contact_messages</code>.</li>
-            <li><strong>Technical logs:</strong> your hosting provider or reverse proxy may log IP addresses independently of this application.</li>
+            <li><strong>Technical logs:</strong> your web hosting provider may also record connection details—including IP addresses—as a standard part of running any website.</li>
         </ul>
 
         <h2>Why we collect it</h2>
@@ -33,13 +33,13 @@ require_once __DIR__ . '/includes/header.php';
         <p>The join form requires an explicit consent checkbox linked to this page. We do not intend to buy marketing lists or share your details with unrelated third parties.</p>
 
         <h2>Retention and security</h2>
-        <p>Retention periods should be decided by the people operating this deployment (for example, deleting contact messages after they are handled, or exporting sign-ups to a secure mailing tool). At minimum, keep database credentials out of version control (for example in a gitignored <code>.env</code> file or host-managed environment variables) and keep server software patched.</p>
+        <p>We haven't yet set formal retention limits—how long we keep your data is something we'll document as the campaign develops. As a rule, contact messages will be deleted once handled, and sign-ups will be moved to a secure mailing tool when one is set up.</p>
 
         <h2>Your rights</h2>
-        <p>Depending on jurisdiction, you may have rights to access, correct, or delete personal data we hold. Because this build stores email addresses, a process for verified deletion requests should exist in production—use the contact form once operational.</p>
+        <p>Depending on where you live, you may have rights to access, correct, or delete personal data we hold. If you'd like us to remove your details, please use the <a href="/contact.php">contact form</a> and we'll action it promptly.</p>
 
         <h2>Cookies</h2>
-        <p>This starter site uses a PHP session cookie for CSRF protection on forms. It does not set third-party advertising cookies.</p>
+        <p>This site uses a temporary security cookie that protects our forms from abuse. It is deleted when you close your browser. We do not set advertising or tracking cookies.</p>
     </div>
 </div>
 

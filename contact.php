@@ -57,6 +57,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'body' => $body,
         ]);
         flash_set('contact_ok', 'Message received. A volunteer will read it as soon as they can.');
+
+        $notifyTo = env_raw('NOTIFY_EMAIL') ?? '';
+        if ($notifyTo !== '' && filter_var($notifyTo, FILTER_VALIDATE_EMAIL)) {
+            $host = parse_url((string) app_config()['app']['base_url'], PHP_URL_HOST)
+                ?: (string) ($_SERVER['HTTP_HOST'] ?? 'localhost');
+            $safeName = str_replace(["\r", "\n"], '', $name);
+            mail(
+                $notifyTo,
+                '[' . SITE_BRAND . '] New contact: ' . mb_substr($subject, 0, 100),
+                implode("\n", [
+                    'New message from ' . $safeName . ' <' . $email . '>',
+                    str_repeat('-', 50),
+                    'Subject: ' . $subject,
+                    '',
+                    $body,
+                ]),
+                implode("\r\n", [
+                    'From: noreply@' . $host,
+                    'Reply-To: ' . $email,
+                    'Content-Type: text/plain; charset=UTF-8',
+                ])
+            );
+        }
     } catch (Throwable) {
         flash_set('contact', 'Something went wrong saving your message. Please try again later.');
     }
@@ -84,10 +107,10 @@ require_once __DIR__ . '/includes/header.php';
     <div class="wrap join-grid">
         <div>
         <?php if ($flashOk): ?>
-            <p class="flash ok"><?= e($flashOk) ?></p>
+            <p class="flash ok" role="status"><?= e($flashOk) ?></p>
         <?php endif; ?>
         <?php if ($flashErr): ?>
-            <p class="flash err"><?= e($flashErr) ?></p>
+            <p class="flash err" role="alert"><?= e($flashErr) ?></p>
         <?php endif; ?>
 
         <form class="forms" method="post" action="/contact.php" novalidate>
