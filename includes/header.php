@@ -8,11 +8,15 @@ declare(strict_types=1);
 /** @var string|null $pageOgImage Web path e.g. /images/hero.jpg */
 /** @var string $pageOgImageAlt */
 
-$pageTitle = $pageTitle ?? SITE_BRAND;
-$pageDescription = $pageDescription ?? 'Campaigning for affordable, reliable connectivity as essential infrastructure in Scotland and beyond.';
-$currentNav = $currentNav ?? '';
-$pageOgImage = $pageOgImage ?? null;
-$pageOgImageAlt = $pageOgImageAlt ?? '';
+$pageTitle       = $pageTitle       ?? SITE_BRAND;
+$pageDescription = $pageDescription ?? 'Web Infrastructure Rights for Everyone in Scotland — campaigning for affordable, reliable connectivity as essential public infrastructure.';
+$currentNav      = $currentNav      ?? '';
+$pageOgImage     = $pageOgImage     ?? null;
+$pageOgImageAlt  = $pageOgImageAlt  ?? '';
+$pageOgType      = $pageOgType      ?? 'website';
+
+$canonicalUrl = page_url(ltrim((string) ($_SERVER['REQUEST_URI'] ?? '/'), '/'));
+$ogImageAbs   = $pageOgImage !== null ? absolute_url_for_path($pageOgImage) : null;
 
 $navStructure = [
     [
@@ -44,6 +48,7 @@ $navStructure = [
             ['id' => 'involved', 'href' => '/get-involved.php', 'label' => 'Get involved'],
             ['id' => 'groups', 'href' => '/groups.php', 'label' => 'Local groups'],
             ['id' => 'startgroup', 'href' => '/start-a-group.php', 'label' => 'Start a group'],
+            ['id' => 'supporters', 'href' => '/supporters.php', 'label' => 'Supporters'],
             ['id' => 'join', 'href' => '/join.php', 'label' => 'Join'],
             ['id' => 'global', 'href' => '/global-spotlight.php', 'label' => 'Global spotlight'],
         ],
@@ -77,24 +82,40 @@ $navGroupIsActive = static function (array $group) use ($currentNav): bool {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= e($pageTitle) ?> · <?= e(SITE_BRAND) ?></title>
     <meta name="description" content="<?= e($pageDescription) ?>">
-    <?php
-    if ($pageOgImage !== null) {
-        $ogAbs = absolute_url_for_path($pageOgImage);
-        if ($ogAbs !== null) {
-            ?>
-    <meta property="og:image" content="<?= e($ogAbs) ?>">
-            <?php
-            if ($pageOgImageAlt !== '') {
-                ?>
+    <link rel="canonical" href="<?= e($canonicalUrl) ?>">
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="<?= e(SITE_BRAND) ?>">
+    <meta property="og:type"      content="<?= e($pageOgType) ?>">
+    <meta property="og:title"     content="<?= e($pageTitle) ?>">
+    <meta property="og:description" content="<?= e($pageDescription) ?>">
+    <meta property="og:url"       content="<?= e($canonicalUrl) ?>">
+    <?php if ($ogImageAbs !== null): ?>
+    <meta property="og:image"     content="<?= e($ogImageAbs) ?>">
+    <?php if ($pageOgImageAlt !== ''): ?>
     <meta property="og:image:alt" content="<?= e($pageOgImageAlt) ?>">
-                <?php
-            }
-            ?>
-    <meta name="twitter:card" content="summary_large_image">
-            <?php
-        }
+    <?php endif; ?>
+    <?php endif; ?>
+
+    <!-- Twitter / X card -->
+    <meta name="twitter:card"        content="<?= $ogImageAbs !== null ? 'summary_large_image' : 'summary' ?>">
+    <meta name="twitter:title"       content="<?= e($pageTitle) ?>">
+    <meta name="twitter:description" content="<?= e($pageDescription) ?>">
+    <?php if ($ogImageAbs !== null): ?>
+    <meta name="twitter:image"       content="<?= e($ogImageAbs) ?>">
+    <?php endif; ?>
+
+    <!-- JSON-LD: Organisation (every page) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "<?= e(SITE_BRAND) ?>",
+        "alternateName": "Web Infrastructure Rights for Everyone in Scotland",
+        "url": "<?= e(page_url()) ?>",
+        "description": "<?= e($pageDescription) ?>"
     }
-    ?>
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">

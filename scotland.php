@@ -8,29 +8,38 @@ $pageTitle = 'Scotland: government & councils';
 $pageDescription = 'High-level summaries of Scottish connectivity programmes and local-government digital work—with links to official sources.';
 $currentNav = 'scotland';
 
-$pageOgImage = image_asset('scotland-landscape.jpg');
-$pageOgImageAlt = 'Misty mountain landscape in Scotland—evoking communities where geography shapes connectivity.';
+$pageOgImage    = image_asset('card-community.jpg');
+$pageOgImageAlt = 'People in a community meeting — representing local voices in Scotland connectivity policy.';
+
+$sidebarRelated = [
+    ['href' => '/scotland-stories.php', 'label' => 'Scotland: positive stories'],
+    ['href' => '/wifi-map.php',         'label' => 'WiFi map by council area'],
+    ['href' => '/why-it-matters.php',   'label' => 'Why it matters'],
+    ['href' => '/get-help.php',         'label' => 'Help getting online'],
+    ['href' => '/resources.php',        'label' => 'Resources and references'],
+];
 
 require_once __DIR__ . '/includes/header.php';
 ?>
 <header class="page-header">
     <div class="wrap">
-        <h1>Scotland: policy, programmes, and councils</h1>
-        <p>Scotland’s digital and connectivity landscape spans Scottish Government investment, UK-wide schemes delivered in Scotland, and local authority services. This page stays descriptive and points you to authoritative pages for numbers and eligibility rules.</p>
-        <p class="meta"><a href="/scotland-stories.php">Positive connectivity stories (curated sources)</a> — eight evidence-led items with links to official pages, Ofcom, SLIC, and a council strategy.</p>
+        <h1>Scotland: policy, programmes &amp; councils</h1>
+        <p>Scotland's digital and connectivity landscape spans Scottish Government investment, UK-wide schemes delivered in Scotland, and local authority services. This page points you to authoritative pages for numbers and eligibility rules.</p>
     </div>
 </header>
 
 <div class="section">
-    <div class="wrap prose">
-        <figure class="page-lede">
-            <img src="<?= e(image_asset('scotland-landscape.jpg')) ?>" width="1400" height="933" alt="Sunlit mountain ridge above cloud in Scotland." decoding="async" loading="lazy">
-            <figcaption>Policy is national; lived experience is local—both matter when we talk about who gets online and at what cost.</figcaption>
-        </figure>
+    <div class="wrap">
+        <div class="page-layout" style="padding-top:0">
+        <div class="prose">
+        <div class="campaign-statement-card" aria-hidden="true">
+            <p class="campaign-statement-card__line1">Scotland</p>
+            <p class="campaign-statement-card__line2">Public investment<br>should mean<br>public clarity.</p>
+        </div>
         <h2>Scottish Government: broadband and connectivity</h2>
         <p>
             The Scottish Government maintains a dedicated policy area for <strong>broadband and connectivity</strong>, describing how public investment, commercial build,
-            voucher schemes, and mobile programmes fit together. That hub is the best place to start when you want programme descriptions in the government’s own words.
+            voucher schemes, and mobile programmes fit together. That hub is the best place to start when you want programme descriptions in the government's own words.
         </p>
         <p>
             <a href="https://www.gov.scot/policies/digital/broadband-and-connectivity/"<?= external_link_attrs('https://www.gov.scot/policies/digital/broadband-and-connectivity/') ?>>Broadband and connectivity (gov.scot)</a>
@@ -49,7 +58,7 @@ require_once __DIR__ . '/includes/header.php';
 
         <h2>Digital strategy and public services</h2>
         <p>
-            Scotland’s refreshed <strong>Digital Strategy</strong> frames how digital tools, data, and public services should develop together—with emphasis on inclusion,
+            Scotland's refreshed <strong>Digital Strategy</strong> frames how digital tools, data, and public services should develop together—with emphasis on inclusion,
             skills, and sustainable digital public services. The vision statement and the 2025–2028 delivery plan are useful when asking how connectivity relates to wider
             public-service reform, not only to consumer broadband marketing.
         </p>
@@ -58,7 +67,7 @@ require_once __DIR__ . '/includes/header.php';
             <li><a href="https://www.gov.scot/publications/digital-strategy-scotland-sustainable-digital-public-services-delivery-plan-2025-2028/"<?= external_link_attrs('https://www.gov.scot/publications/digital-strategy-scotland-sustainable-digital-public-services-delivery-plan-2025-2028/') ?>>Delivery plan 2025–2028</a></li>
         </ul>
 
-        <h2>Local government: COSLA’s Digital Office</h2>
+        <h2>Local government: COSLA's Digital Office</h2>
         <p>
             Councils deliver many of the services people experience first-hand: libraries, education, housing-related support, and local economic development.
             The <strong>Convention of Scottish Local Authorities (COSLA)</strong> hosts a Digital Office that supports collaboration across councils on digital priorities,
@@ -80,13 +89,27 @@ require_once __DIR__ . '/includes/header.php';
 
         <h2>How to use this page as an activist</h2>
         <ul>
-            <li>Pair official programme links with <strong>local stories</strong> from your community council, tenants’ union, or school parent group.</li>
+            <li>Pair official programme links with <strong>local stories</strong> from your community council, tenants' union, or school parent group.</li>
             <li>Ask candidates and officers how voucher pathways are advertised in libraries, GP surgeries, and housing offices—not only online.</li>
             <li>Request updates in accessible formats for residents who are not confident with PDFs or web forms.</li>
         </ul>
 
+        <div class="pull-quote">
+            <p>"Pair official programme links with local stories — that combination is what makes a question in a council chamber hard to ignore."</p>
+        </div>
+
         <p class="meta">We aim to refresh links when government URLs change. If you spot a broken link, please tell us via <a href="/contact.php">Contact</a>.</p>
+        </div><!-- /prose -->
+
+        <?php require __DIR__ . '/includes/sidebar-campaign.php'; ?>
+
+        </div><!-- /page-layout -->
     </div>
 </div>
 
-<?php require_once __DIR__ . '/includes/footer.php'; ?>
+<?php
+$ctaHeading = 'Translate policy into local action';
+$ctaBody    = 'Join WIRES to connect with others who are asking these questions in their communities.';
+require __DIR__ . '/includes/cta-join.php';
+require_once __DIR__ . '/includes/footer.php';
+?>

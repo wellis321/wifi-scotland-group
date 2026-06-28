@@ -11,21 +11,28 @@ $currentNav = 'resources';
 $pageOgImage = image_asset('card-fibre.jpg');
 $pageOgImageAlt = 'Network cabling in a rack—symbolising the physical layer behind policy debates.';
 
+$sidebarRelated = [
+    ['href' => '/scotland.php',       'label' => 'Scotland policy'],
+    ['href' => '/why-it-matters.php', 'label' => 'Why it matters'],
+    ['href' => '/get-help.php',       'label' => 'Help getting online'],
+    ['href' => '/news.php',           'label' => 'Campaign news'],
+];
+
 require_once __DIR__ . '/includes/header.php';
 ?>
 <header class="page-header">
     <div class="wrap">
         <h1>Resources &amp; references</h1>
-        <p>Official and primary links we rely on when summarising policy. If you are preparing a community briefing, start here rather than with unattributed social posts.</p>
+        <p>Official and primary links we rely on when summarising policy. Start here before quoting figures in a community briefing, council question, or media enquiry.</p>
     </div>
 </header>
 
 <div class="section">
-    <div class="wrap prose">
-        <figure class="page-lede">
-            <img src="<?= e(image_asset('card-fibre.jpg')) ?>" width="1200" height="800" alt="Fibre-optic cables in a patch panel." decoding="async" loading="lazy">
-            <figcaption>Physical infrastructure, regulation, and inclusion programmes are linked—use the official sources below before quoting figures in meetings.</figcaption>
-        </figure>
+    <div class="wrap">
+        <div class="page-layout" style="padding-top:0">
+        <div class="prose">
+            <img class="page-hero-img" src="<?= e(image_asset('card-fibre.jpg')) ?>" width="1200" height="800"
+                 alt="Fibre-optic cables in a patch panel." decoding="async" loading="lazy">
         <h2>Scottish Government</h2>
         <ol class="ref-list">
             <li><a href="https://www.gov.scot/policies/digital/broadband-and-connectivity/"<?= external_link_attrs('https://www.gov.scot/policies/digital/broadband-and-connectivity/') ?>>Broadband and connectivity policy hub</a></li>
@@ -53,7 +60,17 @@ require_once __DIR__ . '/includes/header.php';
         </ol>
 
         <p><?= e(SITE_BRAND) ?> content may summarise these sources; numbers and eligibility rules can change. Always confirm details on the live pages before relying on them in casework.</p>
+        </div><!-- /prose -->
+
+        <?php require __DIR__ . '/includes/sidebar-campaign.php'; ?>
+
+        </div><!-- /page-layout -->
     </div>
 </div>
 
-<?php require_once __DIR__ . '/includes/footer.php'; ?>
+<?php
+$ctaHeading = 'Something missing?';
+$ctaBody    = 'If you know of a primary source we should add, tell us via the contact form.';
+require __DIR__ . '/includes/cta-join.php';
+require_once __DIR__ . '/includes/footer.php';
+?>

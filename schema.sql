@@ -190,3 +190,22 @@ INSERT INTO schemes (slug, name, summary, who_for, what_you_get, how_to_apply, u
   '2024-12', 'check', 'uk', 'New partner organisations were not being accepted at the time we last checked. Existing network partners still distribute SIMs.', 50
 )
 ON DUPLICATE KEY UPDATE name = VALUES(name);
+
+-- ─── Organisational supporters ───────────────────────────────────────────────
+
+CREATE TABLE IF NOT EXISTS org_supporters (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  org_name VARCHAR(220) NOT NULL,
+  org_type VARCHAR(100) DEFAULT NULL COMMENT 'e.g. Housing association, Trade union, Charity',
+  org_url VARCHAR(500) DEFAULT NULL,
+  location VARCHAR(120) DEFAULT NULL COMMENT 'Town, council area, or region',
+  contact_name VARCHAR(160) NOT NULL,
+  contact_email VARCHAR(255) NOT NULL,
+  why_joining TEXT DEFAULT NULL COMMENT 'Optional statement from the organisation',
+  consent_public TINYINT(1) NOT NULL DEFAULT 1 COMMENT 'Consent to appear in public directory',
+  status ENUM('pending','approved','rejected') NOT NULL DEFAULT 'pending',
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  KEY idx_org_status (status),
+  KEY idx_org_name (org_name)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

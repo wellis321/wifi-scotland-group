@@ -36,6 +36,18 @@ require_once __DIR__ . '/includes/header.php';
 <div class="section">
     <div class="wrap">
 
+        <div class="info-card">
+            <div class="info-card__header">
+                <h2 class="info-card__heading">No fixed address?</h2>
+                <p class="info-card__sub">Important — most schemes on this page will not apply</p>
+            </div>
+            <div class="info-card__body">
+                <p>Most broadband schemes listed here require a permanent home address and a contract. They are not available to people who are homeless or in temporary accommodation, regardless of income.</p>
+                <p>The <strong>National Databank</strong> — free SIM cards with data — is one exception. It is distributed through foodbanks, hostels, day centres, and libraries with no address required. Ask at a local <a href="https://scotland.shelter.org.uk/get_help"<?= external_link_attrs('https://scotland.shelter.org.uk/get_help') ?>>Shelter Scotland</a> office, foodbank, or community centre whether they carry them.</p>
+                <p><a class="btn btn-ghost btn-sm" href="/why-it-matters.php#homelessness">Homelessness &amp; digital exclusion &rarr;</a></p>
+            </div>
+        </div>
+
         <p class="section-intro">Shown most recently updated first. If you know of a scheme we have missed, <a href="/contact.php">let us know</a>.</p>
 
         <?php if (empty($schemes)): ?>
@@ -99,18 +111,31 @@ require_once __DIR__ . '/includes/header.php';
                             </div>
                         <?php endif; ?>
 
-                        <p class="scheme-source">
+                        <div class="scheme-footer">
                             <a class="btn btn-primary" href="<?= e($s['url']) ?>"<?= external_link_attrs($s['url']) ?>>
                                 <?= e($s['source_label']) ?> &rarr;
                             </a>
-                        </p>
+                            <?php
+                            $shareUrl   = page_url('get-help.php#' . rawurlencode((string) $s['slug']));
+                            $shareTitle = (string) $s['name'];
+                            $shareCompact = true;
+                            require __DIR__ . '/includes/share.php';
+                            ?>
+                        </div>
                     </article>
                 <?php endforeach; ?>
             </div>
         <?php endif; ?>
 
-        <div class="callout prose" style="margin-top: 3rem">
-            <p><strong>Know of a scheme we've missed?</strong> Funding programmes come and go. If there's something that should be on this page—local authority schemes, housing association offers, charity programmes—<a href="/contact.php">tell us</a> and we'll add it.</p>
+        <div class="info-card" style="margin-top:3rem">
+            <div class="info-card__header">
+                <h2 class="info-card__heading">Know of a scheme we've missed?</h2>
+                <p class="info-card__sub">Help us keep this list current</p>
+            </div>
+            <div class="info-card__body">
+                <p>Funding programmes come and go. If there's something that should be on this page — local authority schemes, housing association offers, charity programmes — let us know and we'll add it.</p>
+                <p><a class="btn btn-ghost btn-sm" href="/contact.php">Tell us about it &rarr;</a></p>
+            </div>
         </div>
 
     </div>

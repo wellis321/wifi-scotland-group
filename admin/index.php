@@ -9,12 +9,12 @@ require_admin();
 $adminTitle   = 'Dashboard';
 $adminSection = 'dashboard';
 
-$counts = ['news' => 0, 'groups' => 0, 'events' => 0, 'schemes' => 0];
+$counts = ['news' => 0, 'groups' => 0, 'events' => 0, 'schemes' => 0, 'orgs' => 0];
 $recentNews = [];
 
 if (db_available()) {
     try {
-        foreach (['news_items' => 'news', 'local_groups' => 'groups', 'group_events' => 'events', 'schemes' => 'schemes'] as $table => $key) {
+        foreach (['news_items' => 'news', 'local_groups' => 'groups', 'group_events' => 'events', 'schemes' => 'schemes', 'org_supporters' => 'orgs'] as $table => $key) {
             $counts[$key] = (int) db()->query("SELECT COUNT(*) FROM {$table}")->fetchColumn();
         }
         $recentNews = db()->query(
@@ -45,6 +45,10 @@ require_once __DIR__ . '/includes/admin_header.php';
     <a class="admin-stat" href="/admin/schemes.php">
         <span class="admin-stat-value"><?= $counts['schemes'] ?></span>
         <span class="admin-stat-label">Help schemes</span>
+    </a>
+    <a class="admin-stat" href="/admin/org-supporters.php">
+        <span class="admin-stat-value"><?= $counts['orgs'] ?></span>
+        <span class="admin-stat-label">Org supporters</span>
     </a>
 </div>
 

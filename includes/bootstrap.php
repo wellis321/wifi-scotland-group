@@ -195,6 +195,21 @@ function csrf_validate(mixed $token): bool
     return hash_equals((string) $_SESSION['_csrf'], $token);
 }
 
+/**
+ * Absolute URL for any path — uses APP_BASE_URL when set, otherwise
+ * constructs from the current request (scheme + HTTP_HOST).
+ * Safe for use in share links, canonical tags, and JSON-LD.
+ */
+function page_url(string $path = ''): string
+{
+    $base = rtrim((string) app_config()['app']['base_url'], '/');
+    if ($base === '') {
+        $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+        $base   = $scheme . '://' . ($_SERVER['HTTP_HOST'] ?? 'wires.org.uk');
+    }
+    return $base . '/' . ltrim($path, '/');
+}
+
 /** Format a SQL date string (YYYY-MM-DD) as "1 January 2026". Returns the raw string on parse failure. */
 function format_date(string $sqlDate): string
 {

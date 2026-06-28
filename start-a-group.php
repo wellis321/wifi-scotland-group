@@ -77,9 +77,15 @@ require_once __DIR__ . '/includes/header.php';
             </ul>
         </div>
 
-        <div class="callout">
-            <p><strong>Ready to start?</strong> Use the contact form and mention your council area and a contact name. We aim to reply within a week.</p>
-            <p style="margin-top: 0.75rem"><a class="btn btn-primary" href="/contact.php">Get in touch</a></p>
+        <div class="info-card">
+            <div class="info-card__header">
+                <h2 class="info-card__heading">Ready to start?</h2>
+                <p class="info-card__sub">We'll support you and list your group once you're up and running</p>
+            </div>
+            <div class="info-card__body">
+                <p>Use the contact form and mention your council area and a contact name. We aim to reply within a week.</p>
+                <p><a class="btn btn-primary btn-sm" href="/contact.php">Get in touch &rarr;</a></p>
+            </div>
         </div>
 
         <p class="meta" style="margin-top: 2rem">Already have a group? <a href="/contact.php">Tell us about it</a> and we will add it to the directory. You do not need to be formally registered or have an official structure—active and forming groups are both listed.</p>
