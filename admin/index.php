@@ -67,7 +67,7 @@ require_once __DIR__ . '/includes/admin_header.php';
                     <td><?= e((string) $row['title']) ?></td>
                     <td class="meta"><?= e(format_date((string) $row['published_at'])) ?></td>
                     <td class="col-actions">
-                        <a class="admin-link" href="/admin/news-edit.php?id=<?= e((string) $row['slug']) ?>">Edit</a>
+                        <a class="admin-link" href="/admin/news-edit.php?slug=<?= e(rawurlencode((string) $row['slug'])) ?>">Edit</a>
                         <a class="admin-link" href="<?= e('/news-item.php?slug=' . rawurlencode((string) $row['slug'])) ?>" target="_blank" rel="noopener">View</a>
                     </td>
                 </tr>
