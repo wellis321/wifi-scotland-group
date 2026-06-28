@@ -9,9 +9,24 @@ require_admin();
 $adminTitle   = 'News';
 $adminSection = 'news';
 
-$items = db_available()
-    ? db()->query('SELECT id, title, slug, published_at, group_id FROM news_items ORDER BY published_at DESC, id DESC')->fetchAll()
-    : [];
+$items = [];
+if (db_available()) {
+    try {
+        $items = db()->query(
+            'SELECT id, title, slug, published_at, group_id FROM news_items ORDER BY published_at DESC, id DESC'
+        )->fetchAll();
+    } catch (Throwable) {
+        // group_id column may not exist yet on this install — fall back without it
+        try {
+            $items = db()->query(
+                'SELECT id, title, slug, published_at, NULL AS group_id FROM news_items ORDER BY published_at DESC, id DESC'
+            )->fetchAll();
+            flash_set('admin_err', 'Heads up: the group_id column is missing from news_items. Run the ALTER TABLE migration in phpMyAdmin (see schema.sql comments).');
+        } catch (Throwable) {
+            flash_set('admin_err', 'Could not load articles from the database.');
+        }
+    }
+}
 
 require_once __DIR__ . '/includes/admin_header.php';
 ?>
