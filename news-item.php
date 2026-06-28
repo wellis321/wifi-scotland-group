@@ -8,7 +8,7 @@ $slug = isset($_GET['slug']) ? (string) $_GET['slug'] : '';
 $article = null;
 
 if ($slug !== '' && db_available()) {
-    $stmt = db()->prepare('SELECT title, slug, summary, body, published_at FROM news_items WHERE slug = :slug LIMIT 1');
+    $stmt = db()->prepare('SELECT title, slug, summary, body, published_at, image_filename FROM news_items WHERE slug = :slug LIMIT 1');
     $stmt->execute(['slug' => $slug]);
     $article = $stmt->fetch() ?: null;
 }
@@ -39,8 +39,10 @@ if (!$article) {
 $pageTitle = (string) $article['title'];
 $pageDescription = (string) ($article['summary'] ?? $pageTitle);
 $currentNav = 'news';
-$pageOgImage = image_asset('card-global-network.jpg');
-$pageOgImageAlt = 'Abstract view of Earth and networks—editorial sharing image for news.';
+
+$bannerFile = !empty($article['image_filename']) ? (string) $article['image_filename'] : 'card-global-network.jpg';
+$pageOgImage = image_asset($bannerFile);
+$pageOgImageAlt = 'Editorial image for: ' . (string) $article['title'];
 
 require_once __DIR__ . '/includes/header.php';
 ?>
@@ -53,6 +55,10 @@ require_once __DIR__ . '/includes/header.php';
         <?php endif; ?>
     </div>
 </header>
+
+<figure class="page-banner" aria-hidden="true">
+    <img src="<?= e(image_asset($bannerFile)) ?>" width="1200" height="800" alt="" decoding="async" loading="lazy">
+</figure>
 
 <div class="section">
     <div class="wrap prose">

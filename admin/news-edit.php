@@ -21,6 +21,16 @@ if ($slug !== '' && db_available()) {
 
 $adminTitle = $isNew ? 'New article' : 'Edit article';
 
+$availableImages = [];
+$imgDir = PROJECT_ROOT . DIRECTORY_SEPARATOR . 'images';
+if (is_dir($imgDir)) {
+    foreach (scandir($imgDir) as $f) {
+        if (preg_match('/\.(jpe?g|png|webp|gif)$/i', $f)) {
+            $availableImages[] = $f;
+        }
+    }
+}
+
 $groups = db_available()
     ? db()->query('SELECT id, council_area FROM local_groups ORDER BY council_area')->fetchAll()
     : [];
@@ -46,6 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $body       = trim((string) ($_POST['body'] ?? ''));
     $pubDate    = trim((string) ($_POST['published_at'] ?? date('Y-m-d')));
     $groupId    = ($_POST['group_id'] ?? '') !== '' ? (int) $_POST['group_id'] : null;
+    $imageFile  = trim((string) ($_POST['image_filename'] ?? '')) ?: null;
 
     $errors = [];
     if ($title === '')   $errors[] = 'Title is required.';
@@ -56,13 +67,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($errors)) {
         if ($isNew) {
             db()->prepare(
-                'INSERT INTO news_items (title, slug, summary, body, published_at, group_id) VALUES (:title,:slug,:summary,:body,:pub,:gid)'
-            )->execute(['title'=>$title,'slug'=>$newSlug,'summary'=>$summary,'body'=>$body,'pub'=>$pubDate,'gid'=>$groupId]);
+                'INSERT INTO news_items (title, slug, summary, body, published_at, group_id, image_filename) VALUES (:title,:slug,:summary,:body,:pub,:gid,:img)'
+            )->execute(['title'=>$title,'slug'=>$newSlug,'summary'=>$summary,'body'=>$body,'pub'=>$pubDate,'gid'=>$groupId,'img'=>$imageFile]);
             flash_set('admin_ok', 'Article published.');
         } else {
             db()->prepare(
-                'UPDATE news_items SET title=:title,slug=:slug,summary=:summary,body=:body,published_at=:pub,group_id=:gid WHERE id=:id'
-            )->execute(['title'=>$title,'slug'=>$newSlug,'summary'=>$summary,'body'=>$body,'pub'=>$pubDate,'gid'=>$groupId,'id'=>$item['id']]);
+                'UPDATE news_items SET title=:title,slug=:slug,summary=:summary,body=:body,published_at=:pub,group_id=:gid,image_filename=:img WHERE id=:id'
+            )->execute(['title'=>$title,'slug'=>$newSlug,'summary'=>$summary,'body'=>$body,'pub'=>$pubDate,'gid'=>$groupId,'img'=>$imageFile,'id'=>$item['id']]);
             flash_set('admin_ok', 'Article saved.');
         }
         header('Location: /admin/news-edit.php?slug=' . rawurlencode($newSlug));
@@ -70,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     flash_set('admin_err', implode(' ', $errors));
-    $item = array_merge($item ?? [], compact('title','summary','body','pubDate','groupId') + ['slug'=>$newSlug,'published_at'=>$pubDate,'group_id'=>$groupId]);
+    $item = array_merge($item ?? [], compact('title','summary','body','pubDate','groupId','imageFile') + ['slug'=>$newSlug,'published_at'=>$pubDate,'group_id'=>$groupId,'image_filename'=>$imageFile]);
 }
 
 require_once __DIR__ . '/includes/admin_header.php';
@@ -107,10 +118,19 @@ require_once __DIR__ . '/includes/admin_header.php';
         <p class="admin-hint">HTML supported: &lt;p&gt; &lt;strong&gt; &lt;em&gt; &lt;a href="..."&gt; &lt;ul&gt; &lt;li&gt; &lt;h2&gt;</p>
     </div>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem">
         <div class="admin-field">
             <label for="published_at">Published date</label>
             <input id="published_at" name="published_at" type="date" required value="<?= e((string) ($item['published_at'] ?? date('Y-m-d'))) ?>">
+        </div>
+        <div class="admin-field">
+            <label for="image_filename">Banner image</label>
+            <select id="image_filename" name="image_filename">
+                <option value="">— Default (card-global-network.jpg) —</option>
+                <?php foreach ($availableImages as $img): ?>
+                    <option value="<?= e($img) ?>" <?= ($item['image_filename'] ?? '') === $img ? 'selected' : '' ?>><?= e($img) ?></option>
+                <?php endforeach; ?>
+            </select>
         </div>
         <div class="admin-field">
             <label for="group_id">Local group <span style="font-weight:400;text-transform:none">(optional)</span></label>

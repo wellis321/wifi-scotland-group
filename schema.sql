@@ -36,6 +36,7 @@ CREATE TABLE IF NOT EXISTS news_items (
   body MEDIUMTEXT NOT NULL,
   published_at DATE NOT NULL,
   group_id INT UNSIGNED DEFAULT NULL COMMENT 'Optional: link to local_groups.id to tag as local news',
+  image_filename VARCHAR(160) DEFAULT NULL COMMENT 'Filename from /images/ — e.g. card-fibre.jpg. NULL = default banner.',
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id),
   UNIQUE KEY uq_news_items_slug (slug),
@@ -103,9 +104,10 @@ CREATE TABLE IF NOT EXISTS group_events (
   CONSTRAINT fk_group_events_group FOREIGN KEY (group_id) REFERENCES local_groups (id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Existing installs: run these two lines to add the group_id column to news_items:
+-- Existing installs: run these lines to add columns added after initial setup:
 -- ALTER TABLE news_items ADD COLUMN group_id INT UNSIGNED DEFAULT NULL AFTER published_at;
 -- ALTER TABLE news_items ADD KEY idx_news_group_id (group_id);
+-- ALTER TABLE news_items ADD COLUMN image_filename VARCHAR(160) DEFAULT NULL AFTER group_id;
 
 -- ─── Help getting online: schemes & programmes ───────────────────────────────
 
