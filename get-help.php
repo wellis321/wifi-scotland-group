@@ -44,8 +44,13 @@ require_once __DIR__ . '/includes/header.php';
             <div class="info-card__body">
                 <p>Most broadband schemes listed here require a permanent home address and a contract. They are not available to people who are homeless or in temporary accommodation, regardless of income.</p>
                 <p>The <strong>National Databank</strong> — free SIM cards with data — is one exception. It is distributed through foodbanks, hostels, day centres, and libraries with no address required. Ask at a local <a href="https://scotland.shelter.org.uk/get_help"<?= external_link_attrs('https://scotland.shelter.org.uk/get_help') ?>>Shelter Scotland</a> office, foodbank, or community centre whether they carry them.</p>
+                <p><strong>Jobcentre Plus</strong> branches across Scotland have free computers, Wi-Fi, and digital mentors available Monday to Friday, 10am–3pm — for job searching, Universal Credit management, and general internet access. No appointment needed for device use.</p>
                 <p><a class="btn btn-ghost btn-sm" href="/why-it-matters.php#homelessness">Homelessness &amp; digital exclusion &rarr;</a></p>
             </div>
+        </div>
+
+        <div class="callout" style="margin-bottom:2rem">
+            <p><strong>On social tariffs:</strong> Only around 532,000 of the 6.2 million Universal Credit households that qualify for a cheaper broadband deal actually use one — that's roughly 1 in 12. More than half of people on benefits have never heard that social tariffs exist. When you apply, you don't need to provide paper proof — your broadband provider can verify your Universal Credit claim automatically through the DWP system. Just tell them you're on Universal Credit and ask for their social tariff.</p>
         </div>
 
         <p class="section-intro">Shown most recently updated first. If you know of a scheme we have missed, <a href="/contact.php">let us know</a>.</p>

@@ -53,11 +53,31 @@ require_once __DIR__ . '/includes/header.php';
 
         <h2>Global spotlight primaries</h2>
         <ol class="ref-list">
-            <li><a href="https://guifi.net/"<?= external_link_attrs('https://guifi.net/') ?>>Guifi.net</a></li>
-            <li><a href="https://www.nycmesh.net/"<?= external_link_attrs('https://www.nycmesh.net/') ?>>NYC Mesh</a></li>
-            <li><a href="https://www.librarieswithoutborders.org/ideasbox/"<?= external_link_attrs('https://www.librarieswithoutborders.org/ideasbox/') ?>>Libraries Without Borders — Ideas Box</a></li>
-            <li><a href="https://freifunk.net/en/"<?= external_link_attrs('https://freifunk.net/en/') ?>>Freifunk</a></li>
+            <li><a href="https://guifi.net/"<?= external_link_attrs('https://guifi.net/') ?>>Guifi.net</a> — community network, Catalonia</li>
+            <li><a href="https://www.nycmesh.net/"<?= external_link_attrs('https://www.nycmesh.net/') ?>>NYC Mesh</a> — volunteer mesh, New York City</li>
+            <li><a href="https://www.librarieswithoutborders.org/ideasbox/"<?= external_link_attrs('https://www.librarieswithoutborders.org/ideasbox/') ?>>Libraries Without Borders — Ideas Box</a> — offline-first learning spaces</li>
+            <li><a href="https://freifunk.net/en/"<?= external_link_attrs('https://freifunk.net/en/') ?>>Freifunk</a> — decentralised community wireless, Germany</li>
         </ol>
+
+        <h2>Community networks in Scotland</h2>
+        <p>Proof that community-owned and community-managed connectivity exists in Scotland right now — not as a future possibility, but as a working reality in some of our most remote areas.</p>
+        <ol class="ref-list">
+            <li><a href="https://www.hebnet.co.uk/"<?= external_link_attrs('https://www.hebnet.co.uk/') ?>>HebNet</a> — community internet for the Small Isles (Canna, Rum, Eigg, Muck) and Knoydart</li>
+            <li><a href="https://hcbroadband.co.uk/"<?= external_link_attrs('https://hcbroadband.co.uk/') ?>>Highland Community Broadband</a> — community-focused provider in rural Highland areas</li>
+            <li><a href="https://www.hie.co.uk/"<?= external_link_attrs('https://www.hie.co.uk/') ?>>Highlands and Islands Enterprise (HIE)</a> — administers Community Broadband Scotland funding; pilots in Applecross, Colonsay, Tomintoul and others</li>
+            <li><a href="https://b4rn.org.uk/"<?= external_link_attrs('https://b4rn.org.uk/') ?>>B4RN</a> — Broadband for the Rural North; UK benchmark for community cooperative broadband; Lancashire</li>
+        </ol>
+
+        <h2>Providers taking ethics seriously</h2>
+        <p>Not a recommendation list — but these UK providers hold B Corp certification or have community ownership as a core part of their model, not an afterthought. Worth knowing about when making the argument that the dominant commercial model is a choice, not an inevitability.</p>
+        <ol class="ref-list">
+            <li><a href="https://www.idnet.com/"<?= external_link_attrs('https://www.idnet.com/') ?>>IDNet</a> — UK's first B Corp certified telecommunications company</li>
+            <li><a href="https://www.zen.co.uk/"<?= external_link_attrs('https://www.zen.co.uk/') ?>>Zen Internet</a> — B Corp certified; consumer and business broadband</li>
+            <li><a href="https://cuckoo.co/"<?= external_link_attrs('https://cuckoo.co/') ?>>Cuckoo</a> — B Corp certified; now part of Octopus Energy Group</li>
+            <li><a href="https://wildanet.com/"<?= external_link_attrs('https://wildanet.com/') ?>>Wildanet</a> — first UK AltNet to achieve B Corp; rural gigabit in Cornwall</li>
+            <li><a href="https://www.connexin.co.uk/"<?= external_link_attrs('https://www.connexin.co.uk/') ?>>Connexin</a> — B Corp certified full fibre provider</li>
+        </ol>
+        <p class="meta">B Corp status is independently verified but can change — check each provider's current certification on the <a href="https://www.bcorporation.net/en-us/find-a-b-corp/"<?= external_link_attrs('https://www.bcorporation.net/en-us/find-a-b-corp/') ?>>B Lab directory</a>. Listing here is not an endorsement.</p>
 
         <p><?= e(SITE_BRAND) ?> content may summarise these sources; numbers and eligibility rules can change. Always confirm details on the live pages before relying on them in casework.</p>
         </div><!-- /prose -->

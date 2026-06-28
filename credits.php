@@ -61,6 +61,11 @@ require_once __DIR__ . '/includes/header.php';
                     <td><code>photo-1506905925346-21bda4d32df4</code></td>
                     <td>Scotland policy page</td>
                 </tr>
+                <tr>
+                    <td><code>glasses-clarity.jpg</code></td>
+                    <td><a href="https://unsplash.com/photos/kqguzgvYrtM"<?= external_link_attrs('https://unsplash.com/photos/kqguzgvYrtM') ?>>photo-1512099053734-e6767b535838</a></td>
+                    <td>Homepage — "Public money should mean public clarity" argument</td>
+                </tr>
             </tbody>
         </table>
         </div>

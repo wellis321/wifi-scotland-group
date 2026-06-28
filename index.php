@@ -58,14 +58,31 @@ require_once __DIR__ . '/includes/header.php';
 </section>
 
 <section class="statement-band" aria-label="Campaign statement">
-    <div class="wrap statement-band-inner">
-        <p class="statement-band-quote">
-            "When you can't get online, you can't fully participate.<br>
-            That's not <strong>personal failure</strong>&nbsp;— it's a <strong>policy failure</strong>."
-        </p>
-        <div>
-            <a class="btn btn-outline-light btn-lg" href="/why-it-matters.php">See the evidence</a>
+    <div class="wrap">
+        <div class="statement-band-inner">
+            <p class="statement-band-quote">
+                "When you can't get online, you can't fully participate.<br>
+                That's not <strong>personal failure</strong>&nbsp;— it's a <strong>policy failure</strong>."
+            </p>
+            <div>
+                <a class="btn btn-outline-light btn-lg" href="/why-it-matters.php">See the evidence</a>
+            </div>
         </div>
+        <div class="statement-band-stats" role="region" aria-label="Key statistics">
+            <div class="statement-stat">
+                <span class="statement-stat__value">1 in 12</span>
+                <span class="statement-stat__label">households entitled to cheaper broadband actually use it</span>
+            </div>
+            <div class="statement-stat">
+                <span class="statement-stat__value">6.2m</span>
+                <span class="statement-stat__label">UK households on Universal Credit qualify for a social tariff right now</span>
+            </div>
+            <div class="statement-stat">
+                <span class="statement-stat__value">55%</span>
+                <span class="statement-stat__label">of people on benefits have never heard that social tariffs exist</span>
+            </div>
+        </div>
+        <p class="statement-band-source">Source: Ofcom 2024–25 &middot; <a href="/get-help.php">Find out if you qualify</a></p>
     </div>
 </section>
 
@@ -98,7 +115,7 @@ require_once __DIR__ . '/includes/header.php';
 
 <section class="arguments-section" aria-labelledby="arguments-heading">
     <div class="wrap">
-        <h2 id="arguments-heading">What we argue</h2>
+        <h2 id="arguments-heading">Our case for change</h2>
         <ol class="arguments-list">
             <li class="argument-item">
                 <div class="argument-text">
@@ -117,7 +134,7 @@ require_once __DIR__ . '/includes/header.php';
                     <p>Significant public investment flows into broadband and digital inclusion programmes. People deserve a clear path to the help that exists—not complicated applications, confusing criteria, or announcements buried so deep that the people who need them most never hear about them.</p>
                 </div>
                 <figure class="argument-image" aria-hidden="true">
-                    <img src="<?= e(image_asset('scotland-landscape.jpg')) ?>" width="1200" height="800" alt="" decoding="async" loading="lazy">
+                    <img src="<?= e(image_asset('glasses-clarity.jpg')) ?>" width="1200" height="956" alt="" decoding="async" loading="lazy">
                 </figure>
             </li>
             <li class="argument-item">
@@ -127,7 +144,7 @@ require_once __DIR__ . '/includes/header.php';
                     <p>Cooperative and non-profit network projects worldwide—from Guifi.net in Catalonia to NYC Mesh—demonstrate that connectivity can be transparent, neighbourhood-scale, and governed in the public interest. Scotland can learn from these models.</p>
                 </div>
                 <figure class="argument-image" aria-hidden="true">
-                    <img src="<?= e(image_asset('card-global-network.jpg')) ?>" width="1200" height="800" alt="" decoding="async" loading="lazy">
+                    <img src="<?= e(image_asset('about-team.jpg')) ?>" width="1200" height="800" alt="" decoding="async" loading="lazy">
                 </figure>
             </li>
         </ol>

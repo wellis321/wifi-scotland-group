@@ -48,8 +48,8 @@ $projects = [
     [
         'name'    => 'Guifi.net',
         'sub'     => 'Community network, Catalonia and beyond',
-        'img'     => 'scotland-landscape.jpg',
-        'imgAlt'  => 'Landscape — representing rural connectivity challenges that community networks can address.',
+        'img'     => 'about-team.jpg',
+        'imgAlt'  => 'People collaborating — representing Guifi.net\'s user-governed community model.',
         'body'    => 'A long-running, user-governed network often cited in research on community infrastructure. It grew from wireless links in rural Catalonia into a broader commons-based model with clear governance documentation and a foundation supporting operations. A useful reference when asking what "open and neutral" network commitments can look like in practice.',
         'url'     => 'https://guifi.net/',
         'urlLabel'=> 'guifi.net',
@@ -100,6 +100,65 @@ require_once __DIR__ . '/includes/header.php';
 
             <div class="callout" style="margin-top:2.5rem">
                 <p><strong>Attribution:</strong> We highlight these projects because their documentation is public and their aims align with our values. Listing here is not an exhaustive survey of the field — suggest additions via <a href="/contact.php">Contact</a>.</p>
+            </div>
+
+            <h2 id="scotland-networks" style="margin-top:3.5rem">Closer to home: Scotland</h2>
+            <p>The models above are global proof points. But Scotland already has community-owned and community-managed networks of its own — evidence that the alternative is not hypothetical.</p>
+
+            <div class="community-net-list">
+
+                <div class="community-net-item">
+                    <div class="community-net-meta">
+                        <span class="pill">Small Isles &amp; Knoydart</span>
+                    </div>
+                    <h3 class="community-net-name">HebNet</h3>
+                    <p>Community internet service providing superfast broadband to Canna, Rum, Eigg, Muck, and Knoydart — some of Scotland's most remote communities — via microwave and FTTP. A genuinely community-managed network, not a commercial provider serving a difficult market.</p>
+                    <a class="community-net-link" href="https://www.hebnet.co.uk/"<?= external_link_attrs('https://www.hebnet.co.uk/') ?>>hebnet.co.uk &rarr;</a>
+                </div>
+
+                <div class="community-net-item">
+                    <div class="community-net-meta">
+                        <span class="pill">Inner Hebrides</span>
+                    </div>
+                    <h3 class="community-net-name">GigaPlus Argyll</h3>
+                    <p>Community-owned infrastructure serving Colonsay, Mull, Iona, Jura, and neighbouring islands, developed with Community Broadband Scotland funding from Highlands and Islands Enterprise. Demonstrates that islands left behind by commercial roll-out can build their own solution.</p>
+                    <a class="community-net-link" href="https://www.hie.co.uk/our-work/projects-and-research/connecting-our-communities/"<?= external_link_attrs('https://www.hie.co.uk/our-work/projects-and-research/connecting-our-communities/') ?>>Highlands and Islands Enterprise: community connectivity &rarr;</a>
+                </div>
+
+                <div class="community-net-item">
+                    <div class="community-net-meta">
+                        <span class="pill">Highland</span>
+                    </div>
+                    <h3 class="community-net-name">Highland Community Broadband</h3>
+                    <p>Community-focused provider serving Highland areas where mainstream infrastructure is thin. Part of a broader pattern of local organisations stepping in where commercial investment has not followed.</p>
+                    <a class="community-net-link" href="https://hcbroadband.co.uk/"<?= external_link_attrs('https://hcbroadband.co.uk/') ?>>hcbroadband.co.uk &rarr;</a>
+                </div>
+
+                <div class="community-net-item">
+                    <div class="community-net-meta">
+                        <span class="pill">Rural Scotland — multiple locations</span>
+                    </div>
+                    <h3 class="community-net-name">Community Broadband Scotland</h3>
+                    <p>A Scottish Government and HIE programme that has funded community-led broadband pilots in Applecross, Colonsay, Tomintoul, and other areas. The programme provides capital and technical support for communities that want to build and run their own connectivity rather than wait for commercial providers.</p>
+                    <a class="community-net-link" href="https://www.hie.co.uk/"<?= external_link_attrs('https://www.hie.co.uk/') ?>>Highlands and Islands Enterprise &rarr;</a>
+                </div>
+
+            </div>
+
+            <div class="pull-quote" style="margin-top:2rem">
+                <p>"Scotland has community-owned networks. The question is whether they remain the exception or become the expectation."</p>
+                <cite>WIRES campaign position</cite>
+            </div>
+
+            <div class="info-card" style="margin-top:2rem">
+                <div class="info-card__header">
+                    <h2 class="info-card__heading">B4RN — the UK benchmark</h2>
+                    <p class="info-card__sub">Lancashire, England — the model Scotland should study</p>
+                </div>
+                <div class="info-card__body">
+                    <p>Broadband for the Rural North (B4RN) is a community cooperative in rural Lancashire that delivers gigabit-capable full-fibre broadband to areas commercial providers ignored. Built largely by volunteer labour, governed by members, and structured so that profits stay in the community. It is widely cited as proof that community ownership of broadband infrastructure is viable at scale.</p>
+                    <p><a class="btn btn-ghost btn-sm" href="https://b4rn.org.uk/"<?= external_link_attrs('https://b4rn.org.uk/') ?>>b4rn.org.uk &rarr;</a></p>
+                </div>
             </div>
         </div>
 

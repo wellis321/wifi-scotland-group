@@ -137,7 +137,7 @@ INSERT INTO schemes (slug, name, summary, who_for, what_you_get, how_to_apply, u
 (
   'social-tariffs',
   'Social tariffs — cheaper broadband for people on benefits',
-  'Major broadband providers offer significantly cheaper deals for people receiving Universal Credit and other qualifying benefits. Around 532,000 UK households currently use them — most eligible people do not know they exist.',
+  'Major broadband providers offer significantly cheaper deals for people receiving Universal Credit and other qualifying benefits. Around 532,000 of the 6.2 million qualifying UK households use one — roughly 1 in 12. More than half of people on benefits have never heard that social tariffs exist.',
   'People claiming Universal Credit, Pension Credit, Employment and Support Allowance, Jobseeker\'s Allowance, or Income Support. Each provider has its own qualifying list — check directly with them.',
   'Broadband packages from around £12.50–£20 per month with no mid-contract price rises and no exit fees. BT Home Essentials, Virgin Media Essential, Sky Broadband Basics, and Community Fibre all offer versions.',
   'Check which providers cover your address on the Ofcom page below, confirm your benefit, and contact the provider. You do not need to wait for your current contract to end.',

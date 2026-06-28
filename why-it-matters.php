@@ -101,6 +101,22 @@ require_once __DIR__ . '/includes/header.php';
                 —UK charity focused on digital inclusion; useful for programme framing and evidence of support needs (always read their primary reports for numbers they publish).
             </li>
         </ul>
+        <div class="stat-strip">
+            <div class="stat-item">
+                <span class="stat-value">1 in 12</span>
+                <span class="stat-label">qualifying households use the social tariff they are entitled to (532,000 of 6.2m)</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value">55%</span>
+                <span class="stat-label">of people on benefits have never heard that social tariffs exist</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value">£12</span>
+                <span class="stat-label">average amount households overpay per month by not claiming their social tariff</span>
+            </div>
+        </div>
+        <p class="meta">Source: Ofcom 2024–25. The gap between entitlement and uptake is itself a policy failure — schemes people do not know exist are schemes that do not work.</p>
+
         <p>
             Regulator-led research is the right place for <strong>affordability stress</strong>, <strong>quality of service</strong>, and <strong>geographic coverage</strong> at scale. Ofcom publishes <strong>Connected Nations</strong> updates and related consumer research—headline premises and coverage statistics change each release, so we link to the hub rather than freezing a percentage here.
         </p>

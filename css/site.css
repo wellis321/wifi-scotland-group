@@ -1479,6 +1479,53 @@ a:hover {
     color: var(--signal);
 }
 
+.statement-band-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-top: 2.25rem;
+}
+
+.statement-stat {
+    padding: 1.25rem 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.statement-stat__value {
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 4vw, 3rem);
+    font-weight: 800;
+    color: var(--signal);
+    line-height: 1;
+    letter-spacing: -0.02em;
+}
+
+.statement-stat__label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 0.4rem;
+    line-height: 1.5;
+}
+
+.statement-band-source {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.35);
+    margin: 0.85rem 0 0;
+}
+
+.statement-band-source a {
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 600;
+    text-decoration: underline;
+}
+
 .btn-outline-light {
     background: transparent;
     color: #fff;
@@ -1602,12 +1649,16 @@ a:hover {
 /* ─── Homepage: Editorial arguments (alternating image rows) ─────────────── */
 
 .arguments-section {
-    padding: 4rem 0 0;
+    padding: 2rem 0 0;
+}
+
+.arguments-section > .wrap > h2 {
+    margin-top: 0;
 }
 
 .arguments-list {
     list-style: none;
-    margin: 2rem 0 0;
+    margin: 1.25rem 0 0;
     padding: 0;
 }
 
@@ -1995,6 +2046,64 @@ a:hover {
 .group-help-callout p {
     margin: 0 0 1rem;
     color: var(--muted);
+}
+
+/* ─── Community network list (global spotlight page) ────────────────────── */
+
+.community-net-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 1.5rem 0 0;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.community-net-item {
+    padding: 1.5rem 1.75rem;
+    background: var(--cream);
+    border-bottom: 1px solid var(--line);
+}
+
+.community-net-item:last-child {
+    border-bottom: none;
+}
+
+.community-net-item:nth-child(even) {
+    background: color-mix(in srgb, var(--cream) 70%, var(--paper));
+}
+
+.community-net-meta {
+    margin-bottom: 0.4rem;
+}
+
+.community-net-name {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--ink);
+    margin: 0 0 0.5rem;
+    letter-spacing: -0.005em;
+}
+
+.community-net-item p {
+    margin: 0 0 0.75rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.65;
+    max-width: 65ch;
+}
+
+.community-net-link {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--accent-dark);
+    text-decoration: none;
+}
+
+.community-net-link:hover {
+    color: var(--signal);
 }
 
 /* ─── Organisational supporters ─────────────────────────────────────────── */
