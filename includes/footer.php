@@ -32,7 +32,7 @@ declare(strict_types=1);
         </div>
     </div>
     <div class="wrap footer-meta">
-        <p>&copy; <?= date('Y') ?> <?= e(SITE_BRAND) ?> &mdash; Web Infrastructure Rights for Everyone in Scotland. Volunteer-led and independent.</p>
+        <p>&copy; <?= date('Y') ?> <?= e(SITE_BRAND) ?> &mdash; Volunteer-led and independent.</p>
         <p class="footer-legal">
             <a href="/privacy">Privacy</a>
             <span aria-hidden="true">&middot;</span>
