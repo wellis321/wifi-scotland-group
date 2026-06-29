@@ -1,3 +1,13 @@
+/* Honeypot field — invisible to humans, filled by bots */
+.form-hp {
+    position: absolute;
+    left: -9999px;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+}
+
 /* The WIFI Scotland Group — campaign site styles */
 :root {
     --ink: #0c1117;

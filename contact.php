@@ -8,9 +8,23 @@ $pageTitle = 'Contact';
 $pageDescription = 'Reach ' . SITE_BRAND . ' with corrections, partnership ideas, or local stories about connectivity.';
 $currentNav = 'contact';
 
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    $_SESSION['contact_loaded'] = time();
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!csrf_validate($_POST['csrf_token'] ?? null)) {
         flash_set('contact', 'That submission could not be verified. Please try again.');
+        header('Location: /contact');
+        exit;
+    }
+
+    /* Bot checks */
+    $isBot = ($_POST['website'] ?? '') !== ''
+          || (time() - (int) ($_SESSION['contact_loaded'] ?? 0)) < 3;
+
+    if ($isBot) {
+        flash_set('contact_ok', 'Message received. A volunteer will read it as soon as they can.');
         header('Location: /contact');
         exit;
     }
@@ -26,6 +40,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     if ($email === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $errors[] = 'Please enter a valid email address.';
+    } else {
+        $domain = substr($email, strrpos($email, '@') + 1);
+        if (!checkdnsrr($domain, 'MX') && !checkdnsrr($domain, 'A')) {
+            $errors[] = 'That email address doesn\'t look valid — the domain doesn\'t appear to exist.';
+        }
     }
     if ($subject === '' || mb_strlen($subject) > 200) {
         $errors[] = 'Please add a short subject (up to 200 characters).';
@@ -115,6 +134,10 @@ require_once __DIR__ . '/includes/header.php';
 
         <form class="forms" method="post" action="/contact" novalidate>
             <input type="hidden" name="csrf_token" value="<?= e(csrf_token()) ?>">
+            <div class="form-hp" aria-hidden="true">
+                <label for="website_c">Website</label>
+                <input id="website_c" name="website" type="text" tabindex="-1" autocomplete="off">
+            </div>
 
             <div class="form-row">
                 <label for="full_name">Full name</label>
