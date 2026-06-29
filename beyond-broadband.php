@@ -111,7 +111,7 @@ require_once __DIR__ . '/includes/header.php';
                 </div>
                 <div class="info-card__body">
                     <p>Programmes like R100 and the Gigabit Voucher Scheme address infrastructure — getting a connection to a building. They do not address the device a person needs to use it, the skills required to navigate services, the authentication systems that block them, or the language barriers that make digital forms inaccessible. A campaign that only argues for better broadband coverage is arguing for a necessary but insufficient condition. WIRES argues for the whole stack.</p>
-                    <p><a class="btn btn-ghost btn-sm" href="/why-wires">How WIRES is different &rarr;</a></p>
+                    <p><a class="btn btn-ghost btn-sm" href="/landscape">How WIRES is different &rarr;</a></p>
                 </div>
             </div>
 

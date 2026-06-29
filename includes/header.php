@@ -71,10 +71,11 @@ $navStructure = [
         'id'    => 'about',
         'label' => 'About',
         'items' => [
-            ['id' => 'about',       'href' => '/about',             'label' => 'About WIRES'],
-            ['id' => 'supporters',  'href' => '/supporters',        'label' => 'Supporters'],
-            ['id' => 'global',      'href' => '/global-spotlight',  'label' => 'Global spotlight'],
-            ['id' => 'resources',   'href' => '/resources',         'label' => 'Resources'],
+            ['id' => 'about',            'href' => '/about',             'label' => 'About WIRES'],
+            ['id' => 'supporters',       'href' => '/supporters',        'label' => 'Supporters'],
+            ['id' => 'fororganisations', 'href' => '/for-organisations', 'label' => 'For organisations'],
+            ['id' => 'global',           'href' => '/global-spotlight',  'label' => 'Global spotlight'],
+            ['id' => 'resources',        'href' => '/resources',         'label' => 'Resources'],
         ],
     ],
     [
