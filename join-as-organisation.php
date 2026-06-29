@@ -105,17 +105,27 @@ $sidebarRelated = [
 
 require_once __DIR__ . '/includes/header.php';
 
-/* Badge HTML for the toolkit */
-$badgeDark = '<a href="' . page_url('supporters.php') . '" target="_blank" rel="noopener noreferrer"
-   style="display:inline-flex;align-items:center;gap:10px;padding:10px 16px;background:#0c1117;color:#fff;text-decoration:none;border-radius:8px;font-family:-apple-system,BlinkMacSystemFont,\'Segoe UI\',sans-serif;max-width:340px;border:none">
-  <span style="background:#e25540;color:#fff;font-size:13px;font-weight:900;letter-spacing:-.01em;padding:4px 9px;border-radius:5px;flex-shrink:0;font-family:Arial,sans-serif">WIRES</span>
-  <span style="font-size:12px;font-weight:600;line-height:1.45;opacity:.9">Supporting Web Infrastructure Rights for Everyone in Scotland</span>
+/* Badge HTML — absolute URL for the copyable embed code, relative for on-page preview */
+$logoUrlAbs = page_url('images/logo.png');   // absolute — for the code supporters copy
+$logoUrlRel = image_asset('logo.png');        // relative — for the preview on this page
+$supportersUrl = page_url('supporters');
+
+/* Badge 1: standalone logo */
+$badgeDark     = '<a href="' . $supportersUrl . '" target="_blank" rel="noopener noreferrer" style="display:inline-block;text-decoration:none">
+  <img src="' . $logoUrlAbs . '" alt="We support WIRES — Web Infrastructure Rights for Everyone in Scotland" width="160" height="87" style="display:block;border:none">
+</a>';
+$badgeDarkPreview = '<a href="' . $supportersUrl . '" target="_blank" rel="noopener noreferrer" style="display:inline-block;text-decoration:none">
+  <img src="' . e($logoUrlRel) . '" alt="We support WIRES — Web Infrastructure Rights for Everyone in Scotland" width="160" height="87" style="display:block;border:none">
 </a>';
 
-$badgeLight = '<a href="' . page_url('supporters.php') . '" target="_blank" rel="noopener noreferrer"
-   style="display:inline-flex;align-items:center;gap:10px;padding:10px 16px;background:#f6f3ee;color:#0c1117;text-decoration:none;border-radius:8px;border:1.5px solid #0c1117;font-family:-apple-system,BlinkMacSystemFont,\'Segoe UI\',sans-serif;max-width:340px">
-  <span style="background:#0c1117;color:#e25540;font-size:13px;font-weight:900;letter-spacing:-.01em;padding:4px 9px;border-radius:5px;flex-shrink:0;font-family:Arial,sans-serif">WIRES</span>
-  <span style="font-size:12px;font-weight:600;line-height:1.45;color:#0c1117">Supporting Web Infrastructure Rights for Everyone in Scotland</span>
+/* Badge 2: logo on dark card */
+$badgeLight     = '<a href="' . $supportersUrl . '" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:12px;padding:12px 16px 12px 12px;background:#0c1117;text-decoration:none;border-radius:10px;font-family:sans-serif;max-width:340px">
+  <img src="' . $logoUrlAbs . '" alt="WIRES" width="64" height="35" style="display:block;flex-shrink:0;border:none">
+  <span style="color:#fff;font-size:12px;font-weight:600;line-height:1.5">Proud supporter of<br><strong style="font-size:14px;letter-spacing:-.01em">WIRES Scotland</strong></span>
+</a>';
+$badgeLightPreview = '<a href="' . $supportersUrl . '" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:12px;padding:12px 16px 12px 12px;background:#0c1117;text-decoration:none;border-radius:10px;font-family:sans-serif;max-width:340px">
+  <img src="' . e($logoUrlRel) . '" alt="WIRES" width="64" height="35" style="display:block;flex-shrink:0;border:none">
+  <span style="color:#fff;font-size:12px;font-weight:600;line-height:1.5">Proud supporter of<br><strong style="font-size:14px;letter-spacing:-.01em">WIRES Scotland</strong></span>
 </a>';
 ?>
 
@@ -246,24 +256,24 @@ $badgeLight = '<a href="' . page_url('supporters.php') . '" target="_blank" rel=
 
             <div class="toolkit-section">
                 <h3 class="toolkit-heading">Website badge</h3>
-                <p>Copy and paste one of these into your website, email footer, or newsletter.</p>
+                <p>Copy and paste one of these into your website, email footer, or newsletter. The logo image is served from wires.org.uk so it stays up to date automatically.</p>
 
-                <p class="toolkit-sublabel">Dark version (for light backgrounds)</p>
+                <p class="toolkit-sublabel">Standalone logo (works on any background)</p>
                 <div class="badge-preview">
-                    <?= $badgeDark ?>
+                    <?= $badgeDarkPreview ?>
                 </div>
                 <div class="badge-code-wrap">
-                    <textarea class="badge-code" readonly aria-label="Dark badge HTML code"><?= htmlspecialchars($badgeDark, ENT_QUOTES, 'UTF-8') ?></textarea>
+                    <textarea class="badge-code" readonly aria-label="Standalone logo badge HTML"><?= htmlspecialchars($badgeDark, ENT_QUOTES, 'UTF-8') ?></textarea>
                     <button class="btn btn-ghost btn-sm badge-copy-btn" data-target="badge-dark">Copy code</button>
                     <span id="badge-dark" style="display:none"><?= htmlspecialchars($badgeDark, ENT_QUOTES, 'UTF-8') ?></span>
                 </div>
 
-                <p class="toolkit-sublabel" style="margin-top:1.5rem">Light version (for dark backgrounds)</p>
+                <p class="toolkit-sublabel" style="margin-top:1.5rem">Dark card badge (email footers &amp; sidebars)</p>
                 <div class="badge-preview badge-preview--dark">
-                    <?= $badgeLight ?>
+                    <?= $badgeLightPreview ?>
                 </div>
                 <div class="badge-code-wrap">
-                    <textarea class="badge-code" readonly aria-label="Light badge HTML code"><?= htmlspecialchars($badgeLight, ENT_QUOTES, 'UTF-8') ?></textarea>
+                    <textarea class="badge-code" readonly aria-label="Dark card badge HTML"><?= htmlspecialchars($badgeLight, ENT_QUOTES, 'UTF-8') ?></textarea>
                     <button class="btn btn-ghost btn-sm badge-copy-btn" data-target="badge-light">Copy code</button>
                     <span id="badge-light" style="display:none"><?= htmlspecialchars($badgeLight, ENT_QUOTES, 'UTF-8') ?></span>
                 </div>
