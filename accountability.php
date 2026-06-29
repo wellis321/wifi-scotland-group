@@ -95,22 +95,22 @@ require_once __DIR__ . '/includes/header.php';
         <div class="prose">
 
             <div class="stat-strip">
-                <div class="stat-item">
+                <a class="stat-item stat-item--link" href="#councils-verified">
                     <span class="stat-value"><?= $counts['strategy'] ?? 0 ?></span>
                     <span class="stat-label">council<?= ($counts['strategy'] ?? 0) !== 1 ? 's' : '' ?> with a published strategy</span>
-                </div>
-                <div class="stat-item">
+                </a>
+                <a class="stat-item stat-item--link" href="#councils-verified">
                     <span class="stat-value"><?= $counts['plan'] ?? 0 ?></span>
                     <span class="stat-label">with digital inclusion referenced in existing plans</span>
-                </div>
-                <div class="stat-item">
+                </a>
+                <a class="stat-item stat-item--link" href="#councils-verified">
                     <span class="stat-value"><?= $counts['none'] ?? 0 ?></span>
                     <span class="stat-label">with no visible strategy found</span>
-                </div>
-                <div class="stat-item">
+                </a>
+                <a class="stat-item stat-item--link" href="#councils-unverified">
                     <span class="stat-value"><?= $counts['unknown'] ?? 0 ?></span>
                     <span class="stat-label">not yet verified — help us find out</span>
-                </div>
+                </a>
             </div>
 
             <div class="callout" style="margin-bottom:2rem">
@@ -181,7 +181,7 @@ require_once __DIR__ . '/includes/header.php';
             ?>
 
             <?php if (!empty($verified)): ?>
-            <div class="council-list">
+            <div class="council-list" id="councils-verified">
                 <?php foreach ($verified as $c):
                     $sc = $statusConfig[$c['status']] ?? $statusConfig['unknown'];
                 ?>
@@ -207,7 +207,7 @@ require_once __DIR__ . '/includes/header.php';
             <?php if (!empty($unverified)): ?>
             <h3 style="font-family:var(--font-display);font-size:1.1rem;font-weight:800;margin:2rem 0 0.75rem">Not yet verified — help us find out</h3>
             <p style="color:var(--muted);font-size:0.92rem;margin-bottom:1rem">We haven't been able to confirm what, if anything, these councils have in place. If you live or work in one of these areas, <a href="/contact">check and tell us</a>.</p>
-            <div class="council-unknown-grid">
+            <div class="council-unknown-grid" id="councils-unverified">
                 <?php foreach ($unverified as $c): ?>
                 <div class="council-unknown-item">
                     <strong><?= e($c['name']) ?></strong>

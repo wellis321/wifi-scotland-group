@@ -2978,6 +2978,21 @@ a:hover {
     text-transform: uppercase;
     letter-spacing: 0.06em;
 }
+a.stat-item--link {
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.12s ease;
+    cursor: pointer;
+}
+
+a.stat-item--link:hover {
+    background: color-mix(in srgb, var(--cream) 75%, var(--accent));
+}
+
+a.stat-item--link:hover .stat-value {
+    color: var(--accent-dark);
+}
+
 
 /* ─── Featured news article ──────────────────────────────────────────────── */
 
