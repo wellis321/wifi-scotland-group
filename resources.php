@@ -41,9 +41,27 @@ require_once __DIR__ . '/includes/header.php';
             <li><a href="https://www.gov.scot/publications/digital-strategy-scotland-sustainable-digital-public-services-delivery-plan-2025-2028/"<?= external_link_attrs('https://www.gov.scot/publications/digital-strategy-scotland-sustainable-digital-public-services-delivery-plan-2025-2028/') ?>>Digital public services delivery plan 2025–2028</a></li>
         </ol>
 
+        <h2>Audit and scrutiny</h2>
+        <ol class="ref-list">
+            <li>
+                <a href="https://audit.scot/uploads/2024-08/nr_240822_tackling_digital_exclusion.pdf"<?= external_link_attrs('https://audit.scot/uploads/2024-08/nr_240822_tackling_digital_exclusion.pdf') ?>>Tackling Digital Exclusion</a>
+                (Audit Scotland, August 2024) — independent assessment finding no clear action plan, unclear leadership, and stalled momentum since the pandemic-era Connecting Scotland programme. Essential reading for campaigners and journalists.
+            </li>
+            <li>
+                <a href="https://www.parliament.scot/chamber-and-committees/committees/current-and-previous-committees/session-6-public-audit-committee/correspondence/2024/tackling-digital-exclusion"<?= external_link_attrs('https://www.parliament.scot/chamber-and-committees/committees/current-and-previous-committees/session-6-public-audit-committee/correspondence/2024/tackling-digital-exclusion') ?>>Scottish Parliament Public Audit Committee: Tackling Digital Exclusion</a>
+                (September 2024) — parliamentary follow-up to the Audit Scotland report.
+            </li>
+            <li>
+                <a href="https://tfn.scot/news/no-leadership-no-momentun-scottish-government-has-failed-to-act-on-digital-exclusion"<?= external_link_attrs('https://tfn.scot/news/no-leadership-no-momentun-scottish-government-has-failed-to-act-on-digital-exclusion') ?>>No leadership, no momentum: Scottish Government has failed to act on digital exclusion</a>
+                (Third Force News) — sector response to the Audit Scotland findings.
+            </li>
+        </ol>
+
         <h2>Local government</h2>
         <ol class="ref-list">
-            <li><a href="https://www.cosla.gov.uk/about-cosla/our-teams/digital-office"<?= external_link_attrs('https://www.cosla.gov.uk/about-cosla/our-teams/digital-office') ?>>COSLA Digital Office</a></li>
+            <li><a href="https://www.cosla.gov.uk/about-cosla/our-teams/digital-office"<?= external_link_attrs('https://www.cosla.gov.uk/about-cosla/our-teams/digital-office') ?>>COSLA Digital Office</a> — co-owns the national Digital Strategy for Scotland</li>
+            <li><a href="https://www.digitaloffice.scot/"<?= external_link_attrs('https://www.digitaloffice.scot/') ?>>Digital Office for Scottish Local Government</a> (digitaloffice.scot) — separate body supporting council digital transformation; distinct from COSLA's Digital Office function</li>
+            <li><a href="https://www.cosla.gov.uk/__data/assets/pdf_file/0024/47670/LD24025-Digital-Strategy-Update.pdf"<?= external_link_attrs('https://www.cosla.gov.uk/__data/assets/pdf_file/0024/47670/LD24025-Digital-Strategy-Update.pdf') ?>>COSLA LD/24/025: Digital Strategy Update</a> (May 2024) — internal COSLA paper acknowledging strategy refresh needed and funding risks</li>
         </ol>
 
         <h2>UK regulators and reserved matters</h2>

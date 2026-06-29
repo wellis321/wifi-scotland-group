@@ -134,10 +134,25 @@ require_once __DIR__ . '/includes/header.php';
                 <div class="community-net-item">
                     <div class="community-net-meta">
                         <span class="pill pill--forming">Local government body</span>
-                        <span class="pill pill--forming" style="margin-left:0.4rem">Limited published output</span>
+                        <span class="pill pill--seeking" style="margin-left:0.4rem">Audit Scotland: no clear action plan</span>
                     </div>
                     <h3 class="community-net-name">COSLA Digital Office</h3>
-                    <p>The Convention of Scottish Local Authorities hosts a Digital Office to support collaboration across councils on digital priorities, including inclusion and service design. Published outputs on digital inclusion specifically are limited — it is primarily a coordination and advisory function rather than a delivery body.</p>
+                    <p>
+                        COSLA's Digital Office co-owns the national Digital Strategy for Scotland (jointly with Scottish Government), which commits under "No-One Left Behind" to world-leading digital inclusion. The strategy also commits to "Digital Education and Skills" and "An Ethical Digital Nation."
+                    </p>
+                    <p>
+                        In August 2024, Audit Scotland published <em>Tackling Digital Exclusion</em> — an independent assessment that was direct in its findings: approximately 1 in 6 Scottish adults remains digitally excluded; momentum has stalled and leadership has weakened since the pandemic-era Connecting Scotland programme; <strong>there is no clear action plan for reducing exclusion, and it is unclear who is responsible</strong> across Scottish Government, local government, and the third sector. The Digital Inclusion Alliance had made slow progress and governance groups met infrequently. Audit Scotland called on Scottish Government and COSLA to develop a clear action plan with defined leadership by end of 2024/25.
+                    </p>
+                    <p>
+                        COSLA's own internal paper (LD/24/025, May 2024) acknowledged the strategy needed refreshing and flagged reduced funding to local areas as a risk to delivery. The Third Force News summarised the situation as: <em>"No leadership, no momentum: Scottish Government has failed to act on digital exclusion."</em>
+                    </p>
+                    <p>
+                        Note: a separate body — the <strong>Digital Office for Scottish Local Government</strong> (digitaloffice.scot) — is hosted at COSLA but operates independently, focused on digital transformation and data maturity within councils. It is distinct from COSLA's own Digital Office function.
+                    </p>
+                    <a class="community-net-link" href="https://audit.scot/uploads/2024-08/nr_240822_tackling_digital_exclusion.pdf"<?= external_link_attrs('https://audit.scot/uploads/2024-08/nr_240822_tackling_digital_exclusion.pdf') ?>>Audit Scotland: Tackling Digital Exclusion (August 2024, PDF) &rarr;</a>
+                    &nbsp;&middot;&nbsp;
+                    <a class="community-net-link" href="https://audit.scot/news/clearer-leadership-and-focus-needed-to-tackle-digital-exclusion"<?= external_link_attrs('https://audit.scot/news/clearer-leadership-and-focus-needed-to-tackle-digital-exclusion') ?>>Audit Scotland news release &rarr;</a>
+                    &nbsp;&middot;&nbsp;
                     <a class="community-net-link" href="https://www.cosla.gov.uk/about-cosla/our-teams/digital-office"<?= external_link_attrs('https://www.cosla.gov.uk/about-cosla/our-teams/digital-office') ?>>COSLA Digital Office &rarr;</a>
                 </div>
 
