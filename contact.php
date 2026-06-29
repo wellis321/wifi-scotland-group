@@ -11,7 +11,7 @@ $currentNav = 'contact';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!csrf_validate($_POST['csrf_token'] ?? null)) {
         flash_set('contact', 'That submission could not be verified. Please try again.');
-        header('Location: /contact.php');
+        header('Location: /contact');
         exit;
     }
 
@@ -36,13 +36,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($errors) {
         flash_set('contact', implode(' ', $errors));
-        header('Location: /contact.php');
+        header('Location: /contact');
         exit;
     }
 
     if (!db_available()) {
         flash_set('contact', 'The database is not available—your message was not stored. Please email us once the site is configured, or try again later.');
-        header('Location: /contact.php');
+        header('Location: /contact');
         exit;
     }
 
@@ -84,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         flash_set('contact', 'Something went wrong saving your message. Please try again later.');
     }
 
-    header('Location: /contact.php');
+    header('Location: /contact');
     exit;
 }
 
@@ -113,7 +113,7 @@ require_once __DIR__ . '/includes/header.php';
             <p class="flash err" role="alert"><?= e($flashErr) ?></p>
         <?php endif; ?>
 
-        <form class="forms" method="post" action="/contact.php" novalidate>
+        <form class="forms" method="post" action="/contact" novalidate>
             <input type="hidden" name="csrf_token" value="<?= e(csrf_token()) ?>">
 
             <div class="form-row">

@@ -11,7 +11,7 @@ $currentNav = 'join';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!csrf_validate($_POST['csrf_token'] ?? null)) {
         flash_set('join', 'That submission could not be verified. Please try again.');
-        header('Location: /join.php');
+        header('Location: /join');
         exit;
     }
 
@@ -34,13 +34,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($errors) {
         flash_set('join', implode(' ', $errors));
-        header('Location: /join.php');
+        header('Location: /join');
         exit;
     }
 
     if (!db_available()) {
         flash_set('join', 'The database is not available right now. Your details were not saved—please try again later or use the contact form.');
-        header('Location: /join.php');
+        header('Location: /join');
         exit;
     }
 
@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         flash_set('join', 'Something went wrong saving your signup. Please try again in a little while.');
     }
 
-    header('Location: /join.php');
+    header('Location: /join');
     exit;
 }
 
@@ -89,7 +89,7 @@ require_once __DIR__ . '/includes/header.php';
             <p class="flash err" role="alert"><?= e($flashErr) ?></p>
         <?php endif; ?>
 
-        <form class="forms" method="post" action="/join.php" novalidate>
+        <form class="forms" method="post" action="/join" novalidate>
             <input type="hidden" name="csrf_token" value="<?= e(csrf_token()) ?>">
 
             <div class="form-row">
