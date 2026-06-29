@@ -175,39 +175,50 @@ require_once __DIR__ . '/includes/header.php';
             <h2>The 32 Scottish councils</h2>
             <p>Scotland has 32 local authorities. Each has responsibility for housing, community development, and local services — and each could act on digital exclusion within its area. Below is what we have verified so far.</p>
 
-            <div class="accountability-table-wrap">
-                <table class="accountability-table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Council</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Notes</th>
-                            <th scope="col">Last checked</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <?php foreach ($councils as $c):
-                        $sc = $statusConfig[$c['status']] ?? $statusConfig['unknown'];
-                    ?>
-                        <tr>
-                            <td><strong><?= e($c['name']) ?></strong></td>
-                            <td><span class="<?= e($sc['class']) ?>"><?= e($sc['label']) ?></span></td>
-                            <td>
-                                <?php if (!empty($c['note'])): ?>
-                                    <?= e($c['note']) ?>
-                                    <?php if (!empty($c['url'])): ?>
-                                        <a href="<?= e($c['url']) ?>"<?= external_link_attrs($c['url']) ?> style="display:inline-block;margin-top:0.25rem;font-size:0.82rem;font-weight:600"> Source &rarr;</a>
-                                    <?php endif; ?>
-                                <?php else: ?>
-                                    <span style="color:var(--muted);font-size:0.88rem">Help us find out — <a href="/contact">contact WIRES</a></span>
-                                <?php endif; ?>
-                            </td>
-                            <td class="meta"><?= e($c['checked'] ?: '—') ?></td>
-                        </tr>
-                    <?php endforeach; ?>
-                    </tbody>
-                </table>
+            <?php
+            $verified   = array_filter($councils, fn($c) => $c['status'] !== 'unknown');
+            $unverified = array_filter($councils, fn($c) => $c['status'] === 'unknown');
+            ?>
+
+            <?php if (!empty($verified)): ?>
+            <div class="council-list">
+                <?php foreach ($verified as $c):
+                    $sc = $statusConfig[$c['status']] ?? $statusConfig['unknown'];
+                ?>
+                <div class="council-entry">
+                    <div class="council-entry__head">
+                        <strong class="council-entry__name"><?= e($c['name']) ?></strong>
+                        <span class="<?= e($sc['class']) ?>"><?= e($sc['label']) ?></span>
+                        <?php if (!empty($c['checked'])): ?>
+                            <span class="council-entry__date">Checked <?= e($c['checked']) ?></span>
+                        <?php endif; ?>
+                    </div>
+                    <?php if (!empty($c['note'])): ?>
+                        <p class="council-entry__note"><?= e($c['note']) ?></p>
+                        <?php if (!empty($c['url'])): ?>
+                            <a class="council-entry__source" href="<?= e($c['url']) ?>"<?= external_link_attrs($c['url']) ?>>Source &rarr;</a>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                </div>
+                <?php endforeach; ?>
             </div>
+            <?php endif; ?>
+
+            <?php if (!empty($unverified)): ?>
+            <h3 style="font-family:var(--font-display);font-size:1.1rem;font-weight:800;margin:2rem 0 0.75rem">Not yet verified — help us find out</h3>
+            <p style="color:var(--muted);font-size:0.92rem;margin-bottom:1rem">We haven't been able to confirm what, if anything, these councils have in place. If you live or work in one of these areas, <a href="/contact">check and tell us</a>.</p>
+            <div class="council-unknown-grid">
+                <?php foreach ($unverified as $c): ?>
+                <div class="council-unknown-item">
+                    <strong><?= e($c['name']) ?></strong>
+                    <?php if (!empty($c['note'])): ?>
+                        <span class="council-unknown-note"><?= e($c['note']) ?></span>
+                    <?php endif; ?>
+                    <a href="/contact" class="council-unknown-link">Tell us</a>
+                </div>
+                <?php endforeach; ?>
+            </div>
+            <?php endif; ?>
 
             <div class="info-card" style="margin-top:2rem">
                 <div class="info-card__header">
