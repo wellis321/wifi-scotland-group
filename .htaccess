@@ -9,7 +9,7 @@ DirectoryIndex index.php index.html
 
     # Redirect other .php pages to extension-free URL
     # Skip pages that use query strings for content (news-item, group, sitemap)
-    RewriteCond %{THE_REQUEST} \s/+(about|contact|join|privacy|terms|credits|scotland|scotland-stories|why-it-matters|get-involved|get-help|global-spotlight|resources|news|groups|group|start-a-group|write-to-councillor|supporters|join-as-organisation|wifi-map|landscape)\.php[\s?] [NC]
+    RewriteCond %{THE_REQUEST} \s/+(about|contact|join|privacy|terms|credits|scotland|scotland-stories|why-it-matters|get-involved|get-help|global-spotlight|resources|news|groups|group|start-a-group|write-to-councillor|supporters|join-as-organisation|wifi-map|landscape|digital-health|beyond-broadband)\.php[\s?] [NC]
     RewriteRule ^ /%1 [R=301,L,NE]
 
     # Internally serve the .php file when clean URL is requested

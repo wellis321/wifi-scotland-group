@@ -12,10 +12,11 @@ $pageOgImage    = image_asset('card-community.jpg');
 $pageOgImageAlt = 'People at a community meeting — representing the human impact of digital exclusion.';
 
 $sidebarRelated = [
-    ['href' => '/get-help.php',   'label' => 'Help getting online'],
-    ['href' => '/scotland.php',   'label' => 'Scotland policy'],
-    ['href' => '/resources.php',  'label' => 'Resources & references'],
-    ['href' => '/news.php',       'label' => 'Latest news'],
+    ['href' => '/digital-health',  'label' => 'Digital exclusion & health'],
+    ['href' => '/beyond-broadband','label' => 'Beyond broadband'],
+    ['href' => '/get-help',        'label' => 'Help getting online'],
+    ['href' => '/scotland',        'label' => 'Scotland policy'],
+    ['href' => '/resources',       'label' => 'Resources & references'],
 ];
 
 require_once __DIR__ . '/includes/header.php';
@@ -202,6 +203,25 @@ require_once __DIR__ . '/includes/header.php';
             <li><a href="https://www.crisis.org.uk/"<?= external_link_attrs('https://www.crisis.org.uk/') ?>>Crisis</a> — national charity working to end homelessness; has published on digital access</li>
             <li><a href="https://www.gov.scot/policies/homelessness/"<?= external_link_attrs('https://www.gov.scot/policies/homelessness/') ?>>Scottish Government: homelessness policy</a></li>
         </ul>
+
+        <div class="card-grid cols-2" style="margin:2.5rem 0">
+            <a class="icon-card" href="/digital-health" style="text-decoration:none">
+                <div class="icon-card-body">
+                    <span class="pill">Research</span>
+                    <h2>Digital exclusion and health</h2>
+                    <p>WHO evidence, COVID-19 research, NHS data, and peer-reviewed studies on loneliness and isolation — the documented health consequences of being offline.</p>
+                    <p style="margin-top:auto;padding-top:0.75rem"><span class="btn btn-primary btn-sm">Read the evidence &rarr;</span></p>
+                </div>
+            </a>
+            <a class="icon-card" href="/beyond-broadband" style="text-decoration:none">
+                <div class="icon-card-body">
+                    <span class="pill">Policy</span>
+                    <h2>Beyond broadband</h2>
+                    <p>Devices, outdated software, authentication barriers, digital skills, and language — the full stack of exclusion that connectivity programmes alone cannot fix.</p>
+                    <p style="margin-top:auto;padding-top:0.75rem"><span class="btn btn-primary btn-sm">Read more &rarr;</span></p>
+                </div>
+            </a>
+        </div>
 
         <h2>What official data does—and does not—measure</h2>
         <ul>
