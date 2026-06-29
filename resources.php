@@ -63,7 +63,7 @@ require_once __DIR__ . '/includes/header.php';
         <p>Proof that community-owned and community-managed connectivity exists in Scotland right now — not as a future possibility, but as a working reality in some of our most remote areas.</p>
         <ol class="ref-list">
             <li><a href="https://www.hebnet.co.uk/"<?= external_link_attrs('https://www.hebnet.co.uk/') ?>>HebNet</a> — community internet for the Small Isles (Canna, Rum, Eigg, Muck) and Knoydart</li>
-            <li><a href="https://hcbroadband.co.uk/"<?= external_link_attrs('https://hcbroadband.co.uk/') ?>>Highland Community Broadband</a> — community-focused provider in rural Highland areas</li>
+            <li><a href="https://www.ispreview.co.uk/index.php/2026/01/wireless-isp-highland-community-broadband-set-to-close-in-april-2026.html"<?= external_link_attrs('https://www.ispreview.co.uk/index.php/2026/01/wireless-isp-highland-community-broadband-set-to-close-in-april-2026.html') ?>>Highland Community Broadband</a> — served Ullapool 2017–2026; <strong>closed April 2026</strong> due to rising operational costs. A case study in why community networks need policy support to survive.</li>
             <li><a href="https://www.hie.co.uk/"<?= external_link_attrs('https://www.hie.co.uk/') ?>>Highlands and Islands Enterprise (HIE)</a> — administers Community Broadband Scotland funding; pilots in Applecross, Colonsay, Tomintoul and others</li>
             <li><a href="https://b4rn.org.uk/"<?= external_link_attrs('https://b4rn.org.uk/') ?>>B4RN</a> — Broadband for the Rural North; UK benchmark for community cooperative broadband; Lancashire</li>
         </ol>

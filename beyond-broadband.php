@@ -101,7 +101,7 @@ require_once __DIR__ . '/includes/header.php';
             </ul>
 
             <div class="pull-quote">
-                <p>"Connectivity is the entry point, not the destination. You can have the pipe in the wall and still be locked out of every room."</p>
+                <p>"Connectivity is the entry point, not the destination. You can have electricity coming into the building and still be sitting in the dark."</p>
                 <cite>WIRES campaign position</cite>
             </div>
 

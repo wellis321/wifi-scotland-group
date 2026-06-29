@@ -134,6 +134,44 @@ require_once __DIR__ . '/includes/admin_header.php';
         <p class="admin-hint">HTML supported: &lt;p&gt; &lt;strong&gt; &lt;em&gt; &lt;a href="..."&gt; &lt;ul&gt; &lt;li&gt; &lt;h2&gt; — Use the image panel below to insert inline images.</p>
     </div>
 
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem">
+        <div class="admin-field">
+            <label for="published_at">Published date</label>
+            <input id="published_at" name="published_at" type="date" required value="<?= e((string) ($item['published_at'] ?? date('Y-m-d'))) ?>">
+        </div>
+        <div class="admin-field">
+            <label for="image_filename">Banner image</label>
+            <select id="image_filename" name="image_filename">
+                <option value="">— Default (card-global-network.jpg) —</option>
+                <?php foreach ($availableImages as $img): ?>
+                    <option value="<?= e($img) ?>" <?= ($item['image_filename'] ?? '') === $img ? 'selected' : '' ?>><?= e($img) ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <div class="admin-field">
+            <label for="group_id">Local group <span style="font-weight:400;text-transform:none">(optional)</span></label>
+            <select id="group_id" name="group_id">
+                <option value="">— None —</option>
+                <?php foreach ($groups as $g): ?>
+                    <option value="<?= e((string)$g['id']) ?>" <?= ((int)($item['group_id'] ?? 0)) === (int)$g['id'] ? 'selected' : '' ?>><?= e($g['council_area']) ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+    </div>
+
+    <div class="admin-form-actions">
+        <button class="btn btn-primary" type="submit"><?= $isNew ? 'Publish' : 'Save changes' ?></button>
+        <a class="btn btn-ghost" href="/admin/news.php">Cancel</a>
+        <?php if (!$isNew): ?>
+            <div class="admin-delete-zone">
+                <button class="btn" style="background:rgba(226,85,64,0.1);color:#7a2f24" type="submit" name="_delete" value="1"
+                    data-confirm="Delete this article? This cannot be undone.">Delete article</button>
+            </div>
+        <?php endif; ?>
+    </div>
+</form>
+
     <div class="inserter-panel">
         <p class="inserter-label">Images</p>
         <form class="inserter-upload-row" method="post" action="/admin/upload.php" enctype="multipart/form-data">
@@ -245,42 +283,5 @@ require_once __DIR__ . '/includes/admin_header.php';
             </script>
         <?php endif; ?>
     </div>
-
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem">
-        <div class="admin-field">
-            <label for="published_at">Published date</label>
-            <input id="published_at" name="published_at" type="date" required value="<?= e((string) ($item['published_at'] ?? date('Y-m-d'))) ?>">
-        </div>
-        <div class="admin-field">
-            <label for="image_filename">Banner image</label>
-            <select id="image_filename" name="image_filename">
-                <option value="">— Default (card-global-network.jpg) —</option>
-                <?php foreach ($availableImages as $img): ?>
-                    <option value="<?= e($img) ?>" <?= ($item['image_filename'] ?? '') === $img ? 'selected' : '' ?>><?= e($img) ?></option>
-                <?php endforeach; ?>
-            </select>
-        </div>
-        <div class="admin-field">
-            <label for="group_id">Local group <span style="font-weight:400;text-transform:none">(optional)</span></label>
-            <select id="group_id" name="group_id">
-                <option value="">— None —</option>
-                <?php foreach ($groups as $g): ?>
-                    <option value="<?= e((string)$g['id']) ?>" <?= ((int)($item['group_id'] ?? 0)) === (int)$g['id'] ? 'selected' : '' ?>><?= e($g['council_area']) ?></option>
-                <?php endforeach; ?>
-            </select>
-        </div>
-    </div>
-
-    <div class="admin-form-actions">
-        <button class="btn btn-primary" type="submit"><?= $isNew ? 'Publish' : 'Save changes' ?></button>
-        <a class="btn btn-ghost" href="/admin/news.php">Cancel</a>
-        <?php if (!$isNew): ?>
-            <div class="admin-delete-zone">
-                <button class="btn" style="background:rgba(226,85,64,0.1);color:#7a2f24" type="submit" name="_delete" value="1"
-                    data-confirm="Delete this article? This cannot be undone.">Delete article</button>
-            </div>
-        <?php endif; ?>
-    </div>
-</form>
 
 <?php require_once __DIR__ . '/includes/admin_footer.php'; ?>
