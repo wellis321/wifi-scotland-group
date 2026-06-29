@@ -9,8 +9,13 @@ require_admin();
 $adminTitle   = 'Media';
 $adminSection = 'media';
 
-$imgDir = PROJECT_ROOT . DIRECTORY_SEPARATOR . 'images';
-$images = [];
+$imgDir  = PROJECT_ROOT . DIRECTORY_SEPARATOR . 'images';
+$images  = [];
+$metaPath = PROJECT_ROOT . '/data/image-metadata.json';
+$imgMeta  = [];
+if (is_readable($metaPath)) {
+    $imgMeta = json_decode((string) file_get_contents($metaPath), true) ?: [];
+}
 if (is_dir($imgDir)) {
     foreach (scandir($imgDir) as $f) {
         if (preg_match('/\.(jpe?g|png|webp|gif)$/i', $f)) {
@@ -58,8 +63,14 @@ require_once __DIR__ . '/includes/admin_header.php';
                 <div class="media-info">
                     <p class="media-filename" title="<?= e($img['filename']) ?>"><?= e($img['filename']) ?></p>
                     <p class="media-meta"><?= e(number_format($img['size'] / 1024, 0)) ?> KB &middot; <?= date('d M Y', $img['modified']) ?></p>
+                    <?php if (!empty($imgMeta[$img['filename']]['alt'])): ?>
+                        <p class="media-meta" style="font-style:italic;opacity:0.7" title="Alt text"><?= e($imgMeta[$img['filename']]['alt']) ?></p>
+                    <?php else: ?>
+                        <p class="media-meta" style="color:var(--signal);font-size:0.7rem">No alt text</p>
+                    <?php endif; ?>
                 </div>
                 <div class="media-actions">
+                    <a class="admin-link" href="/admin/media-edit.php?file=<?= e(rawurlencode($img['filename'])) ?>">Edit</a>
                     <a class="admin-link" href="/images/<?= e(rawurlencode($img['filename'])) ?>" target="_blank" rel="noopener">View</a>
                     <button class="admin-link admin-link--danger media-copy-btn"
                             data-filename="<?= e($img['filename']) ?>"
