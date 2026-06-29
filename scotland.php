@@ -87,6 +87,45 @@ require_once __DIR__ . '/includes/header.php';
             <li><a href="https://www.ofcom.org.uk/"<?= external_link_attrs('https://www.ofcom.org.uk/') ?>>Ofcom (UK communications regulator)</a> — search for coverage and affordability research.</li>
         </ul>
 
+        <h2>Local authority action: Glasgow</h2>
+
+        <p>
+            Glasgow City Council published Scotland's first <strong>Digital Housing Strategy 2022–2028</strong> — the only local authority strategy to address both digital housing services and digital exclusion together. Its own evidence base produced a striking finding:
+        </p>
+
+        <div class="stat-strip">
+            <div class="stat-item">
+                <span class="stat-value">65%</span>
+                <span class="stat-label">of households in Glasgow's social rented housing do not use home broadband</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value">32</span>
+                <span class="stat-label">RSLs backing the strategy, covering 75% of the city's social housing stock</span>
+            </div>
+        </div>
+
+        <p>
+            The strategy identifies affordability, lack of digital skills, and reluctance to transact online as the three primary barriers. Crucially, it includes a written safeguard requiring that traditional service methods — face-to-face and telephone — continue alongside digital channels, preventing digital-only design from excluding tenants.
+        </p>
+        <p>
+            Progress is being reported through annual Local Housing Strategy reviews. A standalone evaluation of the Digital Housing Strategy has not yet been published — which means the accountability picture is still incomplete. The intent is documented; the outcomes are not yet independently verified.
+        </p>
+        <ul>
+            <li>
+                <a href="https://www.glasgow.gov.uk/article/2692/Glasgow-s-Digital-Housing-Strategy-to-improve-housing-services-and-tackle-digital-exclusion"<?= external_link_attrs('https://www.glasgow.gov.uk/article/2692/Glasgow-s-Digital-Housing-Strategy-to-improve-housing-services-and-tackle-digital-exclusion') ?>>Glasgow's Digital Housing Strategy — Glasgow City Council</a>
+            </li>
+            <li>
+                <a href="https://glasgow.gov.uk/media/1717/Glasgow-s-Digital-Housing-Strategy/pdf/Glasgows_Digital_Housing_Strategy.pdf"<?= external_link_attrs('https://glasgow.gov.uk/media/1717/Glasgow-s-Digital-Housing-Strategy/pdf/Glasgows_Digital_Housing_Strategy.pdf') ?>>Full strategy document (PDF)</a>
+            </li>
+            <li>
+                <a href="https://glasgow.gov.uk/media/10878/Appendix-LHS-2023-2028-Annual-Review-Report-Year-One-2023-2024/pdf/Appendix_LHS_23-28_Annual_Review_Report_-_Year_One_2023_2024.pdf"<?= external_link_attrs('https://glasgow.gov.uk/media/10878/Appendix-LHS-2023-2028-Annual-Review-Report-Year-One-2023-2024/pdf/Appendix_LHS_23-28_Annual_Review_Report_-_Year_One_2023_2024.pdf') ?>>Local Housing Strategy Annual Review 2023–2024 (PDF)</a>
+            </li>
+        </ul>
+
+        <div class="callout">
+            <p><strong>Campaign question to ask in Glasgow:</strong> The strategy commits to published outcomes and annual monitoring. Ask your local councillor or RSL what specific digital inclusion outcomes have been achieved since 2022, and where the data is publicly available.</p>
+        </div>
+
         <h2>How to use this page as an activist</h2>
         <ul>
             <li>Pair official programme links with <strong>local stories</strong> from your community council, tenants' union, or school parent group.</li>

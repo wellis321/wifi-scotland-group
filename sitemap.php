@@ -24,6 +24,7 @@ $static = [
     ['/digital-health',       '0.8', 'monthly'],
     ['/beyond-broadband',     '0.8', 'monthly'],
     ['/scotland',             '0.8', 'monthly'],
+    ['/accountability',       '0.9', 'weekly'],
     ['/scotland-stories',     '0.7', 'monthly'],
     ['/global-spotlight',     '0.7', 'monthly'],
     ['/get-help',             '0.9', 'weekly'],

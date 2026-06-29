@@ -48,10 +48,11 @@ $navStructure = [
         'id'    => 'scotland',
         'label' => 'Scotland',
         'items' => [
-            ['id' => 'scotlandpolicy', 'href' => '/scotland',        'label' => 'Scotland policy'],
-            ['id' => 'scotlandstories','href' => '/scotland-stories','label' => 'Scottish stories'],
-            ['id' => 'wifimap',        'href' => '/wifi-map',        'label' => 'WiFi map'],
-            ['id' => 'gethelp',        'href' => '/get-help',        'label' => 'Help getting online'],
+            ['id' => 'scotlandpolicy',  'href' => '/scotland',        'label' => 'Scotland policy'],
+            ['id' => 'scotlandstories', 'href' => '/scotland-stories','label' => 'Scottish stories'],
+            ['id' => 'accountability',  'href' => '/accountability',  'label' => 'Who is acting?'],
+            ['id' => 'wifimap',         'href' => '/wifi-map',        'label' => 'WiFi map'],
+            ['id' => 'gethelp',         'href' => '/get-help',        'label' => 'Help getting online'],
         ],
     ],
     [

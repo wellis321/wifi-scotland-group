@@ -1,0 +1,239 @@
+<?php
+
+declare(strict_types=1);
+
+require_once __DIR__ . '/includes/bootstrap.php';
+
+$pageTitle       = 'Who is acting on digital exclusion in Scotland?';
+$pageDescription = 'A tracker of which Scottish councils have a published digital inclusion strategy, which bodies have a mandate to act and what they have delivered, and where accountability is missing.';
+$currentNav      = 'accountability';
+
+$pageOgImage    = image_asset('scotland-landscape.jpg');
+$pageOgImageAlt = 'Scotland — representing the councils and bodies that should be tackling digital exclusion.';
+
+/*
+ * Status values:
+ *   'strategy'  — Published standalone digital inclusion/housing/connectivity strategy
+ *   'plan'      — Referenced in an existing plan (LHS, corporate plan, etc.) but not standalone
+ *   'none'      — Searched; no visible strategy or plan found
+ *   'unknown'   — Not yet verified — help us find out
+ *
+ * Last checked: date string shown to visitors
+ */
+$councils = [
+    ['name' => 'Aberdeen City',         'status' => 'unknown', 'note' => '',  'url' => '', 'checked' => ''],
+    ['name' => 'Aberdeenshire',         'status' => 'unknown', 'note' => '',  'url' => '', 'checked' => ''],
+    ['name' => 'Angus',                 'status' => 'unknown', 'note' => '',  'url' => '', 'checked' => ''],
+    ['name' => 'Argyll and Bute',       'status' => 'plan',
+     'note' => 'GigaPlus Argyll: community-owned infrastructure serving Colonsay, Mull, Iona, Jura and other Inner Hebrides islands, developed with Community Broadband Scotland funding. Infrastructure-focused — no standalone digital exclusion strategy found.',
+     'url' => 'https://www.hie.co.uk/',
+     'checked' => 'June 2026'],
+    ['name' => 'Clackmannanshire',      'status' => 'unknown', 'note' => '',  'url' => '', 'checked' => ''],
+    ['name' => 'Dumfries and Galloway', 'status' => 'unknown', 'note' => '',  'url' => '', 'checked' => ''],
+    ['name' => 'Dundee City',           'status' => 'unknown', 'note' => '',  'url' => '', 'checked' => ''],
+    ['name' => 'East Ayrshire',         'status' => 'unknown', 'note' => '',  'url' => '', 'checked' => ''],
+    ['name' => 'East Dunbartonshire',   'status' => 'unknown', 'note' => '',  'url' => '', 'checked' => ''],
+    ['name' => 'East Lothian',          'status' => 'unknown', 'note' => '',  'url' => '', 'checked' => ''],
+    ['name' => 'East Renfrewshire',     'status' => 'unknown', 'note' => '',  'url' => '', 'checked' => ''],
+    ['name' => 'City of Edinburgh',     'status' => 'unknown', 'note' => '',  'url' => '', 'checked' => ''],
+    ['name' => 'Falkirk',               'status' => 'unknown', 'note' => '',  'url' => '', 'checked' => ''],
+    ['name' => 'Fife',                  'status' => 'unknown', 'note' => '',  'url' => '', 'checked' => ''],
+    ['name' => 'Glasgow City',          'status' => 'strategy',
+     'note' => 'Scotland\'s first Digital Housing Strategy 2022–2028. Evidence base found 65% of social rented households do not use home broadband. Backed by 32 RSLs covering 75% of stock. No standalone evaluation published yet.',
+     'url' => 'https://www.glasgow.gov.uk/article/2692/Glasgow-s-Digital-Housing-Strategy-to-improve-housing-services-and-tackle-digital-exclusion',
+     'checked' => 'June 2026'],
+    ['name' => 'Highland',              'status' => 'plan',
+     'note' => 'Highland Council area has active community broadband pilots supported by HIE and Community Broadband Scotland, including in Applecross. Highland Community Broadband operates as a community-focused provider in the area. No standalone council digital inclusion strategy identified.',
+     'url' => 'https://hcbroadband.co.uk/',
+     'checked' => 'June 2026'],
+    ['name' => 'Inverclyde',            'status' => 'unknown', 'note' => '',  'url' => '', 'checked' => ''],
+    ['name' => 'Midlothian',            'status' => 'unknown', 'note' => '',  'url' => '', 'checked' => ''],
+    ['name' => 'Moray',                 'status' => 'unknown', 'note' => '',  'url' => '', 'checked' => ''],
+    ['name' => 'Na h-Eileanan Siar',    'status' => 'unknown', 'note' => 'Western Isles — community broadband models exist via HIE.', 'url' => '', 'checked' => ''],
+    ['name' => 'North Ayrshire',        'status' => 'unknown', 'note' => '',  'url' => '', 'checked' => ''],
+    ['name' => 'North Lanarkshire',     'status' => 'unknown', 'note' => '',  'url' => '', 'checked' => ''],
+    ['name' => 'Orkney Islands',        'status' => 'unknown', 'note' => '',  'url' => '', 'checked' => ''],
+    ['name' => 'Perth and Kinross',     'status' => 'unknown', 'note' => '',  'url' => '', 'checked' => ''],
+    ['name' => 'Renfrewshire',          'status' => 'unknown', 'note' => '',  'url' => '', 'checked' => ''],
+    ['name' => 'Scottish Borders',      'status' => 'unknown', 'note' => '',  'url' => '', 'checked' => ''],
+    ['name' => 'Shetland Islands',      'status' => 'unknown', 'note' => '',  'url' => '', 'checked' => ''],
+    ['name' => 'South Ayrshire',        'status' => 'unknown', 'note' => '',  'url' => '', 'checked' => ''],
+    ['name' => 'South Lanarkshire',     'status' => 'unknown', 'note' => '',  'url' => '', 'checked' => ''],
+    ['name' => 'Stirling',              'status' => 'unknown', 'note' => '',  'url' => '', 'checked' => ''],
+    ['name' => 'West Dunbartonshire',   'status' => 'unknown', 'note' => '',  'url' => '', 'checked' => ''],
+    ['name' => 'West Lothian',          'status' => 'unknown', 'note' => '',  'url' => '', 'checked' => ''],
+];
+
+$statusConfig = [
+    'strategy' => ['label' => 'Strategy published',      'class' => 'pill pill--active'],
+    'plan'     => ['label' => 'Referenced in plan',      'class' => 'pill pill--forming'],
+    'none'     => ['label' => 'No visible strategy',     'class' => 'pill pill--seeking'],
+    'unknown'  => ['label' => 'Not yet verified',        'class' => 'pill pill--forming'],
+];
+
+$counts = array_count_values(array_column($councils, 'status'));
+
+$sidebarRelated = [
+    ['href' => '/scotland',        'label' => 'Scotland policy'],
+    ['href' => '/landscape',       'label' => 'Why WIRES exists'],
+    ['href' => '/get-involved',    'label' => 'Get involved'],
+    ['href' => '/contact',         'label' => 'Tell us what you know'],
+];
+
+require_once __DIR__ . '/includes/header.php';
+?>
+<header class="page-header">
+    <div class="wrap">
+        <h1>Who is acting on digital exclusion?</h1>
+        <p>A tracker of which Scottish councils have published a digital inclusion strategy, which bodies have a mandate to act and what they have delivered, and where accountability is missing. We update this as we find out more — <a href="/contact">tell us</a> if you know something we've missed.</p>
+    </div>
+</header>
+
+<div class="section">
+    <div class="wrap">
+        <div class="page-layout" style="padding-top:0">
+        <div class="prose">
+
+            <div class="stat-strip">
+                <div class="stat-item">
+                    <span class="stat-value"><?= $counts['strategy'] ?? 0 ?></span>
+                    <span class="stat-label">council<?= ($counts['strategy'] ?? 0) !== 1 ? 's' : '' ?> with a published strategy</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value"><?= $counts['plan'] ?? 0 ?></span>
+                    <span class="stat-label">with digital inclusion referenced in existing plans</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value"><?= $counts['none'] ?? 0 ?></span>
+                    <span class="stat-label">with no visible strategy found</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value"><?= $counts['unknown'] ?? 0 ?></span>
+                    <span class="stat-label">not yet verified — help us find out</span>
+                </div>
+            </div>
+
+            <div class="callout" style="margin-bottom:2rem">
+                <p><strong>Methodology:</strong> We search council websites, Local Housing Strategies, corporate plans, and published strategy documents. "No visible strategy" means we searched and found nothing — not that nothing exists. If your council has something we've missed, <a href="/contact">tell us</a>. This tracker is a live document.</p>
+            </div>
+
+            <h2>Bodies with a mandate</h2>
+            <p>These organisations have either a formal mandate or public funding to address digital exclusion in Scotland. This is what we know about what they have actually delivered.</p>
+
+            <div class="community-net-list" style="margin-bottom:2.5rem">
+                <div class="community-net-item">
+                    <div class="community-net-meta">
+                        <span class="pill pill--forming">Scottish Government backed</span>
+                        <span class="pill pill--seeking" style="margin-left:0.4rem">Accountability gap</span>
+                    </div>
+                    <h3 class="community-net-name">Digital Inclusion Alliance Scotland</h3>
+                    <p>A multi-sector body with Scottish Government backing intended to coordinate digital inclusion activity across Scotland. The SCVO has described its early work as a "talking shop" with no clear lines of accountability. No published action plan, delivery framework, or outcome metrics have been identified.</p>
+                    <a class="community-net-link" href="https://www.scvo.scot/policy-campaigning-research/digital/digital-inclusion-alliance"<?= external_link_attrs('https://www.scvo.scot/policy-campaigning-research/digital/digital-inclusion-alliance') ?>>SCVO on the Digital Inclusion Alliance &rarr;</a>
+                </div>
+
+                <div class="community-net-item">
+                    <div class="community-net-meta">
+                        <span class="pill pill--forming">Local government body</span>
+                        <span class="pill pill--forming" style="margin-left:0.4rem">Limited published output</span>
+                    </div>
+                    <h3 class="community-net-name">COSLA Digital Office</h3>
+                    <p>The Convention of Scottish Local Authorities hosts a Digital Office to support collaboration across councils on digital priorities, including inclusion and service design. Published outputs on digital inclusion specifically are limited — it is primarily a coordination and advisory function rather than a delivery body.</p>
+                    <a class="community-net-link" href="https://www.cosla.gov.uk/about-cosla/our-teams/digital-office"<?= external_link_attrs('https://www.cosla.gov.uk/about-cosla/our-teams/digital-office') ?>>COSLA Digital Office &rarr;</a>
+                </div>
+
+                <div class="community-net-item">
+                    <div class="community-net-meta">
+                        <span class="pill pill--forming">Scottish Government</span>
+                        <span class="pill pill--seeking" style="margin-left:0.4rem">Strategy stalled</span>
+                    </div>
+                    <h3 class="community-net-name">Scottish Government — digital inclusion</h3>
+                    <p>The Scottish Government declared a housing emergency in 2024. Connecting Scotland — its flagship digital inclusion programme — has had no updated national strategy and no published delivery plan since its Covid-era phase. The SCVO has described digital inclusion work in Scotland as "under-resourced, undervalued, and increasingly stretched." No successor programme has been announced.</p>
+                    <a class="community-net-link" href="https://www.gov.scot/policies/digital/"<?= external_link_attrs('https://www.gov.scot/policies/digital/') ?>>Scottish Government: digital policy &rarr;</a>
+                </div>
+
+                <div class="community-net-item">
+                    <div class="community-net-meta">
+                        <span class="pill pill--forming">Regulator</span>
+                        <span class="pill pill--forming" style="margin-left:0.4rem">Social tariff powers under-used</span>
+                    </div>
+                    <h3 class="community-net-name">Ofcom</h3>
+                    <p>Ofcom has the power to require ISPs to offer social tariffs and to monitor take-up. Only 1 in 12 eligible households currently use the social tariff they are entitled to, and 55% of people on benefits have never heard of them. Ofcom has published data on this but has not used regulatory powers to mandate active promotion by providers.</p>
+                    <a class="community-net-link" href="https://www.ofcom.org.uk/phones-and-broadband/saving-money/social-tariffs"<?= external_link_attrs('https://www.ofcom.org.uk/phones-and-broadband/saving-money/social-tariffs') ?>>Ofcom: social tariffs &rarr;</a>
+                </div>
+
+                <div class="community-net-item">
+                    <div class="community-net-meta">
+                        <span class="pill pill--forming">Housing regulator</span>
+                        <span class="pill pill--forming" style="margin-left:0.4rem">No digital inclusion requirement</span>
+                    </div>
+                    <h3 class="community-net-name">Scottish Housing Regulator</h3>
+                    <p>The Scottish Housing Regulator oversees RSLs and local council housing. It does not currently require RSLs to report on digital inclusion or tenant connectivity as part of regulatory performance reporting — meaning the scale of digital exclusion among social housing tenants remains largely unmeasured at a national level.</p>
+                    <a class="community-net-link" href="https://www.scottishhousingregulator.gov.uk/"<?= external_link_attrs('https://www.scottishhousingregulator.gov.uk/') ?>>Scottish Housing Regulator &rarr;</a>
+                </div>
+            </div>
+
+            <h2>The 32 Scottish councils</h2>
+            <p>Scotland has 32 local authorities. Each has responsibility for housing, community development, and local services — and each could act on digital exclusion within its area. Below is what we have verified so far.</p>
+
+            <div class="accountability-table-wrap">
+                <table class="accountability-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Council</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Notes</th>
+                            <th scope="col">Last checked</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($councils as $c):
+                        $sc = $statusConfig[$c['status']] ?? $statusConfig['unknown'];
+                    ?>
+                        <tr>
+                            <td><strong><?= e($c['name']) ?></strong></td>
+                            <td><span class="<?= e($sc['class']) ?>"><?= e($sc['label']) ?></span></td>
+                            <td>
+                                <?php if (!empty($c['note'])): ?>
+                                    <?= e($c['note']) ?>
+                                    <?php if (!empty($c['url'])): ?>
+                                        <a href="<?= e($c['url']) ?>"<?= external_link_attrs($c['url']) ?> style="display:inline-block;margin-top:0.25rem;font-size:0.82rem;font-weight:600"> Source &rarr;</a>
+                                    <?php endif; ?>
+                                <?php else: ?>
+                                    <span style="color:var(--muted);font-size:0.88rem">Help us find out — <a href="/contact">contact WIRES</a></span>
+                                <?php endif; ?>
+                            </td>
+                            <td class="meta"><?= e($c['checked'] ?: '—') ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="info-card" style="margin-top:2rem">
+                <div class="info-card__header">
+                    <h2 class="info-card__heading">Help us complete this tracker</h2>
+                    <p class="info-card__sub">31 councils still need verification</p>
+                </div>
+                <div class="info-card__body">
+                    <p>If you live or work in any of the unverified council areas, you can help. Check your council's website for a digital strategy, digital inclusion plan, or any reference to digital access in its Local Housing Strategy or corporate plan. Then <a href="/contact">tell us what you find</a> — including a link if there is one.</p>
+                    <p>If your council has no plan, that itself is worth recording. A formal absence is accountability information.</p>
+                    <p><a class="btn btn-primary btn-sm" href="/contact">Send us what you know &rarr;</a></p>
+                </div>
+            </div>
+
+            <p class="meta" style="margin-top:1.5rem">This tracker was last updated June 2026. Status labels reflect what WIRES has verified — not a comprehensive audit. Councils may have plans not easily findable online; equally, plans that exist on paper do not guarantee action. <a href="/contact">Corrections and additions welcome</a>.</p>
+
+        </div><!-- /prose -->
+
+        <?php require __DIR__ . '/includes/sidebar-campaign.php'; ?>
+
+        </div>
+    </div>
+</div>
+
+<?php
+$ctaHeading = 'Accountability requires attention';
+$ctaBody    = 'Join WIRES and help us track what councils and bodies are actually doing — not just what they say.';
+require __DIR__ . '/includes/cta-join.php';
+require_once __DIR__ . '/includes/footer.php';
+?>

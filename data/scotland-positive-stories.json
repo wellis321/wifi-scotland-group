@@ -62,11 +62,13 @@
     "caveat": "Partly historical programme documentation—pair with a current council library page for “today” proof if needed."
   },
   {
-    "title": "Glasgow’s Digital Housing Strategy",
-    "summary": "Glasgow City Council publishes a multi-year strategy aimed at improving housing services while tackling digital exclusion in social rented housing.",
-    "when": "2022–2028 (per council page)",
-    "primary_label": "Glasgow City Council",
+    "title": "Glasgow’s Digital Housing Strategy 2022–2028",
+    "summary": "Scotland’s first local authority strategy to address digital housing services and digital exclusion together. The strategy’s own evidence base found that 65% of households in Glasgow’s social rented housing do not use home broadband — with affordability, lack of digital skills, and reluctance to transact online as the primary barriers. Backed by 32 RSLs covering 75% of the sector’s stock. The strategy includes a key safeguard: traditional service methods (face-to-face, telephone) must continue alongside digital, preventing digital-only service design from excluding tenants. Progress is reported through annual housing strategy reviews.",
+    "when": "2022–2028",
+    "primary_label": "Glasgow City Council: Digital Housing Strategy",
     "primary_url": "https://www.glasgow.gov.uk/article/2692/Glasgow-s-Digital-Housing-Strategy-to-improve-housing-services-and-tackle-digital-exclusion",
-    "caveat": "Strategy expresses policy intent, not guaranteed outcomes."
+    "secondary_label": "Full strategy document (PDF, glasgow.gov.uk)",
+    "secondary_url": "https://glasgow.gov.uk/media/1717/Glasgow-s-Digital-Housing-Strategy/pdf/Glasgows_Digital_Housing_Strategy.pdf",
+    "caveat": "The strategy expresses policy intent across four themes (data, digital inclusion, systems, technology). Specific outcome statistics have not yet been published as a standalone evaluation — progress is embedded in annual Local Housing Strategy reviews rather than a dedicated digital strategy audit. Worth following up for published outcomes."
   }
 ]
