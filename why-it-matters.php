@@ -14,9 +14,7 @@ $pageOgImageAlt = 'People at a community meeting — representing the human impa
 $sidebarRelated = [
     ['href' => '/digital-health',  'label' => 'Digital exclusion & health'],
     ['href' => '/beyond-broadband','label' => 'Beyond broadband'],
-    ['href' => '/get-help',        'label' => 'Help getting online'],
-    ['href' => '/scotland',        'label' => 'Scotland policy'],
-    ['href' => '/resources',       'label' => 'Resources & references'],
+    ['href' => '/landscape',       'label' => 'Why WIRES exists'],
 ];
 
 require_once __DIR__ . '/includes/header.php';
