@@ -131,7 +131,6 @@ $badgeLightPreview = '<a href="' . $supportersUrl . '" target="_blank" rel="noop
 
 <header class="page-header">
     <div class="wrap">
-        <p class="meta"><a href="/supporters.php">&larr; Organisational supporters</a></p>
         <h1>Sign up your organisation</h1>
         <p>Publicly commit to the principle that affordable, reliable internet access is essential infrastructure — and join the growing coalition of Scottish organisations saying so.</p>
     </div>

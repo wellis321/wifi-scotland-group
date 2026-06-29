@@ -22,7 +22,6 @@ require_once __DIR__ . '/includes/header.php';
 ?>
 <header class="page-header">
     <div class="wrap">
-        <p class="meta"><a href="/get-involved.php">&larr; Get involved</a></p>
         <h1>Write to your councillor</h1>
         <p>Personalise the template below, copy it, then send it through WriteToThem.com — a free service that finds your local councillors and delivers your message. The whole thing takes about five minutes.</p>
     </div>

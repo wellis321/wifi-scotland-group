@@ -22,7 +22,6 @@ require_once __DIR__ . '/includes/header.php';
 ?>
 <header class="page-header">
     <div class="wrap">
-        <p class="meta"><a href="/why-it-matters">&larr; Why connectivity matters</a></p>
         <h1>Digital exclusion and health</h1>
         <p>Being offline is not simply inconvenient — it has documented consequences for physical and mental health. As public services, healthcare booking, and social connection move online, digital exclusion increasingly determines health outcomes.</p>
     </div>

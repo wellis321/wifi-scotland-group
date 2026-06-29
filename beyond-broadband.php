@@ -22,7 +22,6 @@ require_once __DIR__ . '/includes/header.php';
 ?>
 <header class="page-header">
     <div class="wrap">
-        <p class="meta"><a href="/why-it-matters">&larr; Why connectivity matters</a></p>
         <h1>Beyond broadband</h1>
         <p>Digital exclusion is usually framed as a connectivity problem — you either have internet access or you don't. That framing misses most of the picture. There is a full stack of barriers, and being excluded from any layer means being excluded from services, opportunities, and rights that others take for granted.</p>
     </div>
