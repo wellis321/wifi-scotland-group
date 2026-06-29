@@ -135,6 +135,25 @@ $navGroupIsActive = static function (array $group) use ($currentNav): bool {
     <meta name="twitter:image"       content="<?= e($ogImageAbs) ?>">
     <?php endif; ?>
 
+    <!-- JSON-LD: WebSite with SearchAction — enables Google sitelinks search box -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "<?= e(SITE_BRAND) ?>",
+        "alternateName": "Web Infrastructure Rights for Everyone in Scotland",
+        "url": "<?= e(page_url()) ?>",
+        "inLanguage": "en-GB",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "<?= e(page_url('search')) ?>?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
     <!-- JSON-LD: Organisation (every page) -->
     <script type="application/ld+json">
     {
@@ -213,6 +232,12 @@ $navGroupIsActive = static function (array $group) use ($currentNav): bool {
                 <?php endforeach; ?>
             </ul>
         </nav>
+        <a class="header-search-btn" href="/search" aria-label="Search WIRES">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="11" cy="11" r="8"/>
+                <path d="m21 21-4.35-4.35"/>
+            </svg>
+        </a>
         <a class="btn btn-header" href="/join">Join the group</a>
     </div>
 </header>

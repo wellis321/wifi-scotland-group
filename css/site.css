@@ -302,6 +302,24 @@ a:hover {
     color: var(--ink);
 }
 
+.header-search-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    color: var(--muted);
+    text-decoration: none;
+    flex-shrink: 0;
+    transition: color 0.12s, background 0.12s;
+}
+
+.header-search-btn:hover {
+    color: var(--ink);
+    background: rgba(12, 17, 23, 0.06);
+}
+
 .btn.btn-header {
     flex-shrink: 0;
     margin-left: 0.75rem;

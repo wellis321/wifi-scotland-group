@@ -39,6 +39,7 @@ $static = [
     ['/join-as-organisation', '0.8', 'monthly'],
     ['/join',                 '0.8', 'monthly'],
     ['/contact',              '0.6', 'monthly'],
+    ['/search',               '0.3', 'monthly'],
     ['/privacy',              '0.3', 'yearly'],
 ];
 
