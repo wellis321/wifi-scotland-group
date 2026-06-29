@@ -3346,13 +3346,11 @@ a.stat-item--link:hover .stat-value {
 .council-entry {
     background: #fff;
     border: 1px solid var(--line);
-    border-left: 4px solid var(--accent);
-    border-radius: 0 var(--radius) var(--radius) 0;
+    border-radius: var(--radius);
     padding: 1.35rem 1.5rem;
 }
 
-.council-entry[data-status="plan"]  { border-left-color: #d97706; }
-.council-entry[data-status="none"]  { border-left-color: var(--signal); }
+
 
 .council-entry__head {
     display: flex;
