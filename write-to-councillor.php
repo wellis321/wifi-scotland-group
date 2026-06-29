@@ -109,6 +109,62 @@ require_once __DIR__ . '/includes/header.php';
                 <li>If you find something significant — a scheme not being advertised, a gap in provision — <a href="/contact.php">tell us</a> and we may be able to amplify it.</li>
             </ul>
 
+            <h2 id="cosla-letter" style="margin-top:3.5rem">Write to COSLA and the Scottish Government about "No-One Left Behind"</h2>
+            <p>
+                In August 2024, Audit Scotland found Scotland's digital inclusion strategy has no clear action plan and no defined accountability. The commitment to "No-One Left Behind" exists on paper. The delivery does not. COSLA and the Scottish Government were asked to publish a clear plan with defined leadership by end of 2024/25. No such plan has been published.
+            </p>
+            <p>You can write directly to ask what that plan is — and when it will appear. Use the template below.</p>
+
+            <div class="info-card" style="margin-bottom:1.5rem">
+                <div class="info-card__header">
+                    <h3 class="info-card__heading">Who to write to</h3>
+                    <p class="info-card__sub">Three routes — use one or all</p>
+                </div>
+                <div class="info-card__body">
+                    <ul>
+                        <li><strong>Your MSP</strong> — find them at <a href="https://www.theyworkforyou.com/"<?= external_link_attrs('https://www.theyworkforyou.com/') ?>>TheyWorkForYou.com</a> by postcode. Ask them to raise the Audit Scotland findings with the Cabinet Secretary for Digital.</li>
+                        <li><strong>COSLA directly</strong> — <a href="https://www.cosla.gov.uk/contact-us"<?= external_link_attrs('https://www.cosla.gov.uk/contact-us') ?>>cosla.gov.uk/contact-us</a>. Mark it for the attention of the Digital Office.</li>
+                        <li><strong>Scottish Government</strong> — write to the Cabinet Secretary for Digital via the Scottish Parliament contact system or the Scottish Government public correspondence address.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="letter-output-wrap">
+                <textarea class="letter-output" id="cosla-letter-output" readonly aria-label="Template letter to COSLA and Scottish Government" style="min-height:480px">Subject: "No-One Left Behind" — request for published action plan following Audit Scotland findings
+
+Dear [name / To whom it may concern],
+
+I am writing about the Scottish Government and COSLA's commitment to "No-One Left Behind" — the digital inclusion pillar of Scotland's Digital Strategy.
+
+In August 2024, Audit Scotland published Tackling Digital Exclusion, which found that approximately one in six Scottish adults remains digitally excluded, and that since the pandemic-era Connecting Scotland programme, momentum has stalled and leadership has weakened. Most significantly, Audit Scotland found that there is no clear action plan for reducing digital exclusion, and that it is unclear who is responsible for delivery across Scottish Government, COSLA, and the third sector.
+
+Audit Scotland called on Scottish Government and COSLA to develop a clear action plan, with defined leadership and accountability, by the end of 2024/25.
+
+I am not aware that such a plan has been published. I would like to ask:
+
+1. Has a clear action plan for reducing digital exclusion been published in response to the Audit Scotland recommendations? If so, where can I find it?
+
+2. Who is now the named accountable lead for delivery of the "No-One Left Behind" commitment, within both Scottish Government and COSLA?
+
+3. What specific, measurable actions are being taken in 2025/26 to reduce the number of Scottish adults who are digitally excluded?
+
+Audit Scotland is Scotland's independent public spending watchdog. Its August 2024 findings represent a significant accountability failure on a stated national commitment. I would welcome a substantive response.
+
+Yours sincerely,
+
+[Your name]
+[Your postcode / organisation if applicable]
+</textarea>
+                <div class="letter-output-actions">
+                    <button class="btn btn-primary" id="cosla-copy-btn" type="button">Copy to clipboard</button>
+                    <span class="letter-output-hint">Then send via the contact routes above</span>
+                </div>
+            </div>
+
+            <p class="meta">
+                Source: <a href="https://audit.scot/uploads/2024-08/nr_240822_tackling_digital_exclusion.pdf"<?= external_link_attrs('https://audit.scot/uploads/2024-08/nr_240822_tackling_digital_exclusion.pdf') ?>>Audit Scotland — Tackling Digital Exclusion, August 2024 (PDF)</a>
+            </p>
+
         </div><!-- /prose -->
 
         <?php require __DIR__ . '/includes/sidebar-campaign.php'; ?>
@@ -182,87 +238,20 @@ require_once __DIR__ . '/includes/header.php';
     }
 
     updateTemplate();
-})();
-</script>
 
-            <h2 id="cosla-letter" style="margin-top:3.5rem">Write to COSLA and the Scottish Government about "No-One Left Behind"</h2>
-            <p>
-                In August 2024, Audit Scotland found Scotland's digital inclusion strategy has no clear action plan and no defined accountability. The commitment to "No-One Left Behind" exists on paper. The delivery does not. COSLA and the Scottish Government were asked to publish a clear plan with defined leadership by end of 2024/25. No such plan has been published.
-            </p>
-            <p>You can write directly to ask what that plan is — and when it will appear. Use the template below.</p>
-
-            <div class="info-card" style="margin-bottom:1.5rem">
-                <div class="info-card__header">
-                    <h3 class="info-card__heading">Who to write to</h3>
-                    <p class="info-card__sub">Three routes — use one or all</p>
-                </div>
-                <div class="info-card__body">
-                    <ul>
-                        <li><strong>Your MSP</strong> — find them at <a href="https://www.theyworkforyou.com/"<?= external_link_attrs('https://www.theyworkforyou.com/') ?>>TheyWorkForYou.com</a> by postcode. Ask them to raise the Audit Scotland findings with the Cabinet Secretary for Digital.</li>
-                        <li><strong>COSLA directly</strong> — <a href="https://www.cosla.gov.uk/contact-us"<?= external_link_attrs('https://www.cosla.gov.uk/contact-us') ?>>cosla.gov.uk/contact-us</a>. Mark it for the attention of the Digital Office.</li>
-                        <li><strong>Scottish Government</strong> — write to the Cabinet Secretary for Digital via the Scottish Parliament contact system or the Scottish Government public correspondence address.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="letter-output-wrap">
-                <textarea class="letter-output" id="cosla-letter-output" readonly aria-label="Template letter to COSLA and Scottish Government" style="min-height:480px">Subject: "No-One Left Behind" — request for published action plan following Audit Scotland findings
-
-Dear [name / To whom it may concern],
-
-I am writing about the Scottish Government and COSLA's commitment to "No-One Left Behind" — the digital inclusion pillar of Scotland's Digital Strategy.
-
-In August 2024, Audit Scotland published Tackling Digital Exclusion, which found that approximately one in six Scottish adults remains digitally excluded, and that since the pandemic-era Connecting Scotland programme, momentum has stalled and leadership has weakened. Most significantly, Audit Scotland found that there is no clear action plan for reducing digital exclusion, and that it is unclear who is responsible for delivery across Scottish Government, COSLA, and the third sector.
-
-Audit Scotland called on Scottish Government and COSLA to develop a clear action plan, with defined leadership and accountability, by the end of 2024/25.
-
-I am not aware that such a plan has been published. I would like to ask:
-
-1. Has a clear action plan for reducing digital exclusion been published in response to the Audit Scotland recommendations? If so, where can I find it?
-
-2. Who is now the named accountable lead for delivery of the "No-One Left Behind" commitment, within both Scottish Government and COSLA?
-
-3. What specific, measurable actions are being taken in 2025/26 to reduce the number of Scottish adults who are digitally excluded?
-
-Audit Scotland is Scotland's independent public spending watchdog. Its August 2024 findings represent a significant accountability failure on a stated national commitment. I would welcome a substantive response.
-
-Yours sincerely,
-
-[Your name]
-[Your postcode / organisation if applicable]
-</textarea>
-                <div class="letter-output-actions">
-                    <button class="btn btn-primary" id="cosla-copy-btn" type="button">Copy to clipboard</button>
-                    <span class="letter-output-hint">Then send via the contact routes above</span>
-                </div>
-            </div>
-
-            <p class="meta">
-                Source: <a href="https://audit.scot/uploads/2024-08/nr_240822_tackling_digital_exclusion.pdf"<?= external_link_attrs('https://audit.scot/uploads/2024-08/nr_240822_tackling_digital_exclusion.pdf') ?>>Audit Scotland — Tackling Digital Exclusion, August 2024 (PDF)</a>
-            </p>
-
-        </div><!-- /prose -->
-
-        <?php require __DIR__ . '/includes/sidebar-campaign.php'; ?>
-
-        </div>
-    </div>
-</div>
-
-<script>
-(function () {
-    var btn = document.getElementById('cosla-copy-btn');
-    var out = document.getElementById('cosla-letter-output');
-    if (btn && out) {
-        btn.addEventListener('click', function () {
-            navigator.clipboard.writeText(out.value).then(function () {
-                btn.textContent = 'Copied!';
-                setTimeout(function () { btn.textContent = 'Copy to clipboard'; }, 2200);
+    /* COSLA letter copy button */
+    var coslaCopyBtn = document.getElementById('cosla-copy-btn');
+    var coslaOut     = document.getElementById('cosla-letter-output');
+    if (coslaCopyBtn && coslaOut) {
+        coslaCopyBtn.addEventListener('click', function () {
+            navigator.clipboard.writeText(coslaOut.value).then(function () {
+                coslaCopyBtn.textContent = 'Copied!';
+                setTimeout(function () { coslaCopyBtn.textContent = 'Copy to clipboard'; }, 2200);
             }).catch(function () {
-                out.select();
+                coslaOut.select();
                 document.execCommand('copy');
-                btn.textContent = 'Copied!';
-                setTimeout(function () { btn.textContent = 'Copy to clipboard'; }, 2200);
+                coslaCopyBtn.textContent = 'Copied!';
+                setTimeout(function () { coslaCopyBtn.textContent = 'Copy to clipboard'; }, 2200);
             });
         });
     }

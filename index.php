@@ -92,6 +92,28 @@ require_once __DIR__ . '/includes/header.php';
     </div>
 </section>
 
+<section class="audit-feature" aria-labelledby="audit-feature-heading">
+    <div class="wrap audit-feature-inner">
+        <div class="audit-feature-content">
+            <p class="audit-feature-kicker">
+                <span class="audit-feature-badge">Audit Scotland · August 2024</span>
+            </p>
+            <h2 id="audit-feature-heading" class="audit-feature-heading">Scotland's "No-One Left Behind" commitment has no action plan and no named leader</h2>
+            <p class="audit-feature-body">
+                Scotland's own public spending watchdog examined whether the national digital inclusion commitment is being delivered. It found no clear plan, unclear accountability, and momentum stalling since the pandemic. It called for a response by end of 2024/25. None has been published.
+            </p>
+            <div class="audit-feature-actions">
+                <a class="btn btn-primary" href="/write-to-councillor#cosla-letter">Write to COSLA and demand answers &rarr;</a>
+                <a class="btn btn-ghost" href="/accountability">See our accountability tracker</a>
+            </div>
+        </div>
+        <div class="audit-feature-aside" aria-hidden="true">
+            <p class="audit-feature-quote">"No clear action plan exists for reducing digital exclusion — and it is unclear who is responsible."</p>
+            <p class="audit-feature-cite">Audit Scotland, <em>Tackling Digital Exclusion</em></p>
+        </div>
+    </div>
+</section>
+
 <section class="paths-section" aria-labelledby="paths-heading">
     <div class="wrap">
         <p class="paths-kicker">Find your way in</p>
