@@ -9,12 +9,12 @@ require_admin();
 $adminTitle   = 'Dashboard';
 $adminSection = 'dashboard';
 
-$counts = ['news' => 0, 'groups' => 0, 'events' => 0, 'schemes' => 0, 'orgs' => 0];
+$counts = ['members' => 0, 'messages' => 0, 'news' => 0, 'groups' => 0, 'events' => 0, 'schemes' => 0, 'orgs' => 0];
 $recentNews = [];
 
 if (db_available()) {
     try {
-        foreach (['news_items' => 'news', 'local_groups' => 'groups', 'group_events' => 'events', 'schemes' => 'schemes', 'org_supporters' => 'orgs'] as $table => $key) {
+        foreach (['member_signups' => 'members', 'contact_messages' => 'messages', 'news_items' => 'news', 'local_groups' => 'groups', 'group_events' => 'events', 'schemes' => 'schemes', 'org_supporters' => 'orgs'] as $table => $key) {
             $counts[$key] = (int) db()->query("SELECT COUNT(*) FROM {$table}")->fetchColumn();
         }
         $recentNews = db()->query(
@@ -29,7 +29,15 @@ require_once __DIR__ . '/includes/admin_header.php';
     <h1 class="admin-page-title">Dashboard</h1>
 </div>
 
-<div class="admin-stats">
+<div class="admin-stats" style="grid-template-columns:repeat(auto-fit,minmax(120px,1fr))">
+    <a class="admin-stat" href="/admin/members.php">
+        <span class="admin-stat-value"><?= $counts['members'] ?></span>
+        <span class="admin-stat-label">Members</span>
+    </a>
+    <a class="admin-stat" href="/admin/messages.php">
+        <span class="admin-stat-value"><?= $counts['messages'] ?></span>
+        <span class="admin-stat-label">Messages</span>
+    </a>
     <a class="admin-stat" href="/admin/news.php">
         <span class="admin-stat-value"><?= $counts['news'] ?></span>
         <span class="admin-stat-label">News items</span>
