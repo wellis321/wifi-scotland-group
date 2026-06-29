@@ -41,6 +41,21 @@ DirectoryIndex index.php index.html
     Header always set Permissions-Policy "geolocation=(), camera=(), microphone=()"
 </IfModule>
 
+# Serve WebP automatically when browser supports it and WebP file exists
+# This works for all <img src="*.jpg"> tags without changing any HTML
+<IfModule mod_rewrite.c>
+    RewriteCond %{HTTP_ACCEPT} image/webp
+    RewriteCond %{REQUEST_FILENAME} ^(.+)\.(jpe?g|png)$
+    RewriteCond %1.webp -f
+    RewriteRule ^images/(.+)\.(jpe?g|png)$ /images/$1.webp [T=image/webp,L]
+</IfModule>
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(jpe?g|png)$">
+        Header append Vary Accept
+    </FilesMatch>
+</IfModule>
+
 # Browser caching — static assets do not change often
 <IfModule mod_expires.c>
     ExpiresActive On

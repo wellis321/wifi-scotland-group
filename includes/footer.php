@@ -7,11 +7,14 @@ declare(strict_types=1);
     <div class="wrap footer-main">
         <a href="/" class="footer-logo-link" aria-label="WIRES home">
             <div class="footer-logo-circle">
-                <img src="/images/logo.png"
-                     alt="WIRES — Web Infrastructure Rights for Everyone in Scotland"
-                     width="400" height="218"
-                     loading="lazy"
-                     decoding="async">
+                <picture>
+                    <source srcset="/images/logo.webp" type="image/webp">
+                    <img src="/images/logo.png"
+                         alt="WIRES — Web Infrastructure Rights for Everyone in Scotland"
+                         width="400" height="218"
+                         loading="lazy"
+                         decoding="async">
+                </picture>
             </div>
         </a>
         <div class="footer-text">

@@ -46,15 +46,18 @@ require_once __DIR__ . '/includes/header.php';
         </div>
         <div class="hero-side">
             <figure class="hero-media">
-                <img
-                    src="<?= e(image_asset('hero-laptop-home.jpg')) ?>"
-                    width="1600"
-                    height="1067"
-                    alt="<?= e($pageOgImageAlt) ?>"
-                    decoding="async"
-                    fetchpriority="high"
-                    class="hero-media-img"
-                >
+                <picture>
+                    <source srcset="/images/hero-laptop-home.webp" type="image/webp">
+                    <img
+                        src="<?= e(image_asset('hero-laptop-home.jpg')) ?>"
+                        width="1600"
+                        height="1067"
+                        alt="<?= e($pageOgImageAlt) ?>"
+                        decoding="sync"
+                        fetchpriority="high"
+                        class="hero-media-img"
+                    >
+                </picture>
             </figure>
         </div>
     </div>
