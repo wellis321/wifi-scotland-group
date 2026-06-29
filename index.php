@@ -20,8 +20,11 @@ if (db_available()) {
     }
 }
 
-$pageOgImage = image_asset('hero-laptop-home.jpg');
+$pageOgImage    = image_asset('hero-laptop-home.jpg');
 $pageOgImageAlt = 'Person using a laptop in a home workspace—illustrating everyday reliance on connectivity.';
+
+/* Preload the hero image so it's the LCP candidate the browser fetches immediately */
+$pageExtraHead = '<link rel="preload" href="/images/hero-laptop-home.jpg" as="image">';
 
 require_once __DIR__ . '/includes/header.php';
 ?>
