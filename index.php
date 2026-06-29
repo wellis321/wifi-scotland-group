@@ -103,8 +103,9 @@ require_once __DIR__ . '/includes/header.php';
                 Scotland's own public spending watchdog examined whether the national digital inclusion commitment is being delivered. It found no clear plan, unclear accountability, and momentum stalling since the pandemic. It called for a response by end of 2024/25. None has been published.
             </p>
             <div class="audit-feature-actions">
-                <a class="btn btn-primary" href="/write-to-councillor#cosla-letter">Write to COSLA and demand answers &rarr;</a>
-                <a class="btn btn-ghost" href="/accountability">See our accountability tracker</a>
+                <a class="btn btn-primary btn-sm" href="/write-to-councillor#cosla-letter">Write to COSLA &rarr;</a>
+                <a class="btn btn-ghost btn-sm" href="/accountability">Accountability tracker</a>
+                <a class="btn btn-ghost btn-sm" href="https://audit.scot/uploads/2024-08/nr_240822_tackling_digital_exclusion.pdf" target="_blank" rel="noopener noreferrer">Audit Scotland report (PDF)</a>
             </div>
         </div>
         <div class="audit-feature-aside" aria-hidden="true">

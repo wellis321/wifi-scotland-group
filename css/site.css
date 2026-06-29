@@ -3489,7 +3489,6 @@ a.stat-item--link:hover .stat-value {
     color: var(--ink);
     letter-spacing: -0.01em;
     margin: 0 0 0.85rem;
-    max-width: 52ch;
 }
 
 .audit-feature-body {
@@ -3497,13 +3496,13 @@ a.stat-item--link:hover .stat-value {
     font-size: 0.97rem;
     line-height: 1.7;
     margin: 0 0 1.5rem;
-    max-width: 60ch;
 }
 
 .audit-feature-actions {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 0.65rem;
+    align-items: center;
 }
 
 .audit-feature-aside {
