@@ -185,7 +185,7 @@ require_once __DIR__ . '/includes/header.php';
                 <?php foreach ($verified as $c):
                     $sc = $statusConfig[$c['status']] ?? $statusConfig['unknown'];
                 ?>
-                <div class="council-entry">
+                <div class="council-entry" data-status="<?= e($c['status']) ?>">
                     <div class="council-entry__head">
                         <strong class="council-entry__name"><?= e($c['name']) ?></strong>
                         <span class="<?= e($sc['class']) ?>"><?= e($sc['label']) ?></span>
@@ -196,7 +196,7 @@ require_once __DIR__ . '/includes/header.php';
                     <?php if (!empty($c['note'])): ?>
                         <p class="council-entry__note"><?= e($c['note']) ?></p>
                         <?php if (!empty($c['url'])): ?>
-                            <a class="council-entry__source" href="<?= e($c['url']) ?>"<?= external_link_attrs($c['url']) ?>>Source &rarr;</a>
+                            <a class="btn btn-ghost btn-sm" href="<?= e($c['url']) ?>"<?= external_link_attrs($c['url']) ?>>View source &rarr;</a>
                         <?php endif; ?>
                     <?php endif; ?>
                 </div>
