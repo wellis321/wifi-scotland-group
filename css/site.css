@@ -1436,10 +1436,14 @@ a:hover {
     cursor: pointer;
 }
 
-.map-overlay-item:hover,
-.map-overlay-item:focus-visible {
-    outline: none;
+.map-overlay-item:hover {
     background: color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+.map-overlay-item:focus-visible {
+    background: color-mix(in srgb, var(--accent) 18%, transparent);
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
 }
 
 .wifi-map-detail-body {

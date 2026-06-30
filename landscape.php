@@ -62,8 +62,8 @@ require_once __DIR__ . '/includes/header.php';
                 <div class="community-net-item">
                     <div class="community-net-meta"><span class="pill">Scottish Government backed</span></div>
                     <h3 class="community-net-name">Digital Inclusion Alliance Scotland</h3>
-                    <p>A newly formed multi-sector body with Scottish Government backing, intended to coordinate digital inclusion activity across Scotland. The SCVO has described its early work as a "talking shop" with no clear lines of accountability — a concern that reflects a wider pattern of convening without committing.</p>
-                    <a class="community-net-link" href="https://www.scvo.scot/policy-campaigning-research/digital/digital-inclusion-alliance"<?= external_link_attrs('https://www.scvo.scot/policy-campaigning-research/digital/digital-inclusion-alliance') ?>>Digital Inclusion Alliance (via SCVO) &rarr;</a>
+                    <p>A multi-sector body with Scottish Government backing, intended to coordinate digital inclusion activity across Scotland — two years in the making and still without a clear delivery plan. SCVO has openly stated it does not support the Alliance, warning that "the last thing Scotland needs is yet another talking shop" and that the model risks introducing "bureaucracy and complexity, rather than enabling practical action." <a href="https://scvo.scot/support/digital/inclusion/error-404-digital-inclusion-still-not-found/why-we-dont-support-a-digital-inclusion-alliance"<?= external_link_attrs('https://scvo.scot/support/digital/inclusion/error-404-digital-inclusion-still-not-found/why-we-dont-support-a-digital-inclusion-alliance') ?>>SCVO: Why we don't support a Digital Inclusion Alliance &rarr;</a></p>
+                    <a class="community-net-link" href="https://www.scvo.scot/policy-campaigning-research/digital/digital-inclusion-alliance"<?= external_link_attrs('https://www.scvo.scot/policy-campaigning-research/digital/digital-inclusion-alliance') ?>>Digital Inclusion Alliance overview &rarr;</a>
                 </div>
             </div>
 
