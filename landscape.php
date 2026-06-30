@@ -133,12 +133,8 @@ require_once __DIR__ . '/includes/header.php';
                 </div>
             </div>
 
-            <div class="pull-quote" style="margin-top:2.5rem">
-                <p>"You're not duplicating anyone. You're filling a real gap."</p>
-            </div>
-
             <p>
-                We work <em>alongside</em> SCVO, the Digital Poverty Alliance, and the organisations signed up to the Charter — sharing evidence, amplifying their research, and supporting their calls for action. But WIRES does something none of them do: campaign directly to the Scottish public, independently, from a rights-based position, with local groups on the ground.
+                WIRES is not set up to compete with SCVO, the Digital Poverty Alliance, or the organisations signed up to the Charter — they do important work and we draw on their research. But none of them do what WIRES does: campaign directly to the Scottish public, independently, from a rights-based position, with local groups on the ground. That gap is why WIRES exists.
             </p>
 
             <div class="callout">
