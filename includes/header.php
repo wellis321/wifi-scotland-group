@@ -41,6 +41,7 @@ $navStructure = [
             ['id' => 'digitalhealth',  'href' => '/digital-health',  'label' => 'Digital health'],
             ['id' => 'beyondbroadband','href' => '/beyond-broadband','label' => 'Beyond broadband'],
             ['id' => 'landscape',      'href' => '/landscape',       'label' => 'Why WIRES exists'],
+            ['id' => 'global',         'href' => '/global-spotlight', 'label' => 'Global spotlight'],
         ],
     ],
     [
@@ -48,11 +49,11 @@ $navStructure = [
         'id'    => 'scotland',
         'label' => 'Scotland',
         'items' => [
+            ['id' => 'gethelp',         'href' => '/get-help',        'label' => 'Get help online'],
             ['id' => 'scotlandpolicy',  'href' => '/scotland',        'label' => 'Scotland policy'],
             ['id' => 'scotlandstories', 'href' => '/scotland-stories','label' => 'Scottish stories'],
             ['id' => 'accountability',  'href' => '/accountability',  'label' => 'Who is acting?'],
             ['id' => 'wifimap',         'href' => '/wifi-map',        'label' => 'WiFi map'],
-            ['id' => 'gethelp',         'href' => '/get-help',        'label' => 'Help getting online'],
         ],
     ],
     [
@@ -72,9 +73,8 @@ $navStructure = [
         'label' => 'About',
         'items' => [
             ['id' => 'about',            'href' => '/about',             'label' => 'About WIRES'],
-            ['id' => 'supporters',       'href' => '/supporters',        'label' => 'Supporters'],
             ['id' => 'fororganisations', 'href' => '/for-organisations', 'label' => 'For organisations'],
-            ['id' => 'global',           'href' => '/global-spotlight',  'label' => 'Global spotlight'],
+            ['id' => 'supporters',       'href' => '/supporters',        'label' => 'Supporters'],
             ['id' => 'resources',        'href' => '/resources',         'label' => 'Resources'],
         ],
     ],
@@ -239,7 +239,7 @@ $navGroupIsActive = static function (array $group) use ($currentNav): bool {
                 <path d="m21 21-4.35-4.35"/>
             </svg>
         </a>
-        <a class="btn btn-header" href="/join">Join the group</a>
+        <a class="btn btn-header" href="/join">Join the campaign</a>
     </div>
 </header>
 <main id="main">

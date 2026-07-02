@@ -19,6 +19,7 @@
     --signal: #e25540;
     --muted: #4a5562;
     --radius: 14px;
+    --radius-sm: 4px;
     --btn-radius: 8px;
     --shadow: 0 18px 50px rgba(12, 17, 23, 0.12);
     --max: 1100px;
@@ -127,16 +128,10 @@ a:hover {
 }
 
 .brand-logo {
-    height: 96px;
+    height: 72px;
     width: auto;
     display: block;
     mix-blend-mode: multiply;
-}
-
-@media (max-width: 720px) {
-    .brand-logo {
-        height: 72px;
-    }
 }
 
 .site-nav {
@@ -1066,13 +1061,20 @@ a:hover {
     margin-bottom: 2rem;
 }
 
+.footer-nav-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 2rem;
+    align-items: start;
+}
+
 @media (max-width: 860px) {
     .footer-main {
         grid-template-columns: 140px 1fr;
         grid-template-rows: auto auto;
     }
 
-    .footer-explore {
+    .footer-nav-cols {
         grid-column: 2;
         grid-row: 2;
     }
@@ -1088,9 +1090,10 @@ a:hover {
         margin: 0 auto;
     }
 
-    .footer-explore {
+    .footer-nav-cols {
         grid-column: 1;
         grid-row: auto;
+        grid-template-columns: 1fr;
     }
 }
 
@@ -1582,7 +1585,7 @@ a:hover {
     gap: 1px;
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: var(--radius);
+    border-radius: 0;
     overflow: hidden;
     margin-top: 2.25rem;
 }
@@ -1606,7 +1609,7 @@ a:hover {
     display: block;
     font-size: 0.82rem;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.82);
     margin-top: 0.4rem;
     line-height: 1.5;
     text-wrap: balance;
@@ -1614,12 +1617,12 @@ a:hover {
 
 .statement-band-source {
     font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.35);
+    color: rgba(255, 255, 255, 0.6);
     margin: 0.85rem 0 0;
 }
 
 .statement-band-source a {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.82);
     font-weight: 600;
     text-decoration: underline;
 }
@@ -3537,4 +3540,32 @@ a.stat-item--link:hover .stat-value {
     font-weight: 600;
     margin: 0;
     letter-spacing: 0.02em;
+}
+
+/* ─── Scroll-driven entrance animations ──────────────────────────────────── */
+/* html.js is set by animations.js only when motion is OK — elements stay     */
+/* fully visible without JS or when prefers-reduced-motion is set.            */
+
+html.js .stat-anim {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.55s cubic-bezier(0.25, 1, 0.5, 1),
+                transform 0.55s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+html.js .stat-anim.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+html.js .fade-up {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+                transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+html.js .fade-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }

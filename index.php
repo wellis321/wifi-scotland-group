@@ -75,16 +75,16 @@ require_once __DIR__ . '/includes/header.php';
             </div>
         </div>
         <div class="statement-band-stats" role="region" aria-label="Key statistics">
-            <div class="statement-stat">
-                <span class="statement-stat__value">1 in 12</span>
+            <div class="statement-stat stat-anim">
+                <span class="statement-stat__value" data-count-target="12" data-count-prefix="1 in ">1 in 12</span>
                 <span class="statement-stat__label">of qualifying households ever use the social tariff they're owed</span>
             </div>
-            <div class="statement-stat">
-                <span class="statement-stat__value">6.2m</span>
+            <div class="statement-stat stat-anim">
+                <span class="statement-stat__value" data-count-target="6.2" data-count-suffix="m" data-count-decimals="1">6.2m</span>
                 <span class="statement-stat__label">UK households on Universal Credit qualify for a social tariff right now</span>
             </div>
-            <div class="statement-stat">
-                <span class="statement-stat__value">55%</span>
+            <div class="statement-stat stat-anim">
+                <span class="statement-stat__value" data-count-target="55" data-count-suffix="%">55%</span>
                 <span class="statement-stat__label">of people on benefits have never heard that social tariffs exist</span>
             </div>
         </div>
@@ -120,19 +120,19 @@ require_once __DIR__ . '/includes/header.php';
         <p class="paths-kicker">Find your way in</p>
         <h2 id="paths-heading" class="paths-heading">This campaign serves everyone affected</h2>
         <div class="paths-grid" role="list">
-            <a class="path-card" href="/why-it-matters.php" role="listitem">
+            <a class="path-card fade-up" href="/why-it-matters.php" role="listitem" data-delay="0">
                 <p class="path-label">Residents</p>
                 <h3 class="path-heading">Understand your options</h3>
                 <p class="path-body">Learn what schemes exist, what you're entitled to, and how poor connectivity harms people through no fault of their own.</p>
                 <span class="path-link" aria-hidden="true">Why it matters →</span>
             </a>
-            <a class="path-card" href="/get-involved.php" role="listitem">
+            <a class="path-card fade-up" href="/get-involved.php" role="listitem" data-delay="80">
                 <p class="path-label">Organisers</p>
                 <h3 class="path-heading">Get active with us</h3>
                 <p class="path-body">Find practical ways to campaign, raise questions at council level, and connect with others working on digital inclusion in Scotland.</p>
                 <span class="path-link" aria-hidden="true">Get involved →</span>
             </a>
-            <a class="path-card" href="/scotland.php" role="listitem">
+            <a class="path-card fade-up" href="/scotland.php" role="listitem" data-delay="160">
                 <p class="path-label">Researchers &amp; press</p>
                 <h3 class="path-heading">Verify the evidence</h3>
                 <p class="path-body">Policy documents, official programmes, and cited sources—everything linked so you can check claims and go deeper.</p>
@@ -146,7 +146,7 @@ require_once __DIR__ . '/includes/header.php';
     <div class="wrap">
         <h2 id="arguments-heading">Our case for change</h2>
         <ol class="arguments-list">
-            <li class="argument-item">
+            <li class="argument-item fade-up">
                 <div class="argument-text">
                     <span class="argument-number" aria-hidden="true">01</span>
                     <h3>Access shapes participation</h3>
@@ -156,7 +156,7 @@ require_once __DIR__ . '/includes/header.php';
                     <img src="<?= e(image_asset('card-community.jpg')) ?>" width="1200" height="800" alt="" decoding="async" loading="lazy">
                 </figure>
             </li>
-            <li class="argument-item">
+            <li class="argument-item fade-up">
                 <div class="argument-text">
                     <span class="argument-number" aria-hidden="true">02</span>
                     <h3>Public money should mean public clarity</h3>
@@ -166,7 +166,7 @@ require_once __DIR__ . '/includes/header.php';
                     <img src="<?= e(image_asset('glasses-clarity.jpg')) ?>" width="1200" height="956" alt="" decoding="async" loading="lazy">
                 </figure>
             </li>
-            <li class="argument-item">
+            <li class="argument-item fade-up">
                 <div class="argument-text">
                     <span class="argument-number" aria-hidden="true">03</span>
                     <h3>Communities show a different way is possible</h3>

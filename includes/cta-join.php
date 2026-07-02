@@ -14,6 +14,6 @@ $ctaBody    = $ctaBody    ?? 'Join the mailing list and we\'ll keep you updated 
             <h2 id="cta-join-heading"><?= e($ctaHeading) ?></h2>
             <p><?= e($ctaBody) ?></p>
         </div>
-        <a class="btn btn-lg" href="/join.php">Join WIRES &rarr;</a>
+        <a class="btn btn-lg" href="/join.php">Join the campaign &rarr;</a>
     </div>
 </section>

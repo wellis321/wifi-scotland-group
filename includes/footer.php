@@ -21,14 +21,25 @@ declare(strict_types=1);
             <p class="footer-lead"><strong><?= e(SITE_BRAND) ?></strong> is a volunteer-led campaign for dignified, affordable connectivity in Scotland.</p>
             <p class="footer-small">We are independent and non-party; we signpost official sources and amplify community voices.</p>
         </div>
-        <div class="footer-explore">
-            <h2 class="footer-heading">Explore</h2>
-            <ul class="footer-links">
-                <li><a href="/privacy">Privacy</a></li>
-                <li><a href="/credits">Image credits</a></li>
-                <li><a href="/resources">Resources &amp; references</a></li>
-                <li><a href="/contact">Contact</a></li>
-            </ul>
+        <div class="footer-nav-cols">
+            <div>
+                <h2 class="footer-heading">The campaign</h2>
+                <ul class="footer-links">
+                    <li><a href="/why-it-matters">Why it matters</a></li>
+                    <li><a href="/get-help">Get help online</a></li>
+                    <li><a href="/get-involved">Get involved</a></li>
+                    <li><a href="/accountability">Who is acting?</a></li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="footer-heading">Evidence &amp; info</h2>
+                <ul class="footer-links">
+                    <li><a href="/scotland">Scotland policy</a></li>
+                    <li><a href="/resources">Resources</a></li>
+                    <li><a href="/wifi-map">WiFi map</a></li>
+                    <li><a href="/news">News</a></li>
+                </ul>
+            </div>
         </div>
     </div>
     <div class="wrap footer-meta">
@@ -167,5 +178,6 @@ declare(strict_types=1);
     });
 })();
 </script>
+<script src="/js/animations.js"></script>
 </body>
 </html>

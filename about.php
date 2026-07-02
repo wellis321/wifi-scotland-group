@@ -83,7 +83,7 @@ require_once __DIR__ . '/includes/header.php';
             </div>
 
             <p>
-                <a class="btn btn-primary" href="/join.php">Join WIRES</a>
+                <a class="btn btn-primary" href="/join.php">Join the campaign</a>
                 <a class="btn btn-ghost" href="/get-involved.php" style="margin-left:0.5rem">Get involved</a>
             </p>
         </div>
