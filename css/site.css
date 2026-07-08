@@ -3182,7 +3182,7 @@ a.stat-item--link:hover .stat-value {
     font-size: 5rem;
 }
 
-.news-card-body p {
+.news-card-body p:not(.meta) {
     color: var(--muted);
     font-size: 0.9rem;
     line-height: 1.6;

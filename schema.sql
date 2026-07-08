@@ -69,6 +69,45 @@ INSERT INTO news_items (title, slug, summary, body, published_at) VALUES
 )
 ON DUPLICATE KEY UPDATE title = VALUES(title);
 
+-- 2026-07 news sweep — verify each figure/date on the linked source before publishing to production
+INSERT INTO news_items (title, slug, summary, body, published_at) VALUES
+(
+  'R100 passes 100,000 connections — but delivery in the north may slip again',
+  'r100-100000-connections-milestone',
+  'Scotland''s £697m Reaching 100% programme has now connected more than 100,000 premises, though some north-of-Scotland contract areas are reportedly at risk of running past their original dates.',
+  '<p>The Scottish Government''s R100 programme has passed <strong>100,000 premises connected</strong>, a milestone worth marking: for most of those households and businesses, this is the first time superfast broadband has reached their door.</p><p>The picture is not uniform. Reporting on the north Scotland contract has raised the possibility of parts of the build slipping to 2027, later than residents were originally told. Remaining areas across the three R100 contracts are scheduled for completion by March 2028.</p><p>Progress is real and worth acknowledging — so is holding delivery dates to account when they move. See current scheme status on <a href="/get-help.php#r100">Get help</a>.</p>',
+  '2026-06-15'
+),
+(
+  'Ullapool''s community broadband network closes as national schemes fail small providers',
+  'highland-community-broadband-closure',
+  'Highland Community Broadband, a volunteer-founded wireless network serving remote Wester Ross since 2017, shut down at the end of April 2026 after larger-scale voucher schemes proved unworkable for a small operator.',
+  '<p>Highland Community Broadband began in 2017 to bring a working internet connection to part of Wester Ross that commercial providers were not going to reach. It closed on 30 April 2026, citing rising backhaul, legal, and maintenance costs it could no longer sustain.</p><p>The detail that should concern anyone designing connectivity policy: the operator says it tried to use the R100 voucher scheme and the UK Gigabit voucher scheme to fund network upgrades, and found both built around the scale and paperwork of much larger companies, not a community-run network.</p><p>This is the flip side of the community-network model we celebrate on our <a href="/global-spotlight.php">Global spotlight</a> page. Volunteer and cooperative networks can do things commercial rollout won''t — but only if public schemes are actually built to support them, not just the incumbents.</p>',
+  '2026-05-04'
+),
+(
+  'MPs open inquiry into rural and island connectivity — here''s how to respond',
+  'scottish-affairs-committee-connectivity-inquiry',
+  'The House of Commons Scottish Affairs Committee is taking public evidence on broadband and mobile coverage in rural and island Scotland. Submissions are a direct way to get lived experience in front of policymakers.',
+  '<p>The Scottish Affairs Committee at Westminster has launched an inquiry into digital connectivity across rural and remote Scotland, with a public survey open for residents, community groups, and businesses to submit their experience.</p><p>This is exactly the kind of moment our campaign exists for: a live, official channel where a account of a bad signal day, a missed voucher application, or a rollout date that keeps moving actually reaches the people who write policy.</p><p>Visit our <a href="/get-involved.php">Get involved</a> page for guidance on taking part, or go directly to the committee''s inquiry page to check the submission deadline before it closes.</p>',
+  '2026-07-08'
+),
+(
+  'Ofcom: 7 in 10 eligible households still don''t know social tariffs exist',
+  'ofcom-social-tariff-awareness-gap-2026',
+  'Take-up of discounted broadband for people on benefits remains below 1 in 10 eligible households, Ofcom''s 2026 pricing report found — even as more providers than ever offer one.',
+  '<p>Ofcom''s latest Pricing Trends report puts social tariff take-up at 532,000 households out of an estimated 4–8 million eligible — still under 10%. The regulator''s own figure for the reason is blunt: roughly seven in ten eligible households say they have never heard that a cheaper tariff exists for them.</p><p>The supply side has improved: broadband social tariffs have grown from three providers in 2020 to more than 30 by the end of 2025, and most major providers now offer one. The gap is now almost entirely about awareness, not availability.</p><p>Check who qualifies and how to switch on our <a href="/get-help.php#social-tariffs">Get help</a> page — it takes a few minutes and does not require waiting for a current contract to end.</p>',
+  '2026-02-20'
+),
+(
+  'Audit Scotland: government still has no clear plan to tackle digital exclusion',
+  'audit-scotland-digital-exclusion-no-plan',
+  'Independent auditors say the Scottish Government and COSLA have yet to set out a coherent action plan or clear ownership for tackling digital exclusion, despite it affecting more than a million people in Scotland.',
+  '<p>Audit Scotland''s review of digital exclusion work found no single, clearly owned action plan across the Scottish Government and COSLA, despite estimates that more than a million people in Scotland lack meaningful digital access and around one in six adults lack the digital skills for everyday life.</p><p>This is not a story about a single missed target. It is a story about accountability: infrastructure spending like R100 addresses one part of the problem, but skills, devices, and affordable connections need the same clarity of ownership that roads and water do.</p><p>Read the background on why we treat this as an infrastructure issue, not a charity appeal, on <a href="/why-it-matters.php">Why it matters</a>.</p>',
+  '2026-06-01'
+)
+ON DUPLICATE KEY UPDATE title = VALUES(title);
+
 -- ─── Local groups ────────────────────────────────────────────────────────────
 
 CREATE TABLE IF NOT EXISTS local_groups (
@@ -148,13 +187,13 @@ INSERT INTO schemes (slug, name, summary, who_for, what_you_get, how_to_apply, u
 (
   'r100',
   'R100 — Reaching 100% broadband',
-  'The Scottish Government\'s £697m programme to bring superfast broadband to every premises in Scotland, including rural and remote areas that commercial providers have not reached. Over 96,000 premises already connected.',
+  'The Scottish Government\'s £697m programme to bring superfast broadband to every premises in Scotland, including rural and remote areas that commercial providers have not reached. Over 100,000 premises already connected.',
   'Households and businesses in areas without superfast broadband (30 Mbps+), particularly rural Scotland. Build is ongoing — your area may not be connected yet.',
   'Superfast broadband infrastructure delivered via Openreach fibre. Build completion expected 2028.',
   'Check the Scottish Government\'s broadband pages to see whether your area is included in the programme and what the expected delivery date is.',
   'https://www.gov.scot/policies/digital/broadband-roll-out/',
   'Scottish Government: R100 broadband roll-out',
-  '2026-01', 'active', 'scotland', 'Some areas are being built now; others are scheduled for later. Check your postcode on the official page.', 20
+  '2026-06', 'active', 'scotland', 'Some areas are being built now; others are scheduled for later. North Scotland contract areas have faced reported delivery-date slippage — check your postcode on the official page for the current estimate.', 20
 ),
 (
   'uk-gigabit-voucher',
