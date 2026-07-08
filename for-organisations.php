@@ -119,6 +119,7 @@ require_once __DIR__ . '/includes/header.php';
                     <div>
                         <h3>Meet WCAG 2.2 AA as a minimum — and go further</h3>
                         <p>Web Content Accessibility Guidelines 2.2 Level AA is the legal baseline for public sector organisations in the UK. It covers screen readers, keyboard navigation, colour contrast, and much more. But WCAG compliance does not guarantee your service works for digitally excluded users — it is a floor, not a ceiling. Accessibility and digital inclusion are related but distinct. Treat WCAG 2.2 as the start of a conversation, not the end of your obligations.</p>
+                        <p>For practical, plain-English guidance on actually meeting — and going beyond — WCAG, <a href="https://www.a11yproject.com/"<?= external_link_attrs('https://www.a11yproject.com/') ?>>The A11Y Project</a> is worth building into your workflow rather than treating as a one-off read. It's free, community-maintained, and built around checklists and patterns rather than dense spec language.</p>
                     </div>
                 </li>
             </ol>
@@ -145,6 +146,20 @@ require_once __DIR__ . '/includes/header.php';
                     <a class="community-net-link" href="https://digitalinclusion.scot/"<?= external_link_attrs('https://digitalinclusion.scot/') ?>>Scotland's Digital Inclusion Charter &rarr;</a>
                     &nbsp;&middot;&nbsp;
                     <a class="community-net-link" href="https://scvo.scot/p/86534/2023/11/22/making-digital-inclusion-everyones-responsibility-a-roadmap-for-scotland"<?= external_link_attrs('https://scvo.scot/p/86534/2023/11/22/making-digital-inclusion-everyones-responsibility-a-roadmap-for-scotland') ?>>SCVO Digital Inclusion Roadmap &rarr;</a>
+                </div>
+            </div>
+
+            <h2 style="margin-top:2.5rem">Where to actually learn accessibility practice</h2>
+            <p>Standards tell you what's required. They don't teach you how to do it. For that, WIRES points organisations to <a href="https://www.a11yproject.com/"<?= external_link_attrs('https://www.a11yproject.com/') ?>>The A11Y Project</a> — a free, community-driven effort to make digital accessibility easier, built by practitioners rather than a standards body.</p>
+
+            <div class="community-net-list">
+                <div class="community-net-item">
+                    <div class="community-net-meta"><span class="pill">Community resource</span></div>
+                    <h3 class="community-net-name">The A11Y Project</h3>
+                    <p>A free, community-maintained hub of accessibility checklists, pattern guides, and explainers, written to be usable by developers, designers, and content teams without an accessibility background — not just specialists who already know WCAG's structure. Its checklist is a practical companion to the standard itself: where WCAG 2.2 AA tells you the bar you must clear, The A11Y Project shows you how to clear it in day-to-day design and build decisions. Backed by ongoing workshops, community spotlights, and an open GitHub repository — worth bookmarking and returning to, not just reading once.</p>
+                    <a class="community-net-link" href="https://www.a11yproject.com/checklist/"<?= external_link_attrs('https://www.a11yproject.com/checklist/') ?>>The A11Y Project: accessibility checklist &rarr;</a>
+                    &nbsp;&middot;&nbsp;
+                    <a class="community-net-link" href="https://www.a11yproject.com/"<?= external_link_attrs('https://www.a11yproject.com/') ?>>a11yproject.com &rarr;</a>
                 </div>
             </div>
 
