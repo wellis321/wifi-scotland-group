@@ -40,18 +40,19 @@ if (!$article) {
     return;
 }
 
-/* Fetch other recent articles for sidebar (excluding this one) */
+/* Fetch other recent articles — used in the sidebar list and the end-of-article card grid */
 $otherArticles = [];
 if (db_available()) {
     try {
         $s = db()->prepare(
-            'SELECT title, slug, published_at FROM news_items
+            'SELECT title, slug, summary, published_at, image_filename FROM news_items
              WHERE slug != :slug ORDER BY published_at DESC, id DESC LIMIT 4'
         );
         $s->execute(['slug' => $slug]);
         $otherArticles = $s->fetchAll();
     } catch (Throwable) {}
 }
+$moreArticles = array_slice($otherArticles, 0, 3);
 
 $pageTitle       = (string) $article['title'];
 $pageDescription = (string) ($article['summary'] ?? $pageTitle);
@@ -123,6 +124,41 @@ require_once __DIR__ . '/includes/header.php';
                 ?>
 
                 <p style="margin-top:1.5rem"><a href="/news.php">&larr; All news</a></p>
+
+                <?php if (!empty($moreArticles)): ?>
+                <div style="margin-top:3rem;padding-top:2.5rem;border-top:1px solid var(--line)">
+                    <h2 style="font-family:var(--font-display);font-size:1.35rem;font-weight:800;margin:0 0 1.25rem;color:var(--ink)">Keep reading</h2>
+                    <div class="news-card-grid">
+                    <?php foreach ($moreArticles as $row):
+                        $rowHasImg = !empty($row['image_filename']);
+                        $rowTs     = strtotime((string) $row['published_at']);
+                    ?>
+                        <article class="news-card">
+                            <?php if ($rowHasImg): ?>
+                            <div class="news-card-thumb" aria-hidden="true">
+                                <img src="<?= e(image_asset((string) $row['image_filename'])) ?>" width="600" height="400" alt="" decoding="async" loading="lazy">
+                            </div>
+                            <?php else: ?>
+                            <div class="news-card-thumb news-card-thumb--datestamp" aria-hidden="true">
+                                <div class="news-datestamp">
+                                    <span class="news-datestamp__day"><?= $rowTs ? date('j', $rowTs) : '' ?></span>
+                                    <span class="news-datestamp__month"><?= $rowTs ? date('M', $rowTs) : '' ?></span>
+                                    <span class="news-datestamp__year"><?= $rowTs ? date('Y', $rowTs) : '' ?></span>
+                                </div>
+                            </div>
+                            <?php endif; ?>
+                            <div class="news-card-body">
+                                <p class="meta"><time datetime="<?= e((string) $row['published_at']) ?>"><?= e(format_date((string) $row['published_at'])) ?></time></p>
+                                <h3><a href="<?= e('/news-item.php?slug=' . rawurlencode((string) $row['slug'])) ?>"><?= e((string) $row['title']) ?></a></h3>
+                                <?php if (!empty($row['summary'])): ?>
+                                    <p><?= e((string) $row['summary']) ?></p>
+                                <?php endif; ?>
+                            </div>
+                        </article>
+                    <?php endforeach; ?>
+                    </div>
+                </div>
+                <?php endif; ?>
             </div>
 
             <!-- Article sidebar -->
@@ -180,4 +216,9 @@ require_once __DIR__ . '/includes/header.php';
     </div>
 </div>
 
-<?php require_once __DIR__ . '/includes/footer.php'; ?>
+<?php
+$ctaHeading = 'Stay in the loop';
+$ctaBody    = 'Join the mailing list for campaign updates, event notices, and new articles.';
+require __DIR__ . '/includes/cta-join.php';
+require_once __DIR__ . '/includes/footer.php';
+?>
