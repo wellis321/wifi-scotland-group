@@ -35,15 +35,15 @@ require_once __DIR__ . '/includes/header.php';
             <div class="stat-strip">
                 <div class="stat-item">
                     <span class="stat-value">15%</span>
-                    <span class="stat-label">of Scotland's adults lack foundational digital competencies (Scottish Government, 2025)</span>
+                    <span class="stat-label">of Scotland's adults lack foundational digital skills — roughly 1 in 6 (Audit Scotland 2024; Scottish Government 2025)</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-value">15.1%</span>
-                    <span class="stat-label">of Scottish residents do not use fixed broadband at all (Ofcom 2024)</span>
+                    <span class="stat-label">of Scottish residents do not use fixed broadband at all (Scottish Government analysis of Ofcom Technology Tracker 2024 data)</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-value">8m</span>
-                    <span class="stat-label">UK adults lack the skills to make meaningful use of online services (NHS Confederation)</span>
+                    <span class="stat-label">UK adults lack the skills to make meaningful use of online services (Good Things Foundation)</span>
                 </div>
             </div>
 
@@ -58,11 +58,11 @@ require_once __DIR__ . '/includes/header.php';
 
             <h2>2. An outdated device</h2>
             <p>
-                Even if someone has a device, it may be too old to run the app or access the service. Developers routinely set minimum operating system requirements that exclude devices only a few years old. Research confirms that these design choices "particularly trouble users who may not have the ability to switch to a newer device" — people in poverty, older people, and those for whom a replacement phone or laptop is simply unaffordable. There is no regulatory requirement on developers to consider the devices their excluded users actually hold.
+                Even if someone has a device, it may be too old to run the app or access the service. Developers routinely set minimum operating system requirements that exclude devices only a few years old — a design choice that falls hardest on people in poverty, older people, and those for whom a replacement phone or laptop is simply unaffordable. There is no regulatory requirement on developers to consider the devices their excluded users actually hold.
             </p>
             <ul>
-                <li><a href="https://arxiv.org/pdf/2311.00984"<?= external_link_attrs('https://arxiv.org/pdf/2311.00984') ?>>Inclusive app design and OS version exclusion</a> (arxiv, 2023)</li>
-                <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12350549/"<?= external_link_attrs('https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12350549/') ?>>Mobile app barriers for older adults</a> (PMC, 2025)</li>
+                <li><a href="https://arxiv.org/abs/2311.00984"<?= external_link_attrs('https://arxiv.org/abs/2311.00984') ?>>Unveiling Inclusiveness-Related User Feedback in Mobile Applications</a> (arxiv, 2023) — a study of user complaints about exclusion, including device and OS barriers</li>
+                <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12350549/"<?= external_link_attrs('https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12350549/') ?>>Optimizing mobile app design for older adults: a systematic review of age-friendly design</a> (PMC, 2025)</li>
             </ul>
 
             <div class="pull-quote">

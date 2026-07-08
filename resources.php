@@ -12,6 +12,7 @@ $pageOgImage = image_asset('card-fibre.jpg');
 $pageOgImageAlt = 'Network cabling in a rack—symbolising the physical layer behind policy debates.';
 
 $sidebarRelated = [
+    ['href' => '/figures.php',        'label' => 'Figures & sources — the fact-check log'],
     ['href' => '/scotland.php',       'label' => 'Scotland policy'],
     ['href' => '/why-it-matters.php', 'label' => 'Why it matters'],
     ['href' => '/get-help.php',       'label' => 'Help getting online'],
@@ -33,6 +34,10 @@ require_once __DIR__ . '/includes/header.php';
         <div class="prose">
             <img class="page-hero-img" src="<?= e(image_asset('card-fibre.jpg')) ?>" width="1200" height="800"
                  alt="Fibre-optic cables in a patch panel." decoding="async" loading="lazy">
+        <div class="callout" style="margin-bottom:2rem">
+            <p><strong>Looking for the fact-check log?</strong> This page is a general reading list. For a list of the specific statistics used across the site, where each one comes from, and any corrections made when we last checked, see <a href="/figures.php">Figures &amp; sources</a>.</p>
+        </div>
+
         <h2>Scottish Government</h2>
         <ol class="ref-list">
             <li><a href="https://www.gov.scot/policies/digital/broadband-and-connectivity/"<?= external_link_attrs('https://www.gov.scot/policies/digital/broadband-and-connectivity/') ?>>Broadband and connectivity policy hub</a></li>

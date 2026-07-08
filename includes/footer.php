@@ -36,6 +36,7 @@ declare(strict_types=1);
                 <ul class="footer-links">
                     <li><a href="/scotland">Scotland policy</a></li>
                     <li><a href="/resources">Resources</a></li>
+                    <li><a href="/figures">Figures &amp; sources</a></li>
                     <li><a href="/wifi-map">WiFi map</a></li>
                     <li><a href="/news">News</a></li>
                 </ul>

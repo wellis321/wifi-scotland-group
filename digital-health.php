@@ -33,37 +33,38 @@ require_once __DIR__ . '/includes/header.php';
         <div class="prose">
 
             <div class="pull-quote">
-                <p>"People with poor health and living with a disability, older people, migrants and those with a lower socioeconomic status are struggling the most in accessing digital health tools."</p>
+                <p>"People with poor health and living with a disability, older people, migrants and those with a lower socioeconomic status are struggling the most in accessing these tools."</p>
                 <cite><a href="https://www.who.int/europe/news/item/17-03-2026-digital-health-equity-gaps-remain--but-solutions-are-becoming-clearer--new-report-shows"<?= external_link_attrs('https://www.who.int/europe/news/item/17-03-2026-digital-health-equity-gaps-remain--but-solutions-are-becoming-clearer--new-report-shows') ?>>WHO Europe, March 2026</a></cite>
             </div>
 
             <p>
                 The World Health Organisation passed a formal resolution in 2018 urging member states to ensure digital health tools reach the most vulnerable — framing digital access as a condition of equitable healthcare, not an optional extra.
-                <a href="https://thenhsalliance.org/resources/assessing-digital-inclusion-in-the-nhs-the-nhs-app"<?= external_link_attrs('https://thenhsalliance.org/resources/assessing-digital-inclusion-in-the-nhs-the-nhs-app') ?>>The NHS Confederation has found</a> that <strong>2.4 million UK households struggle to afford mobile contracts</strong> and around <strong>8 million people lack the skills</strong> to make meaningful use of online services — with 77% of the digitally excluded being over 65 and 69% living with a disability or impairment.
+                <a href="https://www.goodthingsfoundation.org/policy-and-research/research-and-evidence/research-2024/digital-nation"<?= external_link_attrs('https://www.goodthingsfoundation.org/policy-and-research/research-and-evidence/research-2024/digital-nation') ?>>Good Things Foundation's Digital Nation report</a> found that around <strong>8 million people lack the skills</strong> to make meaningful use of online services — with 77% of the digitally excluded being over 65 and 69% living with a disability or impairment. Separately, <a href="https://www.ofcom.org.uk/phones-and-broadband/bills-and-charges/pricing-and-consumer-engagement"<?= external_link_attrs('https://www.ofcom.org.uk/phones-and-broadband/bills-and-charges/pricing-and-consumer-engagement') ?>>Ofcom has estimated</a> that millions of UK households struggle to afford their mobile phone bill.
             </p>
 
             <div class="stat-strip">
                 <div class="stat-item">
-                    <span class="stat-value">2.4m</span>
-                    <span class="stat-label">UK households struggle to afford mobile contracts (NHS Confederation)</span>
+                    <span class="stat-value">8m</span>
+                    <span class="stat-label">people in the UK lack the digital skills to make meaningful use of online services (Good Things Foundation)</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-value">77%</span>
-                    <span class="stat-label">of the digitally excluded are over 65 (NHS Confederation)</span>
+                    <span class="stat-label">of the digitally excluded are over 65 (Good Things Foundation)</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-value">69%</span>
-                    <span class="stat-label">of the digitally excluded live with a disability or impairment</span>
+                    <span class="stat-label">of the digitally excluded live with a disability or impairment (Good Things Foundation)</span>
                 </div>
             </div>
 
             <h2>Loneliness and isolation</h2>
             <p>
-                A 2025 study drawing on 87,256 observations across China, the US, and the UK found a consistent association between digital exclusion and loneliness in older adults. Social isolation driven by digital exclusion carries health risks comparable to smoking and obesity in terms of mortality — an assessment from the National Academies of Sciences, based on approximately one in four community-dwelling Americans aged 65 and over being socially isolated.
+                A 2025 study drawing on 87,256 observations across China, the US, and the UK found a consistent association between digital exclusion and loneliness in older adults. Separately, the US National Academies of Sciences, Engineering, and Medicine has found that social isolation significantly increases mortality risk — a risk that may rival smoking and obesity — and estimates approximately one in four community-dwelling Americans aged 65 and over as socially isolated. WIRES draws the connection between that isolation research and digital exclusion; the isolation figures themselves are not specific to digital exclusion.
             </p>
             <ul>
                 <li><a href="https://link.springer.com/article/10.1186/s12877-025-06337-2"<?= external_link_attrs('https://link.springer.com/article/10.1186/s12877-025-06337-2') ?>>Digital exclusion and loneliness in older adults</a> (BMC Geriatrics, 2025 — 87,256 observations across three countries)</li>
-                <li><a href="https://thenhsalliance.org/resources/assessing-digital-inclusion-in-the-nhs-the-nhs-app"<?= external_link_attrs('https://thenhsalliance.org/resources/assessing-digital-inclusion-in-the-nhs-the-nhs-app') ?>>Assessing digital inclusion in the NHS</a> (NHS Alliance / NHS Confederation, 2026)</li>
+                <li><a href="https://nap.nationalacademies.org/read/25663"<?= external_link_attrs('https://nap.nationalacademies.org/read/25663') ?>>Social Isolation and Loneliness in Older Adults</a> (National Academies of Sciences, Engineering, and Medicine, 2020)</li>
+                <li><a href="https://thenhsalliance.org/resources/assessing-digital-inclusion-in-the-nhs-the-nhs-app"<?= external_link_attrs('https://thenhsalliance.org/resources/assessing-digital-inclusion-in-the-nhs-the-nhs-app') ?>>Assessing digital inclusion in the NHS</a> (NHS Alliance, 2026)</li>
             </ul>
 
             <h2>What COVID-19 showed us</h2>

@@ -106,15 +106,15 @@ require_once __DIR__ . '/includes/header.php';
                 <span class="stat-label">qualifying households use the social tariff they are entitled to (532,000 of 6.2m)</span>
             </div>
             <div class="stat-item">
-                <span class="stat-value">55%</span>
+                <span class="stat-value">70%</span>
                 <span class="stat-label">of people on benefits have never heard that social tariffs exist</span>
             </div>
             <div class="stat-item">
-                <span class="stat-value">£12</span>
-                <span class="stat-label">average amount households overpay per month by not claiming their social tariff</span>
+                <span class="stat-value">£200</span>
+                <span class="stat-label">a year an eligible household could typically save by switching to a social tariff</span>
             </div>
         </div>
-        <p class="meta">Source: Ofcom 2024–25. The gap between entitlement and uptake is itself a policy failure — schemes people do not know exist are schemes that do not work.</p>
+        <p class="meta">Source: <a href="https://www.ofcom.org.uk/phones-and-broadband/bills-and-charges/pricing-and-consumer-engagement"<?= external_link_attrs('https://www.ofcom.org.uk/phones-and-broadband/bills-and-charges/pricing-and-consumer-engagement') ?>>Ofcom, Pricing and consumer engagement 2025</a> (published February 2026, survey data from October 2025). The gap between entitlement and uptake is itself a policy failure — schemes people do not know exist are schemes that do not work.</p>
 
         <p>
             Regulator-led research is the right place for <strong>affordability stress</strong>, <strong>quality of service</strong>, and <strong>geographic coverage</strong> at scale. Ofcom publishes <strong>Connected Nations</strong> updates and related consumer research—headline premises and coverage statistics change each release, so we link to the hub rather than freezing a percentage here.
@@ -168,11 +168,12 @@ require_once __DIR__ . '/includes/header.php';
         </div>
 
         <p>
-            Scotland is in a declared housing emergency. Households in temporary accommodation have reached their highest level in the recorded time series going back to 2002,
+            The Scottish Parliament declared a housing emergency on <strong>15 May 2024</strong>. Households in temporary accommodation have reached their highest level in the recorded time series going back to 2002,
             and homelessness has continued to rise since the emergency was declared.
             People experiencing homelessness face digital exclusion not just through lack of money,
             but through the design of the systems that are supposed to help them. Without internet access it is harder to:
         </p>
+        <p class="meta">Sources: <a href="https://www.gov.scot/publications/tackling-scotlands-housing-emergency/"<?= external_link_attrs('https://www.gov.scot/publications/tackling-scotlands-housing-emergency/') ?>>Scottish Government — Tackling Scotland's Housing Emergency</a> · <a href="https://www.gov.scot/publications/homelessness-in-scotland-update-to-30-september-2025/"<?= external_link_attrs('https://www.gov.scot/publications/homelessness-in-scotland-update-to-30-september-2025/') ?>>Homelessness in Scotland: update to 30 September 2025</a> · <a href="https://scotland.shelter.org.uk/housing_policy/homelessness_in_scotland/"<?= external_link_attrs('https://scotland.shelter.org.uk/housing_policy/homelessness_in_scotland/') ?>>Shelter Scotland analysis</a>. These are updated twice yearly — figures here reflect the most recent release at time of writing.</p>
         <ul>
             <li>Apply for housing, benefits, or emergency support online (as more services move to digital-only)</li>
             <li>Keep in contact with support workers, family, and legal representatives</li>

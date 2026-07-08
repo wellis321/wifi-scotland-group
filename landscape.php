@@ -56,7 +56,9 @@ require_once __DIR__ . '/includes/header.php';
                 <div class="community-net-item">
                     <div class="community-net-meta"><span class="pill">Scottish Government</span></div>
                     <h3 class="community-net-name">Connecting Scotland</h3>
-                    <p>A government programme launched during Covid-19 that provided devices and internet connections to digitally excluded households, supporting over 61,000 people during the pandemic. Since then, momentum has stalled — there is no updated national strategy, no published delivery plan, and no clarity on who is responsible for what comes next.</p>
+                    <p>A government programme launched during Covid-19 that provided devices and internet connections to digitally excluded households, supporting more than 60,000 households during the pandemic. Since then, momentum has stalled — there is no updated national strategy, no published delivery plan, and no clarity on who is responsible for what comes next.</p>
+                    <a class="community-net-link" href="https://www.gov.scot/publications/connecting-scotland-phase-2-evaluation/"<?= external_link_attrs('https://www.gov.scot/publications/connecting-scotland-phase-2-evaluation/') ?>>Connecting Scotland: phase 2 evaluation &rarr;</a>
+                    &nbsp;&middot;&nbsp;
                     <a class="community-net-link" href="https://connecting.scot/"<?= external_link_attrs('https://connecting.scot/') ?>>connecting.scot &rarr;</a>
                 </div>
                 <div class="community-net-item">

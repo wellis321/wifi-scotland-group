@@ -64,14 +64,15 @@ require_once __DIR__ . '/includes/header.php';
 
             <h2>Who is digitally excluded — and it may not be who you think</h2>
             <p>
-                Ofcom's 2024 research challenges the assumption that digital exclusion is primarily an issue for older people. The remaining offline population is significantly skewed toward <strong>younger people facing financial barriers</strong>. 1.6 million people in the UK are still entirely offline. 23% of the population struggles with online services. 10 million workers lack essential digital skills.
+                Ofcom's 2024–25 research challenges the assumption that digital exclusion is primarily an issue for older people. The remaining offline population is significantly skewed toward <strong>younger people facing financial barriers</strong>. <strong>2.8 million</strong> people in the UK are still entirely offline — though that is down from 13% of the population pre-pandemic to 5% today. A further <strong>27%</strong> of the population are "narrow" internet users who rely on a limited range of online activities. Separately, Lloyds Bank's Essential Digital Skills research puts the number of UK workers lacking essential digital skills for work at around <strong>10 million</strong>.
             </p>
             <p>
                 Digital exclusion is shaped by income, disability, device age, data costs, digital skills, language, and authentication barriers — not simply age. Any service design that assumes "our users are digitally confident" is making an assumption that the evidence does not support.
             </p>
             <ul>
                 <li><a href="https://www.ofcom.org.uk/internet-based-services/technology/digital-adoption-and-digital-disadvantage-today-what-has-changed-and-what-barriers-remain"<?= external_link_attrs('https://www.ofcom.org.uk/internet-based-services/technology/digital-adoption-and-digital-disadvantage-today-what-has-changed-and-what-barriers-remain') ?>>Ofcom: Digital Adoption and Digital Disadvantage Today (2024)</a></li>
-                <li><a href="https://www.goodthingsfoundation.org/dam/jcr:c1da40c1-5247-499e-a627-f273a3a1de55/GoodThings_DigitalInclusionDatasets_2024.pdf"<?= external_link_attrs('https://www.goodthingsfoundation.org/dam/jcr:c1da40c1-5247-499e-a627-f273a3a1de55/GoodThings_DigitalInclusionDatasets_2024.pdf') ?>>Good Things Foundation: What the Main UK Datasets Tell Us (September 2024, PDF)</a></li>
+                <li><a href="https://www.lloydsbankinggroup.com/assets/pdfs/who-we-are/what-we-do/financial-wellbeing/lloyd-essential-digital-skills-2025.pdf"<?= external_link_attrs('https://www.lloydsbankinggroup.com/assets/pdfs/who-we-are/what-we-do/financial-wellbeing/lloyd-essential-digital-skills-2025.pdf') ?>>Lloyds Bank: Essential Digital Skills 2025</a></li>
+                <li><a href="https://www.goodthingsfoundation.org/dam/jcr:c1da40c1-5247-499e-a627-f273a3a1de55/GoodThings_DigitalInclusionDatasets_2024.pdf"<?= external_link_attrs('https://www.goodthingsfoundation.org/dam/jcr:c1da40c1-5247-499e-a627-f273a3a1de55/GoodThings_DigitalInclusionDatasets_2024.pdf') ?>>Good Things Foundation: What the main UK datasets tell us (September 2024, PDF)</a></li>
             </ul>
 
             <h2>Seven practical principles</h2>
@@ -105,7 +106,7 @@ require_once __DIR__ . '/includes/header.php';
                 <li class="step-item">
                     <div>
                         <h3>Do not assume the latest operating system</h3>
-                        <p>Setting a minimum OS requirement that excludes devices two or three years old is a design decision — and it is rarely made with the user in mind. Research confirms these choices "particularly trouble users who may not have the ability to switch to a newer device." Understand what devices your users actually have, not what devices you would like them to have. There is no regulatory requirement forcing organisations to consider this — which is exactly why you should do it deliberately.</p>
+                        <p>Setting a minimum OS requirement that excludes devices two or three years old is a design decision — and it is rarely made with the user in mind. It falls hardest on people who cannot afford or do not want to replace a working device. Understand what devices your users actually have, not what devices you would like them to have. There is no regulatory requirement forcing organisations to consider this — which is exactly why you should do it deliberately.</p>
                     </div>
                 </li>
                 <li class="step-item">
@@ -140,7 +141,7 @@ require_once __DIR__ . '/includes/header.php';
                 <div class="community-net-item">
                     <div class="community-net-meta"><span class="pill">Scotland</span></div>
                     <h3 class="community-net-name">Scotland's Digital Inclusion Charter</h3>
-                    <p>A cross-sector pledge framework refreshed in December 2024. Signatory commitments include understanding the digital inclusion needs of your audience, committing organisational resources, and delivering against a plan. Pairs with the SCVO Digital Inclusion Roadmap.</p>
+                    <p>A cross-sector pledge framework refreshed in August 2024, replacing the previous Digital Participation Charter. Signatory commitments include understanding the digital inclusion needs of your audience, committing organisational resources, and delivering against a plan. Pairs with the SCVO Digital Inclusion Roadmap.</p>
                     <a class="community-net-link" href="https://digitalinclusion.scot/"<?= external_link_attrs('https://digitalinclusion.scot/') ?>>Scotland's Digital Inclusion Charter &rarr;</a>
                     &nbsp;&middot;&nbsp;
                     <a class="community-net-link" href="https://scvo.scot/p/86534/2023/11/22/making-digital-inclusion-everyones-responsibility-a-roadmap-for-scotland"<?= external_link_attrs('https://scvo.scot/p/86534/2023/11/22/making-digital-inclusion-everyones-responsibility-a-roadmap-for-scotland') ?>>SCVO Digital Inclusion Roadmap &rarr;</a>

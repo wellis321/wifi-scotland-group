@@ -26,7 +26,7 @@ function load_schemes(): array
         [
             'slug'         => 'social-tariffs',
             'name'         => 'Social tariffs — cheaper broadband for people on benefits',
-            'summary'      => 'Major broadband providers offer significantly cheaper deals for people receiving Universal Credit and other qualifying benefits. Around 532,000 of the 6.2 million qualifying UK households use one — roughly 1 in 12. More than half of people on benefits have never heard that social tariffs exist.',
+            'summary'      => 'Major broadband providers offer significantly cheaper deals for people receiving Universal Credit and other qualifying benefits. Around 532,000 of the 6.2 million qualifying UK households use one — roughly 1 in 12. Around 7 in 10 people on benefits have never heard that social tariffs exist.',
             'who'          => 'People claiming Universal Credit, Pension Credit, Employment and Support Allowance, Jobseeker\'s Allowance, or Income Support. Each provider has its own qualifying list — check directly with them.',
             'what'         => 'Broadband packages from around £12.50–£20 per month with no mid-contract price rises and no exit fees. BT Home Essentials, Virgin Media Essential, Sky Broadband Basics, and Community Fibre all offer versions.',
             'how'          => 'Check which providers cover your address on the Ofcom page below, confirm your benefit, and contact the provider. You do not need to wait for your current contract to end.',
@@ -40,7 +40,7 @@ function load_schemes(): array
         [
             'slug'         => 'r100',
             'name'         => 'R100 — Reaching 100% broadband',
-            'summary'      => 'The Scottish Government\'s £697m programme to bring superfast broadband to every premises in Scotland, including rural and remote areas that commercial providers have not reached. Over 96,000 premises already connected.',
+            'summary'      => 'The Scottish Government\'s £697m programme to bring superfast broadband to every premises in Scotland, including rural and remote areas that commercial providers have not reached. Over 100,000 premises already connected.',
             'who'          => 'Households and businesses in areas without superfast broadband (30 Mbps+), particularly rural Scotland. Build is ongoing — your area may not be connected yet.',
             'what'         => 'Superfast broadband infrastructure delivered via Openreach fibre. Build completion expected 2028.',
             'how'          => 'Check the Scottish Government\'s broadband pages to see whether your area is included in the programme and what the expected delivery date is.',
@@ -54,9 +54,9 @@ function load_schemes(): array
         [
             'slug'         => 'uk-gigabit-voucher',
             'name'         => 'UK Gigabit Broadband Voucher Scheme',
-            'summary'      => 'Vouchers of up to £4,500 to help homes and businesses in rural areas pay for gigabit-capable broadband where commercial providers have not invested. Active Scottish contracts include the Borders, East Lothian, and North East Scotland.',
+            'summary'      => 'Vouchers of up to £3,500 to help homes and businesses in rural areas pay for gigabit-capable broadband where commercial providers have not invested. Active Scottish contracts include the Borders, East Lothian, and North East Scotland.',
             'who'          => 'Homes and businesses in rural areas not scheduled for a commercial gigabit upgrade and currently receiving less than 1 Gbps. Groups of premises can combine vouchers for larger installations.',
-            'what'         => 'Vouchers up to £4,500 for businesses and up to £1,500 for residential premises toward the cost of installation. Verify current amounts on the official page — they change.',
+            'what'         => 'Vouchers up to £3,500 for businesses and up to £1,500 for residential premises toward the cost of installation (combined group projects can be worth more). Verify current amounts on the official page — they change.',
             'how'          => 'Check eligibility and apply through Building Digital UK. A broadband supplier must be part of the application. Groups of neighbours can apply together.',
             'url'          => 'https://www.gov.uk/government/publications/gigabit-broadband-voucher-scheme-information/gigabit-broadband-voucher-scheme-information',
             'source_label' => 'Building Digital UK: Gigabit Voucher Scheme',

@@ -84,11 +84,11 @@ require_once __DIR__ . '/includes/header.php';
                 <span class="statement-stat__label">UK households on Universal Credit qualify for a social tariff right now</span>
             </div>
             <div class="statement-stat stat-anim">
-                <span class="statement-stat__value" data-count-target="55" data-count-suffix="%">55%</span>
+                <span class="statement-stat__value" data-count-target="70" data-count-suffix="%">70%</span>
                 <span class="statement-stat__label">of people on benefits have never heard that social tariffs exist</span>
             </div>
         </div>
-        <p class="statement-band-source">Source: Ofcom 2024–25 &middot; <a href="/get-help.php">Find out if you qualify</a></p>
+        <p class="statement-band-source">Source: Ofcom, Pricing and consumer engagement 2025 &middot; <a href="/get-help.php">Find out if you qualify</a></p>
     </div>
 </section>
 

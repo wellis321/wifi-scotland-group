@@ -2207,6 +2207,89 @@ a:hover {
     color: var(--signal);
 }
 
+/* ─── Figures & sources log ──────────────────────────────────────────────── */
+
+.figure-log {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 1.25rem 0 2rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.figure-log__item {
+    padding: 1.25rem 1.5rem;
+    background: var(--cream);
+    border-bottom: 1px solid var(--line);
+}
+
+.figure-log__item:last-child {
+    border-bottom: none;
+}
+
+.figure-log__item:nth-child(even) {
+    background: color-mix(in srgb, var(--cream) 70%, var(--paper));
+}
+
+.figure-log__claim {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.4;
+    margin: 0 0 0.5rem;
+}
+
+.figure-log__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin: 0 0 0.4rem;
+    font-size: 0.88rem;
+}
+
+.figure-log__source a {
+    font-weight: 700;
+    color: var(--accent-dark);
+    text-decoration: none;
+}
+
+.figure-log__source a:hover {
+    color: var(--signal);
+}
+
+.figure-log__date {
+    color: var(--muted);
+}
+
+.figure-log__used-on {
+    margin: 0 0 0.4rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+.figure-log__used-on a {
+    color: var(--muted);
+    text-decoration: underline;
+    text-decoration-color: var(--line);
+}
+
+.figure-log__used-on a:hover {
+    color: var(--accent-dark);
+}
+
+.figure-log__note {
+    margin: 0.5rem 0 0;
+    padding-top: 0.5rem;
+    border-top: 1px dashed var(--line);
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.55;
+}
+
 /* ─── Organisational supporters ─────────────────────────────────────────── */
 
 .supporter-grid {
