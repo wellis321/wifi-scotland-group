@@ -181,7 +181,12 @@ require_once __DIR__ . '/includes/header.php';
     <div class="wrap wrap--content">
         <div class="tip-section" data-tip-form data-tip-pubkey="<?= e(tip_public_key_hex()) ?>">
             <button type="button" class="tip-toggle" data-tip-toggle aria-expanded="<?= $tipOpenOnLoad ? 'true' : 'false' ?>" aria-controls="tip-panel">
-                <span class="tip-toggle__icon" aria-hidden="true">&#128274;</span>
+                <span class="tip-toggle__icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                    </svg>
+                </span>
                 <span>
                     <span class="tip-toggle__title">Send a confidential tip instead</span>
                     <span class="tip-toggle__sub">For sensitive information — encrypted in your browser before it's sent</span>
