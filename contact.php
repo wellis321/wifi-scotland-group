@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 require_once __DIR__ . '/includes/bootstrap.php';
+require_once __DIR__ . '/includes/tip_crypto.php';
 
 $pageTitle = 'Contact';
 $pageDescription = 'Reach ' . SITE_BRAND . ' with corrections, partnership ideas, or local stories about connectivity.';
@@ -10,6 +11,7 @@ $currentNav = 'contact';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     $_SESSION['contact_loaded'] = time();
+    $_SESSION['tip_loaded'] = time();
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -109,9 +111,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $flashErr = flash_take('contact');
 $flashOk = flash_take('contact_ok');
+$tipFlashErr = flash_take('tip');
+$tipFlashOk = flash_take('tip_ok');
+$tipOpenOnLoad = $tipFlashErr !== null || $tipFlashOk !== null;
 
 $pageOgImage = image_asset('card-community.jpg');
 $pageOgImageAlt = 'People collaborating with a laptop—representing community outreach.';
+
+$pageExtraScripts = '<script src="/js/tip-form.js" defer></script>';
 
 require_once __DIR__ . '/includes/header.php';
 ?>
@@ -164,9 +171,53 @@ require_once __DIR__ . '/includes/header.php';
         </div>
         <figure class="join-aside">
             <img src="<?= e(image_asset('card-community.jpg')) ?>" width="1200" height="800" alt="" decoding="async" loading="lazy">
-            <figcaption>For sensitive whistle-blowing, consider an encrypted channel once we publish one; this form stores messages in our volunteer database.</figcaption>
+            <figcaption>This form stores messages in our volunteer database — fine for corrections, press enquiries, and most stories. <?= tip_form_enabled() ? 'For anything sensitive, use the <a href="#tip">confidential tip form</a> below instead.' : '' ?></figcaption>
         </figure>
     </div>
 </div>
+
+<?php if (tip_form_enabled()): ?>
+<div class="section alt" id="tip">
+    <div class="wrap wrap--content">
+        <div class="tip-section" data-tip-form data-tip-pubkey="<?= e(tip_public_key_hex()) ?>">
+            <button type="button" class="tip-toggle" data-tip-toggle aria-expanded="<?= $tipOpenOnLoad ? 'true' : 'false' ?>" aria-controls="tip-panel">
+                <span class="tip-toggle__icon" aria-hidden="true">&#128274;</span>
+                <span>
+                    <span class="tip-toggle__title">Send a confidential tip instead</span>
+                    <span class="tip-toggle__sub">For sensitive information — encrypted in your browser before it's sent</span>
+                </span>
+            </button>
+            <div class="tip-panel" data-tip-panel id="tip-panel" <?= $tipOpenOnLoad ? '' : 'hidden' ?>>
+                <p>Your message is encrypted on your device before it leaves your browser. Nobody can read it without the offline private key — not us, not our host, not anyone who might gain access to the database. There's no name or email field; if you want a reply, include a way to reach you inside the message itself.</p>
+                <p class="tip-panel__caveat"><strong>This encrypts what you say, not who you are.</strong> Ordinary web metadata — your IP address, timestamp — is still visible to our hosting provider, the same as on any website. If hiding your identity matters as much as your message, use a dedicated anonymous tip service rather than this form.</p>
+
+                <?php if ($tipFlashOk): ?>
+                    <p class="flash ok" role="status"><?= e($tipFlashOk) ?></p>
+                <?php endif; ?>
+                <?php if ($tipFlashErr): ?>
+                    <p class="flash err" role="alert"><?= e($tipFlashErr) ?></p>
+                <?php endif; ?>
+
+                <form class="forms" method="post" action="/tip" data-tip-form-el novalidate>
+                    <input type="hidden" name="csrf_token" value="<?= e(csrf_token()) ?>">
+                    <input type="hidden" name="ciphertext" data-tip-ciphertext value="">
+                    <div class="form-hp" aria-hidden="true">
+                        <label for="website_t">Website</label>
+                        <input id="website_t" name="website" type="text" tabindex="-1" autocomplete="off">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="tip_message">Your message</label>
+                        <textarea id="tip_message" data-tip-message maxlength="4000" rows="8" placeholder="What you want us to know. Include a way to reach you here if you'd like a reply."></textarea>
+                    </div>
+
+                    <p class="tip-status" data-tip-status>Encryption loads once you open this form.</p>
+                    <button class="btn btn-primary" type="submit" data-tip-submit>Encrypt and send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
 
 <?php require_once __DIR__ . '/includes/footer.php'; ?>

@@ -19,6 +19,7 @@
             <a href="/admin/" class="admin-nav-link <?= ($adminSection ?? '') === 'dashboard' ? 'is-active' : '' ?>">Dashboard</a>
             <a href="/admin/members.php" class="admin-nav-link <?= ($adminSection ?? '') === 'members' ? 'is-active' : '' ?>">Members</a>
             <a href="/admin/messages.php" class="admin-nav-link <?= ($adminSection ?? '') === 'messages' ? 'is-active' : '' ?>">Messages</a>
+            <a href="/admin/tips.php" class="admin-nav-link <?= ($adminSection ?? '') === 'tips' ? 'is-active' : '' ?>">Tips</a>
             <a href="/admin/news.php" class="admin-nav-link <?= ($adminSection ?? '') === 'news' ? 'is-active' : '' ?>">News</a>
             <a href="/admin/groups.php" class="admin-nav-link <?= ($adminSection ?? '') === 'groups' ? 'is-active' : '' ?>">Groups</a>
             <a href="/admin/events.php" class="admin-nav-link <?= ($adminSection ?? '') === 'events' ? 'is-active' : '' ?>">Events</a>

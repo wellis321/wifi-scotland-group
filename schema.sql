@@ -28,6 +28,21 @@ CREATE TABLE IF NOT EXISTS contact_messages (
   KEY idx_contact_created (created_at)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+-- Confidential tips. `ciphertext` is a libsodium sealed-box, base64-encoded,
+-- produced client-side in the browser before submission — the server and this
+-- table never see plaintext. There is deliberately no name/email column: the
+-- whole point is not to force identity on someone reporting something sensitive.
+-- Decrypt only offline, with the private key, using bin/decrypt-tip.php — see
+-- includes/tip_crypto.php for the public key this is encrypted against.
+CREATE TABLE IF NOT EXISTS secure_tips (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  ciphertext TEXT NOT NULL COMMENT 'libsodium crypto_box_seal output, base64',
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  is_read TINYINT(1) NOT NULL DEFAULT 0,
+  PRIMARY KEY (id),
+  KEY idx_secure_tips_created (created_at)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 CREATE TABLE IF NOT EXISTS news_items (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT,
   title VARCHAR(220) NOT NULL,

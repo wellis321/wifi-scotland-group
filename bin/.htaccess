@@ -1,0 +1,9 @@
+# Block direct HTTP access. These are CLI-only offline tools — they must
+# never be reachable over the web, and none of them hold secrets themselves,
+# but this is defence in depth in case of host misconfiguration.
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+    Deny from all
+</IfModule>
