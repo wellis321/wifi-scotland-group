@@ -2122,10 +2122,9 @@ a:hover {
 }
 
 .scheme-note {
-    background: rgba(226, 85, 64, 0.08);
-    border-left: 3px solid var(--signal);
-    padding: 0.75rem 1rem;
-    border-radius: 0 8px 8px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 0.75rem 0.1rem;
     margin-bottom: 1.5rem;
     font-size: 0.92rem;
     color: var(--muted);

@@ -176,7 +176,7 @@ INSERT INTO schemes (slug, name, summary, who_for, what_you_get, how_to_apply, u
 (
   'social-tariffs',
   'Social tariffs — cheaper broadband for people on benefits',
-  'Major broadband providers offer significantly cheaper deals for people receiving Universal Credit and other qualifying benefits. Around 532,000 of the 6.2 million qualifying UK households use one — roughly 1 in 12. More than half of people on benefits have never heard that social tariffs exist.',
+  'Major broadband providers offer significantly cheaper deals for people receiving Universal Credit and other qualifying benefits. Around 532,000 of the 6.2 million qualifying UK households use one — roughly 1 in 12. Around 7 in 10 people on benefits have never heard that social tariffs exist.',
   'People claiming Universal Credit, Pension Credit, Employment and Support Allowance, Jobseeker\'s Allowance, or Income Support. Each provider has its own qualifying list — check directly with them.',
   'Broadband packages from around £12.50–£20 per month with no mid-contract price rises and no exit fees. BT Home Essentials, Virgin Media Essential, Sky Broadband Basics, and Community Fibre all offer versions.',
   'Check which providers cover your address on the Ofcom page below, confirm your benefit, and contact the provider. You do not need to wait for your current contract to end.',
@@ -193,14 +193,14 @@ INSERT INTO schemes (slug, name, summary, who_for, what_you_get, how_to_apply, u
   'Check the Scottish Government\'s broadband pages to see whether your area is included in the programme and what the expected delivery date is.',
   'https://www.gov.scot/policies/digital/broadband-roll-out/',
   'Scottish Government: R100 broadband roll-out',
-  '2026-06', 'active', 'scotland', 'Some areas are being built now; others are scheduled for later. North Scotland contract areas have faced reported delivery-date slippage — check your postcode on the official page for the current estimate.', 20
+  '2026-06', 'active', 'scotland', 'Some areas are being built now; others are scheduled for later. Check your postcode on the official page.', 20
 ),
 (
   'uk-gigabit-voucher',
   'UK Gigabit Broadband Voucher Scheme',
-  'Vouchers of up to £4,500 to help homes and businesses in rural areas pay for gigabit-capable broadband where commercial providers have not invested. Active Scottish contracts include the Borders, East Lothian, and North East Scotland.',
+  'Vouchers of up to £3,500 to help homes and businesses in rural areas pay for gigabit-capable broadband where commercial providers have not invested. Active Scottish contracts include the Borders, East Lothian, and North East Scotland.',
   'Homes and businesses in rural areas not scheduled for a commercial gigabit upgrade and currently receiving less than 1 Gbps. Groups of premises can combine vouchers for larger installations.',
-  'Vouchers up to £4,500 for businesses and up to £1,500 for residential premises toward the cost of installation. Verify current amounts on the official page — they change.',
+  'Vouchers up to £3,500 for businesses and up to £1,500 for residential premises toward the cost of installation (combined group projects can be worth more). Verify current amounts on the official page — they change.',
   'Check eligibility and apply through Building Digital UK. A broadband supplier must be part of the application. Groups of neighbours can apply together.',
   'https://www.gov.uk/government/publications/gigabit-broadband-voucher-scheme-information/gigabit-broadband-voucher-scheme-information',
   'Building Digital UK: Gigabit Voucher Scheme',
