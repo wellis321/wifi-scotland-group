@@ -123,7 +123,8 @@ require_once __DIR__ . '/includes/header.php';
         </ul>
 
         <div class="callout">
-            <p><strong>Campaign question to ask in Glasgow:</strong> The strategy commits to published outcomes and annual monitoring. Ask your local councillor or RSL what specific digital inclusion outcomes have been achieved since 2022, and where the data is publicly available.</p>
+            <p class="callout__eyebrow">Campaign question</p>
+            <p>The strategy commits to published outcomes and annual monitoring. Ask your local councillor or RSL what specific digital inclusion outcomes have been achieved since 2022, and where the data is publicly available.</p>
         </div>
 
         <h2>How to use this page as an activist</h2>

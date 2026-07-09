@@ -99,7 +99,8 @@ require_once __DIR__ . '/includes/header.php';
             </div>
 
             <div class="callout" style="margin-top:2.5rem">
-                <p><strong>Attribution:</strong> We highlight these projects because their documentation is public and their aims align with our values. Listing here is not an exhaustive survey of the field — suggest additions via <a href="/contact.php">Contact</a>.</p>
+                <p class="callout__eyebrow">Attribution</p>
+                <p>We highlight these projects because their documentation is public and their aims align with our values. Listing here is not an exhaustive survey of the field — suggest additions via <a href="/contact.php">Contact</a>.</p>
             </div>
 
             <h2 id="scotland-networks" style="margin-top:3.5rem">Closer to home: Scotland</h2>

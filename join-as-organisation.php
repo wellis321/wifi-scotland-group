@@ -169,8 +169,8 @@ $badgeLightPreview = '<a href="' . $supportersUrl . '" target="_blank" rel="noop
             </div>
 
             <?php if (!empty($errors)): ?>
-                <div class="callout" role="alert" style="margin-bottom:1.5rem">
-                    <p><strong>Please fix the following:</strong></p>
+                <div class="callout callout--alert" role="alert" style="margin-bottom:1.5rem">
+                    <p class="callout__eyebrow">Please fix the following</p>
                     <ul style="margin:0.5rem 0 0">
                         <?php foreach ($errors as $err): ?>
                             <li><?= e($err) ?></li>

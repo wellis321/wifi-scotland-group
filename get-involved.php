@@ -99,8 +99,9 @@ require_once __DIR__ . '/includes/header.php';
                 <p><strong>Are you from an organisation?</strong> If your charity, housing association, or public body works with people who struggle to get online, we have specific guidance on what you can do — including how to audit your own digital services before they become a barrier. <a href="/for-organisations">Read our guidance for organisations &rarr;</a></p>
             </div>
 
-            <div class="callout">
-                <p><strong>Safety note:</strong> Do not intercept neighbours' traffic or tamper with street cabinets. Community networking is powerful when it is legal, consensual, and transparent — see our <a href="/global-spotlight.php">Global spotlight</a> for examples with public documentation.</p>
+            <div class="callout callout--alert">
+                <p class="callout__eyebrow">Safety note</p>
+                <p>Do not intercept neighbours' traffic or tamper with street cabinets. Community networking is powerful when it is legal, consensual, and transparent — see our <a href="/global-spotlight.php">Global spotlight</a> for examples with public documentation.</p>
             </div>
         </div>
 

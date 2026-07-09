@@ -35,7 +35,8 @@ require_once __DIR__ . '/includes/header.php';
             <img class="page-hero-img" src="<?= e(image_asset('card-fibre.jpg')) ?>" width="1200" height="800"
                  alt="Fibre-optic cables in a patch panel." decoding="async" loading="lazy">
         <div class="callout" style="margin-bottom:2rem">
-            <p><strong>Looking for the fact-check log?</strong> This page is a general reading list. For a list of the specific statistics used across the site, where each one comes from, and any corrections made when we last checked, see <a href="/figures.php">Figures &amp; sources</a>.</p>
+            <p class="callout__eyebrow">Figures &amp; sources</p>
+            <p>This page is a general reading list. For a list of the specific statistics used across the site, where each one comes from, and any corrections made when we last checked, see <a href="/figures.php">Figures &amp; sources</a>.</p>
         </div>
 
         <h2>Scottish Government</h2>

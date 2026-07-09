@@ -888,10 +888,9 @@ a:hover {
 }
 
 .callout {
-    border-left: 4px solid var(--signal);
-    padding: 1rem 1.25rem;
-    background: rgba(226, 85, 64, 0.08);
-    border-radius: 0 var(--radius) var(--radius) 0;
+    border-top: 1.5px solid var(--ink);
+    border-bottom: 1.5px solid var(--ink);
+    padding: 1.25rem 0.1rem;
     margin: 1.5rem 0;
 }
 
@@ -902,6 +901,31 @@ a:hover {
 
 .callout p {
     margin: 0;
+}
+
+.callout p + p {
+    margin-top: 0.6rem;
+}
+
+.callout__eyebrow {
+    font-family: var(--font-display);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.8rem;
+    color: var(--accent-dark);
+    margin: 0 0 0.5rem;
+}
+
+/* Reserved for genuinely urgent content — form errors, safety warnings.
+   Everything else should use the plain .callout default. */
+.callout--alert {
+    border-top-color: var(--signal);
+    border-bottom-color: var(--signal);
+}
+
+.callout--alert .callout__eyebrow {
+    color: var(--signal);
 }
 
 .news-list article {
@@ -3160,6 +3184,48 @@ a.stat-item--link:hover .stat-value {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 1.25rem;
+}
+
+/* Forces exactly 3 columns regardless of container width — used where the
+   grid sits in a narrower column (e.g. alongside the article sidebar) and
+   auto-fill would otherwise wrap to 2 columns. */
+.news-card-grid--tight {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.news-card-grid--tight .news-card-thumb {
+    height: 110px;
+}
+
+.news-card-grid--tight .news-datestamp__day {
+    font-size: 2.25rem;
+}
+
+.news-card-grid--tight .news-card-body {
+    padding: 1rem;
+}
+
+.news-card-grid--tight .news-card-body h3 {
+    font-size: 1rem;
+}
+
+.news-card-grid--tight .news-card-body p:not(.meta) {
+    font-size: 0.85rem;
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.news-card-grid--tight .news-card-body .meta {
+    font-size: 0.8rem;
+}
+
+@media (max-width: 700px) {
+    .news-card-grid--tight {
+        grid-template-columns: 1fr;
+    }
 }
 
 .news-card {

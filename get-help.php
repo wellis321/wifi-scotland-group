@@ -50,7 +50,8 @@ require_once __DIR__ . '/includes/header.php';
         </div>
 
         <div class="callout" style="margin-bottom:2rem">
-            <p><strong>On social tariffs:</strong> Only around 532,000 of the 6.2 million Universal Credit households that qualify for a cheaper broadband deal actually use one — that's roughly 1 in 12. More than half of people on benefits have never heard that social tariffs exist. When you apply, you don't need to provide paper proof — your broadband provider can verify your Universal Credit claim automatically through the DWP system. Just tell them you're on Universal Credit and ask for their social tariff.</p>
+            <p class="callout__eyebrow">On social tariffs</p>
+            <p>Only around 532,000 of the 6.2 million Universal Credit households that qualify for a cheaper broadband deal actually use one — that's roughly 1 in 12. Around 7 in 10 people on benefits have never heard that social tariffs exist. When you apply, you don't need to provide paper proof — your broadband provider can verify your Universal Credit claim automatically through the DWP system. Just tell them you're on Universal Credit and ask for their social tariff.</p>
         </div>
 
         <p class="section-intro">Shown most recently updated first. If you know of a scheme we have missed, <a href="/contact.php">let us know</a>.</p>

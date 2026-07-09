@@ -260,7 +260,8 @@ require_once __DIR__ . '/includes/header.php';
         <div class="prose">
 
             <div class="callout">
-                <p><strong>How to use this page:</strong> each row shows a figure as it appears on the site, which page(s) use it, the primary source, and a caveat if one exists. If you're re-checking the site's accuracy, this is the list to work through — set a reminder to review it every few months, since regulator and government figures move on their own schedule regardless of ours.</p>
+                <p class="callout__eyebrow">How to use this page</p>
+                <p>Each row shows a figure as it appears on the site, which page(s) use it, the primary source, and a caveat if one exists. If you're re-checking the site's accuracy, this is the list to work through — set a reminder to review it every few months, since regulator and government figures move on their own schedule regardless of ours.</p>
             </div>
 
             <?php foreach ($figureGroups as $groupName => $rows): ?>

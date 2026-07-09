@@ -128,7 +128,7 @@ require_once __DIR__ . '/includes/header.php';
                 <?php if (!empty($moreArticles)): ?>
                 <div style="margin-top:3rem;padding-top:2.5rem;border-top:1px solid var(--line)">
                     <h2 style="font-family:var(--font-display);font-size:1.35rem;font-weight:800;margin:0 0 1.25rem;color:var(--ink)">Keep reading</h2>
-                    <div class="news-card-grid">
+                    <div class="news-card-grid news-card-grid--tight">
                     <?php foreach ($moreArticles as $row):
                         $rowHasImg = !empty($row['image_filename']);
                         $rowTs     = strtotime((string) $row['published_at']);

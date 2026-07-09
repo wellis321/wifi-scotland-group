@@ -114,7 +114,8 @@ require_once __DIR__ . '/includes/header.php';
             </div>
 
             <div class="callout" style="margin-bottom:2rem">
-                <p><strong>Methodology:</strong> We search council websites, Local Housing Strategies, corporate plans, and published strategy documents. "No visible strategy" means we searched and found nothing — not that nothing exists. If your council has something we've missed, <a href="/contact">tell us</a>. This tracker is a live document.</p>
+                <p class="callout__eyebrow">Methodology</p>
+                <p>We search council websites, Local Housing Strategies, corporate plans, and published strategy documents. "No visible strategy" means we searched and found nothing — not that nothing exists. If your council has something we've missed, <a href="/contact">tell us</a>. This tracker is a live document.</p>
             </div>
 
             <h2>Bodies with a mandate</h2>
