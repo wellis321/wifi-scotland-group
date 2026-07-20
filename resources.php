@@ -59,7 +59,7 @@ require_once __DIR__ . '/includes/header.php';
             </li>
             <li>
                 <a href="https://tfn.scot/news/no-leadership-no-momentun-scottish-government-has-failed-to-act-on-digital-exclusion"<?= external_link_attrs('https://tfn.scot/news/no-leadership-no-momentun-scottish-government-has-failed-to-act-on-digital-exclusion') ?>>No leadership, no momentum: Scottish Government has failed to act on digital exclusion</a>
-                (Third Force News) — sector response to the Audit Scotland findings.
+                (Third Force News, September 2025) — sector response to continued inaction following the Audit Scotland findings.
             </li>
         </ol>
 

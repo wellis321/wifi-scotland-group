@@ -44,7 +44,7 @@ require_once __DIR__ . '/includes/header.php';
             <div class="info-card__body">
                 <p>Most broadband schemes listed here require a permanent home address and a contract. They are not available to people who are homeless or in temporary accommodation, regardless of income.</p>
                 <p>The <strong>National Databank</strong> — free SIM cards with data — is one exception. It is distributed through foodbanks, hostels, day centres, and libraries with no address required. Ask at a local <a href="https://scotland.shelter.org.uk/get_help"<?= external_link_attrs('https://scotland.shelter.org.uk/get_help') ?>>Shelter Scotland</a> office, foodbank, or community centre whether they carry them.</p>
-                <p><strong>Jobcentre Plus</strong> branches across Scotland have free computers, Wi-Fi, and digital mentors available Monday to Friday, 10am–3pm — for job searching, Universal Credit management, and general internet access. No appointment needed for device use.</p>
+                <p><strong>Jobcentre Plus</strong> branches across Scotland have free computers and Wi-Fi for job searching, Universal Credit management, and general internet access — no appointment needed for device use. In-person digital support is also available; hours vary by branch, so ask at reception.</p>
                 <p><a class="btn btn-ghost btn-sm" href="/why-it-matters.php#homelessness">Homelessness &amp; digital exclusion &rarr;</a></p>
             </div>
         </div>

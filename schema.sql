@@ -123,6 +123,26 @@ INSERT INTO news_items (title, slug, summary, body, published_at) VALUES
 )
 ON DUPLICATE KEY UPDATE title = VALUES(title);
 
+-- Articles previously authored directly in the live database via /admin, backfilled
+-- here so schema.sql stays a complete, accurate mirror of production. Figures below
+-- were corrected during a July 2026 fact-check pass — see figures.php for sourcing.
+INSERT INTO news_items (title, slug, summary, body, published_at) VALUES
+(
+  'R100 hits 100,000 homes — but hundreds of thousands in Scotland still can''t get online',
+  'r100-hits-100000-homes-but-700000-in-scotland-still-cant-get-online',
+  'The Scottish Government''s R100 programme has now delivered faster broadband to over 100,000 homes and businesses. Progress worth noting — and an estimated 9% of Scottish households still without any internet connection worth noting more.',
+  '<p>The R100 Reaching 100% programme has passed a milestone: more than 100,000 homes and businesses in Scotland now have faster broadband connections as a result of the £697 million programme. An independent evaluation found that 76% of connected businesses reported increased productivity, and around two-thirds of residents said they felt more connected as a result.</p><p>This is real progress, and it should be acknowledged. R100 is doing something that commercial providers were not willing to do.</p><p>But the same period tells a more uncomfortable story: <strong>an estimated 9% of Scottish households — around 490,000 people — still have no internet connection at all</strong>. The programme aims to reach another 113,000 premises by March 2028. That still leaves a substantial portion of Scotland behind.</p><p>And connectivity is not only about whether a wire reaches a building. Even where R100 delivers infrastructure, the questions of affordability, device access, digital skills, and language barriers remain unanswered by any current programme. Coverage is necessary. It is not sufficient.</p><p>The UK Government has separately announced a £157 million Project Gigabit contract for remote Scottish communities in the Highlands, Outer Hebrides, and islands including Skye, Islay, and Tiree. Again, investment worth welcoming — and investment that should be accompanied by clear, public reporting on who benefits and when.</p><p class="meta">Sources: <a href="https://www.ispreview.co.uk/index.php/2026/01/r100-gigabit-broadband-rollout-reaches-96347-premises-in-scotland.html">ISPreview (January 2026)</a> · <a href="https://www.gov.scot/publications/r100-interim-evaluation/">Scottish Government, R100 Interim Evaluation (November 2025)</a> · <a href="https://www.gov.uk/government/news/scotlands-most-remote-towns-and-villages-get-huge-broadband-upgrade-as-uk-government-vows-to-end-digital-exclusion-plight">UK Government announcement</a> · <a href="https://www.gov.scot/publications/scottish-household-survey-2023-results-internet/">Scottish Household Survey 2023</a></p>',
+  '2026-01-20'
+),
+(
+  '70% of people on benefits have never heard of the cheaper broadband they qualify for',
+  '70-of-people-on-benefits-have-never-heard-of-the-cheaper-broadband-they-qualify-for',
+  'Ofcom''s latest figures show 532,000 UK households using a social tariff. There are now 30+ options. And 70% of eligible people have never heard of any of them. That is not a communications problem. That is a policy failure.',
+  '<p>Ofcom''s latest data shows 532,000 UK households have taken up a social broadband or mobile tariff — up from 506,000 the previous year. There are now more than 30 social tariff options available, costing between £12 and £24 a month, compared with just three options in 2020.</p><p>And yet: <strong>70% of households who qualify for a social tariff have never heard that they exist.</strong></p><p>Ofcom''s current estimate for the eligible population is 6.2 million UK households on Universal Credit. At current take-up, fewer than one in twelve is actually using one. The gap between entitlement and awareness represents millions of households overpaying for broadband — or going without it entirely — while qualifying for a cheaper deal they simply do not know about.</p><p>April 2026 also marks the end of inflation-linked in-contract price rises under industry commitments. That is a positive step. But it does not solve the awareness problem.</p><p>Ofcom has the regulatory power to require ISPs to actively promote social tariffs, not merely offer them. It has not used that power. WIRES believes it should.</p><p>If you are on Universal Credit, Pension Credit, or certain other benefits, ask your broadband provider today about their social tariff. You do not need to provide paper proof — they can verify your eligibility automatically through the DWP system. Our <a href="/get-help">Help getting online</a> page lists what is available.</p><p class="meta">Source: <a href="https://www.ispreview.co.uk/index.php/2026/02/ofcom-find-532000-uk-homes-taking-social-broadband-and-mobile-tariffs.html">ISPreview / Ofcom, February 2026</a></p>',
+  '2026-02-24'
+)
+ON DUPLICATE KEY UPDATE title = VALUES(title);
+
 -- ─── Local groups ────────────────────────────────────────────────────────────
 
 CREATE TABLE IF NOT EXISTS local_groups (
@@ -235,13 +255,13 @@ INSERT INTO schemes (slug, name, summary, who_for, what_you_get, how_to_apply, u
 (
   'national-databank',
   'National Databank — free SIM cards with data',
-  'The Good Things Foundation distributes free SIM cards with data, calls, and texts to people who cannot afford to get online. Cards are available through over 1,600 community organisations including libraries, foodbanks, and charities.',
+  'The Good Things Foundation distributes free SIM cards with data, calls, and texts to people who cannot afford to get online. Cards are available through over 4,000 Digital Inclusion Hubs, including libraries, foodbanks, and charities.',
   'People experiencing data poverty or on a low income who cannot afford a mobile data plan. Available through local partner organisations — no direct application to the Foundation.',
-  'Free SIM cards from Vodafone (40GB/month), O2 (25GB + rollover), and Three (24GB). No contract.',
+  'Free SIM cards from Vodafone (40GB/month), O2 (25GB with rollover), and Three (24GB). No contract.',
   'Ask at your local library, foodbank, or community centre whether they are a National Databank partner. You can also search for partner organisations on the Good Things Foundation website.',
   'https://www.goodthingsfoundation.org/our-services/national-databank/',
   'Good Things Foundation: National Databank',
-  '2024-12', 'check', 'uk', 'New partner organisations were not being accepted at the time we last checked. Existing network partners still distribute SIMs.', 50
+  '2026-07', 'check', 'uk', 'New partner applications were closed at the time we last checked, reopening later in the year — existing network partners still distribute SIMs regardless. Check the official page for current status.', 50
 )
 ON DUPLICATE KEY UPDATE name = VALUES(name);
 

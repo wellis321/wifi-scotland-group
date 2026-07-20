@@ -23,7 +23,8 @@ require_once __DIR__ . '/includes/header.php';
         <ul>
             <li><strong>Join form:</strong> name, email, optional locality and interests text, plus a timestamp—stored in the <code>member_signups</code> table when the database is configured.</li>
             <li><strong>Contact form:</strong> name, email, subject, message body, and timestamp—stored in <code>contact_messages</code>.</li>
-            <li><strong>Technical logs:</strong> your web hosting provider may also record connection details—including IP addresses—as a standard part of running any website.</li>
+            <li><strong>Confidential tip form:</strong> your message is encrypted in your browser before it is sent. We store only the encrypted result and a timestamp—no name or email field exists on this form, and we cannot read the content without a private key that is kept offline, separate from this website and its database.</li>
+            <li><strong>Technical logs:</strong> your web hosting provider may also record connection details—including IP addresses—as a standard part of running any website. This applies to every page on this site, including the confidential tip form: encrypting a message's content does not hide who sent it from our host.</li>
         </ul>
 
         <h2>Why we collect it</h2>
