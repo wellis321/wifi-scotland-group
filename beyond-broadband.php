@@ -60,10 +60,7 @@ require_once __DIR__ . '/includes/header.php';
             <p>
                 Even if someone has a device, it may be too old to run the app or access the service. Developers routinely set minimum operating system requirements that exclude devices only a few years old — a design choice that falls hardest on people in poverty, older people, and those for whom a replacement phone or laptop is simply unaffordable. There is no regulatory requirement on developers to consider the devices their excluded users actually hold.
             </p>
-            <ul>
-                <li><a href="https://arxiv.org/abs/2311.00984"<?= external_link_attrs('https://arxiv.org/abs/2311.00984') ?>>Unveiling Inclusiveness-Related User Feedback in Mobile Applications</a> (arxiv, 2023) — a study of user complaints about exclusion, including device and OS barriers</li>
-                <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12350549/"<?= external_link_attrs('https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12350549/') ?>>Optimizing mobile app design for older adults: a systematic review of age-friendly design</a> (PMC, 2025)</li>
-            </ul>
+            <p class="meta">Sources: <a href="https://arxiv.org/abs/2311.00984"<?= external_link_attrs('https://arxiv.org/abs/2311.00984') ?>>Unveiling Inclusiveness-Related User Feedback in Mobile Applications</a> (arxiv, 2023) · <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12350549/"<?= external_link_attrs('https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12350549/') ?>>Optimizing mobile app design for older adults: a systematic review of age-friendly design</a> (PMC, 2025).</p>
 
             <div class="pull-quote">
                 <p>"There is no regulatory requirement on developers to consider the devices their excluded users actually hold."</p>
@@ -77,27 +74,20 @@ require_once __DIR__ . '/includes/header.php';
 
             <h2>4. Digital skills as a distinct barrier</h2>
             <p>
-                Having access and having the skills to use it are not the same thing. Scotland's own <strong>Minimum Digital Living Standard</strong> interim report (2025) identifies "relative exclusion" — people who are online but whose limited digital skills and lack of support leave them effectively unable to navigate the services they need. Complex form interfaces, unintuitive navigation, CAPTCHA systems, password requirements, and account management processes all assume a level of digital familiarity that <strong>15% of Scottish adults do not have</strong>.
+                Having access and having the skills to use it are not the same thing. Scotland's own <a href="https://www.gov.scot/publications/towards-scottish-minimum-digital-living-standard-interim-report/pages/3/"<?= external_link_attrs('https://www.gov.scot/publications/towards-scottish-minimum-digital-living-standard-interim-report/pages/3/') ?>>Minimum Digital Living Standard interim report</a> (2025) identifies "relative exclusion" — people who are online but whose limited digital skills and lack of support leave them effectively unable to navigate the services they need. Complex form interfaces, unintuitive navigation, CAPTCHA systems, password requirements, and account management processes all assume a level of digital familiarity that <strong>15% of Scottish adults do not have</strong>.
             </p>
             <p>
                 The practical consequences are significant: Universal Credit managed online, GP appointment booking via an app, tax returns filed digitally, and job applications submitted through portals that assume you know how to create an account and upload a document.
             </p>
-            <ul>
-                <li><a href="https://www.gov.scot/publications/towards-scottish-minimum-digital-living-standard-interim-report/pages/3/"<?= external_link_attrs('https://www.gov.scot/publications/towards-scottish-minimum-digital-living-standard-interim-report/pages/3/') ?>>Towards a Scottish Minimum Digital Living Standard: interim report</a> (Scottish Government, 2025)</li>
-            </ul>
 
             <h2>5. Language</h2>
             <p>
                 Digital services in Scotland default to English. For Gaelic speakers, refugees, migrants, and others whose first language is not English, the barriers compound: not just navigating an unfamiliar system, but doing so in a second language, often without translation, often without the option of interpretation. Forms that cannot be completed in your language effectively exclude you regardless of your internet connection or device.
             </p>
             <p>
-                Gaelic faces a specific structural challenge: its digital corpus — the body of text available for language tools and AI systems to learn from — is around <strong>150 million words</strong>, compared to <strong>4 billion for Basque</strong>. This "data sparsity" problem means Gaelic speakers are systematically excluded from the benefits of digital language tools that speakers of better-resourced languages can access.
+                Gaelic faces a specific structural challenge: its <a href="https://www.civtech.scot/civtech-11-challenge-2-data-sparsity-gaelic-language"<?= external_link_attrs('https://www.civtech.scot/civtech-11-challenge-2-data-sparsity-gaelic-language') ?>>digital corpus</a> — the body of text available for language tools and AI systems to learn from — is around <strong>150 million words</strong>, compared to <strong>4 billion for Basque</strong>. This "data sparsity" problem means Gaelic speakers are systematically excluded from the benefits of digital language tools that speakers of better-resourced languages can access, despite the Scottish Government's own <a href="https://www.gov.scot/publications/scottish-governments-gaelic-language-plan-2022-2027/pages/6/"<?= external_link_attrs('https://www.gov.scot/publications/scottish-governments-gaelic-language-plan-2022-2027/pages/6/') ?>>Gaelic Language Plan 2022–2027</a> committing to digital support.
             </p>
-            <ul>
-                <li><a href="https://www.civtech.scot/civtech-11-challenge-2-data-sparsity-gaelic-language"<?= external_link_attrs('https://www.civtech.scot/civtech-11-challenge-2-data-sparsity-gaelic-language') ?>>Gaelic language data sparsity challenge</a> (CivTech Scotland)</li>
-                <li><a href="https://www.gov.scot/publications/scottish-governments-gaelic-language-plan-2022-2027/pages/6/"<?= external_link_attrs('https://www.gov.scot/publications/scottish-governments-gaelic-language-plan-2022-2027/pages/6/') ?>>Scottish Government Gaelic Language Plan 2022–2027</a></li>
-                <li><a href="https://www.digital.govt.nz/dmsdocument/196~digital-inclusion-user-insights-former-refugees-and-migrants-with-english-as-a-second-language/html"<?= external_link_attrs('https://www.digital.govt.nz/dmsdocument/196~digital-inclusion-user-insights-former-refugees-and-migrants-with-english-as-a-second-language/html') ?>>Digital inclusion for refugees and migrants</a> (New Zealand Digital Government — applicable to Scottish context)</li>
-            </ul>
+            <p class="meta">Further reading: <a href="https://www.digital.govt.nz/dmsdocument/196~digital-inclusion-user-insights-former-refugees-and-migrants-with-english-as-a-second-language/html"<?= external_link_attrs('https://www.digital.govt.nz/dmsdocument/196~digital-inclusion-user-insights-former-refugees-and-migrants-with-english-as-a-second-language/html') ?>>Digital inclusion for refugees and migrants</a> (New Zealand Digital Government — applicable to Scottish context).</p>
 
             <div class="pull-quote">
                 <p>"Connectivity is the entry point, not the destination. You can have electricity coming into the building and still be sitting in the dark."</p>

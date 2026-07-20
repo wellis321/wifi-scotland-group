@@ -61,45 +61,18 @@ require_once __DIR__ . '/includes/header.php';
         <h2>Why people need residential internet today</h2>
         <p>
             Public services, employers, schools, banks, and landlords increasingly assume households can complete tasks online on a connection that is stable enough for forms, video, and uploads.
-            Scotland's <strong>Digital Strategy</strong> explicitly ties inclusive digital public services to wider digital inclusion—connectivity is part of that picture, alongside skills and design.
+            Scotland's <a href="https://www.gov.scot/publications/digital-strategy-scotland-vision-statement/"<?= external_link_attrs('https://www.gov.scot/publications/digital-strategy-scotland-vision-statement/') ?>>Digital Strategy</a> explicitly ties inclusive digital public services to wider digital inclusion—connectivity is part of that picture, alongside skills and design, and its <a href="https://www.gov.scot/publications/digital-strategy-scotland-sustainable-digital-public-services-delivery-plan-2025-2028/"<?= external_link_attrs('https://www.gov.scot/publications/digital-strategy-scotland-sustainable-digital-public-services-delivery-plan-2025-2028/') ?>>2025–2028 delivery plan</a> sets out what that looks like in practice.
         </p>
-        <ul>
-            <li>
-                <a href="https://www.gov.scot/publications/digital-strategy-scotland-vision-statement/"<?= external_link_attrs('https://www.gov.scot/publications/digital-strategy-scotland-vision-statement/') ?>>Digital strategy for Scotland: vision statement</a>
-                (Scottish Government)
-            </li>
-            <li>
-                <a href="https://www.gov.scot/publications/digital-strategy-scotland-sustainable-digital-public-services-delivery-plan-2025-2028/"<?= external_link_attrs('https://www.gov.scot/publications/digital-strategy-scotland-sustainable-digital-public-services-delivery-plan-2025-2028/') ?>>Sustainable digital public services: delivery plan 2025–2028</a>
-                (Scottish Government)
-            </li>
-        </ul>
         <p>
             UK-wide survey evidence illustrates how routine "life admin" has shifted online. The Office for National Statistics (ONS) reported that in <strong>January–February 2020</strong>, <strong>76%</strong> of adults in Great Britain used internet banking (up from <strong>30%</strong> in 2007) and <strong>87%</strong> had shopped online in the last 12 months.
-            Those percentages come from the discontinued annual bulletin below—use it for historical context and follow the notice on that page for where similar data now lives.
         </p>
-        <p>
-            <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/householdcharacteristics/homeinternetandsocialmediausage/bulletins/internetaccesshouseholdsandindividuals/latest"<?= external_link_attrs('https://www.ons.gov.uk/peoplepopulationandcommunity/householdcharacteristics/homeinternetandsocialmediausage/bulletins/internetaccesshouseholdsandindividuals/latest') ?>>Internet access – households and individuals, Great Britain</a> (ONS; last bulletin <strong>2020</strong>, with discontinuation notice dated <strong>May 2023</strong>)
-        </p>
+        <p class="meta">Source: <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/householdcharacteristics/homeinternetandsocialmediausage/bulletins/internetaccesshouseholdsandindividuals/latest"<?= external_link_attrs('https://www.ons.gov.uk/peoplepopulationandcommunity/householdcharacteristics/homeinternetandsocialmediausage/bulletins/internetaccesshouseholdsandindividuals/latest') ?>>ONS, Internet access — households and individuals, Great Britain</a> (last bulletin 2020). This annual series was discontinued in May 2023 — treat these percentages as historical context, not a current measure.</p>
 
         <h2>Harms of being offline or under-connected</h2>
         <p>
             "Under-connected" often means relying on a single expensive mobile bundle, sharing someone else's connection, or losing hours to dropped calls and failed uploads—not a romantic "digital detox."
-            Charities that support people through debt and consumer problems regularly describe broadband and mobile costs as pressure points during cost-of-living stress.
+            Charities that support people through debt and consumer problems regularly describe broadband and mobile costs as pressure points during cost-of-living stress: <a href="https://www.citizensadvice.org.uk/consumer/internet-and-phone/internet-broadband/if-you-cant-afford-your-broadband-bill-or-top-up/"<?= external_link_attrs('https://www.citizensadvice.org.uk/consumer/internet-and-phone/internet-broadband/if-you-cant-afford-your-broadband-bill-or-top-up/') ?>>Citizens Advice</a> publishes practical guidance for England and Wales, <a href="https://www.cas.org.uk/"<?= external_link_attrs('https://www.cas.org.uk/') ?>>Citizens Advice Scotland</a>'s local bureaux cover consumer and benefits issues where Scotland's rules differ, and the <a href="https://www.goodthingsfoundation.org/"<?= external_link_attrs('https://www.goodthingsfoundation.org/') ?>>Good Things Foundation</a> tracks digital inclusion support needs across the UK.
         </p>
-        <ul>
-            <li>
-                <a href="https://www.citizensadvice.org.uk/consumer/internet-and-phone/internet-broadband/if-you-cant-afford-your-broadband-bill-or-top-up/"<?= external_link_attrs('https://www.citizensadvice.org.uk/consumer/internet-and-phone/internet-broadband/if-you-cant-afford-your-broadband-bill-or-top-up/') ?>>If you can't afford your broadband bill or top up</a>
-                (Citizens Advice, England and Wales—practical guidance, not a substitute for local advice if you need help with a specific situation)
-            </li>
-            <li>
-                <a href="https://www.cas.org.uk/"<?= external_link_attrs('https://www.cas.org.uk/') ?>>Citizens Advice Scotland</a>
-                —local bureaux cover consumer and benefits issues where Scotland's rules differ.
-            </li>
-            <li>
-                <a href="https://www.goodthingsfoundation.org/"<?= external_link_attrs('https://www.goodthingsfoundation.org/') ?>>Good Things Foundation</a>
-                —UK charity focused on digital inclusion; useful for programme framing and evidence of support needs (always read their primary reports for numbers they publish).
-            </li>
-        </ul>
         <div class="stat-strip">
             <div class="stat-item">
                 <span class="stat-value">1 in 12</span>
@@ -117,12 +90,7 @@ require_once __DIR__ . '/includes/header.php';
         <p class="meta">Source: <a href="https://www.ofcom.org.uk/phones-and-broadband/bills-and-charges/pricing-and-consumer-engagement"<?= external_link_attrs('https://www.ofcom.org.uk/phones-and-broadband/bills-and-charges/pricing-and-consumer-engagement') ?>>Ofcom, Pricing and consumer engagement 2025</a> (published February 2026, survey data from October 2025). The gap between entitlement and uptake is itself a policy failure — schemes people do not know exist are schemes that do not work.</p>
 
         <p>
-            Regulator-led research is the right place for <strong>affordability stress</strong>, <strong>quality of service</strong>, and <strong>geographic coverage</strong> at scale. Ofcom publishes <strong>Connected Nations</strong> updates and related consumer research—headline premises and coverage statistics change each release, so we link to the hub rather than freezing a percentage here.
-        </p>
-        <p>
-            <a href="https://www.ofcom.org.uk/research-and-data/multi-sector-research/infrastructure-research/connected-nations"<?= external_link_attrs('https://www.ofcom.org.uk/research-and-data/multi-sector-research/infrastructure-research/connected-nations') ?>>Connected Nations</a> (Ofcom)
-            ·
-            <a href="https://www.ofcom.org.uk/"<?= external_link_attrs('https://www.ofcom.org.uk/') ?>>Ofcom home</a> (search for affordability and "Technology Tracker" if a link moves)
+            Regulator-led research is the right place for <strong>affordability stress</strong>, <strong>quality of service</strong>, and <strong>geographic coverage</strong> at scale. Ofcom publishes <a href="https://www.ofcom.org.uk/research-and-data/multi-sector-research/infrastructure-research/connected-nations"<?= external_link_attrs('https://www.ofcom.org.uk/research-and-data/multi-sector-research/infrastructure-research/connected-nations') ?>>Connected Nations</a> updates and related consumer research—headline premises and coverage statistics change each release, so we link to the hub rather than freezing a percentage here.
         </p>
 
         <h2>Who is disproportionately affected</h2>
@@ -130,10 +98,7 @@ require_once __DIR__ . '/includes/header.php';
             Survey data consistently show that internet access and confidence are uneven by age, income, disability, and geography. The same ONS <strong>2020</strong> bulletin noted that internet connections in households with <strong>one adult aged 65 and over</strong> had risen but remained lower than other household types (<strong>80%</strong> with a connection in that group, in that survey period—see tables on the ONS page for full definitions).
         </p>
         <p>
-            For <strong>Scotland-specific</strong> household and social statistics at national scale, the Scottish Government's <strong>Scottish Household Survey</strong> is the primary official source—<strong>including internet use where that topic appears in a given year's questionnaire</strong>. It does not replace regulator coverage data (for example Ofcom's maps and metrics). Headline percentages vary by year and question wording.
-        </p>
-        <p>
-            <a href="https://www.gov.scot/collections/scottish-household-survey/"<?= external_link_attrs('https://www.gov.scot/collections/scottish-household-survey/') ?>>Scottish Household Survey</a> (Scottish Government)
+            For <strong>Scotland-specific</strong> household and social statistics at national scale, the Scottish Government's <a href="https://www.gov.scot/collections/scottish-household-survey/"<?= external_link_attrs('https://www.gov.scot/collections/scottish-household-survey/') ?>>Scottish Household Survey</a> is the primary official source—<strong>including internet use where that topic appears in a given year's questionnaire</strong>. It does not replace regulator coverage data (for example Ofcom's maps and metrics). Headline percentages vary by year and question wording.
         </p>
         <p>
             Ofcom's coverage and quality work is especially relevant where <strong>rural and island</strong> communities face weaker fixed or mobile signals than urban centres—again, use the latest report for maps and metrics rather than second-hand figures.
@@ -170,10 +135,13 @@ require_once __DIR__ . '/includes/header.php';
         <p>
             The Scottish Parliament declared a housing emergency on <strong>15 May 2024</strong>. Households in temporary accommodation have reached their highest level in the recorded time series going back to 2002,
             and homelessness has continued to rise since the emergency was declared.
+        </p>
+        <p class="meta">Sources: <a href="https://www.gov.scot/publications/tackling-scotlands-housing-emergency/"<?= external_link_attrs('https://www.gov.scot/publications/tackling-scotlands-housing-emergency/') ?>>Scottish Government — Tackling Scotland's Housing Emergency</a> · <a href="https://www.gov.scot/publications/homelessness-in-scotland-update-to-30-september-2025/"<?= external_link_attrs('https://www.gov.scot/publications/homelessness-in-scotland-update-to-30-september-2025/') ?>>Homelessness in Scotland: update to 30 September 2025</a> · <a href="https://scotland.shelter.org.uk/housing_policy/homelessness_in_scotland/"<?= external_link_attrs('https://scotland.shelter.org.uk/housing_policy/homelessness_in_scotland/') ?>>Shelter Scotland analysis</a>. These are updated twice yearly — figures here reflect the most recent release at time of writing.</p>
+
+        <p>
             People experiencing homelessness face digital exclusion not just through lack of money,
             but through the design of the systems that are supposed to help them. Without internet access it is harder to:
         </p>
-        <p class="meta">Sources: <a href="https://www.gov.scot/publications/tackling-scotlands-housing-emergency/"<?= external_link_attrs('https://www.gov.scot/publications/tackling-scotlands-housing-emergency/') ?>>Scottish Government — Tackling Scotland's Housing Emergency</a> · <a href="https://www.gov.scot/publications/homelessness-in-scotland-update-to-30-september-2025/"<?= external_link_attrs('https://www.gov.scot/publications/homelessness-in-scotland-update-to-30-september-2025/') ?>>Homelessness in Scotland: update to 30 September 2025</a> · <a href="https://scotland.shelter.org.uk/housing_policy/homelessness_in_scotland/"<?= external_link_attrs('https://scotland.shelter.org.uk/housing_policy/homelessness_in_scotland/') ?>>Shelter Scotland analysis</a>. These are updated twice yearly — figures here reflect the most recent release at time of writing.</p>
         <ul>
             <li>Apply for housing, benefits, or emergency support online (as more services move to digital-only)</li>
             <li>Keep in contact with support workers, family, and legal representatives</li>
@@ -184,24 +152,19 @@ require_once __DIR__ . '/includes/header.php';
 
         <p>
             Public libraries, day centres, and hostels run by organisations like
-            <a href="https://scotland.shelter.org.uk/"<?= external_link_attrs('https://scotland.shelter.org.uk/') ?>>Shelter Scotland</a>
-            and the
-            <a href="https://www.glasgowcitymission.com/"<?= external_link_attrs('https://www.glasgowcitymission.com/') ?>>Glasgow City Mission</a>
+            <a href="https://scotland.shelter.org.uk/"<?= external_link_attrs('https://scotland.shelter.org.uk/') ?>>Shelter Scotland</a>,
+            the <a href="https://www.glasgowcitymission.com/"<?= external_link_attrs('https://www.glasgowcitymission.com/') ?>>Glasgow City Mission</a>,
+            and <a href="https://www.crisis.org.uk/"<?= external_link_attrs('https://www.crisis.org.uk/') ?>>Crisis</a>
             often provide the only consistent access points for people in this situation.
             The <a href="https://www.goodthingsfoundation.org/our-services/national-databank/"<?= external_link_attrs('https://www.goodthingsfoundation.org/our-services/national-databank/') ?>>National Databank</a>
             (free SIM cards distributed through community organisations) is one of the few schemes that does not require a fixed address—ask at a local foodbank, library, or day centre.
+            The Scottish Government's <a href="https://www.gov.scot/policies/homelessness/"<?= external_link_attrs('https://www.gov.scot/policies/homelessness/') ?>>homelessness policy pages</a> set out the wider statutory picture.
         </p>
 
         <p>
             If you work with people experiencing homelessness and want to share what digital access looks like in practice in your area, please
             <a href="/contact.php">get in touch</a>. Local evidence is what makes this issue visible in policy discussions.
         </p>
-
-        <ul>
-            <li><a href="https://scotland.shelter.org.uk/"<?= external_link_attrs('https://scotland.shelter.org.uk/') ?>>Shelter Scotland</a> — housing rights, emergency advice, and homelessness support</li>
-            <li><a href="https://www.crisis.org.uk/"<?= external_link_attrs('https://www.crisis.org.uk/') ?>>Crisis</a> — national charity working to end homelessness; has published on digital access</li>
-            <li><a href="https://www.gov.scot/policies/homelessness/"<?= external_link_attrs('https://www.gov.scot/policies/homelessness/') ?>>Scottish Government: homelessness policy</a></li>
-        </ul>
 
         <div class="card-grid cols-2" style="margin:2.5rem 0">
             <a class="icon-card" href="/digital-health" style="text-decoration:none">
@@ -231,13 +194,9 @@ require_once __DIR__ . '/includes/header.php';
                 <strong>Coverage and network statistics</strong> (Ofcom, build programmes) focus on <em>infrastructure availability and performance</em>. Availability is not the same as affordability, digital skills, or trust in online services.
             </li>
             <li>
-                <strong>Series change over time.</strong> The ONS notice on its internet-access bulletin (May 2023) points readers toward Ofcom's <strong>Technology Tracker</strong> for overlapping topics—always read the methodology sheet when comparing years.
+                <strong>Series change over time.</strong> The ONS notice on its internet-access bulletin (May 2023) points readers toward Ofcom's <strong>Technology Tracker</strong> for overlapping topics—always read the methodology sheet when comparing years, and see the <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/householdcharacteristics/homeinternetandsocialmediausage"<?= external_link_attrs('https://www.ons.gov.uk/peoplepopulationandcommunity/householdcharacteristics/homeinternetandsocialmediausage') ?>>ONS topic hub</a> for related releases and datasets.
             </li>
         </ul>
-        <p>
-            Topic hub for ONS internet-related releases and datasets:
-            <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/householdcharacteristics/homeinternetandsocialmediausage"<?= external_link_attrs('https://www.ons.gov.uk/peoplepopulationandcommunity/householdcharacteristics/homeinternetandsocialmediausage') ?>>Home internet and social media usage</a> (ONS).
-        </p>
 
         <div class="info-card">
             <div class="info-card__header">

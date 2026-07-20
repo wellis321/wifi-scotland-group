@@ -59,34 +59,24 @@ require_once __DIR__ . '/includes/header.php';
 
             <h2>Loneliness and isolation</h2>
             <p>
-                A 2025 study drawing on 87,256 observations across China, the US, and the UK found a consistent association between digital exclusion and loneliness in older adults. Separately, the US National Academies of Sciences, Engineering, and Medicine has found that social isolation significantly increases mortality risk — a risk that may rival smoking and obesity — and estimates approximately one in four community-dwelling Americans aged 65 and over as socially isolated. WIRES draws the connection between that isolation research and digital exclusion; the isolation figures themselves are not specific to digital exclusion.
+                A <a href="https://link.springer.com/article/10.1186/s12877-025-06337-2"<?= external_link_attrs('https://link.springer.com/article/10.1186/s12877-025-06337-2') ?>>2025 study</a> drawing on 87,256 observations across China, the US, and the UK found a consistent association between digital exclusion and loneliness in older adults. Separately, the US <a href="https://nap.nationalacademies.org/read/25663"<?= external_link_attrs('https://nap.nationalacademies.org/read/25663') ?>>National Academies of Sciences, Engineering, and Medicine</a> has found that social isolation significantly increases mortality risk — a risk that may rival smoking and obesity — and estimates approximately one in four community-dwelling Americans aged 65 and over as socially isolated. WIRES draws the connection between that isolation research and digital exclusion; the isolation figures themselves are not specific to digital exclusion.
             </p>
-            <ul>
-                <li><a href="https://link.springer.com/article/10.1186/s12877-025-06337-2"<?= external_link_attrs('https://link.springer.com/article/10.1186/s12877-025-06337-2') ?>>Digital exclusion and loneliness in older adults</a> (BMC Geriatrics, 2025 — 87,256 observations across three countries)</li>
-                <li><a href="https://nap.nationalacademies.org/read/25663"<?= external_link_attrs('https://nap.nationalacademies.org/read/25663') ?>>Social Isolation and Loneliness in Older Adults</a> (National Academies of Sciences, Engineering, and Medicine, 2020)</li>
-                <li><a href="https://thenhsalliance.org/resources/assessing-digital-inclusion-in-the-nhs-the-nhs-app"<?= external_link_attrs('https://thenhsalliance.org/resources/assessing-digital-inclusion-in-the-nhs-the-nhs-app') ?>>Assessing digital inclusion in the NHS</a> (NHS Alliance, 2026)</li>
-            </ul>
+            <p class="meta">Further reading: <a href="https://thenhsalliance.org/resources/assessing-digital-inclusion-in-the-nhs-the-nhs-app"<?= external_link_attrs('https://thenhsalliance.org/resources/assessing-digital-inclusion-in-the-nhs-the-nhs-app') ?>>Assessing digital inclusion in the NHS</a> (NHS Alliance, 2026).</p>
 
             <h2>What COVID-19 showed us</h2>
             <p>
-                The pandemic made the health consequences of digital exclusion visible and measurable. US research found that counties with higher rates of digital exclusion experienced higher COVID-19 case rates, death rates, and lower vaccination take-up — because vaccine booking, public health information, and access to virtual care all required internet access that many did not have.
+                The pandemic made the health consequences of digital exclusion visible and measurable. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9283607/"<?= external_link_attrs('https://pmc.ncbi.nlm.nih.gov/articles/PMC9283607/') ?>>US research</a> found that counties with higher rates of digital exclusion experienced higher COVID-19 case rates, death rates, and lower vaccination take-up — because vaccine booking, public health information, and access to virtual care all required internet access that many did not have.
             </p>
             <p>
-                In the UK, working-class students were roughly half as likely as middle-class students to access live or recorded lessons during school closures. Mental health worsening among those without computer access was "greatly pronounced" compared to those who had it — a finding that holds across age groups.
+                In the UK, working-class students were roughly half as likely as middle-class students to access live or recorded lessons during school closures. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9645341/"<?= external_link_attrs('https://pmc.ncbi.nlm.nih.gov/articles/PMC9645341/') ?>>Mental health worsening</a> among those without computer access was "greatly pronounced" compared to those who had it — a finding that holds across age groups.
             </p>
-            <ul>
-                <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9283607/"<?= external_link_attrs('https://pmc.ncbi.nlm.nih.gov/articles/PMC9283607/') ?>>Disconnected in a pandemic: digital exclusion and COVID-19 outcomes</a> (PMC/NIH)</li>
-                <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9645341/"<?= external_link_attrs('https://pmc.ncbi.nlm.nih.gov/articles/PMC9645341/') ?>>Digital exclusion and mental health during COVID-19</a> (PMC/NIH)</li>
-                <li><a href="https://www.goodthingsfoundation.org/policy-and-research/research-and-evidence/research-2024/health-inequalities-digital-exclusion"<?= external_link_attrs('https://www.goodthingsfoundation.org/policy-and-research/research-and-evidence/research-2024/health-inequalities-digital-exclusion') ?>>Health inequalities and digital exclusion</a> (Good Things Foundation, 2024)</li>
-            </ul>
+            <p class="meta">Further reading: <a href="https://www.goodthingsfoundation.org/policy-and-research/research-and-evidence/research-2024/health-inequalities-digital-exclusion"<?= external_link_attrs('https://www.goodthingsfoundation.org/policy-and-research/research-and-evidence/research-2024/health-inequalities-digital-exclusion') ?>>Health inequalities and digital exclusion</a> (Good Things Foundation, 2024).</p>
 
             <h2>NHS services going digital</h2>
             <p>
                 In Scotland and across the UK, NHS services are increasingly delivered online or via apps — appointment booking, test results, repeat prescription requests, mental health self-referral, and telehealth consultations. Each shift online that is not accompanied by a non-digital alternative means that people without reliable internet access receive a lower standard of care. This is not an abstract future risk: it is the current experience of millions of people.
             </p>
-            <ul>
-                <li><a href="https://www.who.int/publications/i/item/10665-279505"<?= external_link_attrs('https://www.who.int/publications/i/item/10665-279505') ?>>WHO resolution WHA71.7 on digital health (2018)</a> — urging member states to ensure digital health is equitable</li>
-            </ul>
+            <p class="meta">Source: <a href="https://www.who.int/publications/i/item/10665-279505"<?= external_link_attrs('https://www.who.int/publications/i/item/10665-279505') ?>>WHO resolution WHA71.7 on digital health</a> (2018) — urging member states to ensure digital health is equitable.</p>
 
             <div class="pull-quote">
                 <p>"Digital exclusion is not a second-order problem. For millions of people it is a health problem, a care problem, and a rights problem."</p>
