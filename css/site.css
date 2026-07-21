@@ -794,6 +794,12 @@ a:hover {
     font-size: 1.05rem;
 }
 
+.page-header p.page-header-note {
+    margin-top: 0.6rem;
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
 /* Full width of .wrap so figures and tables can span the layout; copy stays readable */
 .prose {
     max-width: 100%;
@@ -3508,7 +3514,8 @@ a.stat-item--link:hover .stat-value {
     flex-direction: column;
 }
 
-.icon-card-body h2 {
+.icon-card-body h2,
+.icon-card-body h3 {
     font-family: var(--font-display);
     font-size: 1.25rem;
     font-weight: 800;

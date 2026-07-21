@@ -25,6 +25,7 @@ require_once __DIR__ . '/includes/header.php';
         <p>
             Evidence from UK and Scottish sources on everyday reliance on the internet, the harm of being offline or under-connected, and who is most affected.
         </p>
+        <p class="page-header-note">A note before you read: figures on this page come from official UK and Scottish sources, but surveys run on different years and different questions. Where a number is older or the series has changed, we say so once, briefly — we don't want caveats getting in the way of the point.</p>
     </div>
 </header>
 
@@ -32,7 +33,6 @@ require_once __DIR__ . '/includes/header.php';
     <div class="wrap">
         <div class="page-layout" style="padding-top:0">
         <div class="prose">
-        <p class="meta">A note before you read: figures on this page come from official UK and Scottish sources, but surveys run on different years and different questions. Where a number is older or the series has changed, we say so once, briefly — we don't want caveats getting in the way of the point.</p>
 
         <div class="campaign-statement-card" aria-hidden="true">
             <p class="campaign-statement-card__line1">Internet access.</p>
@@ -184,7 +184,7 @@ require_once __DIR__ . '/includes/header.php';
             <a class="icon-card" href="/digital-health" style="text-decoration:none">
                 <div class="icon-card-body">
                     <span class="pill">Research</span>
-                    <h2>Digital exclusion and health</h2>
+                    <h3>Digital exclusion and health</h3>
                     <p>WHO evidence, COVID-19 research, NHS data, and studies on loneliness and isolation — the documented health cost of being offline.</p>
                     <p style="margin-top:auto;padding-top:0.75rem"><span class="btn btn-primary btn-sm">Read the evidence &rarr;</span></p>
                 </div>
@@ -192,7 +192,7 @@ require_once __DIR__ . '/includes/header.php';
             <a class="icon-card" href="/beyond-broadband" style="text-decoration:none">
                 <div class="icon-card-body">
                     <span class="pill">Policy</span>
-                    <h2>Beyond broadband</h2>
+                    <h3>Beyond broadband</h3>
                     <p>Devices, outdated software, authentication barriers, digital skills, and language — the rest of the picture that connectivity alone can't fix.</p>
                     <p style="margin-top:auto;padding-top:0.75rem"><span class="btn btn-primary btn-sm">Read more &rarr;</span></p>
                 </div>
