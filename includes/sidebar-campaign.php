@@ -45,8 +45,8 @@ if (db_available()) {
         <h3>Get help right now</h3>
         <p>Two schemes help the most people, fastest:</p>
         <ul class="sidebar-nav">
-            <li><a href="/get-help.php#social-tariffs">Social tariffs &mdash; cheaper broadband &rarr;</a></li>
-            <li><a href="/get-help.php#national-databank">National Databank &mdash; free SIM &rarr;</a></li>
+            <li><a href="/get-help.php#social-tariffs">Social tariffs &mdash; cheaper broadband</a></li>
+            <li><a href="/get-help.php#national-databank">National Databank &mdash; free SIM</a></li>
         </ul>
         <a class="btn btn-ghost" href="/get-help.php" style="width:100%;justify-content:center;text-align:center;margin-top:0.75rem">See all schemes</a>
     </div>
