@@ -24,7 +24,6 @@ require_once __DIR__ . '/includes/header.php';
         <h1>Why home connectivity matters</h1>
         <p>
             Evidence from UK and Scottish sources on everyday reliance on the internet, the harm of being offline or under-connected, and who is most affected.
-            Campaigning context only — always check live official pages before quoting figures.
         </p>
     </div>
 </header>
@@ -33,50 +32,54 @@ require_once __DIR__ . '/includes/header.php';
     <div class="wrap">
         <div class="page-layout" style="padding-top:0">
         <div class="prose">
+        <p class="meta">A note before you read: figures on this page come from official UK and Scottish sources, but surveys run on different years and different questions. Where a number is older or the series has changed, we say so once, briefly — we don't want caveats getting in the way of the point.</p>
+
         <div class="campaign-statement-card" aria-hidden="true">
             <p class="campaign-statement-card__line1">Internet access.</p>
             <p class="campaign-statement-card__line2">A right,<br>not a privilege.</p>
         </div>
 
+        <h2>Internet access is a right, not a privilege</h2>
+        <p>
+            Life admin has moved online, whether or not your connection is ready for it. Public services, employers, schools, banks, and landlords now assume you can bank, apply, and upload from home — on a connection stable enough for forms, video calls, and file uploads.
+        </p>
+        <p>Here's how much everyday life already assumes you're online:</p>
+
         <div class="stat-strip">
             <div class="stat-item">
                 <span class="stat-value">76%</span>
-                <span class="stat-label">adults use online banking (ONS 2020)</span>
+                <span class="stat-label">of adults used internet banking in 2020 — up from just 30% in 2007</span>
             </div>
             <div class="stat-item">
                 <span class="stat-value">87%</span>
-                <span class="stat-label">shopped online in the prior 12 months</span>
+                <span class="stat-label">had shopped online in the past year</span>
             </div>
             <div class="stat-item">
                 <span class="stat-value">80%</span>
-                <span class="stat-label">of over-65 households connected (that survey)</span>
+                <span class="stat-label">of households with someone over 65 were connected</span>
             </div>
         </div>
+        <p class="meta">Source: <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/householdcharacteristics/homeinternetandsocialmediausage/bulletins/internetaccesshouseholdsandindividuals/latest"<?= external_link_attrs('https://www.ons.gov.uk/peoplepopulationandcommunity/householdcharacteristics/homeinternetandsocialmediausage/bulletins/internetaccesshouseholdsandindividuals/latest') ?>>ONS, Internet access — households and individuals, Great Britain</a>. This was the last bulletin before the series was discontinued in 2023, so treat these as a snapshot of a fast-moving trend rather than today's numbers.</p>
+
+        <p>
+            Scotland's own <a href="https://www.gov.scot/publications/digital-strategy-scotland-vision-statement/"<?= external_link_attrs('https://www.gov.scot/publications/digital-strategy-scotland-vision-statement/') ?>>Digital Strategy</a> recognises this: it treats connectivity as one part — alongside skills and good design — of making public services genuinely inclusive. The <a href="https://www.gov.scot/publications/digital-strategy-scotland-sustainable-digital-public-services-delivery-plan-2025-2028/"<?= external_link_attrs('https://www.gov.scot/publications/digital-strategy-scotland-sustainable-digital-public-services-delivery-plan-2025-2028/') ?>>2025–2028 delivery plan</a> sets out how that's meant to happen in practice.
+        </p>
 
         <div class="pull-quote">
             <p>"When you can't get online, you can't fully participate. That's not personal failure — it's a policy failure."</p>
             <cite>WIRES campaign position</cite>
         </div>
 
-        <h2>Why people need residential internet today</h2>
+        <h2>What "under-connected" actually looks like</h2>
         <p>
-            Public services, employers, schools, banks, and landlords increasingly assume households can complete tasks online on a connection that is stable enough for forms, video, and uploads.
-            Scotland's <a href="https://www.gov.scot/publications/digital-strategy-scotland-vision-statement/"<?= external_link_attrs('https://www.gov.scot/publications/digital-strategy-scotland-vision-statement/') ?>>Digital Strategy</a> explicitly ties inclusive digital public services to wider digital inclusion—connectivity is part of that picture, alongside skills and design, and its <a href="https://www.gov.scot/publications/digital-strategy-scotland-sustainable-digital-public-services-delivery-plan-2025-2028/"<?= external_link_attrs('https://www.gov.scot/publications/digital-strategy-scotland-sustainable-digital-public-services-delivery-plan-2025-2028/') ?>>2025–2028 delivery plan</a> sets out what that looks like in practice.
+            It's not a lifestyle choice or a "digital detox." Being under-connected usually means one of a few things: relying on a single expensive mobile bundle, sharing someone else's connection, or losing hours to dropped calls and failed uploads.
         </p>
-        <p>
-            UK-wide survey evidence illustrates how routine "life admin" has shifted online. The Office for National Statistics (ONS) reported that in <strong>January–February 2020</strong>, <strong>76%</strong> of adults in Great Britain used internet banking (up from <strong>30%</strong> in 2007) and <strong>87%</strong> had shopped online in the last 12 months.
-        </p>
-        <p class="meta">Source: <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/householdcharacteristics/homeinternetandsocialmediausage/bulletins/internetaccesshouseholdsandindividuals/latest"<?= external_link_attrs('https://www.ons.gov.uk/peoplepopulationandcommunity/householdcharacteristics/homeinternetandsocialmediausage/bulletins/internetaccesshouseholdsandindividuals/latest') ?>>ONS, Internet access — households and individuals, Great Britain</a> (last bulletin 2020). This annual series was discontinued in May 2023 — treat these percentages as historical context, not a current measure.</p>
+        <p>Cost is the biggest barrier, and it's a solvable one:</p>
 
-        <h2>Harms of being offline or under-connected</h2>
-        <p>
-            "Under-connected" often means relying on a single expensive mobile bundle, sharing someone else's connection, or losing hours to dropped calls and failed uploads—not a romantic "digital detox."
-            Charities that support people through debt and consumer problems regularly describe broadband and mobile costs as pressure points during cost-of-living stress: <a href="https://www.citizensadvice.org.uk/consumer/internet-and-phone/internet-broadband/if-you-cant-afford-your-broadband-bill-or-top-up/"<?= external_link_attrs('https://www.citizensadvice.org.uk/consumer/internet-and-phone/internet-broadband/if-you-cant-afford-your-broadband-bill-or-top-up/') ?>>Citizens Advice</a> publishes practical guidance for England and Wales, <a href="https://www.cas.org.uk/"<?= external_link_attrs('https://www.cas.org.uk/') ?>>Citizens Advice Scotland</a>'s local bureaux cover consumer and benefits issues where Scotland's rules differ, and the <a href="https://www.goodthingsfoundation.org/"<?= external_link_attrs('https://www.goodthingsfoundation.org/') ?>>Good Things Foundation</a> tracks digital inclusion support needs across the UK.
-        </p>
         <div class="stat-strip">
             <div class="stat-item">
                 <span class="stat-value">1 in 12</span>
-                <span class="stat-label">qualifying households use the social tariff they are entitled to (532,000 of 6.2m)</span>
+                <span class="stat-label">households entitled to a social tariff are actually using one — 532,000 of 6.2 million eligible</span>
             </div>
             <div class="stat-item">
                 <span class="stat-value">70%</span>
@@ -84,27 +87,35 @@ require_once __DIR__ . '/includes/header.php';
             </div>
             <div class="stat-item">
                 <span class="stat-value">£200</span>
-                <span class="stat-label">a year an eligible household could typically save by switching to a social tariff</span>
+                <span class="stat-label">a year an eligible household could typically save by switching</span>
             </div>
         </div>
-        <p class="meta">Source: <a href="https://www.ofcom.org.uk/phones-and-broadband/bills-and-charges/pricing-and-consumer-engagement"<?= external_link_attrs('https://www.ofcom.org.uk/phones-and-broadband/bills-and-charges/pricing-and-consumer-engagement') ?>>Ofcom, Pricing and consumer engagement 2025</a> (published February 2026, survey data from October 2025). The gap between entitlement and uptake is itself a policy failure — schemes people do not know exist are schemes that do not work.</p>
+        <p class="meta">Source: <a href="https://www.ofcom.org.uk/phones-and-broadband/bills-and-charges/pricing-and-consumer-engagement"<?= external_link_attrs('https://www.ofcom.org.uk/phones-and-broadband/bills-and-charges/pricing-and-consumer-engagement') ?>>Ofcom, Pricing and consumer engagement 2025</a>, published February 2026.</p>
 
         <p>
-            Regulator-led research is the right place for <strong>affordability stress</strong>, <strong>quality of service</strong>, and <strong>geographic coverage</strong> at scale. Ofcom publishes <a href="https://www.ofcom.org.uk/research-and-data/multi-sector-research/infrastructure-research/connected-nations"<?= external_link_attrs('https://www.ofcom.org.uk/research-and-data/multi-sector-research/infrastructure-research/connected-nations') ?>>Connected Nations</a> updates and related consumer research—headline premises and coverage statistics change each release, so we link to the hub rather than freezing a percentage here.
+            That gap between entitlement and uptake is itself a policy failure. A scheme nobody knows exists is a scheme that doesn't work.
         </p>
 
-        <h2>Who is disproportionately affected</h2>
         <p>
-            Survey data consistently show that internet access and confidence are uneven by age, income, disability, and geography. The same ONS <strong>2020</strong> bulletin noted that internet connections in households with <strong>one adult aged 65 and over</strong> had risen but remained lower than other household types (<strong>80%</strong> with a connection in that group, in that survey period—see tables on the ONS page for full definitions).
-        </p>
-        <p>
-            For <strong>Scotland-specific</strong> household and social statistics at national scale, the Scottish Government's <a href="https://www.gov.scot/collections/scottish-household-survey/"<?= external_link_attrs('https://www.gov.scot/collections/scottish-household-survey/') ?>>Scottish Household Survey</a> is the primary official source—<strong>including internet use where that topic appears in a given year's questionnaire</strong>. It does not replace regulator coverage data (for example Ofcom's maps and metrics). Headline percentages vary by year and question wording.
-        </p>
-        <p>
-            Ofcom's coverage and quality work is especially relevant where <strong>rural and island</strong> communities face weaker fixed or mobile signals than urban centres—again, use the latest report for maps and metrics rather than second-hand figures.
+            Charities that support people through debt and consumer problems see this pressure constantly. <a href="https://www.citizensadvice.org.uk/consumer/internet-and-phone/internet-broadband/if-you-cant-afford-your-broadband-bill-or-top-up/"<?= external_link_attrs('https://www.citizensadvice.org.uk/consumer/internet-and-phone/internet-broadband/if-you-cant-afford-your-broadband-bill-or-top-up/') ?>>Citizens Advice</a> publishes practical guidance for England and Wales, <a href="https://www.cas.org.uk/"<?= external_link_attrs('https://www.cas.org.uk/') ?>>Citizens Advice Scotland</a> covers the issues where Scotland's rules differ, and the <a href="https://www.goodthingsfoundation.org/"<?= external_link_attrs('https://www.goodthingsfoundation.org/') ?>>Good Things Foundation</a> tracks digital inclusion needs UK-wide.
         </p>
 
-        <h2 id="homelessness">Homelessness, temporary accommodation, and digital exclusion</h2>
+        <p>
+            For the bigger picture — coverage, quality of service, and affordability at national scale — Ofcom's <a href="https://www.ofcom.org.uk/research-and-data/multi-sector-research/infrastructure-research/connected-nations"<?= external_link_attrs('https://www.ofcom.org.uk/research-and-data/multi-sector-research/infrastructure-research/connected-nations') ?>>Connected Nations</a> research is the authoritative source. Figures there update each release, so we link to the hub rather than quoting a number that will soon be out of date.
+        </p>
+
+        <h2>Who is most affected</h2>
+        <p>
+            Access and confidence online are uneven — by age, income, disability, and geography. The same 2020 ONS data that showed 80% of over-65 households connected also showed that figure was rising but still lagging behind other household types.
+        </p>
+        <p>
+            For Scotland-specific numbers, the <a href="https://www.gov.scot/collections/scottish-household-survey/"<?= external_link_attrs('https://www.gov.scot/collections/scottish-household-survey/') ?>>Scottish Household Survey</a> is the primary official source, including internet use in years where it's part of the questionnaire. It sits alongside — not in place of — Ofcom's coverage data.
+        </p>
+        <p>
+            Rural and island communities are a clear case in point: Ofcom's coverage and quality research consistently shows weaker fixed and mobile signal there than in urban centres. For current maps and figures, <a href="https://www.ofcom.org.uk/research-and-data/multi-sector-research/infrastructure-research/connected-nations"<?= external_link_attrs('https://www.ofcom.org.uk/research-and-data/multi-sector-research/infrastructure-research/connected-nations') ?>>Connected Nations</a> is the place to look.
+        </p>
+
+        <h2 id="homelessness">People without a fixed address are locked out by design</h2>
 
         <div class="info-card">
             <div class="info-card__header">
@@ -112,10 +123,12 @@ require_once __DIR__ . '/includes/header.php';
                 <p class="info-card__sub">A barrier most digital inclusion schemes ignore</p>
             </div>
             <div class="info-card__body">
-                <p>Social tariffs, broadband vouchers, and fixed-line contracts all require a permanent home address to apply. For people who are homeless, in temporary accommodation, or moving between hostels and B&amp;Bs, these schemes are simply unavailable—regardless of eligibility on any other ground.</p>
+                <p>Social tariffs, broadband vouchers, fixed-line contracts — nearly every scheme built to help with connectivity costs requires a permanent home address to apply. For people who are homeless, in temporary accommodation, or moving between hostels and B&amp;Bs, that makes these schemes unavailable, no matter how clearly they'd otherwise qualify.</p>
                 <p><a class="btn btn-ghost btn-sm" href="/get-help.php">See what help is available &rarr;</a></p>
             </div>
         </div>
+
+        <p>This isn't a small edge case. In Scotland:</p>
 
         <div class="stat-strip">
             <div class="stat-item">
@@ -133,45 +146,46 @@ require_once __DIR__ . '/includes/header.php';
         </div>
 
         <p>
-            The Scottish Parliament declared a housing emergency on <strong>15 May 2024</strong>. Households in temporary accommodation have reached their highest level in the recorded time series going back to 2002,
-            and homelessness has continued to rise since the emergency was declared.
+            The Scottish Parliament declared a housing emergency on <strong>15 May 2024</strong>. Households in temporary accommodation are at their highest level since records began in 2002,
+            and homelessness has kept rising since the emergency was declared.
         </p>
         <p class="meta">Sources: <a href="https://www.gov.scot/publications/tackling-scotlands-housing-emergency/"<?= external_link_attrs('https://www.gov.scot/publications/tackling-scotlands-housing-emergency/') ?>>Scottish Government — Tackling Scotland's Housing Emergency</a> · <a href="https://www.gov.scot/publications/homelessness-in-scotland-update-to-30-september-2025/"<?= external_link_attrs('https://www.gov.scot/publications/homelessness-in-scotland-update-to-30-september-2025/') ?>>Homelessness in Scotland: update to 30 September 2025</a> · <a href="https://scotland.shelter.org.uk/housing_policy/homelessness_in_scotland/"<?= external_link_attrs('https://scotland.shelter.org.uk/housing_policy/homelessness_in_scotland/') ?>>Shelter Scotland analysis</a>. These are updated twice yearly — figures here reflect the most recent release at time of writing.</p>
 
         <p>
-            People experiencing homelessness face digital exclusion not just through lack of money,
-            but through the design of the systems that are supposed to help them. Without internet access it is harder to:
+            Without internet access, it's harder to do the things that get someone back on their feet:
         </p>
         <ul>
-            <li>Apply for housing, benefits, or emergency support online (as more services move to digital-only)</li>
-            <li>Keep in contact with support workers, family, and legal representatives</li>
+            <li>Apply for housing, benefits, or emergency support — as more of these move to digital-only</li>
+            <li>Stay in contact with support workers, family, and legal representatives</li>
             <li>Search for work or access training</li>
-            <li>Access mental health resources or telehealth appointments</li>
-            <li>Charge devices—a barrier that is rarely mentioned but often the first problem in practice</li>
+            <li>Reach mental health support or telehealth appointments</li>
+            <li>Simply charge a device — rarely mentioned, but often the first problem people hit</li>
         </ul>
 
+        <p>This isn't just about money. It's about systems that were designed assuming everyone has a front door and a plug socket.</p>
+
         <p>
-            Public libraries, day centres, and hostels run by organisations like
+            Some organisations fill the gap:
             <a href="https://scotland.shelter.org.uk/"<?= external_link_attrs('https://scotland.shelter.org.uk/') ?>>Shelter Scotland</a>,
-            the <a href="https://www.glasgowcitymission.com/"<?= external_link_attrs('https://www.glasgowcitymission.com/') ?>>Glasgow City Mission</a>,
+            <a href="https://www.glasgowcitymission.com/"<?= external_link_attrs('https://www.glasgowcitymission.com/') ?>>Glasgow City Mission</a>,
             and <a href="https://www.crisis.org.uk/"<?= external_link_attrs('https://www.crisis.org.uk/') ?>>Crisis</a>
-            often provide the only consistent access points for people in this situation.
+            run libraries, day centres, and hostels that are often the only consistent access point people have.
             The <a href="https://www.goodthingsfoundation.org/our-services/national-databank/"<?= external_link_attrs('https://www.goodthingsfoundation.org/our-services/national-databank/') ?>>National Databank</a>
-            (free SIM cards distributed through community organisations) is one of the few schemes that does not require a fixed address—ask at a local foodbank, library, or day centre.
+            — free SIM cards distributed through community organisations — is one of the few schemes that doesn't require a fixed address; ask at a local foodbank, library, or day centre.
             The Scottish Government's <a href="https://www.gov.scot/policies/homelessness/"<?= external_link_attrs('https://www.gov.scot/policies/homelessness/') ?>>homelessness policy pages</a> set out the wider statutory picture.
         </p>
 
         <p>
-            If you work with people experiencing homelessness and want to share what digital access looks like in practice in your area, please
-            <a href="/contact.php">get in touch</a>. Local evidence is what makes this issue visible in policy discussions.
+            <strong>If you work with people experiencing homelessness and can tell us what digital access looks like in practice in your area, <a href="/contact.php">get in touch</a>.</strong> Local evidence is what makes this issue visible in policy discussions.
         </p>
 
-        <div class="card-grid cols-2" style="margin:2.5rem 0">
+        <h2>Want to go deeper?</h2>
+        <div class="card-grid cols-2" style="margin:0 0 2.5rem">
             <a class="icon-card" href="/digital-health" style="text-decoration:none">
                 <div class="icon-card-body">
                     <span class="pill">Research</span>
                     <h2>Digital exclusion and health</h2>
-                    <p>WHO evidence, COVID-19 research, NHS data, and peer-reviewed studies on loneliness and isolation — the documented health consequences of being offline.</p>
+                    <p>WHO evidence, COVID-19 research, NHS data, and studies on loneliness and isolation — the documented health cost of being offline.</p>
                     <p style="margin-top:auto;padding-top:0.75rem"><span class="btn btn-primary btn-sm">Read the evidence &rarr;</span></p>
                 </div>
             </a>
@@ -179,24 +193,32 @@ require_once __DIR__ . '/includes/header.php';
                 <div class="icon-card-body">
                     <span class="pill">Policy</span>
                     <h2>Beyond broadband</h2>
-                    <p>Devices, outdated software, authentication barriers, digital skills, and language — the full stack of exclusion that connectivity programmes alone cannot fix.</p>
+                    <p>Devices, outdated software, authentication barriers, digital skills, and language — the rest of the picture that connectivity alone can't fix.</p>
                     <p style="margin-top:auto;padding-top:0.75rem"><span class="btn btn-primary btn-sm">Read more &rarr;</span></p>
                 </div>
             </a>
         </div>
 
-        <h2>What official data does—and does not—measure</h2>
+        <h2>A note on the data behind this page</h2>
+        <p>Official statistics are essential, but each source measures something slightly different:</p>
         <ul>
             <li>
-                <strong>Household surveys</strong> (ONS, Scottish Household Survey, Ofcom consumer trackers) capture <em>people's reported behaviour and equipment</em>. They can miss "hidden" sharing, informal hotspots, or precarious pay-as-you-go use.
+                <strong>Household surveys</strong> (ONS, the Scottish Household Survey, Ofcom's consumer trackers) capture what people report about their own behaviour and equipment. They can miss informal sharing, hidden hotspots, or precarious pay-as-you-go use.
             </li>
             <li>
-                <strong>Coverage and network statistics</strong> (Ofcom, build programmes) focus on <em>infrastructure availability and performance</em>. Availability is not the same as affordability, digital skills, or trust in online services.
+                <strong>Coverage and network statistics</strong> (Ofcom, national build programmes) measure infrastructure availability and performance — which isn't the same as affordability, digital skills, or trust in online services.
             </li>
             <li>
-                <strong>Series change over time.</strong> The ONS notice on its internet-access bulletin (May 2023) points readers toward Ofcom's <strong>Technology Tracker</strong> for overlapping topics—always read the methodology sheet when comparing years, and see the <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/householdcharacteristics/homeinternetandsocialmediausage"<?= external_link_attrs('https://www.ons.gov.uk/peoplepopulationandcommunity/householdcharacteristics/homeinternetandsocialmediausage') ?>>ONS topic hub</a> for related releases and datasets.
+                <strong>Series change over time.</strong> ONS retired its internet-access bulletin in 2023 and now points readers to Ofcom's Technology Tracker for overlapping topics. If you're comparing figures across years, check the methodology notes first — see the <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/householdcharacteristics/homeinternetandsocialmediausage"<?= external_link_attrs('https://www.ons.gov.uk/peoplepopulationandcommunity/householdcharacteristics/homeinternetandsocialmediausage') ?>>ONS topic hub</a> for the underlying releases.
             </li>
         </ul>
+
+        <div class="pull-quote">
+            <p>"Availability is not the same as affordability, digital skills, or trust in online services."</p>
+            <cite>Ofcom, Connected Nations methodology note</cite>
+        </div>
+
+        <p class="meta">Figures and programme rules change. If a link breaks or a series gets renamed, <a href="/contact.php">tell us</a> so we can fix it.</p>
 
         <div class="info-card">
             <div class="info-card__header">
@@ -212,13 +234,6 @@ require_once __DIR__ . '/includes/header.php';
                 </ul>
             </div>
         </div>
-
-        <div class="pull-quote">
-            <p>"Availability is not the same as affordability, digital skills, or trust in online services."</p>
-            <cite>Ofcom Connected Nations methodology note</cite>
-        </div>
-
-        <p class="meta">Figures and programme rules change. If an external link breaks or a series is renamed, tell us via <a href="/contact.php">Contact</a> so we can update this page.</p>
         </div><!-- /prose -->
 
         <?php require __DIR__ . '/includes/sidebar-campaign.php'; ?>
