@@ -73,6 +73,13 @@ require_once __DIR__ . '/includes/header.php';
 
             <div class="community-net-list">
                 <div class="community-net-item">
+                    <div class="community-net-meta"><span class="pill">Local advice network</span></div>
+                    <h3 class="community-net-name">Citizens Advice Scotland — Get Connected</h3>
+                    <p>A campaign run through Scotland's 59 Citizens Advice Bureaux, giving people free, confidential, face-to-face or phone help checking what cheaper broadband and mobile deals they qualify for and applying for them. It is the closest thing to a national front door for the exact problem we campaign on — genuinely complementary, not overlapping, since CAB advisers help individuals one at a time rather than campaigning for structural change.</p>
+                    <a class="community-net-link" href="https://www.cas.org.uk/get-connected"<?= external_link_attrs('https://www.cas.org.uk/get-connected') ?>>cas.org.uk/get-connected &rarr;</a>
+                </div>
+
+                <div class="community-net-item">
                     <div class="community-net-meta"><span class="pill">Sector infrastructure</span></div>
                     <h3 class="community-net-name">SCVO — Scottish Council for Voluntary Organisations</h3>
                     <p>The most active critical voice on digital inclusion in Scotland, publishing strong research and lobbying hard for action. But SCVO speaks to the voluntary sector — charities, community organisations, and public bodies. It is sector infrastructure, not a public-facing campaign. Most people in Scotland who are digitally excluded will never interact with SCVO directly.</p>

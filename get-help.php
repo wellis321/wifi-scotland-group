@@ -69,12 +69,12 @@ require_once __DIR__ . '/includes/header.php';
 
         <div class="info-card">
             <div class="info-card__header">
-                <h2 class="info-card__heading">No fixed address?</h2>
-                <p class="info-card__sub">Important — most schemes on this page will not apply</p>
+                <h2 class="info-card__heading">No fixed address doesn't mean no options</h2>
+                <p class="info-card__sub">Two things work without one — here's where to start</p>
             </div>
             <div class="info-card__body">
-                <p>Most broadband schemes listed here require a permanent home address and a contract. They are not available to people who are homeless or in temporary accommodation, regardless of income.</p>
-                <p>The <strong>National Databank</strong> — free SIM cards with data — is one exception. It is distributed through foodbanks, hostels, day centres, and libraries with no address required. Ask at a local <a href="https://scotland.shelter.org.uk/get_help"<?= external_link_attrs('https://scotland.shelter.org.uk/get_help') ?>>Shelter Scotland</a> office, foodbank, or community centre whether they carry them.</p>
+                <p>Most schemes on this page assume a permanent address and a contract. That's a gap in how they were designed, not a reflection of what you're entitled to — and it shuts out people who are homeless or in temporary accommodation, regardless of income.</p>
+                <p>The <strong>National Databank</strong> — free SIM cards with data — works without an address. It is distributed through foodbanks, hostels, day centres, and libraries. Ask at a local <a href="https://scotland.shelter.org.uk/get_help"<?= external_link_attrs('https://scotland.shelter.org.uk/get_help') ?>>Shelter Scotland</a> office, foodbank, or community centre whether they carry them.</p>
                 <p><strong>Jobcentre Plus</strong> branches across Scotland have free computers and Wi-Fi for job searching, Universal Credit management, and general internet access — no appointment needed for device use. In-person digital support is also available; hours vary by branch, so ask at reception.</p>
                 <p><a class="btn btn-ghost btn-sm" href="/why-it-matters.php#homelessness">Homelessness &amp; digital exclusion &rarr;</a></p>
             </div>
@@ -83,6 +83,17 @@ require_once __DIR__ . '/includes/header.php';
         <div class="callout" style="margin-bottom:2rem">
             <p class="callout__eyebrow">Applying is easier than you'd think</p>
             <p>You don't need to provide paper proof to get a social tariff — your broadband provider can verify your Universal Credit claim automatically through the DWP system. Just tell them you're on Universal Credit and ask for their social tariff.</p>
+        </div>
+
+        <div class="info-card" style="margin-bottom:2rem">
+            <div class="info-card__header">
+                <h2 class="info-card__heading">Prefer to talk to a real person?</h2>
+                <p class="info-card__sub">Free, confidential, one-to-one help applying</p>
+            </div>
+            <div class="info-card__body">
+                <p><a href="https://www.cas.org.uk/get-connected"<?= external_link_attrs('https://www.cas.org.uk/get-connected') ?>>Citizens Advice Scotland's Get Connected campaign</a> exists for exactly this: bureaux across Scotland helping people check what they qualify for and apply for a cheaper deal, in person or on the phone — you don't need to already understand the system.</p>
+                <p><a class="btn btn-ghost btn-sm" href="https://www.cas.org.uk/bureaux"<?= external_link_attrs('https://www.cas.org.uk/bureaux') ?>>Find your local bureau &rarr;</a></p>
+            </div>
         </div>
 
         <p class="section-intro">Shown most recently updated first. If you know of a scheme we have missed, <a href="/contact.php">let us know</a>.</p>
