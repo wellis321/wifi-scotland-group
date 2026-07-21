@@ -42,9 +42,13 @@ if (db_available()) {
 
     <!-- Help getting online -->
     <div class="sidebar-card sidebar-card--accent">
-        <h3>Need help getting online?</h3>
-        <p>We list schemes and programmes that can lower your broadband costs or get you connected.</p>
-        <a class="btn btn-ghost" href="/get-help.php" style="width:100%;justify-content:center;text-align:center">See all schemes</a>
+        <h3>Get help right now</h3>
+        <p>Two schemes help the most people, fastest:</p>
+        <ul class="sidebar-nav">
+            <li><a href="/get-help.php#social-tariffs">Social tariffs &mdash; cheaper broadband &rarr;</a></li>
+            <li><a href="/get-help.php#national-databank">National Databank &mdash; free SIM &rarr;</a></li>
+        </ul>
+        <a class="btn btn-ghost" href="/get-help.php" style="width:100%;justify-content:center;text-align:center;margin-top:0.75rem">See all schemes</a>
     </div>
 
     <?php if (!empty($sidebarNews)): ?>

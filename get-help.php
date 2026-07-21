@@ -9,6 +9,13 @@ $pageTitle = 'Help getting online';
 $pageDescription = 'Schemes and programmes that can help people in Scotland get connected or pay less for broadband—with links to official sources so you can check current eligibility.';
 $currentNav = 'gethelp';
 
+$sidebarRelated = [
+    ['href' => '/why-it-matters.php', 'label' => 'Why it matters'],
+    ['href' => '/scotland.php',       'label' => 'Scotland policy'],
+    ['href' => '/get-involved.php',   'label' => 'Get involved'],
+    ['href' => '/resources.php',      'label' => 'Resources & references'],
+];
+
 // DB primary source; PHP array fallback when DB is unavailable
 $schemes = [];
 if (db_available()) {
@@ -24,6 +31,27 @@ if (empty($schemes)) {
     $schemes = load_schemes();
 }
 
+// Manual pins: social tariffs and the National Databank lead (biggest impact,
+// most people qualify), Connecting Scotland trails (paused for redesign,
+// least actionable right now). Everything else keeps its normal
+// updated_month/sort_order position.
+$pinOrder = ['social-tariffs' => 0, 'national-databank' => 1];
+$pinFirst = [];
+$pinLast  = [];
+$rest     = [];
+foreach ($schemes as $s) {
+    $slug = $s['slug'] ?? '';
+    if (isset($pinOrder[$slug])) {
+        $pinFirst[$pinOrder[$slug]] = $s;
+    } elseif ($slug === 'connecting-scotland') {
+        $pinLast[] = $s;
+    } else {
+        $rest[] = $s;
+    }
+}
+ksort($pinFirst);
+$schemes = [...$pinFirst, ...$rest, ...$pinLast];
+
 require_once __DIR__ . '/includes/header.php';
 ?>
 <header class="page-header">
@@ -35,6 +63,9 @@ require_once __DIR__ . '/includes/header.php';
 
 <div class="section">
     <div class="wrap">
+        <div class="page-layout" style="padding-top:0">
+
+        <div>
 
         <div class="info-card">
             <div class="info-card__header">
@@ -50,8 +81,8 @@ require_once __DIR__ . '/includes/header.php';
         </div>
 
         <div class="callout" style="margin-bottom:2rem">
-            <p class="callout__eyebrow">On social tariffs</p>
-            <p>Only around 532,000 of the 6.2 million Universal Credit households that qualify for a cheaper broadband deal actually use one — that's roughly 1 in 12. Around 7 in 10 people on benefits have never heard that social tariffs exist. When you apply, you don't need to provide paper proof — your broadband provider can verify your Universal Credit claim automatically through the DWP system. Just tell them you're on Universal Credit and ask for their social tariff.</p>
+            <p class="callout__eyebrow">Applying is easier than you'd think</p>
+            <p>You don't need to provide paper proof to get a social tariff — your broadband provider can verify your Universal Credit claim automatically through the DWP system. Just tell them you're on Universal Credit and ask for their social tariff.</p>
         </div>
 
         <p class="section-intro">Shown most recently updated first. If you know of a scheme we have missed, <a href="/contact.php">let us know</a>.</p>
@@ -144,6 +175,11 @@ require_once __DIR__ . '/includes/header.php';
             </div>
         </div>
 
+        </div><!-- /main column -->
+
+        <?php require __DIR__ . '/includes/sidebar-campaign.php'; ?>
+
+        </div><!-- /page-layout -->
     </div>
 </div>
 

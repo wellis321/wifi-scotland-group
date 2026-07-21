@@ -93,6 +93,7 @@ require_once __DIR__ . '/includes/header.php';
             </div>
 
             <h2 style="margin-top:2.5rem">What WIRES does differently</h2>
+            <p>Four things distinguish WIRES from everything listed above.</p>
 
             <div class="info-card" style="margin-bottom:1.5rem">
                 <div class="info-card__header">

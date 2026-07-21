@@ -124,7 +124,6 @@ require_once __DIR__ . '/includes/header.php';
             </div>
             <div class="info-card__body">
                 <p>Social tariffs, broadband vouchers, fixed-line contracts — nearly every scheme built to help with connectivity costs requires a permanent home address to apply. For people who are homeless, in temporary accommodation, or moving between hostels and B&amp;Bs, that makes these schemes unavailable, no matter how clearly they'd otherwise qualify.</p>
-                <p><a class="btn btn-ghost btn-sm" href="/get-help.php">See what help is available &rarr;</a></p>
             </div>
         </div>
 

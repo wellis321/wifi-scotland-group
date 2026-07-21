@@ -88,7 +88,37 @@ require_once __DIR__ . '/includes/header.php';
                 <span class="statement-stat__label">of people on benefits have never heard that social tariffs exist</span>
             </div>
         </div>
-        <p class="statement-band-source">Source: Ofcom, Pricing and consumer engagement 2025 &middot; <a href="/get-help.php">Find out if you qualify</a></p>
+        <p class="statement-band-source">Source: Ofcom, Pricing and consumer engagement 2025 &middot; <a href="/get-help.php#social-tariffs">Find out if you qualify</a></p>
+    </div>
+</section>
+
+<section class="section" aria-labelledby="quick-help-heading">
+    <div class="wrap">
+        <h2 id="quick-help-heading">If you need this now, here's where to go</h2>
+        <p class="section-intro">These two schemes help the most people, fastest — no long forms, no means-testing beyond what you already receive.</p>
+        <div class="card-grid cols-2">
+            <div class="info-card" style="margin-bottom:0">
+                <div class="info-card__header">
+                    <h3 class="info-card__heading">Social tariffs</h3>
+                    <p class="info-card__sub">Cheaper broadband for people on benefits</p>
+                </div>
+                <div class="info-card__body">
+                    <p>&pound;12.50&ndash;&pound;20/month broadband if you're on Universal Credit or another qualifying benefit. No paper proof needed — just ask your provider.</p>
+                    <p><a class="btn btn-primary btn-sm" href="/get-help.php#social-tariffs">Check if you qualify &rarr;</a></p>
+                </div>
+            </div>
+            <div class="info-card" style="margin-bottom:0">
+                <div class="info-card__header">
+                    <h3 class="info-card__heading">National Databank</h3>
+                    <p class="info-card__sub">Free SIM cards with data — no address needed</p>
+                </div>
+                <div class="info-card__body">
+                    <p>Free SIM cards with mobile data, distributed through foodbanks, libraries, and hostels. One of the only schemes available if you don't have a fixed address.</p>
+                    <p><a class="btn btn-primary btn-sm" href="/get-help.php#national-databank">Find a distribution point &rarr;</a></p>
+                </div>
+            </div>
+        </div>
+        <p style="margin-top:1.5rem"><a class="btn btn-ghost" href="/get-help.php">See all schemes &rarr;</a></p>
     </div>
 </section>
 

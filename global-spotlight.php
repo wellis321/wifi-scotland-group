@@ -75,6 +75,7 @@ require_once __DIR__ . '/includes/header.php';
 
             <div class="pull-quote">
                 <p>"Community networks worldwide show that connectivity can be designed around participation — not only consumption."</p>
+                <cite>WIRES campaign position</cite>
             </div>
 
             <div class="card-grid cols-2" style="margin-top:2rem">

@@ -32,6 +32,8 @@ require_once __DIR__ . '/includes/header.php';
         <div class="page-layout" style="padding-top:0">
         <div class="prose">
 
+            <p>Here's how far the problem extends beyond "do you have broadband":</p>
+
             <div class="stat-strip">
                 <div class="stat-item">
                     <span class="stat-value">15%</span>
@@ -61,11 +63,6 @@ require_once __DIR__ . '/includes/header.php';
                 Even if someone has a device, it may be too old to run the app or access the service. Developers routinely set minimum operating system requirements that exclude devices only a few years old — a design choice that falls hardest on people in poverty, older people, and those for whom a replacement phone or laptop is simply unaffordable. There is no regulatory requirement on developers to consider the devices their excluded users actually hold.
             </p>
             <p class="meta">Sources: <a href="https://arxiv.org/abs/2311.00984"<?= external_link_attrs('https://arxiv.org/abs/2311.00984') ?>>Unveiling Inclusiveness-Related User Feedback in Mobile Applications</a> (arxiv, 2023) · <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12350549/"<?= external_link_attrs('https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12350549/') ?>>Optimizing mobile app design for older adults: a systematic review of age-friendly design</a> (PMC, 2025).</p>
-
-            <div class="pull-quote">
-                <p>"There is no regulatory requirement on developers to consider the devices their excluded users actually hold."</p>
-                <cite>WIRES campaign position</cite>
-            </div>
 
             <h2>3. Authentication designed for the already-connected</h2>
             <p>
@@ -100,7 +97,7 @@ require_once __DIR__ . '/includes/header.php';
                     <p class="info-card__sub">Broadband programmes alone are not enough</p>
                 </div>
                 <div class="info-card__body">
-                    <p>Programmes like R100 and the Gigabit Voucher Scheme address infrastructure — getting a connection to a building. They do not address the device a person needs to use it, the skills required to navigate services, the authentication systems that block them, or the language barriers that make digital forms inaccessible. A campaign that only argues for better broadband coverage is arguing for a necessary but insufficient condition. WIRES argues for the whole stack.</p>
+                    <p>Broadband programmes alone are not enough — R100 and the Gigabit Voucher Scheme fix infrastructure, but don't touch devices, skills, authentication, or language. A campaign that only argues for better broadband coverage is arguing for a necessary but insufficient condition. WIRES argues for the whole stack.</p>
                     <p><a class="btn btn-ghost btn-sm" href="/landscape">How WIRES is different &rarr;</a></p>
                 </div>
             </div>
