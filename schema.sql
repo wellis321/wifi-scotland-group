@@ -143,6 +143,24 @@ INSERT INTO news_items (title, slug, summary, body, published_at) VALUES
 )
 ON DUPLICATE KEY UPDATE title = VALUES(title);
 
+-- 2026-07-21 news sweep — verify each figure/date on the linked source before publishing to production
+INSERT INTO news_items (title, slug, summary, body, published_at) VALUES
+(
+  'Shared Rural Network passes 140 masts UK-wide — Islay gets a second not-spot fixed',
+  'srn-140-masts-islay-second-not-spot',
+  'The government-backed Shared Rural Network has switched on its 140th mobile mast, with 49 now live in Scotland — including a second site on Islay that restores signal from all four networks to an area that previously had none.',
+  '<p>The Shared Rural Network — the joint UK Government and mobile operator scheme to close 4G mobile not-spots — has activated 140 masts across the UK by the end of June 2026, with 49 of those in Scotland.</p><p>The latest addition is a second "total not-spot" site on Islay, bringing coverage from EE, O2, Three, and Vodafone to part of the island that previously had no signal from any network at all. Other recent Scottish sites include Arran, Jura, Dukes Pass in the Trossachs, and Tarbert on Kintyre.</p><p>Scotland''s 11% total not-spot rate is still more than double the UK average of 5%, so this is real but partial progress — worth tracking against how many sites remain scheduled.</p><p class="meta">Source: <a href="https://srn.org.uk/news/">Shared Rural Network news</a> &middot; <a href="https://www.thinkbroadband.com/news/shared-rural-network-reaches-50-live-masts-in-scotland">thinkbroadband</a></p>',
+  '2026-07-21'
+),
+(
+  'Vodafone drops its £12 social tariff — Virgin Media''s £12.50 deal is now the cheapest',
+  'vodafone-drops-cheapest-social-tariff-2026',
+  'Vodafone withdrew its £12/month Essentials tariff, raising its entry price to £20. Virgin Media''s Essential Broadband at £12.50 is now the lowest verified social tariff on the market — a reminder that these deals and their prices shift, so it''s worth checking before you apply.',
+  '<p>Social tariffs — discounted broadband for people on Universal Credit and other qualifying benefits — keep changing, and not always for the better. Vodafone has withdrawn its long-running £12/month entry-level tariff; its Essentials plan is now £20/month.</p><p>Virgin Media''s Essential Broadband, at £12.50/month, is currently the cheapest verified social tariff on the market. BT, Sky, and Community Fibre all still offer their own versions in the same £12.50&ndash;£20 range.</p><p>The prices move; the eligibility and the point don''t: if you''re on Universal Credit or another qualifying benefit, you''re likely paying more than you need to. Providers can verify your benefit automatically through the DWP &mdash; no paperwork required.</p><p>Check who''s currently cheapest and how to switch on our <a href="/get-help.php#social-tariffs">Get help</a> page.</p><p class="meta">Source: <a href="https://broadbandswitch.uk/social-tariffs-uk.html">BroadbandSwitch.uk, verified social tariffs (July 2026)</a></p>',
+  '2026-07-21'
+)
+ON DUPLICATE KEY UPDATE title = VALUES(title);
+
 -- ─── Local groups ────────────────────────────────────────────────────────────
 
 CREATE TABLE IF NOT EXISTS local_groups (

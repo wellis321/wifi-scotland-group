@@ -118,7 +118,6 @@ require_once __DIR__ . '/includes/header.php';
                 </div>
             </div>
         </div>
-        <p style="margin-top:1.5rem"><a class="btn btn-ghost" href="/get-help.php">See all schemes &rarr;</a></p>
     </div>
 </section>
 
