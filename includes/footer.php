@@ -58,7 +58,7 @@ declare(strict_types=1);
 (function () {
     var btn = document.querySelector('[data-nav-toggle]');
     var nav = document.querySelector('[data-site-nav]');
-    var mq = window.matchMedia('(min-width: 901px)');
+    var mq = window.matchMedia('(min-width: 721px)'); // must match the CSS breakpoint in site.css (.site-nav / .nav-sub)
     var groups = document.querySelectorAll('[data-nav-group]');
 
     function closeAllSubmenus() {
