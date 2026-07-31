@@ -62,10 +62,6 @@ require_once __DIR__ . '/includes/footer.php';
 
 Three tables (`member_signups`, `contact_messages`, `news_items`). Forms use PDO prepared statements. News item bodies are stored as trusted HTML (no untrusted author input currently); if that changes, add sanitisation before rendering on `news-item.php`.
 
-## Deployment (Hostinger)
-
-Deploy repo contents directly into `public_html/` — `public_html/index.php` must exist at the top level. Set `.env` there or use hPanel environment variables. The `includes/.htaccess` blocks direct HTTP access to the `includes/` directory; keep it in place.
-
 ## Design Context
 
 ### Users

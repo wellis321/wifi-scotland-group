@@ -161,6 +161,17 @@ INSERT INTO news_items (title, slug, summary, body, published_at) VALUES
 )
 ON DUPLICATE KEY UPDATE title = VALUES(title);
 
+-- 2026-07-31 news sweep — verify each figure/date on the linked source before publishing to production
+INSERT INTO news_items (title, slug, summary, body, published_at) VALUES
+(
+  'Shared Rural Network''s 50th mast goes live in Scotland — coverage bigger than Edinburgh and Glasgow combined',
+  'srn-50th-scotland-mast',
+  'The government-backed Shared Rural Network switched on its 50th mobile mast in Scotland on the remote Ardnamurchan peninsula, extending all-four-operator 4G coverage across more than 1,900 square kilometres of rural Scotland — an area larger than Edinburgh and Glasgow combined.',
+  '<p>The Shared Rural Network''s 50th Scottish mast went live near Branault, on the remote Ardnamurchan peninsula, bringing 4G coverage from EE, O2, Three, and Vodafone to a part of the Highlands that previously had patchy or no signal.</p><p>Fifty masts is a milestone worth marking on its own — but the scale is the real story: UK Government-funded upgrades now cover more than 1,900 square kilometres of rural Scotland, an area larger than Edinburgh and Glasgow combined. That is coverage that would not exist without the public subsidy behind the scheme; commercial operators had left these areas unserved for years.</p><p>It follows our report on the programme passing 140 masts UK-wide. Progress is real — the remaining gap is what happens for communities not yet on the list.</p><p class="meta">Source: <a href="https://www.ispreview.co.uk/index.php/2026/07/50-uk-gov-funded-4g-mobile-rural-mast-upgrades-now-live-in-scotland.html">ISPreview (July 2026)</a> &middot; <a href="https://srn.org.uk/ring-it-on-rural-scots-get-mobile-signal-boost-as-50th-uk-government-funded-mast-goes-live/">Shared Rural Network</a></p>',
+  '2026-07-09'
+)
+ON DUPLICATE KEY UPDATE title = VALUES(title);
+
 -- ─── Local groups ────────────────────────────────────────────────────────────
 
 CREATE TABLE IF NOT EXISTS local_groups (
