@@ -1822,11 +1822,18 @@ a:hover {
 
 .paths-grid {
     display: grid;
+    list-style: none;
+    margin: 0;
+    padding: 0;
     border: 1px solid var(--line);
     border-radius: var(--radius);
     overflow: hidden;
     gap: 1px;
     background: var(--line);
+}
+
+.paths-grid > li {
+    display: contents;
 }
 
 @media (min-width: 720px) {

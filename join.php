@@ -159,7 +159,7 @@ require_once __DIR__ . '/includes/header.php';
         </form>
         </div>
         <figure class="join-aside">
-            <img src="<?= e(image_asset('card-community.jpg')) ?>" width="1200" height="800" alt="" decoding="async" loading="lazy">
+            <img src="<?= e(image_asset('card-community.jpg')) ?>" width="1100" height="733" alt="" decoding="async" loading="lazy">
             <figcaption>We keep sign-up light: tell us what you care about and we will match volunteer tasks when they appear.</figcaption>
         </figure>
     </div>

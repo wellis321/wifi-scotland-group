@@ -33,7 +33,7 @@ require_once __DIR__ . '/includes/header.php';
         <div class="page-layout" style="padding-top:0">
 
         <div class="prose">
-            <img class="page-hero-img" src="<?= e(image_asset('about-team.jpg')) ?>" width="1200" height="800"
+            <img class="page-hero-img" src="<?= e(image_asset('about-team.jpg')) ?>" width="1100" height="733"
                  alt="Team members collaborating at a shared desk." decoding="async" loading="lazy">
 
             <div class="pull-quote">
@@ -52,7 +52,7 @@ require_once __DIR__ . '/includes/header.php';
             </p>
 
             <figure class="article-img article-img--right">
-                <img src="<?= e(image_asset('card-community.jpg')) ?>" width="1200" height="800"
+                <img src="<?= e(image_asset('card-community.jpg')) ?>" width="1100" height="733"
                      alt="Community group meeting around a table with a laptop." decoding="async" loading="lazy">
                 <figcaption>Start with the places people already gather.</figcaption>
             </figure>

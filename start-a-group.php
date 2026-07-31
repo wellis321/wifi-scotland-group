@@ -21,7 +21,7 @@ require_once __DIR__ . '/includes/header.php';
     <div class="wrap prose">
 
         <figure class="page-lede">
-            <img src="<?= e(image_asset('card-community.jpg')) ?>" width="1200" height="800" alt="People in a community meeting with a laptop open on the table." decoding="async" loading="lazy">
+            <img src="<?= e(image_asset('card-community.jpg')) ?>" width="1100" height="733" alt="People in a community meeting with a laptop open on the table." decoding="async" loading="lazy">
             <figcaption>Local groups start in community centres, libraries, tenants' meetings, and kitchens. Wherever people already gather works fine.</figcaption>
         </figure>
 
