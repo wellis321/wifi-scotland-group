@@ -32,7 +32,10 @@ require_once __DIR__ . '/includes/header.php';
         <div class="page-layout" style="padding-top:0">
 
         <div class="prose">
-            <img class="page-hero-img" src="<?= e(image_asset('card-community.jpg')) ?>" width="1100" height="733"
+            <img class="page-hero-img" src="<?= e(image_asset('card-community.jpg')) ?>"
+                 srcset="/images/card-community-small.jpg 750w, /images/card-community.jpg 1100w"
+                 sizes="(max-width: 760px) 100vw, 760px"
+                 width="1100" height="733"
                  alt="Group discussion with a laptop open on a table." decoding="async" loading="lazy">
 
             <div class="pull-quote">

@@ -47,9 +47,13 @@ require_once __DIR__ . '/includes/header.php';
         <div class="hero-side">
             <figure class="hero-media">
                 <picture>
-                    <source srcset="/images/hero-laptop-home.webp" type="image/webp">
+                    <source srcset="/images/hero-laptop-home-small.webp 800w, /images/hero-laptop-home.webp 1300w"
+                            sizes="(max-width: 880px) 100vw, 683px"
+                            type="image/webp">
                     <img
                         src="<?= e(image_asset('hero-laptop-home.jpg')) ?>"
+                        srcset="/images/hero-laptop-home-small.jpg 800w, /images/hero-laptop-home.jpg 1300w"
+                        sizes="(max-width: 880px) 100vw, 683px"
                         width="1300"
                         height="867"
                         alt="<?= e($pageOgImageAlt) ?>"
@@ -103,7 +107,10 @@ require_once __DIR__ . '/includes/header.php';
                     <p>Work, learning, health services, and democracy increasingly assume you can get online reliably. When connectivity is unstable or unaffordable, people are excluded from ordinary expectations—not through personal failure, but structural neglect.</p>
                 </div>
                 <figure class="argument-image" aria-hidden="true">
-                    <img src="<?= e(image_asset('card-community.jpg')) ?>" width="1100" height="733" alt="" decoding="async" loading="lazy">
+                    <img src="<?= e(image_asset('card-community.jpg')) ?>"
+                         srcset="/images/card-community-small.jpg 750w, /images/card-community.jpg 1100w"
+                         sizes="(max-width: 700px) 100vw, 550px"
+                         width="1100" height="733" alt="" decoding="async" loading="lazy">
                 </figure>
             </li>
             <li class="argument-item fade-up">
@@ -113,7 +120,10 @@ require_once __DIR__ . '/includes/header.php';
                     <p>Significant public investment flows into broadband and digital inclusion programmes. People deserve a clear path to the help that exists—not complicated applications, confusing criteria, or announcements buried so deep that the people who need them most never hear about them.</p>
                 </div>
                 <figure class="argument-image" aria-hidden="true">
-                    <img src="<?= e(image_asset('glasses-clarity.jpg')) ?>" width="1000" height="797" alt="" decoding="async" loading="lazy">
+                    <img src="<?= e(image_asset('glasses-clarity.jpg')) ?>"
+                         srcset="/images/glasses-clarity-small.jpg 750w, /images/glasses-clarity.jpg 1000w"
+                         sizes="(max-width: 700px) 100vw, 550px"
+                         width="1000" height="797" alt="" decoding="async" loading="lazy">
                 </figure>
             </li>
             <li class="argument-item fade-up">
@@ -123,7 +133,10 @@ require_once __DIR__ . '/includes/header.php';
                     <p>Cooperative and non-profit network projects worldwide—from Guifi.net in Catalonia to NYC Mesh—demonstrate that connectivity can be transparent, neighbourhood-scale, and governed in the public interest. Scotland can learn from these models.</p>
                 </div>
                 <figure class="argument-image" aria-hidden="true">
-                    <img src="<?= e(image_asset('about-team.jpg')) ?>" width="1100" height="733" alt="" decoding="async" loading="lazy">
+                    <img src="<?= e(image_asset('about-team.jpg')) ?>"
+                         srcset="/images/about-team-small.jpg 750w, /images/about-team.jpg 1100w"
+                         sizes="(max-width: 700px) 100vw, 550px"
+                         width="1100" height="733" alt="" decoding="async" loading="lazy">
                 </figure>
             </li>
         </ol>

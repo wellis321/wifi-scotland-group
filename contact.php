@@ -170,7 +170,10 @@ require_once __DIR__ . '/includes/header.php';
         </form>
         </div>
         <figure class="join-aside">
-            <img src="<?= e(image_asset('card-community.jpg')) ?>" width="1100" height="733" alt="" decoding="async" loading="lazy">
+            <img src="<?= e(image_asset('card-community.jpg')) ?>"
+                 srcset="/images/card-community-small.jpg 750w, /images/card-community.jpg 1100w"
+                 sizes="(max-width: 700px) 100vw, 500px"
+                 width="1100" height="733" alt="" decoding="async" loading="lazy">
             <figcaption>This form stores messages in our volunteer database — fine for corrections, press enquiries, and most stories. <?= tip_form_enabled() ? 'For anything sensitive, use the <a href="#tip">confidential tip form</a> below instead.' : '' ?></figcaption>
         </figure>
     </div>

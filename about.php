@@ -33,7 +33,10 @@ require_once __DIR__ . '/includes/header.php';
         <div class="page-layout" style="padding-top:0">
 
         <div class="prose">
-            <img class="page-hero-img" src="<?= e(image_asset('about-team.jpg')) ?>" width="1100" height="733"
+            <img class="page-hero-img" src="<?= e(image_asset('about-team.jpg')) ?>"
+                 srcset="/images/about-team-small.jpg 750w, /images/about-team.jpg 1100w"
+                 sizes="(max-width: 760px) 100vw, 760px"
+                 width="1100" height="733"
                  alt="Team members collaborating at a shared desk." decoding="async" loading="lazy">
 
             <div class="pull-quote">
