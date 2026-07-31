@@ -24,7 +24,7 @@ $pageOgImage    = image_asset('hero-laptop-home.jpg');
 $pageOgImageAlt = 'Person using a laptop in a home workspace—illustrating everyday reliance on connectivity.';
 
 /* Preload the hero image so it's the LCP candidate the browser fetches immediately */
-$pageExtraHead = '<link rel="preload" href="/images/hero-laptop-home.jpg" as="image">';
+$pageExtraHead = '<link rel="preload" href="/images/hero-laptop-home-small.jpg" as="image">';
 
 require_once __DIR__ . '/includes/header.php';
 ?>
@@ -47,15 +47,11 @@ require_once __DIR__ . '/includes/header.php';
         <div class="hero-side">
             <figure class="hero-media">
                 <picture>
-                    <source srcset="/images/hero-laptop-home-small.webp 800w, /images/hero-laptop-home.webp 1300w"
-                            sizes="(max-width: 880px) 100vw, 683px"
-                            type="image/webp">
+                    <source srcset="/images/hero-laptop-home-small.webp" type="image/webp">
                     <img
-                        src="<?= e(image_asset('hero-laptop-home.jpg')) ?>"
-                        srcset="/images/hero-laptop-home-small.jpg 800w, /images/hero-laptop-home.jpg 1300w"
-                        sizes="(max-width: 880px) 100vw, 683px"
-                        width="1300"
-                        height="867"
+                        src="/images/hero-laptop-home-small.jpg"
+                        width="800"
+                        height="534"
                         alt="<?= e($pageOgImageAlt) ?>"
                         decoding="sync"
                         fetchpriority="high"
