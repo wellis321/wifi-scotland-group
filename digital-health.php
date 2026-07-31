@@ -32,7 +32,7 @@ require_once __DIR__ . '/includes/header.php';
         <div class="page-layout" style="padding-top:0">
         <div class="prose">
 
-            <p>The people most affected are often those who can least afford to be:</p>
+            <p>The people most affected are often those who can least afford to be:<sup><a href="#data-note" class="page-header-asterisk" aria-label="A note on where these figures come from">*</a></sup></p>
 
             <div class="stat-strip">
                 <div class="stat-item">
@@ -48,7 +48,6 @@ require_once __DIR__ . '/includes/header.php';
                     <span class="stat-label">of the digitally excluded live with a disability or impairment</span>
                 </div>
             </div>
-            <p class="meta">Source: <a href="https://www.goodthingsfoundation.org/policy-and-research/research-and-evidence/research-2024/digital-nation"<?= external_link_attrs('https://www.goodthingsfoundation.org/policy-and-research/research-and-evidence/research-2024/digital-nation') ?>>Good Things Foundation, Digital Nation report</a>. Separately, <a href="https://www.ofcom.org.uk/phones-and-broadband/bills-and-charges/pricing-and-consumer-engagement"<?= external_link_attrs('https://www.ofcom.org.uk/phones-and-broadband/bills-and-charges/pricing-and-consumer-engagement') ?>>Ofcom estimates</a> millions of UK households struggle to afford their mobile phone bill.</p>
 
             <p>
                 The WHO has been saying this for years — its <a href="https://www.who.int/publications/i/item/10665-279505"<?= external_link_attrs('https://www.who.int/publications/i/item/10665-279505') ?>>2018 resolution</a> urged member states to ensure digital health tools reach the most vulnerable. A more recent report puts it plainly:
@@ -61,7 +60,10 @@ require_once __DIR__ . '/includes/header.php';
 
             <h2>Loneliness and isolation</h2>
             <p>
-                Being cut off from the internet is, for many people, being cut off from other people too. A <a href="https://link.springer.com/article/10.1186/s12877-025-06337-2"<?= external_link_attrs('https://link.springer.com/article/10.1186/s12877-025-06337-2') ?>>2025 study</a> drawing on 87,256 observations across China, the US, and the UK found a consistent link between digital exclusion and loneliness in older adults. That matters because loneliness itself is dangerous — the US <a href="https://nap.nationalacademies.org/read/25663"<?= external_link_attrs('https://nap.nationalacademies.org/read/25663') ?>>National Academies of Sciences, Engineering, and Medicine</a> has found that social isolation significantly raises mortality risk, rivalling smoking and obesity, and estimates around one in four community-dwelling Americans over 65 are socially isolated. That isolation research isn't specific to digital exclusion — WIRES draws the connection.
+                Being cut off from the internet is, for many people, being cut off from other people too. A <a href="https://link.springer.com/article/10.1186/s12877-025-06337-2"<?= external_link_attrs('https://link.springer.com/article/10.1186/s12877-025-06337-2') ?>>2025 study</a> drawing on 87,256 observations across China, the US, and the UK found a consistent link between digital exclusion and loneliness in older adults.
+            </p>
+            <p>
+                That matters because loneliness itself is dangerous. The US <a href="https://nap.nationalacademies.org/read/25663"<?= external_link_attrs('https://nap.nationalacademies.org/read/25663') ?>>National Academies of Sciences, Engineering, and Medicine</a> has found that social isolation significantly raises mortality risk, rivalling smoking and obesity, with around one in four community-dwelling Americans over 65 estimated to be socially isolated. That research is about isolation generally, not digital exclusion specifically — the connection between the two is one WIRES draws, not a finding of the studies themselves.
             </p>
             <p class="meta">Further reading: <a href="https://thenhsalliance.org/resources/assessing-digital-inclusion-in-the-nhs-the-nhs-app"<?= external_link_attrs('https://thenhsalliance.org/resources/assessing-digital-inclusion-in-the-nhs-the-nhs-app') ?>>Assessing digital inclusion in the NHS</a> (NHS Alliance, 2026).</p>
 
@@ -83,6 +85,8 @@ require_once __DIR__ . '/includes/header.php';
                 <p>"Digital exclusion is not a second-order problem. For millions of people it is a health problem, a care problem, and a rights problem."</p>
                 <cite>WIRES campaign position</cite>
             </div>
+
+            <p class="meta" id="data-note">* Source for the figures above: <a href="https://www.goodthingsfoundation.org/policy-and-research/research-and-evidence/research-2024/digital-nation"<?= external_link_attrs('https://www.goodthingsfoundation.org/policy-and-research/research-and-evidence/research-2024/digital-nation') ?>>Good Things Foundation, Digital Nation report</a>. Separately, <a href="https://www.ofcom.org.uk/phones-and-broadband/bills-and-charges/pricing-and-consumer-engagement"<?= external_link_attrs('https://www.ofcom.org.uk/phones-and-broadband/bills-and-charges/pricing-and-consumer-engagement') ?>>Ofcom estimates</a> millions of UK households struggle to afford their mobile phone bill.</p>
 
             <p class="meta">Sources current as of mid-2025. If a link breaks or a study is updated, <a href="/contact">let us know</a>.</p>
 
