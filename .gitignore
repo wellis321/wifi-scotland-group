@@ -3,3 +3,4 @@ config.php
 /vendor/
 .venv/
 .DS_Store
+overview.txt

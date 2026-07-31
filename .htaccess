@@ -1,5 +1,9 @@
 DirectoryIndex index.php index.html
 
+# Serve plain-text files as UTF-8 — without this, non-ASCII characters
+# (em dashes, curly quotes) get served with no charset and render as mojibake
+AddType 'text/plain; charset=UTF-8' txt md
+
 # Custom 404 page — replaces the host's default error page
 ErrorDocument 404 /404.php
 

@@ -4,47 +4,47 @@
 
 ## About WIRES
 
-- About: https://wires.org.uk/about
-- Why WIRES exists (landscape of organisations): https://wires.org.uk/landscape
-- Organisational supporters: https://wires.org.uk/supporters
+- [About](https://wires.org.uk/about)
+- [Why WIRES exists](https://wires.org.uk/landscape): landscape of organisations
+- [Organisational supporters](https://wires.org.uk/supporters)
 
 ## The case for change
 
-- Why home connectivity matters: https://wires.org.uk/why-it-matters
-- Digital exclusion and health (WHO, COVID-19, NHS evidence): https://wires.org.uk/digital-health
-- Beyond broadband — devices, design, authentication, skills, language: https://wires.org.uk/beyond-broadband
+- [Why home connectivity matters](https://wires.org.uk/why-it-matters)
+- [Digital exclusion and health](https://wires.org.uk/digital-health): WHO, COVID-19, NHS evidence
+- [Beyond broadband](https://wires.org.uk/beyond-broadband): devices, design, authentication, skills, language
 
 ## Scotland
 
-- Scotland policy and programmes: https://wires.org.uk/scotland
-- Scottish connectivity stories (evidence-led): https://wires.org.uk/scotland-stories
-- Council accountability tracker (who is acting on digital exclusion): https://wires.org.uk/accountability
-- WiFi map by council area: https://wires.org.uk/wifi-map
+- [Scotland policy and programmes](https://wires.org.uk/scotland)
+- [Scottish connectivity stories](https://wires.org.uk/scotland-stories): evidence-led
+- [Council accountability tracker](https://wires.org.uk/accountability): who is acting on digital exclusion
+- [WiFi map by council area](https://wires.org.uk/wifi-map)
 
 ## Help getting online
 
-- Schemes and programmes for people in Scotland: https://wires.org.uk/get-help
-- Write to your councillor (template letter): https://wires.org.uk/write-to-councillor
-- Homelessness and digital exclusion: https://wires.org.uk/why-it-matters#homelessness
+- [Schemes and programmes for people in Scotland](https://wires.org.uk/get-help)
+- [Write to your councillor](https://wires.org.uk/write-to-councillor): template letter
+- [Homelessness and digital exclusion](https://wires.org.uk/why-it-matters#homelessness)
 
 ## Community and campaign
 
-- Get involved: https://wires.org.uk/get-involved
-- Local groups directory: https://wires.org.uk/groups
-- Start a local group: https://wires.org.uk/start-a-group
-- Global spotlight (community network models): https://wires.org.uk/global-spotlight
+- [Get involved](https://wires.org.uk/get-involved)
+- [Local groups directory](https://wires.org.uk/groups)
+- [Start a local group](https://wires.org.uk/start-a-group)
+- [Global spotlight](https://wires.org.uk/global-spotlight): community network models
 
 ## Join
 
-- Join as an individual: https://wires.org.uk/join
-- Sign up as an organisation: https://wires.org.uk/join-as-organisation
+- [Join as an individual](https://wires.org.uk/join)
+- [Sign up as an organisation](https://wires.org.uk/join-as-organisation)
 
 ## News and resources
 
-- Campaign news: https://wires.org.uk/news
-- Resources and references: https://wires.org.uk/resources
+- [Campaign news](https://wires.org.uk/news)
+- [Resources and references](https://wires.org.uk/resources)
 
 ## Legal
 
-- Privacy notice: https://wires.org.uk/privacy
-- Terms of use: https://wires.org.uk/terms
+- [Privacy notice](https://wires.org.uk/privacy)
+- [Terms of use](https://wires.org.uk/terms)
