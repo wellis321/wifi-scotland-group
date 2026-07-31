@@ -16,7 +16,7 @@ if ($slug !== '' && db_available()) {
     // Try with all columns first; fall back to core columns if newer ones don't exist yet
     try {
         $s = db()->prepare(
-            'SELECT id, title, slug, summary, body, published_at, group_id, image_filename FROM news_items WHERE slug = :slug LIMIT 1'
+            'SELECT id, title, slug, summary, body, published_at, group_id, image_filename, image_alt FROM news_items WHERE slug = :slug LIMIT 1'
         );
         $s->execute(['slug' => $slug]);
         $item = $s->fetch() ?: null;
@@ -73,23 +73,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $pubDate    = trim((string) ($_POST['published_at'] ?? date('Y-m-d')));
     $groupId    = ($_POST['group_id'] ?? '') !== '' ? (int) $_POST['group_id'] : null;
     $imageFile  = trim((string) ($_POST['image_filename'] ?? '')) ?: null;
+    $imageAlt   = trim((string) ($_POST['image_alt'] ?? '')) ?: null;
 
     $errors = [];
     if ($title === '')   $errors[] = 'Title is required.';
     if ($newSlug === '') $errors[] = 'Slug is required.';
     if ($body === '')    $errors[] = 'Body is required.';
     if (!preg_match('/^\d{4}-\d{2}-\d{2}$/', $pubDate)) $errors[] = 'Invalid date.';
+    if ($imageFile !== null && $imageAlt === null) $errors[] = 'Alt text is required when a banner image is set — screen reader readers need it to know what the image shows.';
 
     if (empty($errors)) {
         if ($isNew) {
             db()->prepare(
-                'INSERT INTO news_items (title, slug, summary, body, published_at, group_id, image_filename) VALUES (:title,:slug,:summary,:body,:pub,:gid,:img)'
-            )->execute(['title'=>$title,'slug'=>$newSlug,'summary'=>$summary,'body'=>$body,'pub'=>$pubDate,'gid'=>$groupId,'img'=>$imageFile]);
+                'INSERT INTO news_items (title, slug, summary, body, published_at, group_id, image_filename, image_alt) VALUES (:title,:slug,:summary,:body,:pub,:gid,:img,:imgalt)'
+            )->execute(['title'=>$title,'slug'=>$newSlug,'summary'=>$summary,'body'=>$body,'pub'=>$pubDate,'gid'=>$groupId,'img'=>$imageFile,'imgalt'=>$imageAlt]);
             flash_set('admin_ok', 'Article published.');
         } else {
             db()->prepare(
-                'UPDATE news_items SET title=:title,slug=:slug,summary=:summary,body=:body,published_at=:pub,group_id=:gid,image_filename=:img WHERE id=:id'
-            )->execute(['title'=>$title,'slug'=>$newSlug,'summary'=>$summary,'body'=>$body,'pub'=>$pubDate,'gid'=>$groupId,'img'=>$imageFile,'id'=>$item['id']]);
+                'UPDATE news_items SET title=:title,slug=:slug,summary=:summary,body=:body,published_at=:pub,group_id=:gid,image_filename=:img,image_alt=:imgalt WHERE id=:id'
+            )->execute(['title'=>$title,'slug'=>$newSlug,'summary'=>$summary,'body'=>$body,'pub'=>$pubDate,'gid'=>$groupId,'img'=>$imageFile,'imgalt'=>$imageAlt,'id'=>$item['id']]);
             flash_set('admin_ok', 'Article saved.');
         }
         header('Location: /admin/news-edit.php?slug=' . rawurlencode($newSlug));
@@ -97,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     flash_set('admin_err', implode(' ', $errors));
-    $item = array_merge($item ?? [], compact('title','summary','body','pubDate','groupId','imageFile') + ['slug'=>$newSlug,'published_at'=>$pubDate,'group_id'=>$groupId,'image_filename'=>$imageFile]);
+    $item = array_merge($item ?? [], compact('title','summary','body','pubDate','groupId','imageFile','imageAlt') + ['slug'=>$newSlug,'published_at'=>$pubDate,'group_id'=>$groupId,'image_filename'=>$imageFile,'image_alt'=>$imageAlt]);
 }
 
 require_once __DIR__ . '/includes/admin_header.php';
@@ -158,6 +160,11 @@ require_once __DIR__ . '/includes/admin_header.php';
                 <?php endforeach; ?>
             </select>
         </div>
+    </div>
+
+    <div class="admin-field">
+        <label for="image_alt">Banner image alt text <span style="font-weight:400;text-transform:none">(required if a banner image is set — describes the image for screen reader users)</span></label>
+        <input id="image_alt" name="image_alt" type="text" maxlength="300" value="<?= e((string) ($item['image_alt'] ?? '')) ?>" placeholder="e.g. Engineer installing fibre broadband cabinet on a rural roadside">
     </div>
 
     <div class="admin-form-actions">

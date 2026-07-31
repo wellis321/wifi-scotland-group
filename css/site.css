@@ -17,6 +17,7 @@
     --accent: #1f7a6b;
     --accent-dark: #145c50;
     --signal: #e25540;
+    --signal-dark: #c7341e; /* AA-safe variant of --signal for text and text-bearing backgrounds */
     --muted: #4a5562;
     --radius: 14px;
     --radius-sm: 4px;
@@ -59,7 +60,7 @@ a {
 }
 
 a:hover {
-    color: var(--signal);
+    color: var(--signal-dark);
 }
 
 :focus-visible {
@@ -310,6 +311,7 @@ a:hover {
 }
 
 .header-search-btn {
+    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -320,6 +322,16 @@ a:hover {
     text-decoration: none;
     flex-shrink: 0;
     transition: color 0.12s, background 0.12s;
+}
+
+/* Invisible expanded hit area — see .btn-sm::after for why. */
+.header-search-btn::after {
+    content: "";
+    position: absolute;
+    inset: 50% auto auto 50%;
+    transform: translate(-50%, -50%);
+    width: 44px;
+    height: 44px;
 }
 
 .header-search-btn:hover {
@@ -577,8 +589,21 @@ a:hover {
 }
 
 .btn-sm {
+    position: relative;
     padding: 0.3rem 0.85rem;
     font-size: 0.85rem;
+}
+
+/* Invisible expanded hit area — keeps the compact visual size but meets the
+   44px touch-target minimum height (WCAG 2.5.8) without bulking up dense card
+   footers. Height-only (not width) so it never overlaps a neighbouring button
+   when several btn-sm sit close together in a row. */
+.btn-sm::after {
+    content: "";
+    position: absolute;
+    inset: 50% 0 auto 0;
+    transform: translateY(-50%);
+    height: max(100%, 44px);
 }
 
 .card-cta {
@@ -935,7 +960,7 @@ a:hover {
 }
 
 .callout--alert .callout__eyebrow {
-    color: var(--signal);
+    color: var(--signal-dark);
 }
 
 .news-list article {
@@ -961,7 +986,7 @@ a:hover {
 }
 
 .news-list h2 a:hover {
-    color: var(--signal);
+    color: var(--signal-dark);
 }
 
 .scotland-story-grid .scotland-story-card {
@@ -1699,7 +1724,7 @@ a:hover {
 }
 
 .statement-band-quote strong {
-    color: var(--signal);
+    color: var(--signal-dark);
 }
 
 .statement-band-stats {
@@ -1723,7 +1748,7 @@ a:hover {
     font-family: var(--font-display);
     font-size: clamp(2.25rem, 4vw, 3rem);
     font-weight: 800;
-    color: var(--signal);
+    color: var(--signal-dark);
     line-height: 1;
     letter-spacing: -0.02em;
 }
@@ -1865,7 +1890,7 @@ a:hover {
 }
 
 .path-link:hover {
-    color: var(--signal);
+    color: var(--signal-dark);
 }
 
 .path-link:hover::after {
@@ -1917,7 +1942,7 @@ a:hover {
     font-family: var(--font-display);
     font-size: 1rem;
     font-weight: 800;
-    color: var(--signal);
+    color: var(--signal-dark);
     letter-spacing: 0.06em;
 }
 
@@ -2017,7 +2042,7 @@ a:hover {
 }
 
 .home-news-item h3 a:hover {
-    color: var(--signal);
+    color: var(--signal-dark);
 }
 
 .home-news-item > p:last-child {
@@ -2031,7 +2056,7 @@ a:hover {
 /* ─── Homepage: Join CTA band ───────────────────────────────────────────── */
 
 .join-band {
-    background: var(--signal);
+    background: var(--signal-dark);
     padding: 4.5rem 0;
 }
 
@@ -2064,13 +2089,13 @@ a:hover {
     margin: 0;
     font-size: 1.05rem;
     line-height: 1.6;
-    color: rgba(255, 255, 255, 0.88);
+    color: #fff;
     max-width: 55ch;
 }
 
 .join-band .btn {
     background: #fff;
-    color: var(--signal);
+    color: var(--signal-dark);
     font-weight: 700;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
     white-space: nowrap;
@@ -2079,7 +2104,7 @@ a:hover {
 
 .join-band .btn:hover {
     background: rgba(255, 255, 255, 0.92);
-    color: var(--signal);
+    color: var(--signal-dark);
 }
 
 /* ─── Info card (editorial inset, not a generic callout box) ────────────── */
@@ -2333,7 +2358,7 @@ a:hover {
 }
 
 .community-net-link:hover {
-    color: var(--signal);
+    color: var(--signal-dark);
 }
 
 /* ─── Figures & sources log ──────────────────────────────────────────────── */
@@ -2388,7 +2413,7 @@ a:hover {
 }
 
 .figure-log__source a:hover {
-    color: var(--signal);
+    color: var(--signal-dark);
 }
 
 .figure-log__date {
@@ -2454,7 +2479,7 @@ a:hover {
     text-decoration: none;
 }
 
-.supporter-card h3 a:hover { color: var(--signal); }
+.supporter-card h3 a:hover { color: var(--signal-dark); }
 
 .supporter-location {
     font-size: 0.85rem;
@@ -2986,7 +3011,7 @@ a:hover {
     font-family: var(--font-display);
     font-size: 1.35rem;
     font-weight: 800;
-    color: var(--signal);
+    color: var(--signal-dark);
     padding-top: 0.2rem;
 }
 
@@ -3118,7 +3143,7 @@ a:hover {
     transition: color 0.12s;
 }
 
-.sidebar-nav a:hover { color: var(--signal); }
+.sidebar-nav a:hover { color: var(--signal-dark); }
 .sidebar-nav a[aria-current] { color: var(--ink); }
 
 .sidebar-card--highlight {
@@ -3198,7 +3223,7 @@ a:hover {
     font-family: var(--font-display);
     font-size: clamp(2rem, 4vw, 2.85rem);
     font-weight: 800;
-    color: var(--signal);
+    color: var(--signal-dark);
     line-height: 1;
     letter-spacing: -0.02em;
 }
@@ -3282,7 +3307,7 @@ a.stat-item--link:hover .stat-value {
     color: inherit;
 }
 
-.featured-article-body h2 a:hover { color: var(--signal); }
+.featured-article-body h2 a:hover { color: var(--signal-dark); }
 
 .featured-article-body p {
     color: var(--muted);
@@ -3392,7 +3417,7 @@ a.stat-item--link:hover .stat-value {
     color: inherit;
 }
 
-.news-card-body h3 a:hover { color: var(--signal); }
+.news-card-body h3 a:hover { color: var(--signal-dark); }
 
 /* Date-stamp thumbnails for articles without a specific image */
 .news-card-thumb--datestamp,
@@ -3604,7 +3629,7 @@ a.stat-item--link:hover .stat-value {
     font-family: var(--font-display);
     font-size: clamp(2.25rem, 5vw, 3.75rem);
     font-weight: 800;
-    color: var(--signal);
+    color: var(--signal-dark);
     line-height: 1.05;
     letter-spacing: -0.02em;
     margin: 0;
@@ -3700,7 +3725,7 @@ a.stat-item--link:hover .stat-value {
     flex-shrink: 0;
 }
 
-.council-unknown-link:hover { color: var(--signal); }
+.council-unknown-link:hover { color: var(--signal-dark); }
 
 a.stat-item--link {
     text-decoration: none;
@@ -3759,7 +3784,7 @@ a.stat-item--link:hover .stat-value {
     font-weight: 700;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    background: var(--signal);
+    background: var(--signal-dark);
     color: #fff;
     padding: 0.25rem 0.65rem;
     border-radius: 4px;

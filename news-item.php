@@ -10,7 +10,7 @@ $article = null;
 if ($slug !== '' && db_available()) {
     try {
         $stmt = db()->prepare(
-            'SELECT title, slug, summary, body, published_at, image_filename FROM news_items WHERE slug = :slug LIMIT 1'
+            'SELECT title, slug, summary, body, published_at, image_filename, image_alt FROM news_items WHERE slug = :slug LIMIT 1'
         );
         $stmt->execute(['slug' => $slug]);
         $article = $stmt->fetch() ?: null;
@@ -62,9 +62,12 @@ $pageOgType      = 'article';
 /* Only use a specific uploaded image — never fall back to a generic stock photo */
 $hasImage    = !empty($article['image_filename']);
 $imageFile   = $hasImage ? (string) $article['image_filename'] : null;
+$imageAltText = $hasImage
+    ? (!empty($article['image_alt']) ? (string) $article['image_alt'] : 'Image for: ' . (string) $article['title'])
+    : null;
 $pageOgImage = $hasImage ? image_asset($imageFile) : image_asset('card-community.jpg');
 $pageOgImageAlt = $hasImage
-    ? 'Image for: ' . (string) $article['title']
+    ? $imageAltText
     : 'WIRES — Web Infrastructure Rights for Everyone in Scotland';
 
 $articleJsonLd = json_encode([
@@ -109,7 +112,7 @@ require_once __DIR__ . '/includes/header.php';
                     <img class="page-hero-img"
                          src="<?= e(image_asset($imageFile)) ?>"
                          width="1200" height="800"
-                         alt=""
+                         alt="<?= e((string) $imageAltText) ?>"
                          decoding="async"
                          loading="lazy">
                 <?php endif; ?>

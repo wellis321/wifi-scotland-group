@@ -52,6 +52,7 @@ CREATE TABLE IF NOT EXISTS news_items (
   published_at DATE NOT NULL,
   group_id INT UNSIGNED DEFAULT NULL COMMENT 'Optional: link to local_groups.id to tag as local news',
   image_filename VARCHAR(160) DEFAULT NULL COMMENT 'Filename from /images/ — e.g. card-fibre.jpg. NULL = default banner.',
+  image_alt VARCHAR(300) DEFAULT NULL COMMENT 'Alt text for image_filename — should be set whenever image_filename is set',
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id),
   UNIQUE KEY uq_news_items_slug (slug),
@@ -211,6 +212,7 @@ CREATE TABLE IF NOT EXISTS group_events (
 -- ALTER TABLE news_items ADD COLUMN group_id INT UNSIGNED DEFAULT NULL AFTER published_at;
 -- ALTER TABLE news_items ADD KEY idx_news_group_id (group_id);
 -- ALTER TABLE news_items ADD COLUMN image_filename VARCHAR(160) DEFAULT NULL AFTER group_id;
+-- ALTER TABLE news_items ADD COLUMN image_alt VARCHAR(300) DEFAULT NULL AFTER image_filename;
 
 -- ─── Help getting online: schemes & programmes ───────────────────────────────
 
