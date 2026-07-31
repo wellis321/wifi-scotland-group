@@ -24,8 +24,8 @@ require_once __DIR__ . '/includes/header.php';
         <h1>Why home connectivity matters</h1>
         <p>
             Evidence from UK and Scottish sources on everyday reliance on the internet, the harm of being offline or under-connected, and who is most affected.
+            <sup><a href="#data-note" class="page-header-asterisk" aria-label="A note on where these figures come from">*</a></sup>
         </p>
-        <p class="page-header-note">A note before you read: figures on this page come from official UK and Scottish sources, but surveys run on different years and different questions. Where a number is older or the series has changed, we say so once, briefly — we don't want caveats getting in the way of the point.</p>
     </div>
 </header>
 
@@ -198,8 +198,8 @@ require_once __DIR__ . '/includes/header.php';
             </a>
         </div>
 
-        <h2>A note on the data behind this page</h2>
-        <p>Official statistics are essential, but each source measures something slightly different:</p>
+        <h2 id="data-note">A note on the data behind this page</h2>
+        <p>Figures on this page come from official UK and Scottish sources, but surveys run on different years and different questions. Where a number is older or the series has changed, we say so — but we don't want caveats getting in the way of the point, so here's the detail in one place rather than scattered through the page. Official statistics are essential, but each source measures something slightly different:</p>
         <ul>
             <li>
                 <strong>Household surveys</strong> (ONS, the Scottish Household Survey, Ofcom's consumer trackers) capture what people report about their own behaviour and equipment. They can miss informal sharing, hidden hotspots, or precarious pay-as-you-go use.
