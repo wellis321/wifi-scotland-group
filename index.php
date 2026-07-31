@@ -40,8 +40,8 @@ require_once __DIR__ . '/includes/header.php';
                 doing to close the gap between policy promises and everyday life online.
             </p>
             <div class="hero-actions">
-                <a class="btn btn-primary btn-lg" href="/join.php">Join the campaign</a>
-                <a class="btn btn-ghost" href="/why-it-matters.php">Why it matters</a>
+                <a class="btn btn-primary btn-lg" href="/join">Join the campaign</a>
+                <a class="btn btn-ghost" href="/why-it-matters">Why it matters</a>
             </div>
         </div>
         <div class="hero-side">
@@ -71,7 +71,7 @@ require_once __DIR__ . '/includes/header.php';
                 That's not <strong>personal failure</strong>&nbsp;— it's a <strong>policy failure</strong>."
             </p>
             <div>
-                <a class="btn btn-outline-light btn-lg" href="/why-it-matters.php">See the evidence</a>
+                <a class="btn btn-outline-light btn-lg" href="/why-it-matters">See the evidence</a>
             </div>
         </div>
         <div class="statement-band-stats" role="region" aria-label="Key statistics">
@@ -88,7 +88,7 @@ require_once __DIR__ . '/includes/header.php';
                 <span class="statement-stat__label">of people on benefits have never heard that social tariffs exist</span>
             </div>
         </div>
-        <p class="statement-band-source">Source: Ofcom, Pricing and consumer engagement 2025 &middot; <a href="/get-help.php#social-tariffs">Find out if you qualify</a></p>
+        <p class="statement-band-source">Source: Ofcom, Pricing and consumer engagement 2025 &middot; <a href="/get-help#social-tariffs">Find out if you qualify</a></p>
     </div>
 </section>
 
@@ -135,19 +135,19 @@ require_once __DIR__ . '/includes/header.php';
         <p class="paths-kicker">Find your way in</p>
         <h2 id="paths-heading" class="paths-heading">This campaign serves everyone affected</h2>
         <div class="paths-grid" role="list">
-            <a class="path-card fade-up" href="/why-it-matters.php" role="listitem" data-delay="0">
+            <a class="path-card fade-up" href="/why-it-matters" role="listitem" data-delay="0">
                 <p class="path-label">Residents</p>
                 <h3 class="path-heading">Understand your options</h3>
                 <p class="path-body">Learn what schemes exist, what you're entitled to, and how poor connectivity harms people through no fault of their own.</p>
                 <span class="path-link" aria-hidden="true">Why it matters →</span>
             </a>
-            <a class="path-card fade-up" href="/get-involved.php" role="listitem" data-delay="80">
+            <a class="path-card fade-up" href="/get-involved" role="listitem" data-delay="80">
                 <p class="path-label">Organisers</p>
                 <h3 class="path-heading">Get active with us</h3>
                 <p class="path-body">Find practical ways to campaign, raise questions at council level, and connect with others working on digital inclusion in Scotland.</p>
                 <span class="path-link" aria-hidden="true">Get involved →</span>
             </a>
-            <a class="path-card fade-up" href="/scotland.php" role="listitem" data-delay="160">
+            <a class="path-card fade-up" href="/scotland" role="listitem" data-delay="160">
                 <p class="path-label">Researchers &amp; press</p>
                 <h3 class="path-heading">Verify the evidence</h3>
                 <p class="path-body">Policy documents, official programmes, and cited sources—everything linked so you can check claims and go deeper.</p>
@@ -169,7 +169,7 @@ require_once __DIR__ . '/includes/header.php';
                 </div>
                 <div class="info-card__body">
                     <p>&pound;12.50&ndash;&pound;20/month broadband if you're on Universal Credit or another qualifying benefit. No paper proof needed — just ask your provider.</p>
-                    <p><a class="btn btn-primary btn-sm" href="/get-help.php#social-tariffs">Check if you qualify &rarr;</a></p>
+                    <p><a class="btn btn-primary btn-sm" href="/get-help#social-tariffs">Check if you qualify &rarr;</a></p>
                 </div>
             </div>
             <div class="info-card" style="margin-bottom:0">
@@ -179,7 +179,7 @@ require_once __DIR__ . '/includes/header.php';
                 </div>
                 <div class="info-card__body">
                     <p>Free SIM cards with mobile data, distributed through foodbanks, libraries, and hostels. One of the only schemes available if you don't have a fixed address.</p>
-                    <p><a class="btn btn-primary btn-sm" href="/get-help.php#national-databank">Find a distribution point &rarr;</a></p>
+                    <p><a class="btn btn-primary btn-sm" href="/get-help#national-databank">Find a distribution point &rarr;</a></p>
                 </div>
             </div>
         </div>
@@ -218,14 +218,14 @@ require_once __DIR__ . '/includes/header.php';
                 <?php foreach ($latestNews as $row): ?>
                     <article class="home-news-item">
                         <p class="meta"><time datetime="<?= e((string) $row['published_at']) ?>"><?= e(format_date((string) $row['published_at'])) ?></time></p>
-                        <h3><a href="<?= e('/news-item.php?slug=' . rawurlencode((string) $row['slug'])) ?>"><?= e((string) $row['title']) ?></a></h3>
+                        <h3><a href="<?= e('/news-item?slug=' . rawurlencode((string) $row['slug'])) ?>"><?= e((string) $row['title']) ?></a></h3>
                         <?php if (!empty($row['summary'])): ?>
                             <p><?= e((string) $row['summary']) ?></p>
                         <?php endif; ?>
                     </article>
                 <?php endforeach; ?>
             </div>
-            <p style="margin-top: 1.75rem"><a class="btn btn-ghost" href="/news.php">All news &rarr;</a></p>
+            <p style="margin-top: 1.75rem"><a class="btn btn-ghost" href="/news">All news &rarr;</a></p>
         <?php else: ?>
             <div class="callout">
                 <p><strong>Database not connected.</strong> Import <code>schema.sql</code> and configure <code>.env</code> to show starter articles here.</p>
@@ -240,7 +240,7 @@ require_once __DIR__ . '/includes/header.php';
             <h2 id="join-band-heading">Ready to get involved?</h2>
             <p>Join the mailing list and we'll let you know about events, consultations, and ways to take action. No spam—this is a volunteer campaign.</p>
         </div>
-        <a class="btn btn-lg" href="/join.php">Join the campaign &rarr;</a>
+        <a class="btn btn-lg" href="/join">Join the campaign &rarr;</a>
     </div>
 </section>
 

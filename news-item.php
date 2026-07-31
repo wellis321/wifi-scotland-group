@@ -32,7 +32,7 @@ if (!$article) {
     </header>
     <div class="section">
         <div class="wrap prose">
-            <p><a href="/news.php">&larr; Back to news</a></p>
+            <p><a href="/news">&larr; Back to news</a></p>
         </div>
     </div>
     <?php
@@ -91,7 +91,7 @@ require_once __DIR__ . '/includes/header.php';
 <header class="page-header">
     <div class="wrap">
         <p class="meta">
-            <a href="/news.php">&larr; News</a>
+            <a href="/news">&larr; News</a>
             <span aria-hidden="true"> &middot; </span>
             <time datetime="<?= e((string) $article['published_at']) ?>"><?= e(format_date((string) $article['published_at'])) ?></time>
         </p>
@@ -120,13 +120,13 @@ require_once __DIR__ . '/includes/header.php';
                 <?= $article['body'] /* trusted HTML — admin-authored only */ ?>
 
                 <?php
-                $shareUrl     = page_url('news-item.php?slug=' . rawurlencode((string) $article['slug']));
+                $shareUrl     = page_url('news-item?slug=' . rawurlencode((string) $article['slug']));
                 $shareTitle   = (string) $article['title'];
                 $shareCompact = false;
                 require __DIR__ . '/includes/share.php';
                 ?>
 
-                <p style="margin-top:1.5rem"><a href="/news.php">&larr; All news</a></p>
+                <p style="margin-top:1.5rem"><a href="/news">&larr; All news</a></p>
 
                 <?php if (!empty($moreArticles)): ?>
                 <div style="margin-top:3rem;padding-top:2.5rem;border-top:1px solid var(--line)">
@@ -152,7 +152,7 @@ require_once __DIR__ . '/includes/header.php';
                             <?php endif; ?>
                             <div class="news-card-body">
                                 <p class="meta"><time datetime="<?= e((string) $row['published_at']) ?>"><?= e(format_date((string) $row['published_at'])) ?></time></p>
-                                <h3><a href="<?= e('/news-item.php?slug=' . rawurlencode((string) $row['slug'])) ?>"><?= e((string) $row['title']) ?></a></h3>
+                                <h3><a href="<?= e('/news-item?slug=' . rawurlencode((string) $row['slug'])) ?>"><?= e((string) $row['title']) ?></a></h3>
                                 <?php if (!empty($row['summary'])): ?>
                                     <p><?= e((string) $row['summary']) ?></p>
                                 <?php endif; ?>
@@ -170,7 +170,7 @@ require_once __DIR__ . '/includes/header.php';
                 <div class="sidebar-card sidebar-card--highlight">
                     <h3>Join WIRES</h3>
                     <p>Get updates on events, consultations, and local actions in Scotland.</p>
-                    <a class="btn btn-lg" href="/join.php"
+                    <a class="btn btn-lg" href="/join"
                        style="background:#fff;color:var(--ink);width:100%;justify-content:center;text-align:center">
                         Join the campaign
                     </a>
@@ -182,14 +182,14 @@ require_once __DIR__ . '/includes/header.php';
                     <ul class="sidebar-nav">
                         <?php foreach ($otherArticles as $row): ?>
                             <li>
-                                <a href="<?= e('/news-item.php?slug=' . rawurlencode((string) $row['slug'])) ?>">
+                                <a href="<?= e('/news-item?slug=' . rawurlencode((string) $row['slug'])) ?>">
                                     <?= e((string) $row['title']) ?>
                                 </a>
                             </li>
                         <?php endforeach; ?>
                     </ul>
                     <p style="margin-top:0.75rem;margin-bottom:0">
-                        <a href="/news.php" style="font-size:0.85rem;font-weight:600">All news &rarr;</a>
+                        <a href="/news" style="font-size:0.85rem;font-weight:600">All news &rarr;</a>
                     </p>
                 </div>
                 <?php endif; ?>
@@ -198,7 +198,7 @@ require_once __DIR__ . '/includes/header.php';
                     <h3>Need help getting online?</h3>
                     <p>We list schemes that can lower your broadband costs or get you connected.</p>
                     <a class="btn btn-ghost"
-                       href="/get-help.php"
+                       href="/get-help"
                        style="width:100%;justify-content:center;text-align:center">
                         See all schemes
                     </a>
@@ -207,9 +207,9 @@ require_once __DIR__ . '/includes/header.php';
                 <div class="sidebar-card">
                     <h3>Get involved</h3>
                     <ul class="sidebar-nav">
-                        <li><a href="/get-involved.php">Take action locally</a></li>
-                        <li><a href="/groups.php">Find a local group</a></li>
-                        <li><a href="/contact.php">Contact WIRES</a></li>
+                        <li><a href="/get-involved">Take action locally</a></li>
+                        <li><a href="/groups">Find a local group</a></li>
+                        <li><a href="/contact">Contact WIRES</a></li>
                     </ul>
                 </div>
 

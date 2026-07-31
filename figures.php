@@ -12,9 +12,9 @@ $pageOgImage    = image_asset('card-fibre.jpg');
 $pageOgImageAlt = 'Fibre-optic cables close-up — representing the evidence behind the campaign.';
 
 $sidebarRelated = [
-    ['href' => '/resources.php',      'label' => 'Resources & references'],
-    ['href' => '/why-it-matters.php', 'label' => 'Why it matters'],
-    ['href' => '/accountability.php', 'label' => 'Who is acting?'],
+    ['href' => '/resources',      'label' => 'Resources & references'],
+    ['href' => '/why-it-matters', 'label' => 'Why it matters'],
+    ['href' => '/accountability', 'label' => 'Who is acting?'],
 ];
 
 /*
@@ -378,11 +378,11 @@ require_once __DIR__ . '/includes/header.php';
                     <p class="info-card__sub">Tell us and we'll fix it</p>
                 </div>
                 <div class="info-card__body">
-                    <p>If a figure here is out of date, a link is broken, or you think we've misread a source, <a href="/contact.php">get in touch</a>. Getting this right matters more than any individual number looking impressive.</p>
+                    <p>If a figure here is out of date, a link is broken, or you think we've misread a source, <a href="/contact">get in touch</a>. Getting this right matters more than any individual number looking impressive.</p>
                 </div>
             </div>
 
-            <p class="meta">This page does not duplicate every link in <a href="/resources.php">Resources &amp; references</a> — that page is the general reading list; this one traces specific figures back to specific sources.</p>
+            <p class="meta">This page does not duplicate every link in <a href="/resources">Resources &amp; references</a> — that page is the general reading list; this one traces specific figures back to specific sources.</p>
 
         </div><!-- /prose -->
 

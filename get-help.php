@@ -10,10 +10,10 @@ $pageDescription = 'Schemes and programmes that can help people in Scotland get 
 $currentNav = 'gethelp';
 
 $sidebarRelated = [
-    ['href' => '/why-it-matters.php', 'label' => 'Why it matters'],
-    ['href' => '/scotland.php',       'label' => 'Scotland policy'],
-    ['href' => '/get-involved.php',   'label' => 'Get involved'],
-    ['href' => '/resources.php',      'label' => 'Resources & references'],
+    ['href' => '/why-it-matters', 'label' => 'Why it matters'],
+    ['href' => '/scotland',       'label' => 'Scotland policy'],
+    ['href' => '/get-involved',   'label' => 'Get involved'],
+    ['href' => '/resources',      'label' => 'Resources & references'],
 ];
 
 // DB primary source; PHP array fallback when DB is unavailable
@@ -76,7 +76,7 @@ require_once __DIR__ . '/includes/header.php';
                 <p>Most schemes on this page assume a permanent address and a contract. That's a gap in how they were designed, not a reflection of what you're entitled to — and it shuts out people who are homeless or in temporary accommodation, regardless of income.</p>
                 <p>The <strong>National Databank</strong> — free SIM cards with data — works without an address. It is distributed through foodbanks, hostels, day centres, and libraries. Ask at a local <a href="https://scotland.shelter.org.uk/get_help"<?= external_link_attrs('https://scotland.shelter.org.uk/get_help') ?>>Shelter Scotland</a> office, foodbank, or community centre whether they carry them.</p>
                 <p><strong>Jobcentre Plus</strong> branches across Scotland have free computers and Wi-Fi for job searching, Universal Credit management, and general internet access — no appointment needed for device use. In-person digital support is also available; hours vary by branch, so ask at reception.</p>
-                <p><a class="btn btn-ghost btn-sm" href="/why-it-matters.php#homelessness">Homelessness &amp; digital exclusion &rarr;</a></p>
+                <p><a class="btn btn-ghost btn-sm" href="/why-it-matters#homelessness">Homelessness &amp; digital exclusion &rarr;</a></p>
             </div>
         </div>
 
@@ -96,11 +96,11 @@ require_once __DIR__ . '/includes/header.php';
             </div>
         </div>
 
-        <p class="section-intro">Shown most recently updated first. If you know of a scheme we have missed, <a href="/contact.php">let us know</a>.</p>
+        <p class="section-intro">Shown most recently updated first. If you know of a scheme we have missed, <a href="/contact">let us know</a>.</p>
 
         <?php if (empty($schemes)): ?>
             <div class="callout prose">
-                <p>No schemes listed yet. <a href="/contact.php">Contact us</a> if you know of funding or programmes we should add.</p>
+                <p>No schemes listed yet. <a href="/contact">Contact us</a> if you know of funding or programmes we should add.</p>
             </div>
         <?php else: ?>
             <div class="scheme-list">
@@ -182,7 +182,7 @@ require_once __DIR__ . '/includes/header.php';
             </div>
             <div class="info-card__body">
                 <p>Funding programmes come and go. If there's something that should be on this page — local authority schemes, housing association offers, charity programmes — let us know and we'll add it.</p>
-                <p><a class="btn btn-ghost btn-sm" href="/contact.php">Tell us about it &rarr;</a></p>
+                <p><a class="btn btn-ghost btn-sm" href="/contact">Tell us about it &rarr;</a></p>
             </div>
         </div>
 
@@ -199,8 +199,8 @@ require_once __DIR__ . '/includes/header.php';
         <h2 id="local-support-heading">Local support in your area</h2>
         <p>Some of these schemes are delivered through local organisations—libraries, community centres, housing associations, and charities. Your local WIRES group may know what's available near you, or be able to help you find out.</p>
         <p>
-            <a class="btn btn-primary" href="/groups.php">Find a local WIRES group</a>
-            <a class="btn btn-ghost" href="/contact.php">Ask us directly</a>
+            <a class="btn btn-primary" href="/groups">Find a local WIRES group</a>
+            <a class="btn btn-ghost" href="/contact">Ask us directly</a>
         </p>
     </div>
 </div>

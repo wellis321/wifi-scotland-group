@@ -37,7 +37,7 @@ require_once __DIR__ . '/includes/header.php';
         <p>We haven't yet set formal retention limits—how long we keep your data is something we'll document as the campaign develops. As a rule, contact messages will be deleted once handled, and sign-ups will be moved to a secure mailing tool when one is set up.</p>
 
         <h2>Your rights</h2>
-        <p>Depending on where you live, you may have rights to access, correct, or delete personal data we hold. If you'd like us to remove your details, please use the <a href="/contact.php">contact form</a> and we'll action it promptly.</p>
+        <p>Depending on where you live, you may have rights to access, correct, or delete personal data we hold. If you'd like us to remove your details, please use the <a href="/contact">contact form</a> and we'll action it promptly.</p>
 
         <h2>Cookies</h2>
         <p>This site uses a temporary security cookie that protects our forms from abuse. It is deleted when you close your browser. We do not set advertising or tracking cookies.</p>

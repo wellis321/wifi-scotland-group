@@ -107,7 +107,7 @@ require_once __DIR__ . '/includes/header.php';
 <header class="page-header">
     <div class="wrap">
         <h1>Join <?= e(SITE_BRAND) ?></h1>
-        <p>Leave your details to hear about meet-ups, consultation deadlines, and volunteer shifts. You can unsubscribe any time—see our <a href="/privacy.php">privacy page</a> for how we handle data.</p>
+        <p>Leave your details to hear about meet-ups, consultation deadlines, and volunteer shifts. You can unsubscribe any time—see our <a href="/privacy">privacy page</a> for how we handle data.</p>
     </div>
 </header>
 

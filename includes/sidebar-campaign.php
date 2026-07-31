@@ -25,7 +25,7 @@ if (db_available()) {
     <div class="sidebar-card sidebar-card--highlight">
         <h3>Join WIRES</h3>
         <p>Get updates on events, consultations, and local actions. Volunteer-run, no spam.</p>
-        <a class="btn btn-lg" href="/join.php" style="background:#fff;color:var(--ink);width:100%;justify-content:center;text-align:center">Join the campaign</a>
+        <a class="btn btn-lg" href="/join" style="background:#fff;color:var(--ink);width:100%;justify-content:center;text-align:center">Join the campaign</a>
     </div>
 
     <?php if (!empty($sidebarRelated)): ?>
@@ -45,10 +45,10 @@ if (db_available()) {
         <h3>Get help right now</h3>
         <p>Two schemes help the most people, fastest:</p>
         <ul class="sidebar-nav">
-            <li><a href="/get-help.php#social-tariffs">Social tariffs &mdash; cheaper broadband</a></li>
-            <li><a href="/get-help.php#national-databank">National Databank &mdash; free SIM</a></li>
+            <li><a href="/get-help#social-tariffs">Social tariffs &mdash; cheaper broadband</a></li>
+            <li><a href="/get-help#national-databank">National Databank &mdash; free SIM</a></li>
         </ul>
-        <a class="btn btn-ghost" href="/get-help.php" style="width:100%;justify-content:center;text-align:center;margin-top:0.75rem">See all schemes</a>
+        <a class="btn btn-ghost" href="/get-help" style="width:100%;justify-content:center;text-align:center;margin-top:0.75rem">See all schemes</a>
     </div>
 
     <?php if (!empty($sidebarNews)): ?>
@@ -58,13 +58,13 @@ if (db_available()) {
         <ul class="sidebar-nav">
             <?php foreach ($sidebarNews as $row): ?>
                 <li>
-                    <a href="<?= e('/news-item.php?slug=' . rawurlencode((string) $row['slug'])) ?>">
+                    <a href="<?= e('/news-item?slug=' . rawurlencode((string) $row['slug'])) ?>">
                         <?= e((string) $row['title']) ?>
                     </a>
                 </li>
             <?php endforeach; ?>
         </ul>
-        <p style="margin-top:0.75rem;margin-bottom:0"><a href="/news.php" style="font-size:0.85rem;font-weight:600">All news &rarr;</a></p>
+        <p style="margin-top:0.75rem;margin-bottom:0"><a href="/news" style="font-size:0.85rem;font-weight:600">All news &rarr;</a></p>
     </div>
     <?php endif; ?>
 
@@ -73,8 +73,8 @@ if (db_available()) {
         <h3>Local groups</h3>
         <p>Find or start a WIRES group in your council area.</p>
         <ul class="sidebar-nav">
-            <li><a href="/groups.php">Find a local group</a></li>
-            <li><a href="/start-a-group.php">Start a group</a></li>
+            <li><a href="/groups">Find a local group</a></li>
+            <li><a href="/start-a-group">Start a group</a></li>
         </ul>
     </div>
 

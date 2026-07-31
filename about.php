@@ -12,11 +12,11 @@ $pageOgImage    = image_asset('about-team.jpg');
 $pageOgImageAlt = 'People collaborating around a table—symbolising volunteer campaign work.';
 
 $sidebarRelated = [
-    ['href' => '/landscape.php',     'label' => 'Why WIRES exists'],
-    ['href' => '/get-involved.php',  'label' => 'Get involved'],
-    ['href' => '/groups.php',        'label' => 'Local groups'],
-    ['href' => '/global-spotlight.php', 'label' => 'Global spotlight'],
-    ['href' => '/contact.php',       'label' => 'Contact us'],
+    ['href' => '/landscape',     'label' => 'Why WIRES exists'],
+    ['href' => '/get-involved',  'label' => 'Get involved'],
+    ['href' => '/groups',        'label' => 'Local groups'],
+    ['href' => '/global-spotlight', 'label' => 'Global spotlight'],
+    ['href' => '/contact',       'label' => 'Contact us'],
 ];
 
 require_once __DIR__ . '/includes/header.php';
@@ -79,13 +79,13 @@ require_once __DIR__ . '/includes/header.php';
                 </div>
                 <div class="info-card__body">
                     <p>Especially if official maps or leaflets do not match what your street experiences. Include links to council or government pages where possible so we can follow up carefully.</p>
-                    <p><a class="btn btn-ghost btn-sm" href="/contact.php">Use the contact form &rarr;</a></p>
+                    <p><a class="btn btn-ghost btn-sm" href="/contact">Use the contact form &rarr;</a></p>
                 </div>
             </div>
 
             <p>
-                <a class="btn btn-primary" href="/join.php">Join the campaign</a>
-                <a class="btn btn-ghost" href="/get-involved.php" style="margin-left:0.5rem">Get involved</a>
+                <a class="btn btn-primary" href="/join">Join the campaign</a>
+                <a class="btn btn-ghost" href="/get-involved" style="margin-left:0.5rem">Get involved</a>
             </p>
         </div>
 

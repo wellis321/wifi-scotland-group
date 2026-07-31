@@ -77,7 +77,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
 <?php endforeach; ?>
 <?php foreach ($articles as $row): ?>
     <url>
-        <loc><?= e($base . '/news-item.php?slug=' . rawurlencode((string) $row['slug'])) ?></loc>
+        <loc><?= e($base . '/news-item?slug=' . rawurlencode((string) $row['slug'])) ?></loc>
         <lastmod><?= e((string) $row['published_at']) ?></lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
@@ -85,7 +85,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
 <?php endforeach; ?>
 <?php foreach ($groups as $row): ?>
     <url>
-        <loc><?= e($base . '/group.php?slug=' . rawurlencode((string) $row['slug'])) ?></loc>
+        <loc><?= e($base . '/group?slug=' . rawurlencode((string) $row['slug'])) ?></loc>
         <lastmod><?= e(substr((string) $row['created_at'], 0, 10)) ?></lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>

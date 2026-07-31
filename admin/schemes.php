@@ -38,14 +38,14 @@ require_once __DIR__ . '/includes/admin_header.php';
                     <td class="meta"><?= e((string) $s['updated_month']) ?></td>
                     <td class="col-actions">
                         <a class="admin-link" href="/admin/scheme-edit.php?id=<?= (int) $s['id'] ?>">Edit</a>
-                        <a class="admin-link" href="/get-help.php#<?= e(rawurlencode((string)$s['id'])) ?>" target="_blank" rel="noopener">View</a>
+                        <a class="admin-link" href="/get-help#<?= e(rawurlencode((string)$s['id'])) ?>" target="_blank" rel="noopener">View</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
             </tbody>
         </table>
     </div>
-    <p class="meta" style="margin-top:0.75rem">Schemes are shown on the public <a href="/get-help.php" target="_blank">Help getting online</a> page, ordered by verified date.</p>
+    <p class="meta" style="margin-top:0.75rem">Schemes are shown on the public <a href="/get-help" target="_blank">Help getting online</a> page, ordered by verified date.</p>
 <?php endif; ?>
 
 <?php require_once __DIR__ . '/includes/admin_footer.php'; ?>

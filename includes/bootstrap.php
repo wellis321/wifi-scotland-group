@@ -179,6 +179,24 @@ function e(?string $s): string
     return htmlspecialchars((string) $s, ENT_QUOTES, 'UTF-8');
 }
 
+/**
+ * Truncate at a word boundary for SEO-facing tags (<title>, meta description)
+ * so long editorial headlines/summaries don't get cut mid-word in search results.
+ * On-page headings and Open Graph tags use the untruncated original text.
+ */
+function seo_truncate(string $text, int $maxLength): string
+{
+    if (mb_strlen($text) <= $maxLength) {
+        return $text;
+    }
+    $truncated = mb_substr($text, 0, $maxLength - 1);
+    $lastSpace = mb_strrpos($truncated, ' ');
+    if ($lastSpace !== false) {
+        $truncated = mb_substr($truncated, 0, $lastSpace);
+    }
+    return rtrim($truncated) . '…';
+}
+
 function csrf_token(): string
 {
     if (empty($_SESSION['_csrf'])) {

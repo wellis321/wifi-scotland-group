@@ -49,7 +49,7 @@ require_once __DIR__ . '/includes/admin_header.php';
                     <td class="meta"><?= $row['group_id'] ? '#' . e((string) $row['group_id']) : '—' ?></td>
                     <td class="col-actions">
                         <a class="admin-link" href="/admin/news-edit.php?slug=<?= e(rawurlencode((string) $row['slug'])) ?>">Edit</a>
-                        <a class="admin-link" href="/news-item.php?slug=<?= e(rawurlencode((string) $row['slug'])) ?>" target="_blank" rel="noopener">View</a>
+                        <a class="admin-link" href="/news-item?slug=<?= e(rawurlencode((string) $row['slug'])) ?>" target="_blank" rel="noopener">View</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

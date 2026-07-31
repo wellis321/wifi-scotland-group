@@ -33,7 +33,7 @@ require_once __DIR__ . '/includes/header.php';
             We ask that you do not present our summaries as official government or regulatory statements — always link to the primary sources we cite.
         </p>
         <p>
-            Images on this site are sourced from Unsplash under their free-to-use licence. See our <a href="/credits.php">image credits page</a> for details.
+            Images on this site are sourced from Unsplash under their free-to-use licence. See our <a href="/credits">image credits page</a> for details.
         </p>
 
         <h2>Accuracy and updates</h2>
@@ -66,7 +66,7 @@ require_once __DIR__ . '/includes/header.php';
 
         <h2>Contact</h2>
         <p>
-            If you have a question about these terms, or want to report an error or broken link, please use our <a href="/contact.php">contact form</a>.
+            If you have a question about these terms, or want to report an error or broken link, please use our <a href="/contact">contact form</a>.
         </p>
 
     </div>

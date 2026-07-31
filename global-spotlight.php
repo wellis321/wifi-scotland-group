@@ -12,9 +12,9 @@ $pageOgImage    = image_asset('card-global-network.jpg');
 $pageOgImageAlt = 'Illuminated view of Earth from space — symbolising global networks and shared infrastructure.';
 
 $sidebarRelated = [
-    ['href' => '/scotland.php',      'label' => 'Scotland policy'],
-    ['href' => '/why-it-matters.php','label' => 'Why it matters'],
-    ['href' => '/resources.php',     'label' => 'Resources & references'],
+    ['href' => '/scotland',      'label' => 'Scotland policy'],
+    ['href' => '/why-it-matters','label' => 'Why it matters'],
+    ['href' => '/resources',     'label' => 'Resources & references'],
 ];
 
 $projects = [
@@ -101,7 +101,7 @@ require_once __DIR__ . '/includes/header.php';
 
             <div class="callout" style="margin-top:2.5rem">
                 <p class="callout__eyebrow">Attribution</p>
-                <p>We highlight these projects because their documentation is public and their aims align with our values. Listing here is not an exhaustive survey of the field — suggest additions via <a href="/contact.php">Contact</a>.</p>
+                <p>We highlight these projects because their documentation is public and their aims align with our values. Listing here is not an exhaustive survey of the field — suggest additions via <a href="/contact">Contact</a>.</p>
             </div>
 
             <h2 id="scotland-networks" style="margin-top:3.5rem">Closer to home: Scotland</h2>
@@ -166,7 +166,7 @@ require_once __DIR__ . '/includes/header.php';
         </div>
 
         <?php
-        $sidebarRelated[] = ['href' => '/get-involved.php', 'label' => 'Get involved locally'];
+        $sidebarRelated[] = ['href' => '/get-involved', 'label' => 'Get involved locally'];
         require __DIR__ . '/includes/sidebar-campaign.php';
         ?>
 

@@ -100,7 +100,7 @@ require_once __DIR__ . '/includes/header.php';
                 </li>
             </ul>
             <div class="callout" style="margin-top:1.5rem">
-                <p><strong>Something missing or wrong in your area?</strong> If your local connectivity situation does not match what official maps show, that gap is exactly what this campaign needs to hear about. <a href="/contact.php">Tell us</a> and we will follow it up.</p>
+                <p><strong>Something missing or wrong in your area?</strong> If your local connectivity situation does not match what official maps show, that gap is exactly what this campaign needs to hear about. <a href="/contact">Tell us</a> and we will follow it up.</p>
             </div>
             <p class="meta">Basemap &copy; <a href="https://www.openstreetmap.org/copyright"<?= external_link_attrs('https://www.openstreetmap.org/copyright') ?>>OpenStreetMap</a> contributors. Council boundary data used for display purposes only.</p>
         </div>

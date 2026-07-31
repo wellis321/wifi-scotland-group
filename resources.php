@@ -12,11 +12,11 @@ $pageOgImage = image_asset('card-fibre.jpg');
 $pageOgImageAlt = 'Network cabling in a rack—symbolising the physical layer behind policy debates.';
 
 $sidebarRelated = [
-    ['href' => '/figures.php',        'label' => 'Figures & sources — the fact-check log'],
-    ['href' => '/scotland.php',       'label' => 'Scotland policy'],
-    ['href' => '/why-it-matters.php', 'label' => 'Why it matters'],
-    ['href' => '/get-help.php',       'label' => 'Help getting online'],
-    ['href' => '/news.php',           'label' => 'Campaign news'],
+    ['href' => '/figures',        'label' => 'Figures & sources — the fact-check log'],
+    ['href' => '/scotland',       'label' => 'Scotland policy'],
+    ['href' => '/why-it-matters', 'label' => 'Why it matters'],
+    ['href' => '/get-help',       'label' => 'Help getting online'],
+    ['href' => '/news',           'label' => 'Campaign news'],
 ];
 
 require_once __DIR__ . '/includes/header.php';
@@ -36,7 +36,7 @@ require_once __DIR__ . '/includes/header.php';
                  alt="Fibre-optic cables in a patch panel." decoding="async" loading="lazy">
         <div class="callout" style="margin-bottom:2rem">
             <p class="callout__eyebrow">Figures &amp; sources</p>
-            <p>This page is a general reading list. For a list of the specific statistics used across the site, where each one comes from, and any corrections made when we last checked, see <a href="/figures.php">Figures &amp; sources</a>.</p>
+            <p>This page is a general reading list. For a list of the specific statistics used across the site, where each one comes from, and any corrections made when we last checked, see <a href="/figures">Figures &amp; sources</a>.</p>
         </div>
 
         <h2>Scottish Government</h2>

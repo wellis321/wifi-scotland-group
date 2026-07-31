@@ -37,7 +37,7 @@ require_once __DIR__ . '/includes/admin_header.php';
                     <td class="col-actions">
                         <a class="admin-link" href="/admin/group-edit.php?id=<?= (int) $g['id'] ?>">Edit</a>
                         <a class="admin-link" href="/admin/events.php?group_id=<?= (int) $g['id'] ?>">Events</a>
-                        <a class="admin-link" href="/group.php?slug=<?= e(rawurlencode((string) $g['slug'])) ?>" target="_blank" rel="noopener">View</a>
+                        <a class="admin-link" href="/group?slug=<?= e(rawurlencode((string) $g['slug'])) ?>" target="_blank" rel="noopener">View</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

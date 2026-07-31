@@ -45,11 +45,11 @@ require_once __DIR__ . '/includes/header.php';
         <?php elseif (empty($groups)): ?>
             <div class="groups-empty">
                 <p class="section-intro">No local groups are listed yet—Scotland is waiting for people like you to start one. It takes as few as two or three people and a first conversation.</p>
-                <a class="btn btn-primary btn-lg" href="/start-a-group.php">How to start a group &rarr;</a>
+                <a class="btn btn-primary btn-lg" href="/start-a-group">How to start a group &rarr;</a>
             </div>
 
         <?php else: ?>
-            <p class="section-intro">Groups are run by local volunteers. Contact a group directly or <a href="/start-a-group.php">start one</a> if your area is not listed.</p>
+            <p class="section-intro">Groups are run by local volunteers. Contact a group directly or <a href="/start-a-group">start one</a> if your area is not listed.</p>
             <div class="card-grid cols-3">
                 <?php foreach ($groups as $g): ?>
                     <?php
@@ -72,7 +72,7 @@ require_once __DIR__ . '/includes/header.php';
                             <p><?= e($g['tagline']) ?></p>
                         <?php endif; ?>
                         <p class="card-cta">
-                            <a class="btn btn-primary" href="<?= e('/group.php?slug=' . rawurlencode((string) $g['slug'])) ?>">Visit group page</a>
+                            <a class="btn btn-primary" href="<?= e('/group?slug=' . rawurlencode((string) $g['slug'])) ?>">Visit group page</a>
                         </p>
                     </article>
                 <?php endforeach; ?>
@@ -80,7 +80,7 @@ require_once __DIR__ . '/includes/header.php';
         <?php endif; ?>
 
         <div class="callout prose" style="margin-top: 2.5rem">
-            <p><strong>Don't see your area?</strong> <a href="/start-a-group.php">Find out how to start a local group</a>—we'll support you and list your group here once you're up and running.</p>
+            <p><strong>Don't see your area?</strong> <a href="/start-a-group">Find out how to start a local group</a>—we'll support you and list your group here once you're up and running.</p>
         </div>
 
     </div>

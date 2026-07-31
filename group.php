@@ -50,7 +50,7 @@ if (!$group) {
     </header>
     <div class="section">
         <div class="wrap prose">
-            <p><a href="/groups.php">&larr; All local groups</a></p>
+            <p><a href="/groups">&larr; All local groups</a></p>
         </div>
     </div>
     <?php
@@ -80,7 +80,7 @@ require_once __DIR__ . '/includes/header.php';
 ?>
 <header class="page-header">
     <div class="wrap">
-        <p class="meta"><a href="/groups.php">&larr; All local groups</a></p>
+        <p class="meta"><a href="/groups">&larr; All local groups</a></p>
         <span class="<?= e($statusClass) ?>"><?= e($statusLabel) ?></span>
         <h1><?= e((string) $group['council_area']) ?></h1>
         <?php if (!empty($group['tagline'])): ?>
@@ -143,7 +143,7 @@ require_once __DIR__ . '/includes/header.php';
 <div class="section alt">
     <div class="wrap">
         <h2>Upcoming events</h2>
-        <p class="section-intro">No events listed yet. <a href="/contact.php">Get in touch</a> if you'd like to suggest or publicise one.</p>
+        <p class="section-intro">No events listed yet. <a href="/contact">Get in touch</a> if you'd like to suggest or publicise one.</p>
     </div>
 </div>
 <?php endif; ?>
@@ -156,7 +156,7 @@ require_once __DIR__ . '/includes/header.php';
             <?php foreach ($localNews as $row): ?>
                 <article>
                     <p class="meta"><time datetime="<?= e((string) $row['published_at']) ?>"><?= e(format_date((string) $row['published_at'])) ?></time></p>
-                    <h2><a href="<?= e('/news-item.php?slug=' . rawurlencode((string) $row['slug'])) ?>"><?= e((string) $row['title']) ?></a></h2>
+                    <h2><a href="<?= e('/news-item?slug=' . rawurlencode((string) $row['slug'])) ?>"><?= e((string) $row['title']) ?></a></h2>
                     <?php if (!empty($row['summary'])): ?>
                         <p><?= e((string) $row['summary']) ?></p>
                     <?php endif; ?>
@@ -172,7 +172,7 @@ require_once __DIR__ . '/includes/header.php';
         <div class="group-help-callout">
             <h2>Help getting online in <?= e((string) $group['council_area']) ?></h2>
             <p>There are national schemes that can help people in this area get connected or pay less—including social tariffs for people on benefits, free SIM cards, and rural broadband programmes.</p>
-            <a class="btn btn-primary" href="/get-help.php">See all schemes &rarr;</a>
+            <a class="btn btn-primary" href="/get-help">See all schemes &rarr;</a>
         </div>
     </div>
 </div>
@@ -196,8 +196,8 @@ require_once __DIR__ . '/includes/header.php';
             <p>This group is still getting started. Use the main contact form below and mention <?= e((string) $group['council_area']) ?> in your message—we'll pass it on.</p>
         <?php endif; ?>
         <p>
-            <a class="btn btn-primary" href="/contact.php">Contact via the campaign</a>
-            <a class="btn btn-ghost" href="/start-a-group.php">About starting a group</a>
+            <a class="btn btn-primary" href="/contact">Contact via the campaign</a>
+            <a class="btn btn-ghost" href="/start-a-group">About starting a group</a>
         </p>
     </div>
 </div>

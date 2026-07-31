@@ -12,10 +12,10 @@ $pageOgImage    = image_asset('card-community.jpg');
 $pageOgImageAlt = 'People meeting together around a laptop—representing community organising.';
 
 $sidebarRelated = [
-    ['href' => '/groups.php',        'label' => 'Local groups'],
-    ['href' => '/start-a-group.php', 'label' => 'Start a group'],
-    ['href' => '/join.php',          'label' => 'Join WIRES'],
-    ['href' => '/contact.php',       'label' => 'Contact us'],
+    ['href' => '/groups',        'label' => 'Local groups'],
+    ['href' => '/start-a-group', 'label' => 'Start a group'],
+    ['href' => '/join',          'label' => 'Join WIRES'],
+    ['href' => '/contact',       'label' => 'Contact us'],
 ];
 
 require_once __DIR__ . '/includes/header.php';
@@ -58,7 +58,7 @@ require_once __DIR__ . '/includes/header.php';
                     <div>
                         <h3>Write to your councillor</h3>
                         <p>We've written a template letter you can personalise in about two minutes. It asks specific, sourced questions about R100, social tariffs, and local digital inclusion — the kind of question that's hard to ignore.</p>
-                        <p><a class="btn btn-ghost btn-sm" href="/write-to-councillor.php">Use the template letter &rarr;</a></p>
+                        <p><a class="btn btn-ghost btn-sm" href="/write-to-councillor">Use the template letter &rarr;</a></p>
                     </div>
                 </li>
                 <li class="step-item">
@@ -91,8 +91,8 @@ require_once __DIR__ . '/includes/header.php';
                 WIRES local groups map their council area, attend meetings, and give neighbours somewhere to turn. If your area doesn't have one yet, starting one takes as few as two or three people and a first conversation.
             </p>
             <p style="margin-bottom:2rem">
-                <a class="btn btn-primary" href="/groups.php">Find a local group</a>
-                <a class="btn btn-ghost" href="/start-a-group.php" style="margin-left:0.5rem">Start one</a>
+                <a class="btn btn-primary" href="/groups">Find a local group</a>
+                <a class="btn btn-ghost" href="/start-a-group" style="margin-left:0.5rem">Start one</a>
             </p>
 
             <div class="callout">
@@ -101,7 +101,7 @@ require_once __DIR__ . '/includes/header.php';
 
             <div class="callout callout--alert">
                 <p class="callout__eyebrow">Safety note</p>
-                <p>Do not intercept neighbours' traffic or tamper with street cabinets. Community networking is powerful when it is legal, consensual, and transparent — see our <a href="/global-spotlight.php">Global spotlight</a> for examples with public documentation.</p>
+                <p>Do not intercept neighbours' traffic or tamper with street cabinets. Community networking is powerful when it is legal, consensual, and transparent — see our <a href="/global-spotlight">Global spotlight</a> for examples with public documentation.</p>
             </div>
         </div>
 

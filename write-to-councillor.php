@@ -12,10 +12,10 @@ $pageOgImage    = image_asset('card-community.jpg');
 $pageOgImageAlt = 'Person writing at a table — representing constituent contact with elected representatives.';
 
 $sidebarRelated = [
-    ['href' => '/get-involved.php',  'label' => 'Get involved'],
-    ['href' => '/scotland.php',      'label' => 'Scotland policy'],
-    ['href' => '/why-it-matters.php','label' => 'Why it matters'],
-    ['href' => '/resources.php',     'label' => 'Resources & references'],
+    ['href' => '/get-involved',  'label' => 'Get involved'],
+    ['href' => '/scotland',      'label' => 'Scotland policy'],
+    ['href' => '/why-it-matters','label' => 'Why it matters'],
+    ['href' => '/resources',     'label' => 'Resources & references'],
 ];
 
 require_once __DIR__ . '/includes/header.php';
@@ -105,7 +105,7 @@ require_once __DIR__ . '/includes/header.php';
             <ul>
                 <li>Share it with your community group or WIRES local group.</li>
                 <li>If the answer is evasive, submit a follow-up question at the next full council meeting.</li>
-                <li>If you find something significant — a scheme not being advertised, a gap in provision — <a href="/contact.php">tell us</a> and we may be able to amplify it.</li>
+                <li>If you find something significant — a scheme not being advertised, a gap in provision — <a href="/contact">tell us</a> and we may be able to amplify it.</li>
             </ul>
 
             <h2 id="cosla-letter" style="margin-top:3.5rem">Write to COSLA and the Scottish Government about "No-One Left Behind"</h2>

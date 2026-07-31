@@ -79,7 +79,7 @@ require_once __DIR__ . '/includes/admin_header.php';
 <div class="admin-page-header">
     <h1 class="admin-page-title"><?= e($adminTitle) ?></h1>
     <?php if (!$isNew): ?>
-        <a class="admin-btn-sm" href="/group.php?slug=<?= e(rawurlencode((string)($item['slug']??''))) ?>" target="_blank" rel="noopener">View live</a>
+        <a class="admin-btn-sm" href="/group?slug=<?= e(rawurlencode((string)($item['slug']??''))) ?>" target="_blank" rel="noopener">View live</a>
         <a class="admin-btn-sm" href="/admin/events.php?group_id=<?= (int)($item['id']??0) ?>">Manage events</a>
     <?php endif; ?>
 </div>

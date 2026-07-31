@@ -27,10 +27,10 @@ $pageOgImage    = image_asset('card-community.jpg');
 $pageOgImageAlt = 'People gathered together — representing the coalition of organisations supporting WIRES.';
 
 $sidebarRelated = [
-    ['href' => '/join-as-organisation.php', 'label' => 'Join as an organisation'],
-    ['href' => '/join.php',                 'label' => 'Join as an individual'],
-    ['href' => '/get-involved.php',         'label' => 'Get involved'],
-    ['href' => '/contact.php',              'label' => 'Contact WIRES'],
+    ['href' => '/join-as-organisation', 'label' => 'Join as an organisation'],
+    ['href' => '/join',                 'label' => 'Join as an individual'],
+    ['href' => '/get-involved',         'label' => 'Get involved'],
+    ['href' => '/contact',              'label' => 'Contact WIRES'],
 ];
 
 require_once __DIR__ . '/includes/header.php';
@@ -65,7 +65,7 @@ require_once __DIR__ . '/includes/header.php';
                     </div>
                     <div class="info-card__body">
                         <p>No organisations are listed yet — we're building the coalition now. If your organisation supports the principle that affordable, reliable internet is essential infrastructure, we'd love to hear from you.</p>
-                        <p><a class="btn btn-primary btn-sm" href="/join-as-organisation.php">Sign up your organisation &rarr;</a></p>
+                        <p><a class="btn btn-primary btn-sm" href="/join-as-organisation">Sign up your organisation &rarr;</a></p>
                     </div>
                 </div>
             <?php else: ?>
@@ -99,7 +99,7 @@ require_once __DIR__ . '/includes/header.php';
                 </div>
                 <div class="info-card__body">
                     <p>Any organisation — housing association, trade union, charity, community group, faith community, school, or business — can sign the WIRES commitment. You'll get a badge for your website and materials for your members.</p>
-                    <p><a class="btn btn-primary btn-sm" href="/join-as-organisation.php">Sign up your organisation &rarr;</a></p>
+                    <p><a class="btn btn-primary btn-sm" href="/join-as-organisation">Sign up your organisation &rarr;</a></p>
                 </div>
             </div>
 

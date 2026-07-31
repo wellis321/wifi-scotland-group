@@ -97,10 +97,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 $sidebarRelated = [
-    ['href' => '/supporters.php',  'label' => 'View all supporters'],
-    ['href' => '/join.php',        'label' => 'Join as an individual'],
-    ['href' => '/get-involved.php','label' => 'Get involved'],
-    ['href' => '/contact.php',     'label' => 'Contact WIRES'],
+    ['href' => '/supporters',  'label' => 'View all supporters'],
+    ['href' => '/join',        'label' => 'Join as an individual'],
+    ['href' => '/get-involved','label' => 'Get involved'],
+    ['href' => '/contact',     'label' => 'Contact WIRES'],
 ];
 
 require_once __DIR__ . '/includes/header.php';
@@ -295,11 +295,11 @@ $badgeLightPreview = '<a href="' . $supportersUrl . '" target="_blank" rel="noop
                 <h3 class="toolkit-heading">For your members and service users</h3>
                 <p>Share these pages with the people you work with:</p>
                 <ul>
-                    <li><strong><a href="/get-help.php">Help getting online</a></strong> — schemes and programmes that can lower broadband costs or provide free SIM cards</li>
-                    <li><strong><a href="/write-to-councillor.php">Write to your councillor</a></strong> — a ready-to-use template letter asking local councils to act</li>
-                    <li><strong><a href="/why-it-matters.php">Why it matters</a></strong> — evidence from UK and Scottish sources on the impact of digital exclusion</li>
+                    <li><strong><a href="/get-help">Help getting online</a></strong> — schemes and programmes that can lower broadband costs or provide free SIM cards</li>
+                    <li><strong><a href="/write-to-councillor">Write to your councillor</a></strong> — a ready-to-use template letter asking local councils to act</li>
+                    <li><strong><a href="/why-it-matters">Why it matters</a></strong> — evidence from UK and Scottish sources on the impact of digital exclusion</li>
                 </ul>
-                <p class="meta">Printable leaflets are in development. <a href="/contact.php">Get in touch</a> if you need materials for a specific event or campaign activity.</p>
+                <p class="meta">Printable leaflets are in development. <a href="/contact">Get in touch</a> if you need materials for a specific event or campaign activity.</p>
             </div>
 
         </div><!-- /prose -->

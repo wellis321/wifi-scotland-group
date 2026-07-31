@@ -82,6 +82,9 @@ if ($q !== '' && strlen($q) >= 2) {
 $pageTitle       = $q !== '' ? 'Search results for "' . $q . '"' : 'Search';
 $pageDescription = 'Search the WIRES website for information about digital inclusion, broadband access, and connectivity rights in Scotland.';
 $currentNav      = '';
+// Individual query results are unbounded and low-value for search engines to index —
+// only the base /search page (empty state) should be indexable.
+$pageRobots      = $q !== '' ? 'noindex, follow' : null;
 
 require_once __DIR__ . '/includes/header.php';
 ?>

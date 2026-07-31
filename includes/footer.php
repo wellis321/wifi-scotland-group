@@ -137,7 +137,7 @@ declare(strict_types=1);
         <p class="cookie-notice__text">
             This site uses a single security cookie to keep forms safe — it stores no personal data and is deleted when you close your browser.
             We don't use advertising or tracking cookies.
-            <a href="/privacy.php">Privacy notice</a>
+            <a href="/privacy">Privacy notice</a>
         </p>
         <button class="btn btn-sm cookie-notice__btn" id="wires-cookie-ok" type="button">Got it</button>
     </div>

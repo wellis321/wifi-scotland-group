@@ -175,7 +175,7 @@ require_once __DIR__ . '/includes/header.php';
         </p>
 
         <p>
-            <strong>If you work with people experiencing homelessness and can tell us what digital access looks like in practice in your area, <a href="/contact.php">get in touch</a>.</strong> Local evidence is what makes this issue visible in policy discussions.
+            <strong>If you work with people experiencing homelessness and can tell us what digital access looks like in practice in your area, <a href="/contact">get in touch</a>.</strong> Local evidence is what makes this issue visible in policy discussions.
         </p>
 
         <h2>Want to go deeper?</h2>
@@ -217,7 +217,7 @@ require_once __DIR__ . '/includes/header.php';
             <cite>Ofcom, Connected Nations methodology note</cite>
         </div>
 
-        <p class="meta">Figures and programme rules change. If a link breaks or a series gets renamed, <a href="/contact.php">tell us</a> so we can fix it.</p>
+        <p class="meta">Figures and programme rules change. If a link breaks or a series gets renamed, <a href="/contact">tell us</a> so we can fix it.</p>
 
         <div class="info-card">
             <div class="info-card__header">
@@ -226,10 +226,10 @@ require_once __DIR__ . '/includes/header.php';
             </div>
             <div class="info-card__body">
                 <ul class="sidebar-nav" style="margin:0">
-                    <li><a href="/scotland.php">Scotland policy &amp; programmes</a></li>
-                    <li><a href="/get-involved.php">Get involved — turn evidence into local questions</a></li>
-                    <li><a href="/resources.php">Resources — primary sources we cite</a></li>
-                    <li><a href="/get-help.php">Help getting online — practical schemes</a></li>
+                    <li><a href="/scotland">Scotland policy &amp; programmes</a></li>
+                    <li><a href="/get-involved">Get involved — turn evidence into local questions</a></li>
+                    <li><a href="/resources">Resources — primary sources we cite</a></li>
+                    <li><a href="/get-help">Help getting online — practical schemes</a></li>
                 </ul>
             </div>
         </div>

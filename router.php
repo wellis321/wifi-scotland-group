@@ -37,7 +37,6 @@ if (file_exists($directFile)) {
     return true;
 }
 
-/* 5. Nothing matched — let PHP return 404 */
-http_response_code(404);
-echo '404 Not Found';
+/* 5. Nothing matched — serve the custom 404 page (mirrors ErrorDocument 404 in .htaccess) */
+require $root . '/404.php';
 return true;

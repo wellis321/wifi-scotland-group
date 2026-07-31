@@ -28,9 +28,9 @@ $pageOgImage    = image_asset('card-fibre.jpg');
 $pageOgImageAlt = 'Fibre-optic cables close-up — representing physical internet infrastructure.';
 
 $sidebarRelated = [
-    ['href' => '/scotland.php',       'label' => 'Scotland policy'],
-    ['href' => '/why-it-matters.php', 'label' => 'Why it matters'],
-    ['href' => '/resources.php',      'label' => 'Resources & references'],
+    ['href' => '/scotland',       'label' => 'Scotland policy'],
+    ['href' => '/why-it-matters', 'label' => 'Why it matters'],
+    ['href' => '/resources',      'label' => 'Resources & references'],
 ];
 
 require_once __DIR__ . '/includes/header.php';
@@ -78,11 +78,11 @@ require_once __DIR__ . '/includes/header.php';
                     <?php endif; ?>
                     <div class="featured-article-body">
                         <p class="meta"><time datetime="<?= e((string) $featured['published_at']) ?>"><?= e(format_date((string) $featured['published_at'])) ?></time></p>
-                        <h2><a href="<?= e('/news-item.php?slug=' . rawurlencode((string) $featured['slug'])) ?>"><?= e((string) $featured['title']) ?></a></h2>
+                        <h2><a href="<?= e('/news-item?slug=' . rawurlencode((string) $featured['slug'])) ?>"><?= e((string) $featured['title']) ?></a></h2>
                         <?php if (!empty($featured['summary'])): ?>
                             <p><?= e((string) $featured['summary']) ?></p>
                         <?php endif; ?>
-                        <a class="btn btn-primary" href="<?= e('/news-item.php?slug=' . rawurlencode((string) $featured['slug'])) ?>">Read article &rarr;</a>
+                        <a class="btn btn-primary" href="<?= e('/news-item?slug=' . rawurlencode((string) $featured['slug'])) ?>">Read article &rarr;</a>
                     </div>
                 </article>
                 <?php endif; ?>
@@ -110,7 +110,7 @@ require_once __DIR__ . '/includes/header.php';
                             <?php endif; ?>
                             <div class="news-card-body">
                                 <p class="meta"><time datetime="<?= e((string) $row['published_at']) ?>"><?= e(format_date((string) $row['published_at'])) ?></time></p>
-                                <h3><a href="<?= e('/news-item.php?slug=' . rawurlencode((string) $row['slug'])) ?>"><?= e((string) $row['title']) ?></a></h3>
+                                <h3><a href="<?= e('/news-item?slug=' . rawurlencode((string) $row['slug'])) ?>"><?= e((string) $row['title']) ?></a></h3>
                                 <?php if (!empty($row['summary'])): ?>
                                     <p><?= e((string) $row['summary']) ?></p>
                                 <?php endif; ?>

@@ -14,6 +14,7 @@ $currentNav      = $currentNav      ?? '';
 $pageOgImage     = $pageOgImage     ?? null;
 $pageOgImageAlt  = $pageOgImageAlt  ?? '';
 $pageOgType      = $pageOgType      ?? 'website';
+$pageRobots      = $pageRobots      ?? null;
 
 $_canonicalUri = (string) ($_SERVER['REQUEST_URI'] ?? '/');
 // Normalise /index.php → /
@@ -112,8 +113,11 @@ $navGroupIsActive = static function (array $group) use ($currentNav): bool {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?= e($pageTitle) ?> · <?= e(SITE_BRAND) ?></title>
-    <meta name="description" content="<?= e($pageDescription) ?>">
+    <title><?= e(seo_truncate($pageTitle, 60)) ?> · <?= e(SITE_BRAND) ?></title>
+    <meta name="description" content="<?= e(seo_truncate($pageDescription, 155)) ?>">
+    <?php if ($pageRobots !== null): ?>
+    <meta name="robots" content="<?= e($pageRobots) ?>">
+    <?php endif; ?>
     <link rel="canonical" href="<?= e($canonicalUrl) ?>">
 
     <!-- Open Graph -->
@@ -164,7 +168,8 @@ $navGroupIsActive = static function (array $group) use ($currentNav): bool {
         "name": "<?= e(SITE_BRAND) ?>",
         "alternateName": "Web Infrastructure Rights for Everyone in Scotland",
         "url": "<?= e(page_url()) ?>",
-        "description": "<?= e($pageDescription) ?>"
+        "logo": "<?= e((string) absolute_url_for_path('/images/favicon-512x512.png')) ?>",
+        "description": "Web Infrastructure Rights for Everyone in Scotland — campaigning for affordable, reliable connectivity as essential public infrastructure."
     }
     </script>
     <link rel="icon" href="/favicon.ico" sizes="any">

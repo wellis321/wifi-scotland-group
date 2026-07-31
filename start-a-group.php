@@ -43,7 +43,7 @@ require_once __DIR__ . '/includes/header.php';
             <li class="start-group-step">
                 <div>
                     <h3>Tell us you exist</h3>
-                    <p>Use the <a href="/contact.php">contact form</a> and mention your council area and a name or email we can use. We will add your group to the <a href="/groups.php">groups page</a>, include you in national campaign updates, and connect you with others doing similar work elsewhere in Scotland.</p>
+                    <p>Use the <a href="/contact">contact form</a> and mention your council area and a name or email we can use. We will add your group to the <a href="/groups">groups page</a>, include you in national campaign updates, and connect you with others doing similar work elsewhere in Scotland.</p>
                 </div>
             </li>
             <li class="start-group-step">
@@ -69,7 +69,7 @@ require_once __DIR__ . '/includes/header.php';
         <div class="what-we-provide">
             <h2>What we provide</h2>
             <ul>
-                <li>Your group listed on the <a href="/groups.php">local groups page</a></li>
+                <li>Your group listed on the <a href="/groups">local groups page</a></li>
                 <li>Templates for council letters and meeting agenda items</li>
                 <li>Updates when national policy, programmes, or funding change in ways that affect your area</li>
                 <li>Connection to other groups doing similar work across Scotland</li>
@@ -84,11 +84,11 @@ require_once __DIR__ . '/includes/header.php';
             </div>
             <div class="info-card__body">
                 <p>Use the contact form and mention your council area and a contact name. We aim to reply within a week.</p>
-                <p><a class="btn btn-primary btn-sm" href="/contact.php">Get in touch &rarr;</a></p>
+                <p><a class="btn btn-primary btn-sm" href="/contact">Get in touch &rarr;</a></p>
             </div>
         </div>
 
-        <p class="meta" style="margin-top: 2rem">Already have a group? <a href="/contact.php">Tell us about it</a> and we will add it to the directory. You do not need to be formally registered or have an official structure—active and forming groups are both listed.</p>
+        <p class="meta" style="margin-top: 2rem">Already have a group? <a href="/contact">Tell us about it</a> and we will add it to the directory. You do not need to be formally registered or have an official structure—active and forming groups are both listed.</p>
 
     </div>
 </div>

@@ -107,7 +107,7 @@ require_once __DIR__ . '/includes/admin_header.php';
 <div class="admin-page-header">
     <h1 class="admin-page-title"><?= e($adminTitle) ?></h1>
     <?php if (!$isNew): ?>
-        <a class="admin-btn-sm" href="/news-item.php?slug=<?= e(rawurlencode($slug)) ?>" target="_blank" rel="noopener">View live</a>
+        <a class="admin-btn-sm" href="/news-item?slug=<?= e(rawurlencode($slug)) ?>" target="_blank" rel="noopener">View live</a>
     <?php endif; ?>
 </div>
 

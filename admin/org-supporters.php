@@ -58,7 +58,7 @@ require_once __DIR__ . '/includes/admin_header.php';
 ?>
 <div class="admin-page-header">
     <h1 class="admin-page-title">Organisational supporters</h1>
-    <a class="admin-btn-sm" href="/supporters.php" target="_blank" rel="noopener">View public page</a>
+    <a class="admin-btn-sm" href="/supporters" target="_blank" rel="noopener">View public page</a>
 </div>
 
 <!-- Filter tabs -->

@@ -12,11 +12,11 @@ $pageOgImage    = image_asset('card-community.jpg');
 $pageOgImageAlt = 'People in a community meeting — representing local voices in Scotland connectivity policy.';
 
 $sidebarRelated = [
-    ['href' => '/scotland-stories.php', 'label' => 'Scottish stories'],
-    ['href' => '/wifi-map.php',         'label' => 'WiFi map by council area'],
-    ['href' => '/why-it-matters.php',   'label' => 'Why it matters'],
-    ['href' => '/get-help.php',         'label' => 'Help getting online'],
-    ['href' => '/resources.php',        'label' => 'Resources and references'],
+    ['href' => '/scotland-stories', 'label' => 'Scottish stories'],
+    ['href' => '/wifi-map',         'label' => 'WiFi map by council area'],
+    ['href' => '/why-it-matters',   'label' => 'Why it matters'],
+    ['href' => '/get-help',         'label' => 'Help getting online'],
+    ['href' => '/resources',        'label' => 'Resources and references'],
 ];
 
 require_once __DIR__ . '/includes/header.php';
@@ -115,7 +115,7 @@ require_once __DIR__ . '/includes/header.php';
             <p>"Pair official programme links with local stories — that combination is what makes a question in a council chamber hard to ignore."</p>
         </div>
 
-        <p class="meta">We aim to refresh links when government URLs change. If you spot a broken link, please tell us via <a href="/contact.php">Contact</a>.</p>
+        <p class="meta">We aim to refresh links when government URLs change. If you spot a broken link, please tell us via <a href="/contact">Contact</a>.</p>
         </div><!-- /prose -->
 
         <?php require __DIR__ . '/includes/sidebar-campaign.php'; ?>
