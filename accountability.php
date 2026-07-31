@@ -39,7 +39,7 @@ $councils = [
     ['name' => 'Falkirk',               'status' => 'unknown', 'note' => '',  'url' => '', 'checked' => ''],
     ['name' => 'Fife',                  'status' => 'unknown', 'note' => '',  'url' => '', 'checked' => ''],
     ['name' => 'Glasgow City',          'status' => 'strategy',
-     'note' => 'Scotland\'s first Digital Housing Strategy 2022–2028. Evidence base found 65% of social rented households do not use home broadband. Backed by 32 RSLs covering 75% of stock. No standalone evaluation published yet.',
+     'note' => 'Scotland\'s first Digital Housing Strategy 2022–2028. Evidence base found 35% of social rented households (circa 38,500) do not use home broadband. Backed by 32 RSLs covering 75% of stock. No standalone evaluation published yet.',
      'url' => 'https://www.glasgow.gov.uk/article/2692/Glasgow-s-Digital-Housing-Strategy-to-improve-housing-services-and-tackle-digital-exclusion',
      'checked' => 'June 2026'],
     ['name' => 'Highland',              'status' => 'plan',

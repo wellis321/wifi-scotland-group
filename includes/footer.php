@@ -37,6 +37,7 @@ declare(strict_types=1);
                     <li><a href="/scotland">Scotland policy</a></li>
                     <li><a href="/resources">Resources</a></li>
                     <li><a href="/figures">Figures &amp; sources</a></li>
+                    <li><a href="/corrections">Corrections</a></li>
                     <li><a href="/wifi-map">WiFi map</a></li>
                     <li><a href="/news">News</a></li>
                 </ul>

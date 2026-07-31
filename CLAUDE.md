@@ -62,6 +62,10 @@ require_once __DIR__ . '/includes/footer.php';
 
 Three tables (`member_signups`, `contact_messages`, `news_items`). Forms use PDO prepared statements. News item bodies are stored as trusted HTML (no untrusted author input currently); if that changes, add sanitisation before rendering on `news-item.php`.
 
+## Fact-checking & corrections
+
+`includes/figures_data.php` (`load_figures()`) is the single source of truth for every statistic used on the site — both `figures.php` (the public fact-check log) and `corrections.php` (public corrections history) render from it. **Whenever you fix a factual/statistical error on a published page, also update (or add) that figure's entry in `includes/figures_data.php`, with a `note` starting with the word "Corrected".** `corrections.php` picks it up automatically — there is no separate step, so don't skip this even for a small fix. Never quietly change a number on a page without also logging it here.
+
 ## Design Context
 
 ### Users

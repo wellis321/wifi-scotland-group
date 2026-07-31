@@ -78,6 +78,7 @@ $navStructure = [
             ['id' => 'supporters',       'href' => '/supporters',        'label' => 'Supporters'],
             ['id' => 'resources',        'href' => '/resources',         'label' => 'Resources'],
             ['id' => 'figures',          'href' => '/figures',           'label' => 'Figures & sources'],
+            ['id' => 'corrections',      'href' => '/corrections',       'label' => 'Corrections'],
         ],
     ],
     [

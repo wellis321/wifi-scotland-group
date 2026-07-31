@@ -31,6 +31,8 @@ $static = [
     ['/wifi-map',             '0.7', 'monthly'],
     ['/news',                 '0.9', 'daily'],
     ['/resources',            '0.6', 'monthly'],
+    ['/figures',              '0.6', 'monthly'],
+    ['/corrections',          '0.5', 'monthly'],
     ['/groups',               '0.8', 'weekly'],
     ['/start-a-group',        '0.7', 'monthly'],
     ['/get-involved',         '0.7', 'monthly'],

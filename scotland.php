@@ -82,8 +82,8 @@ require_once __DIR__ . '/includes/header.php';
 
         <div class="stat-strip">
             <div class="stat-item">
-                <span class="stat-value">65%</span>
-                <span class="stat-label">of households in Glasgow's social rented housing do not use home broadband</span>
+                <span class="stat-value">35%</span>
+                <span class="stat-label">of households in Glasgow's social rented housing — around 38,500 — do not use home broadband</span>
             </div>
             <div class="stat-item">
                 <span class="stat-value">32</span>
