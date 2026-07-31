@@ -132,7 +132,7 @@ declare(strict_types=1);
 <?= $pageExtraScripts ?? '' ?>
 
 <!-- Cookie notice -->
-<div id="wires-cookie-notice" class="cookie-notice" role="dialog" aria-label="Cookie notice" aria-live="polite" hidden>
+<div id="wires-cookie-notice" class="cookie-notice" role="dialog" aria-label="Cookie notice" aria-live="polite" tabindex="-1" hidden>
     <div class="cookie-notice__inner wrap">
         <p class="cookie-notice__text">
             This site uses a single security cookie to keep forms safe — it stores no personal data and is deleted when you close your browser.
@@ -161,7 +161,9 @@ declare(strict_types=1);
 
     if (!hasCookie('wires_ack')) {
         notice.removeAttribute('hidden');
-        notice.focus();
+        // Deferred to the next frame so the browser can apply the hidden->visible
+        // style change on its own render cycle instead of a forced synchronous reflow.
+        requestAnimationFrame(function () { notice.focus(); });
     }
 
     if (btn) {
@@ -179,6 +181,6 @@ declare(strict_types=1);
     });
 })();
 </script>
-<script src="/js/animations.js"></script>
+<script src="/js/animations.js" defer></script>
 </body>
 </html>
