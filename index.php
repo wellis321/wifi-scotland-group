@@ -92,6 +92,71 @@ require_once __DIR__ . '/includes/header.php';
     </div>
 </section>
 
+<section class="arguments-section" aria-labelledby="arguments-heading">
+    <div class="wrap">
+        <h2 id="arguments-heading">Our case for change</h2>
+        <ol class="arguments-list">
+            <li class="argument-item fade-up">
+                <div class="argument-text">
+                    <span class="argument-number" aria-hidden="true">01</span>
+                    <h3>Access shapes participation</h3>
+                    <p>Work, learning, health services, and democracy increasingly assume you can get online reliably. When connectivity is unstable or unaffordable, people are excluded from ordinary expectations—not through personal failure, but structural neglect.</p>
+                </div>
+                <figure class="argument-image" aria-hidden="true">
+                    <img src="<?= e(image_asset('card-community.jpg')) ?>" width="1200" height="800" alt="" decoding="async" loading="lazy">
+                </figure>
+            </li>
+            <li class="argument-item fade-up">
+                <div class="argument-text">
+                    <span class="argument-number" aria-hidden="true">02</span>
+                    <h3>Public money should mean public clarity</h3>
+                    <p>Significant public investment flows into broadband and digital inclusion programmes. People deserve a clear path to the help that exists—not complicated applications, confusing criteria, or announcements buried so deep that the people who need them most never hear about them.</p>
+                </div>
+                <figure class="argument-image" aria-hidden="true">
+                    <img src="<?= e(image_asset('glasses-clarity.jpg')) ?>" width="1200" height="956" alt="" decoding="async" loading="lazy">
+                </figure>
+            </li>
+            <li class="argument-item fade-up">
+                <div class="argument-text">
+                    <span class="argument-number" aria-hidden="true">03</span>
+                    <h3>Communities show a different way is possible</h3>
+                    <p>Cooperative and non-profit network projects worldwide—from Guifi.net in Catalonia to NYC Mesh—demonstrate that connectivity can be transparent, neighbourhood-scale, and governed in the public interest. Scotland can learn from these models.</p>
+                </div>
+                <figure class="argument-image" aria-hidden="true">
+                    <img src="<?= e(image_asset('about-team.jpg')) ?>" width="1200" height="800" alt="" decoding="async" loading="lazy">
+                </figure>
+            </li>
+        </ol>
+    </div>
+</section>
+
+<section class="paths-section" aria-labelledby="paths-heading">
+    <div class="wrap">
+        <p class="paths-kicker">Find your way in</p>
+        <h2 id="paths-heading" class="paths-heading">This campaign serves everyone affected</h2>
+        <div class="paths-grid" role="list">
+            <a class="path-card fade-up" href="/why-it-matters.php" role="listitem" data-delay="0">
+                <p class="path-label">Residents</p>
+                <h3 class="path-heading">Understand your options</h3>
+                <p class="path-body">Learn what schemes exist, what you're entitled to, and how poor connectivity harms people through no fault of their own.</p>
+                <span class="path-link" aria-hidden="true">Why it matters →</span>
+            </a>
+            <a class="path-card fade-up" href="/get-involved.php" role="listitem" data-delay="80">
+                <p class="path-label">Organisers</p>
+                <h3 class="path-heading">Get active with us</h3>
+                <p class="path-body">Find practical ways to campaign, raise questions at council level, and connect with others working on digital inclusion in Scotland.</p>
+                <span class="path-link" aria-hidden="true">Get involved →</span>
+            </a>
+            <a class="path-card fade-up" href="/scotland.php" role="listitem" data-delay="160">
+                <p class="path-label">Researchers &amp; press</p>
+                <h3 class="path-heading">Verify the evidence</h3>
+                <p class="path-body">Policy documents, official programmes, and cited sources—everything linked so you can check claims and go deeper.</p>
+                <span class="path-link" aria-hidden="true">Scotland policy →</span>
+            </a>
+        </div>
+    </div>
+</section>
+
 <section class="section" aria-labelledby="quick-help-heading">
     <div class="wrap">
         <h2 id="quick-help-heading">If you need this now, here's where to go</h2>
@@ -141,71 +206,6 @@ require_once __DIR__ . '/includes/header.php';
             <p class="audit-feature-quote">"No clear action plan exists for reducing digital exclusion — and it is unclear who is responsible."</p>
             <p class="audit-feature-cite">Audit Scotland, <em>Tackling Digital Exclusion</em></p>
         </div>
-    </div>
-</section>
-
-<section class="paths-section" aria-labelledby="paths-heading">
-    <div class="wrap">
-        <p class="paths-kicker">Find your way in</p>
-        <h2 id="paths-heading" class="paths-heading">This campaign serves everyone affected</h2>
-        <div class="paths-grid" role="list">
-            <a class="path-card fade-up" href="/why-it-matters.php" role="listitem" data-delay="0">
-                <p class="path-label">Residents</p>
-                <h3 class="path-heading">Understand your options</h3>
-                <p class="path-body">Learn what schemes exist, what you're entitled to, and how poor connectivity harms people through no fault of their own.</p>
-                <span class="path-link" aria-hidden="true">Why it matters →</span>
-            </a>
-            <a class="path-card fade-up" href="/get-involved.php" role="listitem" data-delay="80">
-                <p class="path-label">Organisers</p>
-                <h3 class="path-heading">Get active with us</h3>
-                <p class="path-body">Find practical ways to campaign, raise questions at council level, and connect with others working on digital inclusion in Scotland.</p>
-                <span class="path-link" aria-hidden="true">Get involved →</span>
-            </a>
-            <a class="path-card fade-up" href="/scotland.php" role="listitem" data-delay="160">
-                <p class="path-label">Researchers &amp; press</p>
-                <h3 class="path-heading">Verify the evidence</h3>
-                <p class="path-body">Policy documents, official programmes, and cited sources—everything linked so you can check claims and go deeper.</p>
-                <span class="path-link" aria-hidden="true">Scotland policy →</span>
-            </a>
-        </div>
-    </div>
-</section>
-
-<section class="arguments-section" aria-labelledby="arguments-heading">
-    <div class="wrap">
-        <h2 id="arguments-heading">Our case for change</h2>
-        <ol class="arguments-list">
-            <li class="argument-item fade-up">
-                <div class="argument-text">
-                    <span class="argument-number" aria-hidden="true">01</span>
-                    <h3>Access shapes participation</h3>
-                    <p>Work, learning, health services, and democracy increasingly assume you can get online reliably. When connectivity is unstable or unaffordable, people are excluded from ordinary expectations—not through personal failure, but structural neglect.</p>
-                </div>
-                <figure class="argument-image" aria-hidden="true">
-                    <img src="<?= e(image_asset('card-community.jpg')) ?>" width="1200" height="800" alt="" decoding="async" loading="lazy">
-                </figure>
-            </li>
-            <li class="argument-item fade-up">
-                <div class="argument-text">
-                    <span class="argument-number" aria-hidden="true">02</span>
-                    <h3>Public money should mean public clarity</h3>
-                    <p>Significant public investment flows into broadband and digital inclusion programmes. People deserve a clear path to the help that exists—not complicated applications, confusing criteria, or announcements buried so deep that the people who need them most never hear about them.</p>
-                </div>
-                <figure class="argument-image" aria-hidden="true">
-                    <img src="<?= e(image_asset('glasses-clarity.jpg')) ?>" width="1200" height="956" alt="" decoding="async" loading="lazy">
-                </figure>
-            </li>
-            <li class="argument-item fade-up">
-                <div class="argument-text">
-                    <span class="argument-number" aria-hidden="true">03</span>
-                    <h3>Communities show a different way is possible</h3>
-                    <p>Cooperative and non-profit network projects worldwide—from Guifi.net in Catalonia to NYC Mesh—demonstrate that connectivity can be transparent, neighbourhood-scale, and governed in the public interest. Scotland can learn from these models.</p>
-                </div>
-                <figure class="argument-image" aria-hidden="true">
-                    <img src="<?= e(image_asset('about-team.jpg')) ?>" width="1200" height="800" alt="" decoding="async" loading="lazy">
-                </figure>
-            </li>
-        </ol>
     </div>
 </section>
 

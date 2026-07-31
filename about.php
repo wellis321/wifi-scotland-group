@@ -12,6 +12,7 @@ $pageOgImage    = image_asset('about-team.jpg');
 $pageOgImageAlt = 'People collaborating around a table—symbolising volunteer campaign work.';
 
 $sidebarRelated = [
+    ['href' => '/landscape.php',     'label' => 'Why WIRES exists'],
     ['href' => '/get-involved.php',  'label' => 'Get involved'],
     ['href' => '/groups.php',        'label' => 'Local groups'],
     ['href' => '/global-spotlight.php', 'label' => 'Global spotlight'],

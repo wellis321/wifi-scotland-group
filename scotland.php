@@ -73,6 +73,10 @@ require_once __DIR__ . '/includes/header.php';
         <h2>Local authority action: Glasgow</h2>
 
         <p>
+            Reading policy hubs only gets you so far. Here's what "local government acting on this" actually looks like when a council goes further than most.
+        </p>
+
+        <p>
             Glasgow City Council published Scotland's first <strong>Digital Housing Strategy 2022–2028</strong> — the only local authority strategy to address both digital housing services and digital exclusion together. Its own evidence base produced a striking finding:
         </p>
 

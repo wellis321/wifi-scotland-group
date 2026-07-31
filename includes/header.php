@@ -40,7 +40,6 @@ $navStructure = [
             ['id' => 'whymatters',     'href' => '/why-it-matters',  'label' => 'Why it matters'],
             ['id' => 'digitalhealth',  'href' => '/digital-health',  'label' => 'Digital health'],
             ['id' => 'beyondbroadband','href' => '/beyond-broadband','label' => 'Beyond broadband'],
-            ['id' => 'landscape',      'href' => '/landscape',       'label' => 'Why WIRES exists'],
             ['id' => 'global',         'href' => '/global-spotlight', 'label' => 'Global spotlight'],
         ],
     ],
@@ -50,9 +49,9 @@ $navStructure = [
         'label' => 'Scotland',
         'items' => [
             ['id' => 'gethelp',         'href' => '/get-help',        'label' => 'Get help online'],
+            ['id' => 'accountability',  'href' => '/accountability',  'label' => 'Who is acting?'],
             ['id' => 'scotlandpolicy',  'href' => '/scotland',        'label' => 'Scotland policy'],
             ['id' => 'scotlandstories', 'href' => '/scotland-stories','label' => 'Scottish stories'],
-            ['id' => 'accountability',  'href' => '/accountability',  'label' => 'Who is acting?'],
             ['id' => 'wifimap',         'href' => '/wifi-map',        'label' => 'WiFi map'],
         ],
     ],
@@ -73,6 +72,7 @@ $navStructure = [
         'label' => 'About',
         'items' => [
             ['id' => 'about',            'href' => '/about',             'label' => 'About WIRES'],
+            ['id' => 'landscape',        'href' => '/landscape',         'label' => 'Why WIRES exists'],
             ['id' => 'fororganisations', 'href' => '/for-organisations', 'label' => 'For organisations'],
             ['id' => 'supporters',       'href' => '/supporters',        'label' => 'Supporters'],
             ['id' => 'resources',        'href' => '/resources',         'label' => 'Resources'],
