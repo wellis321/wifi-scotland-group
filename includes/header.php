@@ -170,7 +170,8 @@ $navGroupIsActive = static function (array $group) use ($currentNav): bool {
         "alternateName": "Web Infrastructure Rights for Everyone in Scotland",
         "url": "<?= e(page_url()) ?>",
         "logo": "<?= e((string) absolute_url_for_path('/images/favicon-512x512.png')) ?>",
-        "description": "Web Infrastructure Rights for Everyone in Scotland — campaigning for affordable, reliable connectivity as essential public infrastructure."
+        "description": "Web Infrastructure Rights for Everyone in Scotland — campaigning for affordable, reliable connectivity as essential public infrastructure.",
+        "correctionsPolicy": "<?= e(page_url('corrections')) ?>"
     }
     </script>
     <link rel="icon" href="/favicon.ico" sizes="any">

@@ -12,6 +12,7 @@ $pageOgImage    = image_asset('card-fibre.jpg');
 $pageOgImageAlt = 'Fibre-optic cables close-up — representing the evidence behind the campaign.';
 
 $sidebarRelated = [
+    ['href' => '/corrections',    'label' => 'Corrections'],
     ['href' => '/resources',      'label' => 'Resources & references'],
     ['href' => '/why-it-matters', 'label' => 'Why it matters'],
     ['href' => '/accountability', 'label' => 'Who is acting?'],

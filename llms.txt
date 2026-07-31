@@ -43,6 +43,8 @@
 
 - [Campaign news](https://wires.org.uk/news)
 - [Resources and references](https://wires.org.uk/resources)
+- [Figures and sources](https://wires.org.uk/figures): every statistic used on the site, with its primary source
+- [Corrections](https://wires.org.uk/corrections): every correction made to a published figure, with what changed and why
 
 ## Legal
 
