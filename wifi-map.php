@@ -83,7 +83,7 @@ require_once __DIR__ . '/includes/header.php';
             <p>The map gives an indicative picture. For authoritative coverage data and programme information specific to your council area, use these official sources:</p>
             <ul>
                 <li>
-                    <a href="https://www.ofcom.org.uk/research-and-data/telecoms-research/connected-nations"<?= external_link_attrs('https://www.ofcom.org.uk/research-and-data/telecoms-research/connected-nations') ?>>Ofcom Connected Nations</a>
+                    <a href="https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/infrastructure-research"<?= external_link_attrs('https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/infrastructure-research') ?>>Ofcom Connected Nations</a>
                     — the official regulator's coverage maps and statistics, updated annually. Search by postcode to see what speeds are available at your address.
                 </li>
                 <li>

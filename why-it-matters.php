@@ -101,7 +101,7 @@ require_once __DIR__ . '/includes/header.php';
         </p>
 
         <p>
-            For the bigger picture — coverage, quality of service, and affordability at national scale — Ofcom's <a href="https://www.ofcom.org.uk/research-and-data/multi-sector-research/infrastructure-research/connected-nations"<?= external_link_attrs('https://www.ofcom.org.uk/research-and-data/multi-sector-research/infrastructure-research/connected-nations') ?>>Connected Nations</a> research is the authoritative source. Figures there update each release, so we link to the hub rather than quoting a number that will soon be out of date.
+            For the bigger picture — coverage, quality of service, and affordability at national scale — Ofcom's <a href="https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/infrastructure-research"<?= external_link_attrs('https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/infrastructure-research') ?>>Connected Nations</a> research is the authoritative source. Figures there update each release, so we link to the hub rather than quoting a number that will soon be out of date.
         </p>
 
         <h2>Who is most affected</h2>
@@ -112,7 +112,7 @@ require_once __DIR__ . '/includes/header.php';
             For Scotland-specific numbers, the <a href="https://www.gov.scot/collections/scottish-household-survey/"<?= external_link_attrs('https://www.gov.scot/collections/scottish-household-survey/') ?>>Scottish Household Survey</a> is the primary official source, including internet use in years where it's part of the questionnaire. It sits alongside — not in place of — Ofcom's coverage data.
         </p>
         <p>
-            Rural and island communities are a clear case in point: Ofcom's coverage and quality research consistently shows weaker fixed and mobile signal there than in urban centres. For current maps and figures, <a href="https://www.ofcom.org.uk/research-and-data/multi-sector-research/infrastructure-research/connected-nations"<?= external_link_attrs('https://www.ofcom.org.uk/research-and-data/multi-sector-research/infrastructure-research/connected-nations') ?>>Connected Nations</a> is the place to look.
+            Rural and island communities are a clear case in point: Ofcom's coverage and quality research consistently shows weaker fixed and mobile signal there than in urban centres. For current maps and figures, <a href="https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/infrastructure-research"<?= external_link_attrs('https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/infrastructure-research') ?>>Connected Nations</a> is the place to look.
         </p>
 
         <h2 id="homelessness">People without a fixed address are locked out by design</h2>
