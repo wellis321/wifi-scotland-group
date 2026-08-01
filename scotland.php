@@ -46,7 +46,7 @@ require_once __DIR__ . '/includes/header.php';
         <p>
             <strong>Reaching 100% (R100)</strong> is the flagship Scottish programme associated with extending access where commercial build has been uneconomic.
             The <a href="https://digitalconnectivity.campaign.gov.scot/about-r100"<?= external_link_attrs('https://digitalconnectivity.campaign.gov.scot/about-r100') ?>>programme hub</a> emphasises contracts, voucher support, and collaboration with industry; timelines and premises counts change as build progresses,
-            so we do not freeze figures here—use the <a href="https://www.gov.scot/publications/reaching-100-superfast-broadband/"<?= external_link_attrs('https://www.gov.scot/publications/reaching-100-superfast-broadband/') ?>>official publications list</a> for current metrics.
+            so we do not freeze figures here—use the <a href="https://digitalconnectivity.campaign.gov.scot/data-insights"<?= external_link_attrs('https://digitalconnectivity.campaign.gov.scot/data-insights') ?>>R100 data insights page</a> for current metrics.
         </p>
 
         <h2>Digital strategy and public services</h2>

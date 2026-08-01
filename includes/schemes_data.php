@@ -44,7 +44,7 @@ function load_schemes(): array
             'who'          => 'Households and businesses in areas without superfast broadband (30 Mbps+), particularly rural Scotland. Build is ongoing — your area may not be connected yet.',
             'what'         => 'Superfast broadband infrastructure delivered via Openreach fibre. Build completion expected 2028.',
             'how'          => 'Check the Scottish Government\'s broadband pages to see whether your area is included in the programme and what the expected delivery date is.',
-            'url'          => 'https://www.gov.scot/policies/digital/broadband-roll-out/',
+            'url'          => 'https://digitalconnectivity.campaign.gov.scot/',
             'source_label' => 'Scottish Government: R100 broadband roll-out',
             'updated'      => '2026-01',
             'status'       => 'active',

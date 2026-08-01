@@ -129,7 +129,7 @@ require_once __DIR__ . '/includes/header.php';
                     </div>
                     <h3 class="community-net-name">Digital Inclusion Alliance Scotland</h3>
                     <p>A multi-sector body with Scottish Government backing intended to coordinate digital inclusion activity across Scotland. The SCVO has described its early work as a "talking shop" with no clear lines of accountability. No published action plan, delivery framework, or outcome metrics have been identified.</p>
-                    <a class="community-net-link" href="https://www.scvo.scot/policy-campaigning-research/digital/digital-inclusion-alliance"<?= external_link_attrs('https://www.scvo.scot/policy-campaigning-research/digital/digital-inclusion-alliance') ?>>SCVO on the Digital Inclusion Alliance &rarr;</a>
+                    <a class="community-net-link" href="https://scvo.scot/support/digital/inclusion/error-404-digital-inclusion-still-not-found/why-we-dont-support-a-digital-inclusion-alliance"<?= external_link_attrs('https://scvo.scot/support/digital/inclusion/error-404-digital-inclusion-still-not-found/why-we-dont-support-a-digital-inclusion-alliance') ?>>SCVO: Why we don't support a Digital Inclusion Alliance &rarr;</a>
                 </div>
 
                 <div class="community-net-item">

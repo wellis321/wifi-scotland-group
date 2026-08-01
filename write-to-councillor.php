@@ -87,9 +87,9 @@ require_once __DIR__ . '/includes/header.php';
                     <strong>WriteToThem.com</strong>
                     <span>Enter your postcode to find all your local councillors and send your letter — free, delivered directly.</span>
                 </a>
-                <a class="councillor-route" href="https://www.gov.scot/publications/councillors/"<?= external_link_attrs('https://www.gov.scot/publications/councillors/') ?>>
-                    <strong>Scottish councillor directory</strong>
-                    <span>Official Scottish Government list of all elected councillors across the 32 local authorities.</span>
+                <a class="councillor-route" href="https://www.mygov.scot/contact-local-council"<?= external_link_attrs('https://www.mygov.scot/contact-local-council') ?>>
+                    <strong>Find your local council</strong>
+                    <span>Official Scottish Government directory of all 32 local authorities — find your council's site to look up your councillors.</span>
                 </a>
                 <a class="councillor-route" href="https://www.theyworkforyou.com/"<?= external_link_attrs('https://www.theyworkforyou.com/') ?>>
                     <strong>TheyWorkForYou.com</strong>
