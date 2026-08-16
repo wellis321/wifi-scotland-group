@@ -44,7 +44,7 @@
     align-items: center;
     gap: 0.1rem;
     flex: 1;
-    overflow-x: auto;
+    flex-wrap: wrap;
 }
 
 .admin-nav-link {
