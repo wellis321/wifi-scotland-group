@@ -138,6 +138,22 @@ function load_figures(): array
             'date'    => 'Sep 2025',
             'note'    => 'Corrected the date — this was previously implied to be an August 2024 piece (the month of the Audit Scotland report it responds to); the article itself is dated September 2025.',
         ],
+        [
+            'claim'   => 'Glasgow Council for the Voluntary Sector (GCVS) was awarded grant funding to host the Digital Inclusion Alliance',
+            'used_on' => [['label' => 'Why WIRES exists', 'href' => '/landscape'], ['label' => 'Who is acting?', 'href' => '/accountability']],
+            'source'  => 'GCVS',
+            'url'     => 'https://gcvs.org.uk/digital-inclusion-alliance/',
+            'date'    => '11 Nov 2025',
+            'note'    => 'A host organisation is now confirmed, but GCVS\'s own announcement says only that "further details... will be shared in due course" — no published delivery plan, staffing, or launch date as of the announcement. Doesn\'t change the "no clear delivery plan" critique, just updates the governance picture.',
+        ],
+        [
+            'claim'   => 'Digital Poverty Alliance registered as a Scottish charity and was named a key partner of Scotland\'s Digital Inclusion Alliance',
+            'used_on' => [['label' => 'Why WIRES exists', 'href' => '/landscape']],
+            'source'  => 'Digital Poverty Alliance',
+            'url'     => 'https://digitalpovertyalliance.org/news-updates/dpa-named-key-partner-of-scotlands-digital-inclusion-alliance/',
+            'date'    => '2026',
+            'note'    => 'Confirmed against DPA\'s own announcement.',
+        ],
     ],
     'Digital skills & who is excluded' => [
         [
@@ -171,6 +187,14 @@ function load_figures(): array
             'url'     => 'https://www.goodthingsfoundation.org/policy-and-research/research-and-evidence/research-2024/digital-nation',
             'date'    => '2025',
             'note'    => 'Corrected the source link — it previously pointed to an NHS Alliance page that doesn\'t contain these figures.',
+        ],
+        [
+            'claim'   => 'Digitally excluded clients recorded by Scotland\'s Citizens Advice network rose 59% in two years — from 1,932 in 2021/22 to 3,065 in 2023/24',
+            'used_on' => [['label' => 'Who is acting?', 'href' => '/accountability']],
+            'source'  => 'Citizens Advice Scotland — Digital Exclusion and Public Services (evidence to the Public Audit Committee)',
+            'url'     => 'https://www.parliament.scot/-/media/files/committees/public-audit-committee/correspondence/2024/tackling-digital-exclusion-cas-to-pac-13-dec-2024.pdf',
+            'date'    => '13 Dec 2024',
+            'note'    => 'Confirmed against the primary-source PDF, page 3.',
         ],
     ],
     'Health & wellbeing evidence' => [

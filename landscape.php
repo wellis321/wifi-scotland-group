@@ -64,8 +64,10 @@ require_once __DIR__ . '/includes/header.php';
                 <div class="community-net-item">
                     <div class="community-net-meta"><span class="pill">Scottish Government backed</span></div>
                     <h3 class="community-net-name">Digital Inclusion Alliance Scotland</h3>
-                    <p>A multi-sector body with Scottish Government backing, intended to coordinate digital inclusion activity across Scotland — two years in the making and still without a clear delivery plan. SCVO has openly stated it does not support the Alliance, warning that "the last thing Scotland needs is yet another talking shop" and that the model risks introducing "bureaucracy and complexity, rather than enabling practical action." <a href="https://scvo.scot/support/digital/inclusion/error-404-digital-inclusion-still-not-found/why-we-dont-support-a-digital-inclusion-alliance"<?= external_link_attrs('https://scvo.scot/support/digital/inclusion/error-404-digital-inclusion-still-not-found/why-we-dont-support-a-digital-inclusion-alliance') ?>>SCVO: Why we don't support a Digital Inclusion Alliance &rarr;</a></p>
+                    <p>A multi-sector body with Scottish Government backing, intended to coordinate digital inclusion activity across Scotland — two years in the making and still without a clear delivery plan. Glasgow Council for the Voluntary Sector (GCVS) was confirmed as host in November 2025, but GCVS's own announcement said only that "further details... will be shared in due course" — no published delivery plan, staffing, or launch date yet. SCVO has openly stated it does not support the Alliance, warning that "the last thing Scotland needs is yet another talking shop" and that the model risks introducing "bureaucracy and complexity, rather than enabling practical action." <a href="https://scvo.scot/support/digital/inclusion/error-404-digital-inclusion-still-not-found/why-we-dont-support-a-digital-inclusion-alliance"<?= external_link_attrs('https://scvo.scot/support/digital/inclusion/error-404-digital-inclusion-still-not-found/why-we-dont-support-a-digital-inclusion-alliance') ?>>SCVO: Why we don't support a Digital Inclusion Alliance &rarr;</a></p>
                     <a class="community-net-link" href="https://www.gov.scot/policies/digital/digital-inclusion-and-ethics/"<?= external_link_attrs('https://www.gov.scot/policies/digital/digital-inclusion-and-ethics/') ?>>Scottish Government: Digital Inclusion Alliance &rarr;</a>
+                    &nbsp;&middot;&nbsp;
+                    <a class="community-net-link" href="https://gcvs.org.uk/digital-inclusion-alliance/"<?= external_link_attrs('https://gcvs.org.uk/digital-inclusion-alliance/') ?>>GCVS: hosting the Digital Inclusion Alliance &rarr;</a>
                 </div>
             </div>
 
@@ -94,7 +96,7 @@ require_once __DIR__ . '/includes/header.php';
                 <div class="community-net-item">
                     <div class="community-net-meta"><span class="pill">UK-wide</span></div>
                     <h3 class="community-net-name">Digital Poverty Alliance</h3>
-                    <p>A strong UK-wide body producing research and advocacy on digital poverty, with some Scottish activity including Highland projects. Headquartered in England; their mandate is national and their primary relationships are with UK government. Valuable as a research source and ally, but not a Scotland-specific public campaign.</p>
+                    <p>A strong UK-wide body producing research and advocacy on digital poverty, with some Scottish activity including Highland projects. Registered as a Scottish charity and named a key partner of the Digital Inclusion Alliance in 2026. Headquartered in England; their mandate is national and their primary relationships are with UK government. Valuable as a research source and ally, but not a Scotland-specific public campaign.</p>
                     <a class="community-net-link" href="https://digitalpovertyalliance.org/"<?= external_link_attrs('https://digitalpovertyalliance.org/') ?>>digitalpovertyalliance.org &rarr;</a>
                 </div>
             </div>

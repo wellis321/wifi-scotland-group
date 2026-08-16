@@ -98,6 +98,7 @@ require_once __DIR__ . '/includes/header.php';
                 </div>
                 <div class="info-card__body">
                     <p>Broadband programmes alone are not enough — R100 and the Gigabit Voucher Scheme fix infrastructure, but don't touch devices, skills, authentication, or language. A campaign that only argues for better broadband coverage is arguing for a necessary but insufficient condition. WIRES argues for the whole stack.</p>
+                    <p>Even the Scottish Government's own Digital Connectivity team now makes a version of this argument: in July 2026, its Deputy Director wrote that connectivity is "one of the foundations on which modern Scotland relies" and challenged the assumption that digital connectivity means broadband alone. <a href="https://blogs.gov.scot/digital/2026/07/23/what-keeps-scotland-connected-the-hidden-infrastructure-behind-everyday-life/"<?= external_link_attrs('https://blogs.gov.scot/digital/2026/07/23/what-keeps-scotland-connected-the-hidden-infrastructure-behind-everyday-life/') ?>>Read the Scottish Government's blog &rarr;</a></p>
                     <p><a class="btn btn-ghost btn-sm" href="/landscape">How WIRES is different &rarr;</a></p>
                 </div>
             </div>

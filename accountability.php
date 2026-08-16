@@ -128,8 +128,10 @@ require_once __DIR__ . '/includes/header.php';
                         <span class="pill pill--seeking" style="margin-left:0.4rem">Accountability gap</span>
                     </div>
                     <h3 class="community-net-name">Digital Inclusion Alliance Scotland</h3>
-                    <p>A multi-sector body with Scottish Government backing intended to coordinate digital inclusion activity across Scotland. The SCVO has described its early work as a "talking shop" with no clear lines of accountability. No published action plan, delivery framework, or outcome metrics have been identified.</p>
+                    <p>A multi-sector body with Scottish Government backing intended to coordinate digital inclusion activity across Scotland. Glasgow Council for the Voluntary Sector (GCVS) was confirmed as host in November 2025, but no published action plan, delivery framework, or outcome metrics have been identified since. The SCVO has described its early work as a "talking shop" with no clear lines of accountability.</p>
                     <a class="community-net-link" href="https://scvo.scot/support/digital/inclusion/error-404-digital-inclusion-still-not-found/why-we-dont-support-a-digital-inclusion-alliance"<?= external_link_attrs('https://scvo.scot/support/digital/inclusion/error-404-digital-inclusion-still-not-found/why-we-dont-support-a-digital-inclusion-alliance') ?>>SCVO: Why we don't support a Digital Inclusion Alliance &rarr;</a>
+                    &nbsp;&middot;&nbsp;
+                    <a class="community-net-link" href="https://gcvs.org.uk/digital-inclusion-alliance/"<?= external_link_attrs('https://gcvs.org.uk/digital-inclusion-alliance/') ?>>GCVS: hosting the Digital Inclusion Alliance &rarr;</a>
                 </div>
 
                 <div class="community-net-item">
@@ -148,6 +150,9 @@ require_once __DIR__ . '/includes/header.php';
                         COSLA's own internal paper (LD/24/025, May 2024) acknowledged the strategy needed refreshing and flagged reduced funding to local areas as a risk to delivery. The Third Force News summarised the situation as: <em>"No leadership, no momentum: Scottish Government has failed to act on digital exclusion."</em>
                     </p>
                     <p>
+                        Independent evidence backs this up: Citizens Advice Scotland told the Scottish Parliament's Public Audit Committee that digitally excluded clients recorded across its bureaux network rose 59% in two years — from 1,932 in 2021/22 to 3,065 in 2023/24 — with advisers spending an increasing share of their time helping people navigate digital-by-default public services rather than giving advice on the issues that brought them in.
+                    </p>
+                    <p>
                         Note: a separate body — the <strong>Digital Office for Scottish Local Government</strong> (digitaloffice.scot) — is hosted at COSLA but operates independently, focused on digital transformation and data maturity within councils. It is distinct from COSLA's own Digital Office function.
                     </p>
                     <a class="community-net-link" href="https://audit.scot/uploads/2024-08/nr_240822_tackling_digital_exclusion.pdf"<?= external_link_attrs('https://audit.scot/uploads/2024-08/nr_240822_tackling_digital_exclusion.pdf') ?>>Audit Scotland: Tackling Digital Exclusion (August 2024, PDF) &rarr;</a>
@@ -155,6 +160,8 @@ require_once __DIR__ . '/includes/header.php';
                     <a class="community-net-link" href="https://audit.scot/news/clearer-leadership-and-focus-needed-to-tackle-digital-exclusion"<?= external_link_attrs('https://audit.scot/news/clearer-leadership-and-focus-needed-to-tackle-digital-exclusion') ?>>Audit Scotland news release &rarr;</a>
                     &nbsp;&middot;&nbsp;
                     <a class="community-net-link" href="https://www.cosla.gov.uk/about-cosla/our-teams/digital-office"<?= external_link_attrs('https://www.cosla.gov.uk/about-cosla/our-teams/digital-office') ?>>COSLA Digital Office &rarr;</a>
+                    &nbsp;&middot;&nbsp;
+                    <a class="community-net-link" href="https://www.parliament.scot/-/media/files/committees/public-audit-committee/correspondence/2024/tackling-digital-exclusion-cas-to-pac-13-dec-2024.pdf"<?= external_link_attrs('https://www.parliament.scot/-/media/files/committees/public-audit-committee/correspondence/2024/tackling-digital-exclusion-cas-to-pac-13-dec-2024.pdf') ?>>Citizens Advice Scotland: evidence to the Public Audit Committee (PDF) &rarr;</a>
                 </div>
 
                 <div class="community-net-item">

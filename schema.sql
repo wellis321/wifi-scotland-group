@@ -314,3 +314,54 @@ CREATE TABLE IF NOT EXISTS org_supporters (
   KEY idx_org_status (status),
   KEY idx_org_name (org_name)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ─── Council councillor contacts (outreach tracking) ─────────────────────────
+
+CREATE TABLE IF NOT EXISTS council_contacts (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  council_area VARCHAR(120) NOT NULL COMMENT 'Matches Scottish council-area GeoJSON used on wifi-map.php',
+  directory_url VARCHAR(500) DEFAULT NULL COMMENT 'Official page listing all councillors for this council',
+  contact_method VARCHAR(300) DEFAULT NULL COMMENT 'Email pattern, bulk mailbox, or contact route',
+  councillor_count VARCHAR(20) DEFAULT NULL COMMENT 'Approximate seat count, e.g. "~45" or "32"',
+  status ENUM('confirmed','check','blocked') NOT NULL DEFAULT 'check' COMMENT 'confirmed = working email pattern verified; check = directory found, contact route unverified; blocked = no direct email found',
+  notes TEXT DEFAULT NULL,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  UNIQUE KEY uq_council_contacts_area (council_area),
+  KEY idx_council_contacts_status (status)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO council_contacts (council_area, directory_url, contact_method, councillor_count, status, notes) VALUES
+('Angus', 'https://www.angus.gov.uk/councillors', 'CllrSurname@angus.gov.uk', '~28', 'confirmed', 'Confirmed working pattern (verified on Cllr Chris Beattie''s profile page).'),
+('Argyll and Bute', 'https://www.argyll-bute.gov.uk/my-council/councillors-directory', 'firstname.lastname@argyll-bute.gov.uk', '~36', 'confirmed', 'Confirmed working pattern (verified on John Armour''s page). Directory paginated, 3 pages.'),
+('Clackmannanshire', 'https://www.clacks.gov.uk/council/wards/', '[initial][surname]@clacks.gov.uk', '18', 'confirmed', 'Confirmed working pattern, e.g. cholden@clacks.gov.uk.'),
+('Dundee City', 'https://www.dundeecity.gov.uk/service-area/councillors', 'firstname.lastname@dundeecity.gov.uk', '~29', 'confirmed', 'Confirmed working pattern, e.g. nadia.el-nakla@dundeecity.gov.uk.'),
+('East Lothian', 'https://www.eastlothian.gov.uk/councillors/name', '[initial][surname]@eastlothian.gov.uk', '~22', 'confirmed', 'Confirmed working pattern, e.g. cyorkston@eastlothian.gov.uk.'),
+('Eilean Siar', 'https://www.cne-siar.gov.uk/council-and-committees/wards-and-councillors/councillors', 'firstname.lastname@cne-siar.gov.uk', '~29', 'confirmed', 'Direct emails shown on the roster page itself — cleanest case found.'),
+('Orkney Islands', 'https://www.orkney.gov.uk/your-council/councillors-and-meetings/councillors/', 'firstname.lastname@orkney.gov.uk', '~21', 'confirmed', 'Direct emails (mailto links) shown on the roster page.'),
+('Perth and Kinross', 'https://perth-and-kinross.cmis.uk.com/perth-and-kinross/Councillors.aspx', 'councillorenquiries@pkc.gov.uk (bulk mailbox)', '~40', 'confirmed', 'Genuine bulk enquiry mailbox found on the page — one send may reach all.'),
+('Renfrewshire', 'https://www.renfrewshire.gov.uk/council-and-elections/councillors-and-council-boards/councillors', 'cllr.firstname.lastname@renfrewshire.gov.uk', '43', 'confirmed', 'Confirmed working pattern across all 43 profile cards.'),
+('Scottish Borders', 'https://www.scotborders.gov.uk/councillors', 'firstname.lastname@scotborders.gov.uk', '~33', 'confirmed', 'Confirmed on the main gov.uk domain (ModernGov subdomain separately blocks automated checks).'),
+('Shetland Islands', 'https://www.shetland.gov.uk/councillors', 'firstname.lastname@shetland.gov.uk', '23', 'confirmed', 'Confirmed working pattern across the full list.'),
+('Stirling', 'https://www.stirling.gov.uk/council-and-committees/councillors/your-councillors/', '[initial][lastname]@stirling.gov.uk', '23', 'confirmed', 'Confirmed via browser user-agent request, e.g. macphersona@stirling.gov.uk.'),
+('Aberdeen City', 'https://committees.aberdeencity.gov.uk/mgMemberIndex.aspx', 'ModernGov roster — email format unconfirmed', '~45', 'check', 'Site blocks automated checks (bot protection); confirmed live via search index, open in an ordinary browser.'),
+('Aberdeenshire', 'https://aberdeenshire.moderngov.co.uk/mgMemberIndex.aspx?bcr=1', 'ModernGov roster — email format unconfirmed', '~69', 'check', 'Site blocks automated checks; confirmed live via search index ("Your Councillors - Aberdeenshire Council").'),
+('City of Edinburgh', 'https://www.edinburgh.gov.uk/councillors-committees', 'Hub page only — roster page not yet located', '~63', 'check', 'Only the navigation hub was reached in research — click through to the actual roster/search tool and confirm.'),
+('Dumfries and Galloway', 'https://dumfriesgalloway.moderngov.co.uk/mgMemberIndex.aspx?bcr=1', 'ModernGov roster — email format unconfirmed', '~43', 'check', 'Site blocks automated checks; confirmed live via search index. Older dumgal.gov.uk article URL is now dead — do not use.'),
+('East Dunbartonshire', 'https://eastdunbarton.moderngov.co.uk/mgMemberIndex.aspx', 'ModernGov roster — email format unconfirmed', '~22', 'check', 'Site blocks automated checks; only a shared customerservices@eastdunbarton.gov.uk address found otherwise.'),
+('East Renfrewshire', 'https://www.eastrenfrewshire.gov.uk/article/5573/Full-Council', 'Unconfirmed — site blocks automated checks', '~18', 'check', 'Cloudflare-protected; confirm manually whether individual emails are shown.'),
+('Glasgow City', 'https://www.glasgow.gov.uk/article/1687/Councillors-Listed-by-A-Z', 'Unconfirmed — site blocks automated checks', '~85', 'check', 'Cloudflare-protected; check the linked Councillor Information System for per-member contact details.'),
+('Midlothian', 'https://midlothian.cmis.uk.com/live/councillors.aspx', 'Click-through needed — no email on list page', '18', 'check', 'Roster loads fine; open an individual profile to confirm email format.'),
+('Moray', 'https://moray.cmis.uk.com/moray/CouncilandGovernance/Councillors.aspx', 'Click-through needed — emails reportedly on CMIS profiles', '26', 'check', 'A Moray FOI response confirms councillor emails are published on this portal; exact format not yet verified.'),
+('North Ayrshire', 'https://www.north-ayrshire.gov.uk/council-voting-elections/councillors', 'Unconfirmed — JS app, no server-rendered content', '33', 'check', 'Page returns 200 OK but is a client-rendered app; open directly in a browser to check.'),
+('North Lanarkshire', 'https://www.northlanarkshire.gov.uk/your-council/councillors-and-committees/official-council-roles/councillors', 'membersservices@northlan.gov.uk (bulk mailbox, reach unconfirmed)', '77', 'check', 'No individual emails found; confirm the bulk mailbox actually reaches all councillors before relying on it.'),
+('West Dunbartonshire', 'https://www.west-dunbarton.gov.uk/council/councillors-and-committees/councillor/councillors-by-ward/', 'Click-through needed — no email on listing page', '22', 'check', 'Full list of 22 across 6 wards confirmed; click into each profile for an email.'),
+('West Lothian', 'https://coins.westlothian.gov.uk/coins/allMembers.asp?sort=0', 'Click-through needed; general customer.services@westlothian.gov.uk', '~33', 'check', 'Paginated CoINS member list confirmed working; per-profile email presence not yet confirmed.'),
+('East Ayrshire', 'https://www.east-ayrshire.gov.uk/CouncilAndGovernment/About-the-Council/Councillors-and-Provost/Councillors.aspx', 'admin@east-ayrshire.gov.uk (shared inbox only)', '~32', 'blocked', 'No individual councillor emails found anywhere on the site.'),
+('Falkirk', 'https://council.falkirk.gov.uk/councillors', 'No email shown — likely a web form', '32', 'blocked', 'Roster confirmed; profile links have no visible email address.'),
+('Fife', 'https://www.fife.gov.uk/kb/docs/articles/about-your-council2/politicians-and-committees/your-local-councillors/councillor/councillors', 'Phone only: 03451 55 55 55 ext 442320', '75', 'blocked', 'Full A-Z roster confirmed (Adams-Young); no emails listed on any page checked.'),
+('Highland', 'https://highland.gov.uk/councillors', 'No email shown — likely a web form', '~74', 'blocked', 'Names, ward and party only — no emails or bulk contact found.'),
+('Inverclyde', 'https://www2.inverclyde.gov.uk/memberscontact/', 'No email shown — likely a web form', '22', 'blocked', 'Ward-lookup dropdown of all 22 names, no direct emails shown.'),
+('South Ayrshire', 'https://www.south-ayrshire.gov.uk/article/24777/Find-my-councillor', 'Unconfirmed — site fully blocks automated access', '28', 'blocked', 'Cloudflare bot challenge blocks all automated checks; needs a full manual browser visit.'),
+('South Lanarkshire', 'https://www.southlanarkshire.gov.uk/councillors', 'No email shown — postcode/name search only', '64', 'blocked', 'Sampled profile page showed no email address; CMIS subdomain may hold fuller records, not yet checked.')
+ON DUPLICATE KEY UPDATE directory_url = VALUES(directory_url);
