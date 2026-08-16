@@ -11,23 +11,69 @@
     <link rel="stylesheet" href="/css/site.css">
     <link rel="stylesheet" href="/admin/admin.css">
 </head>
+<?php
+$adminNavStructure = [
+    ['type' => 'link',  'id' => 'dashboard', 'href' => '/admin/', 'label' => 'Dashboard'],
+    [
+        'type' => 'group', 'id' => 'inbox', 'label' => 'Inbox',
+        'items' => [
+            ['id' => 'members',  'href' => '/admin/members.php',  'label' => 'Members'],
+            ['id' => 'messages', 'href' => '/admin/messages.php', 'label' => 'Messages'],
+            ['id' => 'tips',     'href' => '/admin/tips.php',     'label' => 'Tips'],
+        ],
+    ],
+    [
+        'type' => 'group', 'id' => 'content', 'label' => 'Content',
+        'items' => [
+            ['id' => 'news',          'href' => '/admin/news.php',           'label' => 'News'],
+            ['id' => 'groups',        'href' => '/admin/groups.php',         'label' => 'Groups'],
+            ['id' => 'events',        'href' => '/admin/events.php',         'label' => 'Events'],
+            ['id' => 'schemes',       'href' => '/admin/schemes.php',        'label' => 'Schemes'],
+            ['id' => 'orgsupporters', 'href' => '/admin/org-supporters.php', 'label' => 'Supporters'],
+        ],
+    ],
+    ['type' => 'link', 'id' => 'councils', 'href' => '/admin/councils.php', 'label' => 'Councils'],
+    [
+        'type' => 'group', 'id' => 'media', 'label' => 'Media',
+        'items' => [
+            ['id' => 'media', 'href' => '/admin/media.php', 'label' => 'Media'],
+            ['id' => 'files', 'href' => '/admin/files.php', 'label' => 'Files'],
+        ],
+    ],
+];
+
+/** True if $adminSection matches an item inside this group. */
+$adminGroupIsActive = static function (array $group) use ($adminSection): bool {
+    foreach ($group['items'] as $item) {
+        if (($item['id'] ?? '') === ($adminSection ?? '')) return true;
+    }
+    return false;
+};
+?>
 <body class="admin-body">
 <header class="admin-header">
     <div class="admin-header-inner">
         <a class="admin-brand" href="/admin/">WIRES <span>Admin</span></a>
         <nav class="admin-nav" aria-label="Admin">
-            <a href="/admin/" class="admin-nav-link <?= ($adminSection ?? '') === 'dashboard' ? 'is-active' : '' ?>">Dashboard</a>
-            <a href="/admin/members.php" class="admin-nav-link <?= ($adminSection ?? '') === 'members' ? 'is-active' : '' ?>">Members</a>
-            <a href="/admin/messages.php" class="admin-nav-link <?= ($adminSection ?? '') === 'messages' ? 'is-active' : '' ?>">Messages</a>
-            <a href="/admin/tips.php" class="admin-nav-link <?= ($adminSection ?? '') === 'tips' ? 'is-active' : '' ?>">Tips</a>
-            <a href="/admin/news.php" class="admin-nav-link <?= ($adminSection ?? '') === 'news' ? 'is-active' : '' ?>">News</a>
-            <a href="/admin/groups.php" class="admin-nav-link <?= ($adminSection ?? '') === 'groups' ? 'is-active' : '' ?>">Groups</a>
-            <a href="/admin/events.php" class="admin-nav-link <?= ($adminSection ?? '') === 'events' ? 'is-active' : '' ?>">Events</a>
-            <a href="/admin/schemes.php" class="admin-nav-link <?= ($adminSection ?? '') === 'schemes' ? 'is-active' : '' ?>">Schemes</a>
-            <a href="/admin/councils.php" class="admin-nav-link <?= ($adminSection ?? '') === 'councils' ? 'is-active' : '' ?>">Councils</a>
-            <a href="/admin/media.php" class="admin-nav-link <?= ($adminSection ?? '') === 'media' ? 'is-active' : '' ?>">Media</a>
-            <a href="/admin/files.php" class="admin-nav-link <?= ($adminSection ?? '') === 'files' ? 'is-active' : '' ?>">Files</a>
-            <a href="/admin/org-supporters.php" class="admin-nav-link <?= ($adminSection ?? '') === 'orgsupporters' ? 'is-active' : '' ?>">Supporters</a>
+            <?php foreach ($adminNavStructure as $entry): ?>
+                <?php if ($entry['type'] === 'link'): ?>
+                    <a href="<?= e($entry['href']) ?>" class="admin-nav-link <?= ($adminSection ?? '') === $entry['id'] ? 'is-active' : '' ?>"><?= e($entry['label']) ?></a>
+                <?php else:
+                    $groupActive = $adminGroupIsActive($entry);
+                ?>
+                    <div class="admin-nav-group">
+                        <button type="button" class="admin-nav-link admin-nav-group-trigger <?= $groupActive ? 'is-active' : '' ?>">
+                            <?= e($entry['label']) ?>
+                            <span class="admin-nav-group-chevron" aria-hidden="true"></span>
+                        </button>
+                        <div class="admin-nav-dropdown">
+                            <?php foreach ($entry['items'] as $item): ?>
+                                <a href="<?= e($item['href']) ?>" class="admin-nav-dropdown-link <?= ($adminSection ?? '') === $item['id'] ? 'is-active' : '' ?>"><?= e($item['label']) ?></a>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                <?php endif; ?>
+            <?php endforeach; ?>
         </nav>
         <div class="admin-header-actions">
             <a href="/" target="_blank" rel="noopener" class="admin-btn-sm">View site</a>
