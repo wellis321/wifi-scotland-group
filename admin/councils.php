@@ -10,12 +10,16 @@ $adminTitle   = 'Councillor outreach';
 $adminSection = 'councils';
 
 $councils = db_available()
-    ? db()->query('SELECT id, council_area, directory_url, contact_method, councillor_count, status, notes FROM council_contacts ORDER BY council_area ASC')->fetchAll()
+    ? db()->query('SELECT id, council_area, directory_url, contact_method, councillor_count, status, notes, outreach_sent_at, outreach_replied_at FROM council_contacts ORDER BY council_area ASC')->fetchAll()
     : [];
 
 $counts = ['confirmed' => 0, 'check' => 0, 'blocked' => 0];
+$sentCount = 0;
+$repliedCount = 0;
 foreach ($councils as $c) {
     if (isset($counts[$c['status']])) $counts[$c['status']]++;
+    if (!empty($c['outreach_sent_at'])) $sentCount++;
+    if (!empty($c['outreach_replied_at'])) $repliedCount++;
 }
 
 $statusLabel = ['confirmed' => 'Confirmed', 'check' => 'Needs check', 'blocked' => 'No direct email'];
@@ -47,21 +51,39 @@ require_once __DIR__ . '/includes/admin_header.php';
         <span class="admin-stat-value"><?= $counts['blocked'] ?></span>
         <span class="admin-stat-label">No direct email</span>
     </div>
+    <div class="admin-stat">
+        <span class="admin-stat-value"><?= $sentCount ?>/32</span>
+        <span class="admin-stat-label">Letters sent</span>
+    </div>
+    <div class="admin-stat">
+        <span class="admin-stat-value"><?= $repliedCount ?></span>
+        <span class="admin-stat-label">Replied</span>
+    </div>
 </div>
+
+<p class="meta" style="margin-bottom:1.25rem">Sent/replied status here drives the public <a href="/council-replies" target="_blank">Council replies</a> transparency page — keep it current as letters go out and responses come in.</p>
 
 <?php if (empty($councils)): ?>
     <div class="admin-table-wrap"><p class="admin-empty">No council contacts yet. <a href="/admin/council-edit.php">Add one.</a></p></div>
 <?php else: ?>
     <div class="admin-table-wrap">
         <table class="admin-table">
-            <thead><tr><th>Council</th><th>Contact method</th><th>Councillors</th><th>Status</th><th></th></tr></thead>
+            <thead><tr><th>Council</th><th>Contact method</th><th>Status</th><th>Outreach</th><th></th></tr></thead>
             <tbody>
-            <?php foreach ($councils as $c): ?>
+            <?php foreach ($councils as $c):
+                if (!empty($c['outreach_replied_at'])) {
+                    $outreach = 'Replied ' . format_date((string) $c['outreach_replied_at']);
+                } elseif (!empty($c['outreach_sent_at'])) {
+                    $outreach = 'Sent ' . format_date((string) $c['outreach_sent_at']) . ', awaiting reply';
+                } else {
+                    $outreach = 'Not sent yet';
+                }
+            ?>
                 <tr>
                     <td><strong><?= e((string) $c['council_area']) ?></strong></td>
                     <td class="meta"><?= e((string) ($c['contact_method'] ?? '—')) ?></td>
-                    <td class="meta"><?= e((string) ($c['councillor_count'] ?? '—')) ?></td>
                     <td><span class="pill <?= e($statusPill[$c['status']] ?? '') ?>"><?= e($statusLabel[$c['status']] ?? $c['status']) ?></span></td>
+                    <td class="meta"><?= e($outreach) ?></td>
                     <td class="col-actions">
                         <a class="admin-link" href="/admin/council-edit.php?id=<?= (int) $c['id'] ?>">Edit</a>
                         <?php if (!empty($c['directory_url'])): ?>

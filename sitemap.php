@@ -37,6 +37,7 @@ $static = [
     ['/start-a-group',        '0.7', 'monthly'],
     ['/get-involved',         '0.7', 'monthly'],
     ['/write-to-councillor',  '0.8', 'monthly'],
+    ['/council-replies',      '0.7', 'weekly'],
     ['/for-organisations',    '0.8', 'monthly'],
     ['/supporters',           '0.8', 'weekly'],
     ['/join-as-organisation', '0.8', 'monthly'],

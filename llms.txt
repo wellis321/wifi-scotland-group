@@ -25,6 +25,7 @@
 
 - [Schemes and programmes for people in Scotland](https://wires.org.uk/get-help)
 - [Write to your councillor](https://wires.org.uk/write-to-councillor): template letter
+- [Council replies](https://wires.org.uk/council-replies): tracks which of Scotland's 32 councils replied to WIRES's accountability letter
 - [Homelessness and digital exclusion](https://wires.org.uk/why-it-matters#homelessness)
 
 ## Community and campaign

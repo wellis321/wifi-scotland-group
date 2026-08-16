@@ -51,13 +51,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'directory_url'     => trim((string) ($_POST['directory_url'] ?? '')) ?: null,
         'contact_method'    => trim((string) ($_POST['contact_method'] ?? '')) ?: null,
         'councillor_count'  => trim((string) ($_POST['councillor_count'] ?? '')) ?: null,
-        'status'            => in_array($_POST['status'] ?? '', ['confirmed', 'check', 'blocked'], true) ? $_POST['status'] : 'check',
-        'notes'             => trim((string) ($_POST['notes'] ?? '')) ?: null,
+        'status'              => in_array($_POST['status'] ?? '', ['confirmed', 'check', 'blocked'], true) ? $_POST['status'] : 'check',
+        'notes'               => trim((string) ($_POST['notes'] ?? '')) ?: null,
+        'outreach_sent_at'    => trim((string) ($_POST['outreach_sent_at'] ?? '')) ?: null,
+        'outreach_replied_at' => trim((string) ($_POST['outreach_replied_at'] ?? '')) ?: null,
+        'reply_summary'       => trim((string) ($_POST['reply_summary'] ?? '')) ?: null,
     ];
 
     $errors = [];
     if ($f['council_area'] === '' || !in_array($f['council_area'], COUNCIL_AREAS, true)) {
         $errors[] = 'Choose one of the 32 official council areas.';
+    }
+    if ($f['outreach_replied_at'] !== null && $f['outreach_sent_at'] === null) {
+        $errors[] = 'A reply date needs a sent date first.';
     }
 
     if (empty($errors)) {
@@ -65,14 +71,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         try {
             if ($isNew) {
                 db()->prepare(
-                    'INSERT INTO council_contacts (council_area, directory_url, contact_method, councillor_count, status, notes) VALUES (:council_area, :directory_url, :contact_method, :councillor_count, :status, :notes)'
+                    'INSERT INTO council_contacts (council_area, directory_url, contact_method, councillor_count, status, notes, outreach_sent_at, outreach_replied_at, reply_summary) VALUES (:council_area, :directory_url, :contact_method, :councillor_count, :status, :notes, :outreach_sent_at, :outreach_replied_at, :reply_summary)'
                 )->execute($params);
                 $newId = (int) db()->lastInsertId();
                 flash_set('admin_ok', 'Council contact added.');
                 header('Location: /admin/council-edit.php?id=' . $newId);
             } else {
                 db()->prepare(
-                    'UPDATE council_contacts SET council_area=:council_area, directory_url=:directory_url, contact_method=:contact_method, councillor_count=:councillor_count, status=:status, notes=:notes WHERE id=:id'
+                    'UPDATE council_contacts SET council_area=:council_area, directory_url=:directory_url, contact_method=:contact_method, councillor_count=:councillor_count, status=:status, notes=:notes, outreach_sent_at=:outreach_sent_at, outreach_replied_at=:outreach_replied_at, reply_summary=:reply_summary WHERE id=:id'
                 )->execute($params);
                 flash_set('admin_ok', 'Council contact saved.');
                 header('Location: /admin/council-edit.php?id=' . $item['id']);
@@ -139,8 +145,29 @@ require_once __DIR__ . '/includes/admin_header.php';
     </div>
 
     <div class="admin-field">
-        <label for="notes">Notes</label>
+        <label for="notes">Notes <span style="font-weight:400;text-transform:none">(internal — research/verification notes, not shown publicly)</span></label>
         <textarea id="notes" name="notes"><?= e((string) ($item['notes'] ?? '')) ?></textarea>
+    </div>
+
+    <h2 class="admin-section-title" style="margin-top:2rem">Outreach status <span style="font-weight:400;text-transform:none">— shown on the public /council-replies page</span></h2>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+        <div class="admin-field">
+            <label for="outreach_sent_at">Letter sent on</label>
+            <input id="outreach_sent_at" name="outreach_sent_at" type="date" value="<?= e((string) ($item['outreach_sent_at'] ?? '')) ?>">
+            <p class="admin-hint">Leave blank until you've actually sent it.</p>
+        </div>
+        <div class="admin-field">
+            <label for="outreach_replied_at">Reply received on</label>
+            <input id="outreach_replied_at" name="outreach_replied_at" type="date" value="<?= e((string) ($item['outreach_replied_at'] ?? '')) ?>">
+            <p class="admin-hint">Requires a sent date first.</p>
+        </div>
+    </div>
+
+    <div class="admin-field">
+        <label for="reply_summary">Reply summary <span style="font-weight:400;text-transform:none">(one or two sentences, public-facing)</span></label>
+        <textarea id="reply_summary" name="reply_summary" placeholder="e.g. Council confirmed no local action plan exists yet but said one is in development for 2026/27."><?= e((string) ($item['reply_summary'] ?? '')) ?></textarea>
+        <p class="admin-hint">Summarise fairly, even if the answer is evasive — this is published verbatim.</p>
     </div>
 
     <?php if (!$isNew && !empty($item['updated_at'])): ?>

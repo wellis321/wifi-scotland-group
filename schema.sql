@@ -325,11 +325,20 @@ CREATE TABLE IF NOT EXISTS council_contacts (
   councillor_count VARCHAR(20) DEFAULT NULL COMMENT 'Approximate seat count, e.g. "~45" or "32"',
   status ENUM('confirmed','check','blocked') NOT NULL DEFAULT 'check' COMMENT 'confirmed = working email pattern verified; check = directory found, contact route unverified; blocked = no direct email found',
   notes TEXT DEFAULT NULL,
+  outreach_sent_at DATE DEFAULT NULL COMMENT 'Date the accountability letter was sent to this council',
+  outreach_replied_at DATE DEFAULT NULL COMMENT 'Date a reply was received, if any',
+  reply_summary TEXT DEFAULT NULL COMMENT 'Public-facing one/two sentence summary of what the council said — shown on /council-replies',
   updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (id),
   UNIQUE KEY uq_council_contacts_area (council_area),
   KEY idx_council_contacts_status (status)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Existing installs that already ran the council_contacts CREATE TABLE above before
+-- these columns were added: run these three lines to add them.
+-- ALTER TABLE council_contacts ADD COLUMN outreach_sent_at DATE DEFAULT NULL AFTER notes;
+-- ALTER TABLE council_contacts ADD COLUMN outreach_replied_at DATE DEFAULT NULL AFTER outreach_sent_at;
+-- ALTER TABLE council_contacts ADD COLUMN reply_summary TEXT DEFAULT NULL AFTER outreach_replied_at;
 
 INSERT INTO council_contacts (council_area, directory_url, contact_method, councillor_count, status, notes) VALUES
 ('Angus', 'https://www.angus.gov.uk/councillors', 'CllrSurname@angus.gov.uk', '~28', 'confirmed', 'Confirmed working pattern (verified on Cllr Chris Beattie''s profile page).'),
