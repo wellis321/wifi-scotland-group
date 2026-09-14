@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/includes/bootstrap.php';
 
-$pageTitle       = 'Connectivity across Scotland';
-$pageDescription = 'Explore broadband connectivity across Scotland\'s 32 council areas. Click any area to see how it compares — and find official sources for your local data.';
+$pageTitle       = 'Broadband Coverage Map — Check Your Area, Scotland';
+$pageDescription = 'Check broadband and WiFi connectivity across Scotland\'s 32 council areas. Click any area to compare it against the rest of the country — with official sources for the data.';
 $currentNav      = 'wifimap';
 
 $pageExtraHead = <<<'HTML'

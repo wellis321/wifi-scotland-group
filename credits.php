@@ -7,6 +7,9 @@ require_once __DIR__ . '/includes/bootstrap.php';
 $pageTitle = 'Image credits';
 $pageDescription = 'Licences and sources for photographs used on this website.';
 $currentNav = '';
+// Keeps ranking for literal Unsplash photo-ID searches ("photo-xxxx unsplash") instead
+// of campaign-relevant terms — this page exists for attribution, not to be found via search.
+$pageRobots = 'noindex, follow';
 
 require_once __DIR__ . '/includes/header.php';
 ?>

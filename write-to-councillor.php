@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/includes/bootstrap.php';
 
-$pageTitle       = 'Write to your councillor';
-$pageDescription = 'A ready-to-use template letter about broadband access and digital inclusion — personalise it, copy it, and send it to your local councillor via WriteToThem.com.';
+$pageTitle       = 'Write to Your Councillor — Free Template Letter';
+$pageDescription = 'A free, ready-to-use template letter about broadband access and digital inclusion. Personalise it in minutes and send it straight to your councillor via WriteToThem.com.';
 $currentNav      = 'involved';
 
 $pageOgImage    = image_asset('card-community.jpg');

@@ -5,8 +5,8 @@ declare(strict_types=1);
 require_once __DIR__ . '/includes/bootstrap.php';
 require_once __DIR__ . '/includes/schemes_data.php';
 
-$pageTitle = 'Help getting online';
-$pageDescription = 'Schemes and programmes that can help people in Scotland get connected or pay less for broadband—with links to official sources so you can check current eligibility.';
+$pageTitle = 'Free & Cheap Broadband Help in Scotland';
+$pageDescription = 'Social tariffs, free SIM cards, and schemes to get connected or pay less — including options with no fixed address needed. Official sources, checked regularly.';
 $currentNav = 'gethelp';
 
 $sidebarRelated = [
