@@ -346,6 +346,10 @@ CREATE TABLE IF NOT EXISTS council_contacts (
   outreach_sent_at DATE DEFAULT NULL COMMENT 'Date the accountability letter was sent to this council',
   outreach_replied_at DATE DEFAULT NULL COMMENT 'Date a reply was received, if any',
   reply_summary TEXT DEFAULT NULL COMMENT 'Public-facing one/two sentence summary of what the council said — shown on /council-replies',
+  ceo_name VARCHAR(150) DEFAULT NULL COMMENT 'Chief Executive this council''s accountability letter was addressed to',
+  ceo_email VARCHAR(255) DEFAULT NULL COMMENT 'Address the accountability letter was actually sent to',
+  subject VARCHAR(255) DEFAULT NULL COMMENT 'Exact rendered subject line sent — content changes over time, this is what that council actually received',
+  body_text MEDIUMTEXT DEFAULT NULL COMMENT 'Exact rendered plain-text body sent',
   updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (id),
   UNIQUE KEY uq_council_contacts_area (council_area),
@@ -353,10 +357,14 @@ CREATE TABLE IF NOT EXISTS council_contacts (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Existing installs that already ran the council_contacts CREATE TABLE above before
--- these columns were added: run these three lines to add them.
+-- these columns were added: run these lines to add them.
 -- ALTER TABLE council_contacts ADD COLUMN outreach_sent_at DATE DEFAULT NULL AFTER notes;
 -- ALTER TABLE council_contacts ADD COLUMN outreach_replied_at DATE DEFAULT NULL AFTER outreach_sent_at;
 -- ALTER TABLE council_contacts ADD COLUMN reply_summary TEXT DEFAULT NULL AFTER outreach_replied_at;
+-- ALTER TABLE council_contacts ADD COLUMN ceo_name VARCHAR(150) DEFAULT NULL AFTER reply_summary;
+-- ALTER TABLE council_contacts ADD COLUMN ceo_email VARCHAR(255) DEFAULT NULL AFTER ceo_name;
+-- ALTER TABLE council_contacts ADD COLUMN subject VARCHAR(255) DEFAULT NULL AFTER ceo_email;
+-- ALTER TABLE council_contacts ADD COLUMN body_text MEDIUMTEXT DEFAULT NULL AFTER subject;
 
 INSERT INTO council_contacts (council_area, directory_url, contact_method, councillor_count, status, notes) VALUES
 ('Angus', 'https://www.angus.gov.uk/councillors', 'CllrSurname@angus.gov.uk', '~28', 'confirmed', 'Confirmed working pattern (verified on Cllr Chris Beattie''s profile page).'),

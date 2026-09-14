@@ -219,6 +219,23 @@ function campaign_db_available(): bool
     }
 }
 
+/**
+ * Reply-by date, roughly N weeks out from whenever this actually sends — campaigns often
+ * run across several days (Resend's daily quota), so this is computed fresh each run
+ * rather than a fixed string. Not exact business-day counting, just nudged off a weekend.
+ */
+function reply_by_date(int $weeksOut = 8): string
+{
+    $date = new DateTime("+{$weeksOut} weeks");
+    $weekday = (int) $date->format('N'); // 1=Mon ... 6=Sat, 7=Sun
+    if ($weekday === 6) {
+        $date->modify('+2 days');
+    } elseif ($weekday === 7) {
+        $date->modify('+1 day');
+    }
+    return $date->format('l j F');
+}
+
 function e(?string $s): string
 {
     return htmlspecialchars((string) $s, ENT_QUOTES, 'UTF-8');

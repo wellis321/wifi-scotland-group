@@ -72,24 +72,7 @@ if ($testTo !== null && !filter_var($testTo, FILTER_VALIDATE_EMAIL)) {
 }
 
 // ─── Email template ──────────────────────────────────────────────────────────
-
-/**
- * Reply-by date, roughly 8 weeks out from whenever this actually sends — the
- * campaign runs across several days (100/day Resend quota), so this is computed
- * fresh each run rather than a fixed string. Not exact business-day counting,
- * just nudged off a weekend if it happens to land on one.
- */
-function reply_by_date(): string
-{
-    $date = new DateTime('+8 weeks');
-    $weekday = (int) $date->format('N'); // 1=Mon ... 6=Sat, 7=Sun
-    if ($weekday === 6) {
-        $date->modify('+2 days');
-    } elseif ($weekday === 7) {
-        $date->modify('+1 day');
-    }
-    return $date->format('l j F');
-}
+// reply_by_date() now lives in includes/bootstrap.php — shared with bin/send-council-ceo-campaign.php.
 
 function render_subject(array $row): string
 {
