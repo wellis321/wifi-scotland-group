@@ -3,8 +3,18 @@
 declare(strict_types=1);
 
 require_once __DIR__ . '/includes/bootstrap.php';
+require_once __DIR__ . '/includes/campaign-templates/councillor-public-statement.php';
 
 const CAMPAIGN_SLUG = 'councillor-public-statement-2026-09';
+
+// Rendered from the exact same template code the real sender uses, so this can never
+// drift out of sync with what was actually sent — placeholder values only, not a real row.
+$letterPreview = [
+    'council'   => '[your council]',
+    'full_name' => "[your councillor's name]",
+];
+$letterSubject = render_subject($letterPreview);
+$letterBody    = render_text_body($letterPreview);
 
 $pageTitle       = 'Have you heard from your councillor?';
 $pageDescription = 'WIRES is writing to every councillor in Scotland — over 1,200 people — asking them to publicly back connectivity as essential infrastructure. Here is our progress, and what they\'ve said back.';
@@ -124,6 +134,15 @@ require_once __DIR__ . '/includes/header.php';
                     <span class="stat-label">replies logged</span>
                 </div>
             </div>
+
+            <details class="letter-preview">
+                <summary>Read the letter we sent</summary>
+                <div class="letter-preview__body">
+                    <p class="letter-preview__subject"><strong>Subject:</strong> <?= e($letterSubject) ?></p>
+                    <pre class="letter-preview__text"><?= e($letterBody) ?></pre>
+                    <p class="meta">Every councillor gets this same letter with their own name and council area merged in — rendered here from the exact same code that sends it, not a separate copy.</p>
+                </div>
+            </details>
 
             <?php if (!empty($byCouncil)): ?>
                 <h2>Did your councillor reply?</h2>

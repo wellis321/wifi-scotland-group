@@ -3968,3 +3968,75 @@ html.js .fade-up.is-visible {
 .councillor-name-list li:last-child {
     border-bottom: none;
 }
+
+/* Letter preview — collapsible read-only view of the exact template a campaign sends */
+
+.letter-preview {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    margin: 1.25rem 0 2rem;
+    overflow: hidden;
+    background: #fff;
+}
+
+.letter-preview summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 0.85rem 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--ink);
+}
+
+.letter-preview summary::-webkit-details-marker {
+    display: none;
+}
+
+.letter-preview summary::after {
+    content: "";
+    flex-shrink: 0;
+    width: 0.4rem;
+    height: 0.4rem;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    opacity: 0.6;
+    margin-left: auto;
+}
+
+.letter-preview[open] summary::after {
+    transform: rotate(225deg) translateY(0.15rem);
+}
+
+.letter-preview[open] summary {
+    border-bottom: 1px solid var(--line);
+}
+
+.letter-preview__body {
+    padding: 1.1rem 1.25rem 1.25rem;
+    background: var(--cream);
+}
+
+.letter-preview__subject {
+    margin: 0 0 0.85rem;
+    font-size: 0.95rem;
+}
+
+.letter-preview__text {
+    white-space: pre-wrap;
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--ink);
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 1rem 1.1rem;
+    margin: 0 0 0.85rem;
+    max-height: 420px;
+    overflow-y: auto;
+}

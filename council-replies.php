@@ -3,6 +3,16 @@
 declare(strict_types=1);
 
 require_once __DIR__ . '/includes/bootstrap.php';
+require_once __DIR__ . '/includes/campaign-templates/council-ceo-accountability.php';
+
+// Rendered from the exact same template code the real sender uses, so this can never
+// drift out of sync with what was actually sent — placeholder values only, not a real row.
+$letterPreview = [
+    'council_area' => '[your council]',
+    'ceo_name'     => "[Chief Executive's name]",
+];
+$letterSubject = render_subject($letterPreview);
+$letterBody    = render_text_body($letterPreview);
 
 $pageTitle       = 'Council replies — did your council answer?';
 $pageDescription = 'WIRES wrote to the Chief Executive of every one of Scotland\'s 32 councils asking four practical questions about digital exclusion. Here is who replied, and what they said.';
@@ -88,6 +98,15 @@ require_once __DIR__ . '/includes/header.php';
                     <span class="stat-label">response rate</span>
                 </div>
             </div>
+
+            <details class="letter-preview">
+                <summary>Read the letter we sent</summary>
+                <div class="letter-preview__body">
+                    <p class="letter-preview__subject"><strong>Subject:</strong> <?= e($letterSubject) ?></p>
+                    <pre class="letter-preview__text"><?= e($letterBody) ?></pre>
+                    <p class="meta">Every Chief Executive gets this same letter with their name and council merged in — rendered here from the exact same code that sends it, not a separate copy.</p>
+                </div>
+            </details>
 
             <?php if (empty($sent)): ?>
                 <p>No letters logged as sent yet — check back soon.</p>
