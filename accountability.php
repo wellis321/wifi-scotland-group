@@ -43,7 +43,7 @@ $councils = [
      'url' => 'https://www.glasgow.gov.uk/article/2692/Glasgow-s-Digital-Housing-Strategy-to-improve-housing-services-and-tackle-digital-exclusion',
      'checked' => 'June 2026'],
     ['name' => 'Highland',              'status' => 'plan',
-     'note' => 'HIE and Community Broadband Scotland have supported pilots in the area including Applecross. Note: Highland Community Broadband (Ullapool) closed April 2026 after nine years due to rising costs — a significant loss. No standalone council digital inclusion strategy identified.',
+     'note' => 'HIE and Community Broadband Scotland have supported pilots in the area including Applecross. Note: the volunteer-run Highland Community Broadband (Ullapool) closed as an organisation in April 2026 after rising costs made it unviable, but sold its network to Scotnet in May 2026, who have kept it running and upgraded it. No standalone council digital inclusion strategy identified.',
      'url' => 'https://www.ispreview.co.uk/index.php/2026/01/wireless-isp-highland-community-broadband-set-to-close-in-april-2026.html',
      'checked' => 'June 2026'],
     ['name' => 'Inverclyde',            'status' => 'unknown', 'note' => '',  'url' => '', 'checked' => ''],

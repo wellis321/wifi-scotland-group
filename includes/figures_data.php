@@ -317,6 +317,16 @@ function load_figures(): array
             'note'    => 'Confirmed.',
         ],
     ],
+    'Community broadband networks' => [
+        [
+            'claim'   => 'Highland Community Broadband (HCB), the volunteer-run CIC that connected Ullapool and Wester Ross from 2017, closed in April 2026 due to rising costs — but sold its network to Scotnet, who have continued operating and upgrading it (now branded Wester Ross Broadband)',
+            'used_on' => [['label' => 'Global spotlight', 'href' => '/global-spotlight'], ['label' => 'Who is acting?', 'href' => '/accountability'], ['label' => 'Resources', 'href' => '/resources']],
+            'source'  => 'Scotnet — Wester Ross rural broadband',
+            'url'     => 'https://www.scotnet.co.uk/rural-broadband/wester-ross',
+            'date'    => 'May 2026',
+            'note'    => 'Corrected: an earlier version of this site described HCB\'s closure as a straightforward service loss for residents ("a significant loss", "closure shows what happens without structural policy support"). HCB\'s own Company Secretary got in touch (14 Sep 2026) to clarify the network was sold onward rather than shut down — confirmed via Scotnet\'s own site, which states it bought the HCB network in May 2026 and has been "upgrading and expanding the services and coverage." The volunteer-run model still proved financially unviable (that part was accurate), but residents were not left without service.',
+        ],
+    ],
     'Historical & background statistics' => [
         [
             'claim'   => 'In Jan–Feb 2020, 76% of GB adults used internet banking (up from 30% in 2007); 87% had shopped online in the prior 12 months; 80% of single-adult 65+ households had a connection',

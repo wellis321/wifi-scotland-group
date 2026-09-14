@@ -130,11 +130,11 @@ require_once __DIR__ . '/includes/header.php';
                 <div class="community-net-item">
                     <div class="community-net-meta">
                         <span class="pill">Highland</span>
-                        <span class="pill pill--seeking" style="margin-left:0.4rem">Closed April 2026</span>
+                        <span class="pill pill--forming" style="margin-left:0.4rem">Sold to Scotnet, May 2026</span>
                     </div>
                     <h3 class="community-net-name">Highland Community Broadband</h3>
-                    <p>Served Ullapool and surrounding areas from 2017 until April 2026, when rising costs — backhaul, legal fees, equipment maintenance — made the service unviable. The closure is a significant example of how community networks can be undermined by cost structures that commercial providers can absorb but volunteer-run organisations cannot. Its nine-year run showed what community connectivity can achieve; its closure shows what happens without structural policy support.</p>
-                    <a class="community-net-link" href="https://www.ispreview.co.uk/index.php/2026/01/wireless-isp-highland-community-broadband-set-to-close-in-april-2026.html"<?= external_link_attrs('https://www.ispreview.co.uk/index.php/2026/01/wireless-isp-highland-community-broadband-set-to-close-in-april-2026.html') ?>>ISPreview: closure announcement (January 2026) &rarr;</a>
+                    <p>The volunteer-run CIC served Ullapool and surrounding areas from 2017 until rising costs — backhaul, legal fees, equipment maintenance — made continuing as a community organisation unviable, announced in January 2026. Rather than going dark, HCB sold the network to Scotnet, who bought it in May 2026 and have been upgrading and expanding it since, now branded Wester Ross Broadband. The volunteer-run model's financial fragility is still a real lesson — but this is a story of a network changing hands and continuing, not one that left residents without service.</p>
+                    <a class="community-net-link" href="https://www.scotnet.co.uk/rural-broadband/wester-ross"<?= external_link_attrs('https://www.scotnet.co.uk/rural-broadband/wester-ross') ?>>Scotnet: Wester Ross broadband &rarr;</a>
                 </div>
 
                 <div class="community-net-item">
