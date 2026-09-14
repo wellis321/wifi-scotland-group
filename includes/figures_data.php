@@ -37,6 +37,7 @@ function load_figures(): array
             'url'     => 'https://www.ofcom.org.uk/phones-and-broadband/bills-and-charges/pricing-and-consumer-engagement',
             'date'    => 'Feb 2026 (survey data Oct 2025)',
             'note'    => 'Corrected from a previously-published 55% — that number didn\'t match any Ofcom awareness-tracking wave. Ofcom\'s own series has moved 84% → 69% → 53% → 69% → 70% since 2022, so re-check this one every time Ofcom publishes.',
+            'corrected_on' => '2026-08-01',
         ],
         [
             'claim'   => 'A social tariff can save an eligible household around £200 a year',
@@ -45,6 +46,7 @@ function load_figures(): array
             'url'     => 'https://www.ofcom.org.uk/phones-and-broadband/bills-and-charges/pricing-and-consumer-engagement',
             'date'    => 'Feb 2026',
             'note'    => 'Corrected from a previously-published "£12/month overpay" figure, which was not a real Ofcom statistic.',
+            'corrected_on' => '2026-08-01',
         ],
         [
             'claim'   => 'UK Gigabit Broadband Voucher Scheme: up to £3,500 (business) / £1,500 (residential)',
@@ -53,6 +55,7 @@ function load_figures(): array
             'url'     => 'https://www.gov.uk/government/publications/gigabit-broadband-voucher-scheme-information/gigabit-broadband-voucher-scheme-information',
             'date'    => 'Checked Jul 2026',
             'note'    => 'Corrected from a previously-published £4,500 business figure — £4,500 is the combined/group-project cap, not the per-business voucher. These values change periodically; re-check before quoting.',
+            'corrected_on' => '2026-08-01',
         ],
     ],
     'Scottish broadband coverage (R100)' => [
@@ -95,6 +98,7 @@ function load_figures(): array
             'url'     => 'https://www.gov.scot/publications/scottish-household-survey-2023-results-internet/',
             'date'    => '2023 / Aug 2024',
             'note'    => 'Corrected from a previously-published "700,000 people" figure, which had no traceable primary source and was inconsistent with the household-survey-derived estimate above.',
+            'corrected_on' => '2026-08-01',
         ],
         [
             'claim'   => '£157m Project Gigabit contract covers the Highlands, Outer Hebrides, and islands including Skye, Islay, and Tiree',
@@ -145,6 +149,7 @@ function load_figures(): array
             'url'     => 'https://tfn.scot/news/no-leadership-no-momentun-scottish-government-has-failed-to-act-on-digital-exclusion',
             'date'    => 'Sep 2025',
             'note'    => 'Corrected the date — this was previously implied to be an August 2024 piece (the month of the Audit Scotland report it responds to); the article itself is dated September 2025.',
+            'corrected_on' => '2026-08-01',
         ],
         [
             'claim'   => 'The Scottish Government published a refreshed "Digital Strategy for Scotland: vision statement" (with COSLA) in November 2025, alongside the first in a promised series of delivery plans — but that plan covers sustainable digital public services, not digital exclusion, which still has no delivery plan or named accountable lead',
@@ -153,6 +158,7 @@ function load_figures(): array
             'url'     => 'https://www.gov.scot/publications/digital-strategy-scotland-vision-statement/',
             'date'    => '18 Nov 2025',
             'note'    => 'Corrected: an earlier version of this site said "no separate action plan has followed" the vision statement. In fact the Scottish Government\'s own policy page states it published "an overarching vision and the first of a series of delivery plans" in November 2025 — titled "Digital strategy for Scotland: sustainable digital public services - delivery plan 2025-2028." That plan addresses digital public services, not digital exclusion specifically. The vision statement\'s own Performance Framework is described as still being refreshed, and no plan or named lead for digital exclusion itself has been published as of this check.',
+            'corrected_on' => '2026-09-14',
         ],
         [
             'claim'   => 'Glasgow Council for the Voluntary Sector (GCVS) was awarded grant funding to host the Digital Inclusion Alliance',
@@ -187,6 +193,7 @@ function load_figures(): array
             'url'     => 'https://www.ofcom.org.uk/internet-based-services/technology/digital-adoption-and-digital-disadvantage-today-what-has-changed-and-what-barriers-remain',
             'date'    => '2024',
             'note'    => 'Corrected from a previously-published "1.6 million offline / 23% struggle" — those numbers don\'t appear on Ofcom\'s page. Down from 13% of the population offline pre-pandemic to 5% now.',
+            'corrected_on' => '2026-08-01',
         ],
         [
             'claim'   => 'Around 10 million UK workers lack essential digital skills for work',
@@ -203,6 +210,7 @@ function load_figures(): array
             'url'     => 'https://www.goodthingsfoundation.org/policy-and-research/research-and-evidence/research-2024/digital-nation',
             'date'    => '2025',
             'note'    => 'Corrected the source link — it previously pointed to an NHS Alliance page that doesn\'t contain these figures.',
+            'corrected_on' => '2026-08-01',
         ],
         [
             'claim'   => 'Digitally excluded clients recorded by Scotland\'s Citizens Advice network rose 59% in two years — from 1,932 in 2021/22 to 3,065 in 2023/24',
@@ -289,6 +297,7 @@ function load_figures(): array
             'url'     => 'https://glasgow.gov.uk/media/1717/Glasgow-s-Digital-Housing-Strategy/pdf/Glasgows_Digital_Housing_Strategy.pdf',
             'date'    => 'Nov 2022',
             'note'    => 'Corrected from "65% do not use" — the strategy actually states 65% of social rented households use broadband (p.7/p.4), meaning 35%, around 38,500 households, do not (p.20, the more precise figure). The two numbers were transposed in an earlier pass; re-verified directly against the source PDF.',
+            'corrected_on' => '2026-08-01',
         ],
         [
             'claim'   => 'Connecting Scotland supported more than 60,000 households during the pandemic',
@@ -297,6 +306,7 @@ function load_figures(): array
             'url'     => 'https://www.gov.scot/publications/connecting-scotland-phase-2-evaluation/',
             'date'    => 'Nov 2022',
             'note'    => 'Corrected from "61,000 people" — the official evaluation counts households, not individuals, and the actual number of people reached is higher.',
+            'corrected_on' => '2026-08-01',
         ],
     ],
     'Homelessness & housing emergency' => [
@@ -325,6 +335,7 @@ function load_figures(): array
             'url'     => 'https://www.scotnet.co.uk/rural-broadband/wester-ross',
             'date'    => 'May 2026',
             'note'    => 'Corrected: an earlier version of this site described HCB\'s closure as a straightforward service loss for residents ("a significant loss", "closure shows what happens without structural policy support"). HCB\'s own Company Secretary got in touch (14 Sep 2026) to clarify the network was sold onward rather than shut down — confirmed via Scotnet\'s own site, which states it bought the HCB network in May 2026 and has been "upgrading and expanding the services and coverage." The volunteer-run model still proved financially unviable (that part was accurate), but residents were not left without service.',
+            'corrected_on' => '2026-09-14',
         ],
     ],
     'Historical & background statistics' => [
@@ -353,6 +364,7 @@ function load_figures(): array
             'url'     => 'https://www.goodthingsfoundation.org/our-services/national-databank/',
             'date'    => 'Checked Jul 2026',
             'note'    => 'Corrected from a stale "1,600 community organisations" figure — the partner network has grown substantially since that snapshot.',
+            'corrected_on' => '2026-08-01',
         ],
         [
             'claim'   => 'Jobcentre Plus branches have free computers and Wi-Fi, with in-person digital support available',
