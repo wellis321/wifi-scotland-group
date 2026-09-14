@@ -31,11 +31,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    $repliedAt  = trim((string) ($_POST['replied_at'] ?? '')) ?: null;
-    $replyNotes = trim((string) ($_POST['reply_notes'] ?? '')) ?: null;
+    $repliedAt   = trim((string) ($_POST['replied_at'] ?? '')) ?: null;
+    $replyNotes  = trim((string) ($_POST['reply_notes'] ?? '')) ?: null;
+    $publicQuote = trim((string) ($_POST['public_quote'] ?? '')) ?: null;
 
-    db()->prepare('UPDATE councillor_campaign_sends SET replied_at = :replied_at, reply_notes = :reply_notes WHERE id = :id')
-        ->execute(['replied_at' => $repliedAt, 'reply_notes' => $replyNotes, 'id' => $send['id']]);
+    db()->prepare('UPDATE councillor_campaign_sends SET replied_at = :replied_at, reply_notes = :reply_notes, public_quote = :public_quote WHERE id = :id')
+        ->execute(['replied_at' => $repliedAt, 'reply_notes' => $replyNotes, 'public_quote' => $publicQuote, 'id' => $send['id']]);
 
     flash_set('admin_ok', 'Reply logged.');
     header('Location: /admin/councillor-campaign.php?campaign=' . urlencode($send['campaign_slug']));
@@ -74,6 +75,12 @@ require_once __DIR__ . '/includes/admin_header.php';
     <div class="admin-field">
         <label for="reply_notes">Notes <span style="font-weight:400;text-transform:none">(internal only — not shown publicly anywhere)</span></label>
         <textarea id="reply_notes" name="reply_notes" placeholder="e.g. Supportive reply, agreed to a quotable line: '...'"><?= e((string) ($send['reply_notes'] ?? '')) ?></textarea>
+    </div>
+
+    <div class="admin-field">
+        <label for="public_quote">Public quote <span style="font-weight:400;text-transform:none">(optional — shown on /councillor-statements if filled in. Leave blank unless you've deliberately chosen to feature this person)</span></label>
+        <textarea id="public_quote" name="public_quote" placeholder="e.g. &quot;Everyone in my ward deserves reliable connectivity.&quot;"><?= e((string) ($send['public_quote'] ?? '')) ?></textarea>
+        <p class="admin-hint">Never auto-filled — copy the relevant line from Notes above only after checking the councillor is happy to be quoted publicly.</p>
     </div>
 
     <div class="admin-form-actions">

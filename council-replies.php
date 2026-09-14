@@ -12,9 +12,10 @@ $pageOgImage    = image_asset('card-community.jpg');
 $pageOgImageAlt = 'Person writing at a table — representing constituent and campaign contact with elected representatives.';
 
 $sidebarRelated = [
-    ['href' => '/write-to-councillor', 'label' => 'Write to your councillor'],
-    ['href' => '/accountability',      'label' => 'Who is acting?'],
-    ['href' => '/figures',             'label' => 'Figures & sources'],
+    ['href' => '/write-to-councillor',   'label' => 'Write to your councillor'],
+    ['href' => '/councillor-statements', 'label' => 'Councillor statements'],
+    ['href' => '/accountability',        'label' => 'Who is acting?'],
+    ['href' => '/figures',               'label' => 'Figures & sources'],
 ];
 
 $councils = [];
@@ -50,7 +51,8 @@ require_once __DIR__ . '/includes/header.php';
 <header class="page-header">
     <div class="wrap">
         <h1>Council replies</h1>
-        <p>In 2026, WIRES wrote to every councillor in Scotland's 32 councils, asking three specific questions: has your council published a digital inclusion action plan, what are you doing to promote social tariffs, and will you press COSLA and the Scottish Government for a national plan. This page tracks what happened next — every reply, and every silence.</p>
+        <p>WIRES is writing to each of Scotland's 32 councils, asking three specific questions: has your council published a digital inclusion action plan, what are you doing to promote social tariffs, and will you press COSLA and the Scottish Government for a national plan. This page tracks what happens next — every reply, and every silence.</p>
+        <p class="meta">This is a separate effort from our <a href="/councillor-statements">individual councillor campaign</a>, which asks councillors personally to back connectivity as essential infrastructure. This page is specifically about councils' own accountability.</p>
     </div>
 </header>
 

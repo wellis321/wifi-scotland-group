@@ -413,6 +413,7 @@ CREATE TABLE IF NOT EXISTS councillor_campaign_sends (
   sent_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   replied_at DATE DEFAULT NULL COMMENT 'Auto-set by bin/check-campaign-replies.php when a reply is detected, or manually via /admin',
   reply_notes TEXT DEFAULT NULL COMMENT 'What the councillor said — auto-filled with a body snippet on detection, or manually via /admin. Not shown publicly',
+  public_quote TEXT DEFAULT NULL COMMENT 'A short line curated FROM reply_notes for public display on /councillor-statements — deliberately separate from reply_notes so a raw auto-captured email snippet is never shown publicly without a human choosing to feature it',
   PRIMARY KEY (id),
   UNIQUE KEY uq_councillor_campaign_sends (campaign_slug, email),
   KEY idx_councillor_campaign_sends_council (council_area)
@@ -424,3 +425,4 @@ CREATE TABLE IF NOT EXISTS councillor_campaign_sends (
 -- ALTER TABLE councillor_campaign_sends ADD COLUMN reply_notes TEXT DEFAULT NULL AFTER replied_at;
 -- ALTER TABLE councillor_campaign_sends ADD COLUMN subject VARCHAR(255) DEFAULT NULL AFTER error_message;
 -- ALTER TABLE councillor_campaign_sends ADD COLUMN body_text MEDIUMTEXT DEFAULT NULL AFTER subject;
+-- ALTER TABLE councillor_campaign_sends ADD COLUMN public_quote TEXT DEFAULT NULL AFTER reply_notes;
