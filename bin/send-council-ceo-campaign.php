@@ -162,6 +162,20 @@ function already_sent_councils(): array
     return $stmt->fetchAll(PDO::FETCH_COLUMN);
 }
 
+/**
+ * The CEO letter says "we're writing in parallel to all councillors" — only true for
+ * councils the councillor campaign has actually reached. Keeps the two campaigns in
+ * sync: as more daily councillor batches go out, more councils become eligible here.
+ */
+function councils_reached_by_councillor_campaign(): array
+{
+    $stmt = campaign_db()->query(
+        "SELECT DISTINCT council_area FROM councillor_campaign_sends
+         WHERE campaign_slug = 'councillor-public-statement-2026-09' AND status = 'sent'"
+    );
+    return $stmt->fetchAll(PDO::FETCH_COLUMN);
+}
+
 function log_send_result(array $row, string $subject, string $bodyText): void
 {
     $stmt = campaign_db()->prepare(
@@ -183,6 +197,24 @@ $roster = load_roster(ROSTER_CSV_PATH);
 fwrite(STDERR, sprintf("Loaded %d roster rows with an email.\n", count($roster)));
 
 $isTestMode = $testTo !== null;
+
+// Only consider councils the councillor campaign has actually reached — the letter
+// itself says "we're writing in parallel to all councillors", so that has to be true
+// for this specific council at send time, not just true campaign-wide.
+$reachedCouncils = null;
+if (campaign_db_available()) {
+    $reachedCouncils = councils_reached_by_councillor_campaign();
+    $roster = array_values(array_filter(
+        $roster,
+        fn(array $row) => in_array($row['council_area'], $reachedCouncils, true)
+    ));
+    fwrite(STDERR, sprintf(
+        "%d council(s) already reached by the councillor campaign — restricting to those.\n",
+        count($reachedCouncils)
+    ));
+} else {
+    fwrite(STDERR, "Warning: campaign database unavailable, cannot check councillor-campaign progress — showing unfiltered roster.\n");
+}
 
 if ($dryRun) {
     $sample = array_slice($roster, 0, min(3, count($roster)));
