@@ -48,12 +48,15 @@ $repliedCount   = 0;
 $councilsReached = 0;
 $firstSentDate  = null;
 $quotes         = [];
+$byCouncil      = [];
 
 if (db_available()) {
     try {
+        // Names + reply status only — never email addresses on the public list.
         $stmt = db()->prepare(
             "SELECT council_area, full_name, replied_at, public_quote
-             FROM councillor_campaign_sends WHERE campaign_slug = ? AND status = 'sent'"
+             FROM councillor_campaign_sends WHERE campaign_slug = ? AND status = 'sent'
+             ORDER BY council_area ASC, full_name ASC"
         );
         $stmt->execute([CAMPAIGN_SLUG]);
         $rows = $stmt->fetchAll();
@@ -62,10 +65,12 @@ if (db_available()) {
         $councilSet   = [];
         foreach ($rows as $r) {
             $councilSet[$r['council_area']] = true;
-            if (!empty($r['replied_at'])) $repliedCount++;
+            $replied = !empty($r['replied_at']);
+            if ($replied) $repliedCount++;
             if (!empty($r['public_quote'])) {
                 $quotes[] = ['name' => $r['full_name'], 'council' => $r['council_area'], 'quote' => $r['public_quote']];
             }
+            $byCouncil[$r['council_area']][] = ['name' => $r['full_name'], 'replied' => $replied];
         }
         $councilsReached = count($councilSet);
 
@@ -119,6 +124,85 @@ require_once __DIR__ . '/includes/header.php';
                     <span class="stat-label">replies logged</span>
                 </div>
             </div>
+
+            <?php if (!empty($byCouncil)): ?>
+                <h2>Did your councillor reply?</h2>
+                <p class="meta">Search by name or council area to see who we've written to so far, and whether they've replied.</p>
+
+                <div class="callout" style="margin-bottom:1.25rem">
+                    <label for="councillor-search" style="font-weight:700;display:block;margin-bottom:0.5rem">Search councillors</label>
+                    <input type="search" id="councillor-search" class="councillor-search-input" placeholder="e.g. Glasgow, or a councillor's name" autocomplete="off">
+                    <p class="meta" id="councillor-search-count" style="margin:0.5rem 0 0"></p>
+                </div>
+
+                <div id="councillor-list">
+                    <?php foreach ($byCouncil as $council => $people):
+                        $councilReplied = count(array_filter($people, static fn($p) => $p['replied']));
+                        ?>
+                        <details class="councillor-council-group" data-council="<?= e(strtolower($council)) ?>">
+                            <summary>
+                                <span><?= e($council) ?></span>
+                                <span class="councillor-council-group__count">
+                                    <?= count($people) ?> contacted<?= $councilReplied > 0 ? ', ' . $councilReplied . ' replied' : '' ?>
+                                </span>
+                            </summary>
+                            <ul class="councillor-name-list">
+                                <?php foreach ($people as $p): ?>
+                                    <li data-name="<?= e(strtolower($p['name'])) ?>">
+                                        <span><?= e($p['name']) ?></span>
+                                        <?php if ($p['replied']): ?>
+                                            <span class="pill pill--active">Replied</span>
+                                        <?php else: ?>
+                                            <span class="pill pill--forming">Awaiting reply</span>
+                                        <?php endif; ?>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </details>
+                    <?php endforeach; ?>
+                </div>
+
+                <script>
+                (function () {
+                    var input = document.getElementById('councillor-search');
+                    var count = document.getElementById('councillor-search-count');
+                    var groups = document.querySelectorAll('.councillor-council-group');
+                    if (!input || !groups.length) return;
+
+                    input.addEventListener('input', function () {
+                        var q = input.value.trim().toLowerCase();
+                        var totalVisible = 0;
+
+                        groups.forEach(function (group) {
+                            var councilMatch = q !== '' && (group.dataset.council || '').indexOf(q) !== -1;
+                            var items = group.querySelectorAll('li');
+                            var anyItemMatch = false;
+
+                            items.forEach(function (li) {
+                                var match = q === '' || councilMatch || (li.dataset.name || '').indexOf(q) !== -1;
+                                li.hidden = !match;
+                                if (match) {
+                                    anyItemMatch = true;
+                                    totalVisible++;
+                                }
+                            });
+
+                            if (q === '') {
+                                group.hidden = false;
+                                group.open = false;
+                            } else {
+                                group.hidden = !anyItemMatch;
+                                group.open = anyItemMatch;
+                            }
+                        });
+
+                        count.textContent = q === ''
+                            ? ''
+                            : totalVisible + ' match' + (totalVisible === 1 ? '' : 'es') + ' for "' + input.value.trim() + '"';
+                    });
+                })();
+                </script>
+            <?php endif; ?>
 
             <?php if (!empty($quotes)): ?>
                 <h2>What councillors are saying</h2>

@@ -3877,3 +3877,94 @@ html.js .fade-up.is-visible {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* Councillor lookup — grouped, searchable list of who's been contacted */
+
+.councillor-search-input {
+    width: 100%;
+    padding: 0.7rem 0.9rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: var(--font-body);
+    background: #fff;
+    color: var(--ink);
+}
+
+.councillor-search-input:focus {
+    outline: 2px solid var(--accent-dark);
+    outline-offset: 1px;
+}
+
+.councillor-council-group {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    margin-bottom: 0.6rem;
+    overflow: hidden;
+    background: #fff;
+}
+
+.councillor-council-group summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 0.85rem 1.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--ink);
+}
+
+.councillor-council-group summary::-webkit-details-marker {
+    display: none;
+}
+
+.councillor-council-group summary::after {
+    content: "";
+    flex-shrink: 0;
+    width: 0.4rem;
+    height: 0.4rem;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    opacity: 0.6;
+}
+
+.councillor-council-group[open] summary::after {
+    transform: rotate(225deg) translateY(0.15rem);
+}
+
+.councillor-council-group[open] summary {
+    border-bottom: 1px solid var(--line);
+}
+
+.councillor-council-group__count {
+    font-family: var(--font-body);
+    font-weight: 400;
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+.councillor-name-list {
+    list-style: none;
+    margin: 0;
+    padding: 0.4rem 1.1rem 0.9rem;
+    background: var(--cream);
+}
+
+.councillor-name-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(12, 17, 23, 0.07);
+    font-size: 0.92rem;
+}
+
+.councillor-name-list li:last-child {
+    border-bottom: none;
+}
