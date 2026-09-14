@@ -174,6 +174,51 @@ function db_available(): bool
     }
 }
 
+/**
+ * Dedicated DB connection for the councillor-campaign automation scripts
+ * (bin/send-councillor-campaign.php, bin/check-campaign-replies.php), so real send/reply
+ * data lands on the production DB rather than whichever DB_* config this machine happens
+ * to be running under. Falls back to db()'s connection when CAMPAIGN_DB_HOST is unset,
+ * so local testing without production credentials still works unchanged.
+ */
+function campaign_db(): PDO
+{
+    static $pdo = null;
+    if ($pdo instanceof PDO) {
+        return $pdo;
+    }
+
+    $host = env_raw('CAMPAIGN_DB_HOST');
+    if ($host === null || $host === '') {
+        return db();
+    }
+
+    $dsn = sprintf(
+        'mysql:host=%s;port=%d;dbname=%s;charset=%s',
+        $host,
+        (int) (env_raw('CAMPAIGN_DB_PORT') ?: '3306'),
+        env_raw('CAMPAIGN_DB_NAME') ?? '',
+        env_raw('CAMPAIGN_DB_CHARSET') ?? 'utf8mb4'
+    );
+
+    $pdo = new PDO($dsn, env_raw('CAMPAIGN_DB_USER') ?? '', env_raw('CAMPAIGN_DB_PASSWORD') ?? '', [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    ]);
+
+    return $pdo;
+}
+
+function campaign_db_available(): bool
+{
+    try {
+        campaign_db();
+        return true;
+    } catch (Throwable) {
+        return false;
+    }
+}
+
 function e(?string $s): string
 {
     return htmlspecialchars((string) $s, ENT_QUOTES, 'UTF-8');

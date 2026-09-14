@@ -39,14 +39,14 @@ if ($token === null || $token === '') {
     exit(1);
 }
 
-if (!db_available()) {
-    fwrite(STDERR, "Database is not reachable (check MAMP/MySQL is running).\n");
+if (!campaign_db_available()) {
+    fwrite(STDERR, "Campaign database is not reachable.\n");
     exit(1);
 }
 
 // ─── Who are we waiting to hear back from? ───────────────────────────────────
 
-$stmt = db()->query(
+$stmt = campaign_db()->query(
     "SELECT id, campaign_slug, full_name, council_area, email
      FROM councillor_campaign_sends WHERE status = 'sent' AND replied_at IS NULL"
 );
@@ -144,7 +144,7 @@ foreach ($messages as $msg) {
     fwrite(STDOUT, "MATCH  {$row['full_name']} <{$row['email']}> ({$row['council_area']}) — replied $repliedDate\n");
 
     if (!$dryRun) {
-        db()->prepare('UPDATE councillor_campaign_sends SET replied_at = :replied_at, reply_notes = :reply_notes WHERE id = :id')
+        campaign_db()->prepare('UPDATE councillor_campaign_sends SET replied_at = :replied_at, reply_notes = :reply_notes WHERE id = :id')
             ->execute(['replied_at' => $repliedDate, 'reply_notes' => $note, 'id' => $row['id']]);
         // Don't match this address again this run even if there are multiple messages from them.
         unset($pending[$fromAddress]);

@@ -263,7 +263,7 @@ function resend_send_batch(string $apiKey, array $emails): array
 
 function already_sent_emails(string $campaignSlug): array
 {
-    $stmt = db()->prepare(
+    $stmt = campaign_db()->prepare(
         'SELECT email FROM councillor_campaign_sends WHERE campaign_slug = ? AND status = ?'
     );
     $stmt->execute([$campaignSlug, 'sent']);
@@ -272,7 +272,7 @@ function already_sent_emails(string $campaignSlug): array
 
 function log_send_result(string $campaignSlug, array $row, string $status, ?string $resendId, ?string $error, string $subject, string $bodyText): void
 {
-    $stmt = db()->prepare(
+    $stmt = campaign_db()->prepare(
         'INSERT INTO councillor_campaign_sends
             (campaign_slug, full_name, council_area, email, status, resend_id, error_message, subject, body_text)
          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
@@ -322,8 +322,8 @@ if ($isTestMode) {
     $recipients = array_slice($roster, 0, min($testCount, count($roster)));
     fwrite(STDERR, sprintf("[test mode] %d real merge rows, all redirected to %s\n", count($recipients), $testTo));
 } else {
-    if (!db_available()) {
-        fwrite(STDERR, "Database is not reachable (check MAMP/MySQL is running) — refusing to send without send-tracking available.\n");
+    if (!campaign_db_available()) {
+        fwrite(STDERR, "Campaign database is not reachable — refusing to send without send-tracking available.\n");
         exit(1);
     }
     $alreadySent = already_sent_emails($campaignSlug);
