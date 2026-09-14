@@ -173,6 +173,24 @@ INSERT INTO news_items (title, slug, summary, body, published_at) VALUES
 )
 ON DUPLICATE KEY UPDATE title = VALUES(title);
 
+-- 2026-09-13 news sweep — verify each figure/date on the linked source before publishing to production
+INSERT INTO news_items (title, slug, summary, body, published_at) VALUES
+(
+  'Shared Rural Network hits 150 masts and 95% UK coverage — a year ahead of schedule',
+  'srn-150-masts-95-percent-uk-coverage',
+  'The UK-wide Shared Rural Network has switched on its 150th mobile mast and reached 95% 4G coverage of the UK landmass a year early. More than 50 of those masts are in Scotland, with up to 44 more publicly funded masts now building — the first already live in the Western Isles.',
+  '<p>The Shared Rural Network — the joint UK Government and mobile operator scheme to close 4G not-spots — has activated its 150th mast, and the programme says it has now reached 95% 4G coverage of the UK landmass, a year ahead of its original target.</p><p>More than 50 of those masts are in Scotland, and the government says up to 44 more publicly funded masts are now building across the country, with the first of that new tranche already live in the Western Isles. Recent activations include a site in Loch Lomond and The Trossachs National Park.</p><p>This is real, measurable progress on mobile not-spots — the kind of infrastructure spending WIRES wants held to the same account as any other public investment. Scotland''s total not-spot rate has been running at more than double the UK average, so the test now is whether the remaining Scottish sites keep building on schedule rather than slipping once the easier coverage gains are banked.</p><p class="meta">Source: <a href="https://www.gov.uk/government/news/150-rural-4g-masts-now-live-so-holidaymakers-can-switch-off-without-being-cut-off">UK Government press release (14 August 2026)</a> &middot; <a href="https://srn.org.uk/news/">Shared Rural Network news</a></p>',
+  '2026-08-14'
+),
+(
+  'Scottish Government''s first Digital Strategy delivery plan lands — but not for digital exclusion',
+  'digital-strategy-scotland-vision-statement-no-delivery-plan',
+  'In November 2025, the Scottish Government published its Digital Strategy vision statement alongside the first in a promised series of delivery plans — but that plan covers digital public services, not digital exclusion, which Audit Scotland flagged as lacking a plan or a named owner over a year earlier.',
+  '<p>In August 2024, Audit Scotland told the Scottish Government and COSLA to publish a refreshed national digital strategy and a detailed, measurable delivery plan by the end of 2024/25. Both deadlines passed. In September 2025, Third Force News summarised the position as "no leadership, no momentum."</p><p>On 18 November 2025, the Scottish Government published a <em>Digital Strategy for Scotland: vision statement</em>, developed jointly with COSLA — real movement, and worth acknowledging as such. Alongside it came the first in a promised series of delivery plans: <em>Digital strategy for Scotland: sustainable digital public services - delivery plan 2025-2028</em>.</p><p>That plan is real, but its scope is digital public services — not digital exclusion, the specific gap Audit Scotland''s review was about. The vision statement''s own Performance Framework, meant to connect outcomes to accountability, is described as still being refreshed. Almost a year on, no plan or named accountable lead for digital exclusion itself has followed.</p><p>We''ve updated our <a href="/accountability">accountability tracker</a> to reflect this more precisely — crediting the real delivery plan that has landed, while keeping the substantive question open for the specific gap this campaign exists to close.</p><p class="meta">Source: <a href="https://www.gov.scot/publications/digital-strategy-scotland-vision-statement/">Scottish Government: Digital Strategy for Scotland: vision statement (18 Nov 2025)</a> &middot; <a href="https://tfn.scot/news/no-leadership-no-momentun-scottish-government-has-failed-to-act-on-digital-exclusion">Third Force News</a></p>',
+  '2026-09-13'
+)
+ON DUPLICATE KEY UPDATE title = VALUES(title);
+
 -- ─── Local groups ────────────────────────────────────────────────────────────
 
 CREATE TABLE IF NOT EXISTS local_groups (
@@ -374,3 +392,35 @@ INSERT INTO council_contacts (council_area, directory_url, contact_method, counc
 ('South Ayrshire', 'https://www.south-ayrshire.gov.uk/article/24777/Find-my-councillor', 'Unconfirmed — site fully blocks automated access', '28', 'blocked', 'Cloudflare bot challenge blocks all automated checks; needs a full manual browser visit.'),
 ('South Lanarkshire', 'https://www.southlanarkshire.gov.uk/councillors', 'No email shown — postcode/name search only', '64', 'blocked', 'Sampled profile page showed no email address; CMIS subdomain may hold fuller records, not yet checked.')
 ON DUPLICATE KEY UPDATE directory_url = VALUES(directory_url);
+
+-- ─── Individual councillor mail-merge campaigns (bin/send-councillor-campaign.php) ──
+-- Tracks per-person sends so a re-run of the script is safe (already-sent rows are
+-- skipped; only 'failed' rows are retried). One row per (campaign_slug, email).
+-- Distinct from council_contacts above, which tracks one accountability-letter send
+-- per council area, not per individual councillor.
+
+CREATE TABLE IF NOT EXISTS councillor_campaign_sends (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  campaign_slug VARCHAR(100) NOT NULL COMMENT 'Identifies which mail-merge send this belongs to, e.g. councillor-public-statement-2026-09',
+  full_name VARCHAR(160) NOT NULL,
+  council_area VARCHAR(120) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  status ENUM('sent','failed') NOT NULL DEFAULT 'sent' COMMENT 'sent = accepted by Resend for delivery, not a confirmed open/click',
+  resend_id VARCHAR(100) DEFAULT NULL COMMENT 'Email id returned by Resend, for tracing a specific delivery',
+  error_message TEXT DEFAULT NULL,
+  subject VARCHAR(255) DEFAULT NULL COMMENT 'Exact rendered subject line this person was sent — template wording changes over time, this is what they actually got',
+  body_text MEDIUMTEXT DEFAULT NULL COMMENT 'Exact rendered plain-text body this person was sent',
+  sent_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  replied_at DATE DEFAULT NULL COMMENT 'Auto-set by bin/check-campaign-replies.php when a reply is detected, or manually via /admin',
+  reply_notes TEXT DEFAULT NULL COMMENT 'What the councillor said — auto-filled with a body snippet on detection, or manually via /admin. Not shown publicly',
+  PRIMARY KEY (id),
+  UNIQUE KEY uq_councillor_campaign_sends (campaign_slug, email),
+  KEY idx_councillor_campaign_sends_council (council_area)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Existing installs: this table was originally created without the columns below —
+-- run these lines to add them if you already had councillor_campaign_sends.
+-- ALTER TABLE councillor_campaign_sends ADD COLUMN replied_at DATE DEFAULT NULL AFTER sent_at;
+-- ALTER TABLE councillor_campaign_sends ADD COLUMN reply_notes TEXT DEFAULT NULL AFTER replied_at;
+-- ALTER TABLE councillor_campaign_sends ADD COLUMN subject VARCHAR(255) DEFAULT NULL AFTER error_message;
+-- ALTER TABLE councillor_campaign_sends ADD COLUMN body_text MEDIUMTEXT DEFAULT NULL AFTER subject;

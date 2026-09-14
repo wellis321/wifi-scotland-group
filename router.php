@@ -12,7 +12,7 @@
 $uri  = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $root = __DIR__;
 
-/* 1. Serve real files and directories as-is (CSS, images, JS, etc.) */
+/* 1. Serve real files as-is (CSS, images, JS, etc.) */
 if ($uri !== '/' && file_exists($root . $uri) && !is_dir($root . $uri)) {
     return false;
 }
@@ -21,6 +21,15 @@ if ($uri !== '/' && file_exists($root . $uri) && !is_dir($root . $uri)) {
 if ($uri === '/' || $uri === '/index') {
     require $root . '/index.php';
     return true;
+}
+
+/* 2b. Directory URL (e.g. /admin or /admin/) → <dir>/index.php */
+if (is_dir($root . $uri)) {
+    $indexFile = $root . '/' . trim($uri, '/') . '/index.php';
+    if (file_exists($indexFile)) {
+        require $indexFile;
+        return true;
+    }
 }
 
 /* 3. Map clean URL → .php file (e.g. /about → about.php) */

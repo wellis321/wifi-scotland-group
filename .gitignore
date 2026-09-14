@@ -4,3 +4,4 @@ config.php
 .venv/
 .DS_Store
 overview.txt
+/data/councillors-roster.csv

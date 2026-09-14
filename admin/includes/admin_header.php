@@ -33,6 +33,8 @@ $adminNavStructure = [
         ],
     ],
     ['type' => 'link', 'id' => 'councils', 'href' => '/admin/councils.php', 'label' => 'Councils'],
+    ['type' => 'link', 'id' => 'councillors', 'href' => '/admin/councillors.php', 'label' => 'Councillors'],
+    ['type' => 'link', 'id' => 'councillor-campaign', 'href' => '/admin/councillor-campaign.php', 'label' => 'Campaign sends'],
     [
         'type' => 'group', 'id' => 'media', 'label' => 'Media',
         'items' => [
@@ -67,8 +69,8 @@ $adminGroupIsActive = static function (array $group) use ($adminSection): bool {
                             <span class="admin-nav-group-chevron" aria-hidden="true"></span>
                         </button>
                         <div class="admin-nav-dropdown">
-                            <?php foreach ($entry['items'] as $item): ?>
-                                <a href="<?= e($item['href']) ?>" class="admin-nav-dropdown-link <?= ($adminSection ?? '') === $item['id'] ? 'is-active' : '' ?>"><?= e($item['label']) ?></a>
+                            <?php foreach ($entry['items'] as $navItem): ?>
+                                <a href="<?= e($navItem['href']) ?>" class="admin-nav-dropdown-link <?= ($adminSection ?? '') === $navItem['id'] ? 'is-active' : '' ?>"><?= e($navItem['label']) ?></a>
                             <?php endforeach; ?>
                         </div>
                     </div>
