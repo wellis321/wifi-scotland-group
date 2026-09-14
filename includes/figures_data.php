@@ -104,6 +104,14 @@ function load_figures(): array
             'date'    => 'May 2025',
             'note'    => 'Confirmed for the original contract; a later £18m top-up (Dumfries & Galloway/Scottish Borders) brought the wider total to ~£175m, worth checking if quoting the current total.',
         ],
+        [
+            'claim'   => 'Shared Rural Network passed 150 masts UK-wide and 95% UK landmass 4G coverage, a year ahead of schedule; more than 50 masts are in Scotland, with up to 44 more publicly funded masts now building',
+            'used_on' => [['label' => 'News', 'href' => '/news']],
+            'source'  => 'UK Government press release',
+            'url'     => 'https://www.gov.uk/government/news/150-rural-4g-masts-now-live-so-holidaymakers-can-switch-off-without-being-cut-off',
+            'date'    => '14 Aug 2026',
+            'note'    => 'Confirmed against the primary press release. This is mobile 4G coverage (Shared Rural Network), a separate scheme from fixed-line R100 — don\'t conflate the two when quoting coverage percentages.',
+        ],
     ],
     'Scotland\'s £200m digital inclusion pledge' => [
         [
@@ -137,6 +145,14 @@ function load_figures(): array
             'url'     => 'https://tfn.scot/news/no-leadership-no-momentun-scottish-government-has-failed-to-act-on-digital-exclusion',
             'date'    => 'Sep 2025',
             'note'    => 'Corrected the date — this was previously implied to be an August 2024 piece (the month of the Audit Scotland report it responds to); the article itself is dated September 2025.',
+        ],
+        [
+            'claim'   => 'The Scottish Government published a refreshed "Digital Strategy for Scotland: vision statement" (with COSLA) in November 2025, alongside the first in a promised series of delivery plans — but that plan covers sustainable digital public services, not digital exclusion, which still has no delivery plan or named accountable lead',
+            'used_on' => [['label' => 'Home', 'href' => '/'], ['label' => 'Who is acting?', 'href' => '/accountability'], ['label' => 'Scotland policy', 'href' => '/scotland']],
+            'source'  => 'Scottish Government — Digital strategy for Scotland: vision statement',
+            'url'     => 'https://www.gov.scot/publications/digital-strategy-scotland-vision-statement/',
+            'date'    => '18 Nov 2025',
+            'note'    => 'Corrected: an earlier version of this site said "no separate action plan has followed" the vision statement. In fact the Scottish Government\'s own policy page states it published "an overarching vision and the first of a series of delivery plans" in November 2025 — titled "Digital strategy for Scotland: sustainable digital public services - delivery plan 2025-2028." That plan addresses digital public services, not digital exclusion specifically. The vision statement\'s own Performance Framework is described as still being refreshed, and no plan or named lead for digital exclusion itself has been published as of this check.',
         ],
         [
             'claim'   => 'Glasgow Council for the Voluntary Sector (GCVS) was awarded grant funding to host the Digital Inclusion Alliance',

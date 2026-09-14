@@ -151,6 +151,9 @@ require_once __DIR__ . '/includes/header.php';
                         COSLA's own internal paper (LD/24/025, May 2024) acknowledged the strategy needed refreshing and flagged reduced funding to local areas as a risk to delivery. The Third Force News summarised the situation as: <em>"No leadership, no momentum: Scottish Government has failed to act on digital exclusion."</em>
                     </p>
                     <p>
+                        In November 2025, the Scottish Government published a refreshed <em>Digital Strategy for Scotland: vision statement</em>, developed jointly with COSLA, alongside the first in a promised series of delivery plans — the strategy refresh Audit Scotland had called for. Worth acknowledging as real movement. But that first delivery plan covers sustainable digital public services, not digital exclusion specifically, and the vision statement's own Performance Framework is described as still being refreshed. No delivery plan or named accountable lead for digital exclusion has followed.
+                    </p>
+                    <p>
                         Independent evidence backs this up: Citizens Advice Scotland told the Scottish Parliament's Public Audit Committee that digitally excluded clients recorded across its bureaux network rose 59% in two years — from 1,932 in 2021/22 to 3,065 in 2023/24 — with advisers spending an increasing share of their time helping people navigate digital-by-default public services rather than giving advice on the issues that brought them in.
                     </p>
                     <p>
@@ -163,6 +166,8 @@ require_once __DIR__ . '/includes/header.php';
                     <a class="community-net-link" href="https://www.cosla.gov.uk/about-cosla/our-teams/digital-office"<?= external_link_attrs('https://www.cosla.gov.uk/about-cosla/our-teams/digital-office') ?>>COSLA Digital Office &rarr;</a>
                     &nbsp;&middot;&nbsp;
                     <a class="community-net-link" href="https://www.parliament.scot/-/media/files/committees/public-audit-committee/correspondence/2024/tackling-digital-exclusion-cas-to-pac-13-dec-2024.pdf"<?= external_link_attrs('https://www.parliament.scot/-/media/files/committees/public-audit-committee/correspondence/2024/tackling-digital-exclusion-cas-to-pac-13-dec-2024.pdf') ?>>Citizens Advice Scotland: evidence to the Public Audit Committee (PDF) &rarr;</a>
+                    &nbsp;&middot;&nbsp;
+                    <a class="community-net-link" href="https://www.gov.scot/publications/digital-strategy-scotland-vision-statement/"<?= external_link_attrs('https://www.gov.scot/publications/digital-strategy-scotland-vision-statement/') ?>>Digital Strategy for Scotland: vision statement (Nov 2025) &rarr;</a>
                 </div>
 
                 <div class="community-net-item">
