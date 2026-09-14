@@ -5,3 +5,9 @@ config.php
 .DS_Store
 overview.txt
 /data/councillors-roster.csv
+
+# /files/ is the admin-managed public downloads folder (admin/files.php) — it only ever
+# lists flat top-level files, never subdirectories, so anything dropped in a subfolder
+# (e.g. a Google Search Console export) was never actually served and doesn't belong here.
+/files/*.csv
+/files/*/
