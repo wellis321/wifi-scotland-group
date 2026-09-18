@@ -434,3 +434,16 @@ CREATE TABLE IF NOT EXISTS councillor_campaign_sends (
 -- ALTER TABLE councillor_campaign_sends ADD COLUMN subject VARCHAR(255) DEFAULT NULL AFTER error_message;
 -- ALTER TABLE councillor_campaign_sends ADD COLUMN body_text MEDIUMTEXT DEFAULT NULL AFTER subject;
 -- ALTER TABLE councillor_campaign_sends ADD COLUMN public_quote TEXT DEFAULT NULL AFTER reply_notes;
+
+-- People who have asked not to be contacted again, checked before every campaign send
+-- (bin/send-councillor-campaign.php, bin/send-council-ceo-campaign.php) — independent of
+-- any single campaign_slug, so an opt-out is honoured across every future campaign, not
+-- just retries of the one they replied to.
+CREATE TABLE IF NOT EXISTS do_not_contact (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  email VARCHAR(255) NOT NULL,
+  reason TEXT DEFAULT NULL COMMENT 'Context on why, e.g. a quoted opt-out line from a reply',
+  added_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  UNIQUE KEY uq_do_not_contact_email (email)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

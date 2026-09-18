@@ -244,13 +244,16 @@ if ($isTestMode) {
         exit(1);
     }
     $alreadySent = already_sent_councils();
+    $doNotContact = do_not_contact_emails();
     $recipients = array_values(array_filter(
         $roster,
         fn(array $row) => !in_array($row['council_area'], $alreadySent, true)
+            && !in_array(strtolower($row['ceo_email']), $doNotContact, true)
     ));
     fwrite(STDERR, sprintf(
-        "%d council(s) already sent; %d remaining.\n",
+        "%d council(s) already sent; %d on the do-not-contact list; %d remaining.\n",
         count($alreadySent),
+        count($doNotContact),
         count($recipients)
     ));
     if ($limit !== null) {

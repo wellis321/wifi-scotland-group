@@ -220,6 +220,17 @@ function campaign_db_available(): bool
 }
 
 /**
+ * Lowercased emails of everyone who has asked not to be contacted again — checked
+ * before every campaign send, independent of campaign_slug, so an opt-out sticks
+ * across every future campaign rather than just retries of the one they replied to.
+ */
+function do_not_contact_emails(): array
+{
+    $stmt = campaign_db()->query('SELECT email FROM do_not_contact');
+    return array_map('strtolower', $stmt->fetchAll(PDO::FETCH_COLUMN));
+}
+
+/**
  * Reply-by date, roughly N weeks out from whenever this actually sends — campaigns often
  * run across several days (Resend's daily quota), so this is computed fresh each run
  * rather than a fixed string. Not exact business-day counting, just nudged off a weekend.

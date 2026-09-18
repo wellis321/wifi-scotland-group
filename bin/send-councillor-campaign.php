@@ -231,14 +231,17 @@ if ($isTestMode) {
         exit(1);
     }
     $alreadySent = already_sent_emails($campaignSlug);
+    $doNotContact = do_not_contact_emails();
     $recipients = array_values(array_filter(
         $roster,
         fn(array $row) => !in_array(strtolower($row['email']), $alreadySent, true)
+            && !in_array(strtolower($row['email']), $doNotContact, true)
     ));
     fwrite(STDERR, sprintf(
-        "%d already sent for campaign '%s'; %d remaining.\n",
+        "%d already sent for campaign '%s'; %d on the do-not-contact list; %d remaining.\n",
         count($alreadySent),
         $campaignSlug,
+        count($doNotContact),
         count($recipients)
     ));
     if ($limit !== null) {

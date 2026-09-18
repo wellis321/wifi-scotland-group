@@ -16,6 +16,13 @@ if ($id > 0 && db_available()) {
     $send = $s->fetch() ?: null;
 }
 
+$alreadyDoNotContact = false;
+if ($send && db_available()) {
+    $d = db()->prepare('SELECT 1 FROM do_not_contact WHERE email = :email LIMIT 1');
+    $d->execute(['email' => $send['email']]);
+    $alreadyDoNotContact = (bool) $d->fetchColumn();
+}
+
 if (!$send) {
     flash_set('admin_err', 'That send record could not be found.');
     header('Location: /admin/councillor-campaign.php');
@@ -31,14 +38,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    $repliedAt   = trim((string) ($_POST['replied_at'] ?? '')) ?: null;
-    $replyNotes  = trim((string) ($_POST['reply_notes'] ?? '')) ?: null;
-    $publicQuote = trim((string) ($_POST['public_quote'] ?? '')) ?: null;
+    $repliedAt    = trim((string) ($_POST['replied_at'] ?? '')) ?: null;
+    $replyNotes   = trim((string) ($_POST['reply_notes'] ?? '')) ?: null;
+    $publicQuote  = trim((string) ($_POST['public_quote'] ?? '')) ?: null;
+    $doNotContact = !empty($_POST['do_not_contact']);
 
     db()->prepare('UPDATE councillor_campaign_sends SET replied_at = :replied_at, reply_notes = :reply_notes, public_quote = :public_quote WHERE id = :id')
         ->execute(['replied_at' => $repliedAt, 'reply_notes' => $replyNotes, 'public_quote' => $publicQuote, 'id' => $send['id']]);
 
-    flash_set('admin_ok', 'Reply logged.');
+    if ($doNotContact) {
+        db()->prepare('INSERT INTO do_not_contact (email, reason) VALUES (:email, :reason) ON DUPLICATE KEY UPDATE reason = VALUES(reason)')
+            ->execute([
+                'email'  => $send['email'],
+                'reason' => 'Requested via reply to ' . $send['campaign_slug'] . ' (' . ($repliedAt ?: date('Y-m-d')) . '): ' . mb_substr((string) $replyNotes, 0, 500),
+            ]);
+    }
+
+    flash_set('admin_ok', $doNotContact ? 'Reply logged and added to the do-not-contact list.' : 'Reply logged.');
     header('Location: /admin/councillor-campaign.php?campaign=' . urlencode($send['campaign_slug']));
     exit;
 }
@@ -81,6 +97,16 @@ require_once __DIR__ . '/includes/admin_header.php';
         <label for="public_quote">Public quote <span style="font-weight:400;text-transform:none">(optional — shown on /councillor-statements if filled in. Leave blank unless you've deliberately chosen to feature this person)</span></label>
         <textarea id="public_quote" name="public_quote" placeholder="e.g. &quot;Everyone in my ward deserves reliable connectivity.&quot;"><?= e((string) ($send['public_quote'] ?? '')) ?></textarea>
         <p class="admin-hint">Never auto-filled — copy the relevant line from Notes above only after checking the councillor is happy to be quoted publicly.</p>
+    </div>
+
+    <div class="admin-field">
+        <label style="display:flex;align-items:center;gap:0.5rem;text-transform:none;font-weight:400">
+            <input type="checkbox" name="do_not_contact" value="1" style="width:auto"<?= $alreadyDoNotContact ? ' checked disabled' : '' ?>>
+            Add to do-not-contact list — never send this person another campaign email
+        </label>
+        <?php if ($alreadyDoNotContact): ?>
+            <p class="admin-hint">Already on the do-not-contact list.</p>
+        <?php endif; ?>
     </div>
 
     <div class="admin-form-actions">
