@@ -844,7 +844,9 @@ a:hover {
 .prose h4,
 .prose ul,
 .prose ol,
-.prose blockquote {
+.prose blockquote,
+.prose .info-card,
+.prose .what-we-provide {
     max-width: min(80ch, 100%);
     margin-inline: auto;
 }
