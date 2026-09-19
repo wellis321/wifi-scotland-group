@@ -95,17 +95,18 @@
 
     const lines = [
       '<dl class="wifi-map-dl">',
-      '<div><dt>Connectivity index (demo)</dt><dd><strong>' +
+      '<div><dt>Gigabit-capable premises</dt><dd><strong>' + escapeHtml(String(row.gigabit_pct ?? '—')) + '%</strong></dd></div>',
+      '<div><dt>Full Fibre premises</dt><dd>' + escapeHtml(String(row.full_fibre_pct ?? '—')) + '%</dd></div>',
+      '<div><dt>Superfast (30Mbit/s+) premises</dt><dd>' + escapeHtml(String(row.superfast_pct ?? '—')) + '%</dd></div>',
+      '<div><dt>Below the Universal Service Obligation</dt><dd>' + escapeHtml(String(row.below_uso_pct ?? '—')) + '%</dd></div>',
+      '<div><dt>Map ranking (1&ndash;5, ours)</dt><dd>' +
         escapeHtml(String(row.connectivity_index ?? '—')) +
-        '</strong> — ' +
+        ' — ' +
         escapeHtml(row.connectivity_label || '') +
         '</dd></div>',
-      '<div><dt>Median download (Mbps, illustrative)</dt><dd>' + escapeHtml(String(row.median_download_mbps_illustrative ?? '—')) + '</dd></div>',
-      '<div><dt>Ultrafast premises % (illustrative)</dt><dd>' + escapeHtml(String(row.ultrafast_premises_pct_illustrative ?? '—')) + '</dd></div>',
-      '<div><dt>Affordability pressure (illustrative)</dt><dd>' + escapeHtml(row.affordability_pressure || '—') + '</dd></div>',
-      '<div><dt>As-of date</dt><dd>' + escapeHtml(row.last_updated || '—') + '</dd></div>',
+      '<div><dt>Data as of</dt><dd>' + escapeHtml(row.last_updated || '—') + '</dd></div>',
       '</dl>',
-      '<p class="wifi-map-detail-foot">Figures are not official. Use <a href="https://www.ofcom.org.uk/research-and-data/multi-sector-research/infrastructure-research" rel="noopener noreferrer" target="_blank">Ofcom</a> and programme sites for authoritative metrics.</p>',
+      '<p class="wifi-map-detail-foot">Source: <a href="https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/connected-nations-20252/data-downloads-2025" rel="noopener noreferrer" target="_blank">Ofcom Connected Nations</a>, fixed broadband coverage data, July 2025. The 1&ndash;5 map ranking and colour shading are WIRES\' own, based on Gigabit-capable coverage — not an Ofcom figure.</p>',
     ];
 
     detailBody.innerHTML = lines.join('');

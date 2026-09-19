@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 /**
  * JSON endpoint for council-area WiFi / connectivity statistics used by `wifi-map.php`.
- * Data is read from `data/wifi-area-stats.json` (illustrative until official metrics are wired in).
+ * Data is read from `data/wifi-area-stats.json` — real Ofcom Connected Nations coverage
+ * figures (see that file's own `meta` block for source/licence/refresh details).
  */
 
 require_once __DIR__ . '/../includes/bootstrap.php';

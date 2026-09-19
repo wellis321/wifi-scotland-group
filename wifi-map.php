@@ -23,9 +23,9 @@ require_once __DIR__ . '/includes/header.php';
     <div class="wrap">
         <h1>Connectivity across Scotland</h1>
         <p>
-            Explore Scotland's 32 council areas and see how broadband coverage and connectivity vary across the country.
-            The shading shows an indicative connectivity index — darker means better connected.
-            Click any area to explore further and find official sources for your council.
+            Explore Scotland's 32 council areas and see how broadband coverage and connectivity vary across the country,
+            using Ofcom's own published coverage data (July 2025). The shading is WIRES' own ranking, based on real
+            Gigabit-capable coverage — darker means better connected. Click any area for the full figures.
         </p>
     </div>
 </header>
@@ -80,7 +80,7 @@ require_once __DIR__ . '/includes/header.php';
 
         <div class="prose prose--after-map">
             <h2>Find official data for your area</h2>
-            <p>The map gives an indicative picture. For authoritative coverage data and programme information specific to your council area, use these official sources:</p>
+            <p>The figures on this map are Ofcom's own published coverage data. For postcode-level detail and programme information specific to your address, use these official sources:</p>
             <ul>
                 <li>
                     <a href="https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/infrastructure-research"<?= external_link_attrs('https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/infrastructure-research') ?>>Ofcom Connected Nations</a>
