@@ -350,6 +350,13 @@ CREATE TABLE IF NOT EXISTS council_contacts (
   ceo_email VARCHAR(255) DEFAULT NULL COMMENT 'Address the accountability letter was actually sent to',
   subject VARCHAR(255) DEFAULT NULL COMMENT 'Exact rendered subject line sent — content changes over time, this is what that council actually received',
   body_text MEDIUMTEXT DEFAULT NULL COMMENT 'Exact rendered plain-text body sent',
+  leader_name VARCHAR(150) DEFAULT NULL COMMENT 'Council Leader (political head) this council''s accountability letter was addressed to — distinct from the Chief Executive above',
+  leader_email VARCHAR(255) DEFAULT NULL COMMENT 'Address the Leader accountability letter was actually sent to',
+  leader_sent_at DATE DEFAULT NULL COMMENT 'Date the accountability letter was sent to the Leader — tracked separately from outreach_sent_at (the CEO send)',
+  leader_subject VARCHAR(255) DEFAULT NULL,
+  leader_body_text MEDIUMTEXT DEFAULT NULL,
+  leader_replied_at DATE DEFAULT NULL COMMENT 'Date a reply was received from the Leader, if any — symmetric with outreach_replied_at (the CEO reply)',
+  leader_reply_summary TEXT DEFAULT NULL COMMENT 'Public-facing one/two sentence summary of what the Leader said — shown on /council-replies',
   updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (id),
   UNIQUE KEY uq_council_contacts_area (council_area),
@@ -365,6 +372,13 @@ CREATE TABLE IF NOT EXISTS council_contacts (
 -- ALTER TABLE council_contacts ADD COLUMN ceo_email VARCHAR(255) DEFAULT NULL AFTER ceo_name;
 -- ALTER TABLE council_contacts ADD COLUMN subject VARCHAR(255) DEFAULT NULL AFTER ceo_email;
 -- ALTER TABLE council_contacts ADD COLUMN body_text MEDIUMTEXT DEFAULT NULL AFTER subject;
+-- ALTER TABLE council_contacts ADD COLUMN leader_name VARCHAR(150) DEFAULT NULL AFTER body_text;
+-- ALTER TABLE council_contacts ADD COLUMN leader_email VARCHAR(255) DEFAULT NULL AFTER leader_name;
+-- ALTER TABLE council_contacts ADD COLUMN leader_sent_at DATE DEFAULT NULL AFTER leader_email;
+-- ALTER TABLE council_contacts ADD COLUMN leader_subject VARCHAR(255) DEFAULT NULL AFTER leader_sent_at;
+-- ALTER TABLE council_contacts ADD COLUMN leader_body_text MEDIUMTEXT DEFAULT NULL AFTER leader_subject;
+-- ALTER TABLE council_contacts ADD COLUMN leader_replied_at DATE DEFAULT NULL AFTER leader_body_text;
+-- ALTER TABLE council_contacts ADD COLUMN leader_reply_summary TEXT DEFAULT NULL AFTER leader_replied_at;
 
 INSERT INTO council_contacts (council_area, directory_url, contact_method, councillor_count, status, notes) VALUES
 ('Angus', 'https://www.angus.gov.uk/councillors', 'CllrSurname@angus.gov.uk', '~28', 'confirmed', 'Confirmed working pattern (verified on Cllr Chris Beattie''s profile page).'),

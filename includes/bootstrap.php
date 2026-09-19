@@ -231,6 +231,21 @@ function do_not_contact_emails(): array
 }
 
 /**
+ * The CEO and Leader letters both say "we're writing in parallel to all councillors" —
+ * only true for councils the councillor campaign has actually reached. Keeps all three
+ * campaigns in sync: as more daily councillor batches go out, more councils become
+ * eligible for the institutional letters.
+ */
+function councils_reached_by_councillor_campaign(): array
+{
+    $stmt = campaign_db()->query(
+        "SELECT DISTINCT council_area FROM councillor_campaign_sends
+         WHERE campaign_slug = 'councillor-public-statement-2026-09' AND status = 'sent'"
+    );
+    return $stmt->fetchAll(PDO::FETCH_COLUMN);
+}
+
+/**
  * Reply-by date, roughly N weeks out from whenever this actually sends — campaigns often
  * run across several days (Resend's daily quota), so this is computed fresh each run
  * rather than a fixed string. Not exact business-day counting, just nudged off a weekend.

@@ -4,28 +4,33 @@
 declare(strict_types=1);
 
 /**
- * Mail-merge sender for the council Chief Executive accountability campaign.
+ * Mail-merge sender for the council Leader accountability campaign.
  *
- * Sends one personalised email per row in data/council-ceo-roster.csv (32 councils) via
- * the Resend batch API, and writes the result straight into council_contacts on the
- * PRODUCTION database (via campaign_db()) — the same table /council-replies reads from.
- * Re-running this script is safe: rows with outreach_sent_at already set are skipped,
- * so only not-yet-sent councils are retried.
+ * Reuses the exact same letter as bin/send-council-ceo-campaign.php (the same
+ * includes/campaign-templates/council-ceo-accountability.php template) — this is a
+ * separate track of the same institutional accountability letter, addressed to each
+ * council's political Leader instead of its Chief Executive, tracked via the leader_*
+ * columns on council_contacts so it never collides with the CEO send on the same row.
+ *
+ * Sends one personalised email per row in data/council-leader-roster.csv (32 councils)
+ * via the Resend batch API, and writes the result straight into council_contacts on
+ * the PRODUCTION database (via campaign_db()) — the same table /council-replies reads
+ * from. Re-running this script is safe: rows with leader_sent_at already set are
+ * skipped, so only not-yet-sent councils are retried.
  *
  * RUN THIS ONLY FROM THE COMMAND LINE. There is no web trigger for this script on
- * purpose — a send to real council Chief Executives must never be one accidental page
- * load away.
+ * purpose — a send to real council Leaders must never be one accidental page load away.
  *
  * Usage:
- *   php bin/send-council-ceo-campaign.php --dry-run
+ *   php bin/send-council-leader-campaign.php --dry-run
  *     Renders the first few emails to STDOUT. Sends nothing, touches no DB rows.
  *
- *   php bin/send-council-ceo-campaign.php --test-to=you@example.com --test-count=5
+ *   php bin/send-council-leader-campaign.php --test-to=you@example.com --test-count=5
  *     Sends 5 real merge-personalised emails (using 5 real roster rows) but all
- *     addressed to --test-to instead of the real Chief Executive. Subject is prefixed
- *     "[TEST]" so it's unmistakable in an inbox. Never touches the DB.
+ *     addressed to --test-to instead of the real Leader. Subject is prefixed "[TEST]"
+ *     so it's unmistakable in an inbox. Never touches the DB.
  *
- *   php bin/send-council-ceo-campaign.php
+ *   php bin/send-council-leader-campaign.php
  *     A real send to every council not yet marked as sent (32 total). Asks for
  *     interactive confirmation first unless --yes is also passed.
  *
@@ -44,7 +49,7 @@ if (php_sapi_name() !== 'cli') {
 
 require_once __DIR__ . '/../includes/bootstrap.php';
 
-const ROSTER_CSV_PATH   = __DIR__ . '/../data/council-ceo-roster.csv';
+const ROSTER_CSV_PATH   = __DIR__ . '/../data/council-leader-roster.csv';
 const RESEND_BATCH_URL  = 'https://api.resend.com/emails/batch';
 const BATCH_SIZE        = 100;
 
@@ -66,8 +71,10 @@ if ($testTo !== null && !filter_var($testTo, FILTER_VALIDATE_EMAIL)) {
 // ─── Email template ──────────────────────────────────────────────────────────
 
 // render_greeting()/render_subject()/render_text_body()/render_html_body() live in
-// includes/campaign-templates/council-ceo-accountability.php — shared with
-// council-replies.php, which renders the same template publicly.
+// includes/campaign-templates/council-ceo-accountability.php — same template as the
+// CEO send. Each roster row below is passed through with 'role' => 'leader' and
+// 'leader_name' (not 'ceo_name'), so render_greeting() uses the Leader's name and
+// skips the CEO-specific Aberdeen City special-case.
 
 require_once __DIR__ . '/../includes/campaign-templates/council-ceo-accountability.php';
 
@@ -99,9 +106,10 @@ function load_roster(string $path): array
             $line[] = implode(',', $overflow);
         }
         $row = array_combine($header, $line);
-        if (trim((string) ($row['ceo_email'] ?? '')) === '') {
+        if (trim((string) ($row['leader_email'] ?? '')) === '') {
             continue;
         }
+        $row['role'] = 'leader';
         $rows[] = $row;
     }
 
@@ -157,22 +165,19 @@ function resend_send_batch(string $apiKey, array $emails): array
 function already_sent_councils(): array
 {
     $stmt = campaign_db()->query(
-        'SELECT council_area FROM council_contacts WHERE outreach_sent_at IS NOT NULL'
+        'SELECT council_area FROM council_contacts WHERE leader_sent_at IS NOT NULL'
     );
     return $stmt->fetchAll(PDO::FETCH_COLUMN);
 }
-
-// councils_reached_by_councillor_campaign() now lives in includes/bootstrap.php —
-// shared with bin/send-council-leader-campaign.php.
 
 function log_send_result(array $row, string $subject, string $bodyText): void
 {
     $stmt = campaign_db()->prepare(
         'UPDATE council_contacts
-         SET outreach_sent_at = CURRENT_DATE, ceo_name = ?, ceo_email = ?, subject = ?, body_text = ?
+         SET leader_sent_at = CURRENT_DATE, leader_name = ?, leader_email = ?, leader_subject = ?, leader_body_text = ?
          WHERE council_area = ?'
     );
-    $stmt->execute([$row['ceo_name'], $row['ceo_email'], $subject, $bodyText, $row['council_area']]);
+    $stmt->execute([$row['leader_name'], $row['leader_email'], $subject, $bodyText, $row['council_area']]);
 }
 
 // ─── Main ────────────────────────────────────────────────────────────────────
@@ -209,7 +214,7 @@ if ($dryRun) {
     $sample = array_slice($roster, 0, min(3, count($roster)));
     foreach ($sample as $row) {
         fwrite(STDOUT, str_repeat('=', 70) . "\n");
-        fwrite(STDOUT, "TO: {$row['ceo_name']} <{$row['ceo_email']}> ({$row['council_area']}) [confidence: {$row['confidence']}]\n");
+        fwrite(STDOUT, "TO: {$row['leader_name']} <{$row['leader_email']}> ({$row['council_area']}) [confidence: {$row['confidence']}]\n");
         fwrite(STDOUT, "FROM: $from\n");
         fwrite(STDOUT, "SUBJECT: " . render_subject($row) . "\n\n");
         fwrite(STDOUT, render_text_body($row) . "\n");
@@ -237,7 +242,7 @@ if ($isTestMode) {
     $recipients = array_values(array_filter(
         $roster,
         fn(array $row) => !in_array($row['council_area'], $alreadySent, true)
-            && !in_array(strtolower($row['ceo_email']), $doNotContact, true)
+            && !in_array(strtolower($row['leader_email']), $doNotContact, true)
     ));
     fwrite(STDERR, sprintf(
         "%d council(s) already sent; %d on the do-not-contact list; %d remaining.\n",
@@ -283,11 +288,11 @@ foreach (array_chunk($recipients, BATCH_SIZE) as $batch) {
         $renderedSubjects[$i] = $subject; // exact subject actually sent, for logging — before any [TEST] prefix
         $renderedTexts[$i] = $text;
         if ($isTestMode) {
-            $subject = "[TEST - would go to {$row['ceo_name']}, {$row['ceo_email']}] $subject";
+            $subject = "[TEST - would go to {$row['leader_name']}, {$row['leader_email']}] $subject";
         }
         $payload[] = [
             'from' => $from,
-            'to' => [$isTestMode ? $testTo : $row['ceo_email']],
+            'to' => [$isTestMode ? $testTo : $row['leader_email']],
             'subject' => $subject,
             'html' => render_html_body($row),
             'text' => $text,
@@ -302,10 +307,10 @@ foreach (array_chunk($recipients, BATCH_SIZE) as $batch) {
                 log_send_result($row, $renderedSubjects[$i], $renderedTexts[$i]);
             }
             $sentCount++;
-            fwrite(STDOUT, "sent  {$row['ceo_name']} <{$row['ceo_email']}> ({$row['council_area']})\n");
+            fwrite(STDOUT, "sent  {$row['leader_name']} <{$row['leader_email']}> ({$row['council_area']})\n");
         } else {
             $failedCount++;
-            fwrite(STDOUT, "FAILED {$row['ceo_name']} <{$row['ceo_email']}> ({$row['council_area']}) — {$result['error']}\n");
+            fwrite(STDOUT, "FAILED {$row['leader_name']} <{$row['leader_email']}> ({$row['council_area']}) — {$result['error']}\n");
         }
     }
 }

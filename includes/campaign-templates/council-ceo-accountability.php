@@ -9,13 +9,19 @@ declare(strict_types=1);
  * exactly what was sent — this file is the single source of truth for both).
  */
 
-/** Aberdeen City's CE post is interim, mid-recruitment — address the office, not a name that may change within days. */
+/**
+ * Aberdeen City's CE post is interim, mid-recruitment — address the office, not a name
+ * that may change within days. Only applies to the CEO send (default role) — a Leader
+ * row (role: 'leader', using 'leader_name' instead of 'ceo_name') skips this, since it's
+ * a CEO-specific situation, not a Leader one.
+ */
 function render_greeting(array $row): string
 {
-    if ($row['council_area'] === 'Aberdeen City') {
+    $role = $row['role'] ?? 'ceo';
+    if ($role === 'ceo' && $row['council_area'] === 'Aberdeen City') {
         return "Chief Executive's Office";
     }
-    return $row['ceo_name'];
+    return $row['ceo_name'] ?? $row['leader_name'] ?? '';
 }
 
 function render_subject(array $row): string

@@ -6,6 +6,8 @@ config.php
 overview.txt
 /data/councillors-roster.csv
 /data/council-ceo-roster.csv
+/data/council-leader-names.csv
+/data/council-leader-roster.csv
 
 # /files/ is the admin-managed public downloads folder (admin/files.php) — it only ever
 # lists flat top-level files, never subdirectories, so anything dropped in a subfolder

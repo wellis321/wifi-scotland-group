@@ -15,7 +15,7 @@ $letterSubject = render_subject($letterPreview);
 $letterBody    = render_text_body($letterPreview);
 
 $pageTitle       = 'Council replies — did your council answer?';
-$pageDescription = 'WIRES wrote to the Chief Executive of every one of Scotland\'s 32 councils asking four practical questions about digital exclusion. Here is who replied, and what they said.';
+$pageDescription = 'WIRES wrote to the Chief Executive and Leader of every one of Scotland\'s 32 councils asking four practical questions about digital exclusion. Here is who replied, and what they said.';
 $currentNav      = 'councilreplies';
 
 $pageOgImage    = image_asset('card-community.jpg');
@@ -32,24 +32,29 @@ $councils = [];
 if (db_available()) {
     try {
         $councils = db()->query(
-            'SELECT council_area, directory_url, outreach_sent_at, outreach_replied_at, reply_summary, ceo_name
+            'SELECT council_area, directory_url, outreach_sent_at, outreach_replied_at, reply_summary,
+                    ceo_name, leader_name, leader_sent_at, leader_replied_at, leader_reply_summary
              FROM council_contacts ORDER BY council_area ASC'
         )->fetchAll();
     } catch (Throwable) {}
 }
 
-$sent    = array_filter($councils, static fn($c) => !empty($c['outreach_sent_at']));
-$replied = array_filter($councils, static fn($c) => !empty($c['outreach_replied_at']));
+// "Contacted" means the CEO or the Leader (or both) has been written to — either
+// channel counts as institutional contact with that council.
+$sent    = array_filter($councils, static fn($c) => !empty($c['outreach_sent_at']) || !empty($c['leader_sent_at']));
+$replied = array_filter($councils, static fn($c) => !empty($c['outreach_replied_at']) || !empty($c['leader_replied_at']));
 
 usort($sent, static function ($a, $b) {
     // Replied councils first, then most recently sent
-    $aReplied = !empty($a['outreach_replied_at']);
-    $bReplied = !empty($b['outreach_replied_at']);
+    $aReplied = !empty($a['outreach_replied_at']) || !empty($a['leader_replied_at']);
+    $bReplied = !empty($b['outreach_replied_at']) || !empty($b['leader_replied_at']);
     if ($aReplied !== $bReplied) return $bReplied <=> $aReplied;
-    return strcmp((string) $b['outreach_sent_at'], (string) $a['outreach_sent_at']);
+    $aDate = max((string) $a['outreach_sent_at'], (string) $a['leader_sent_at']);
+    $bDate = max((string) $b['outreach_sent_at'], (string) $b['leader_sent_at']);
+    return strcmp($bDate, $aDate);
 });
 
-$notYetSent = array_filter($councils, static fn($c) => empty($c['outreach_sent_at']));
+$notYetSent = array_filter($councils, static fn($c) => empty($c['outreach_sent_at']) && empty($c['leader_sent_at']));
 
 $total        = count($councils) ?: 32;
 $sentCount    = count($sent);
@@ -61,7 +66,7 @@ require_once __DIR__ . '/includes/header.php';
 <header class="page-header">
     <div class="wrap">
         <h1>Council replies</h1>
-        <p>WIRES is writing to the Chief Executive of each of Scotland's 32 councils, asking four practical questions: how staff and services support people who can't easily get online, what's being done on affordability and hardware barriers, whether services are built to survive a dropped connection without losing anyone's work, and who's named accountable for a published digital inclusion action plan. This page tracks what happens next — every reply, and every silence.</p>
+        <p>WIRES is writing to the Chief Executive and the Leader of each of Scotland's 32 councils, asking four practical questions: how staff and services support people who can't easily get online, what's being done on affordability and hardware barriers, whether services are built to survive a dropped connection without losing anyone's work, and who's named accountable for a published digital inclusion action plan. This page tracks what happens next — every reply, and every silence.</p>
         <p class="meta">This is a separate effort from our <a href="/councillor-statements">individual councillor campaign</a>, which asks councillors personally to back connectivity as essential infrastructure. This page is specifically about councils' own accountability.</p>
     </div>
 </header>
@@ -113,29 +118,42 @@ require_once __DIR__ . '/includes/header.php';
             <?php else: ?>
                 <h2>Contacted so far</h2>
                 <div class="figure-log">
-                    <?php foreach ($sent as $c): ?>
+                    <?php foreach ($sent as $c):
+                        $ceoReplied    = !empty($c['outreach_replied_at']);
+                        $leaderReplied = !empty($c['leader_replied_at']);
+                        $anyReplied    = $ceoReplied || $leaderReplied;
+                        ?>
                         <div class="figure-log__item">
                             <p class="figure-log__claim">
                                 <?= e($c['council_area']) ?>
-                                <?php if (!empty($c['outreach_replied_at'])): ?>
+                                <?php if ($anyReplied): ?>
                                     <span class="pill pill--active" style="margin-left:0.5rem">Replied</span>
                                 <?php else: ?>
                                     <span class="pill pill--forming" style="margin-left:0.5rem">Awaiting reply</span>
                                 <?php endif; ?>
                             </p>
                             <?php if (!empty($c['reply_summary'])): ?>
-                                <p class="figure-log__note"><?= e($c['reply_summary']) ?></p>
+                                <p class="figure-log__note"><strong>Chief Executive:</strong> <?= e($c['reply_summary']) ?></p>
                             <?php endif; ?>
-                            <p class="figure-log__meta">
-                                <?php if (!empty($c['ceo_name'])): ?>
-                                    <span class="figure-log__date">Addressed to <?= e($c['ceo_name']) ?></span>
-                                    <span class="figure-log__date">&middot;</span>
-                                <?php endif; ?>
-                                <span class="figure-log__date">Sent <?= e(format_date((string) $c['outreach_sent_at'])) ?></span>
-                                <?php if (!empty($c['outreach_replied_at'])): ?>
-                                    <span class="figure-log__date">&middot; Replied <?= e(format_date((string) $c['outreach_replied_at'])) ?></span>
-                                <?php endif; ?>
-                            </p>
+                            <?php if (!empty($c['leader_reply_summary'])): ?>
+                                <p class="figure-log__note"><strong>Leader:</strong> <?= e($c['leader_reply_summary']) ?></p>
+                            <?php endif; ?>
+                            <?php if (!empty($c['ceo_name'])): ?>
+                                <p class="figure-log__meta">
+                                    <span class="figure-log__date">Chief Executive <?= e($c['ceo_name']) ?> — sent <?= e(format_date((string) $c['outreach_sent_at'])) ?></span>
+                                    <?php if ($ceoReplied): ?>
+                                        <span class="figure-log__date">&middot; Replied <?= e(format_date((string) $c['outreach_replied_at'])) ?></span>
+                                    <?php endif; ?>
+                                </p>
+                            <?php endif; ?>
+                            <?php if (!empty($c['leader_name'])): ?>
+                                <p class="figure-log__meta">
+                                    <span class="figure-log__date">Leader <?= e($c['leader_name']) ?> — sent <?= e(format_date((string) $c['leader_sent_at'])) ?></span>
+                                    <?php if ($leaderReplied): ?>
+                                        <span class="figure-log__date">&middot; Replied <?= e(format_date((string) $c['leader_replied_at'])) ?></span>
+                                    <?php endif; ?>
+                                </p>
+                            <?php endif; ?>
                         </div>
                     <?php endforeach; ?>
                 </div>
