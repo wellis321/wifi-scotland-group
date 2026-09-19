@@ -87,8 +87,8 @@ $projects = [
         'img'     => 'card-global-network.jpg',
         'imgAlt'  => 'Digital network globe — representing Ninux\'s mesh of interconnected nodes across Italy.',
         'body'    => 'One of Europe\'s oldest and largest wireless mesh networks, started in Rome in 2001 by students and hackers building their own alternative to commercial providers. Ninux has grown into one of the world\'s largest community networks by active node count, with local "Ninux islands" running across several Italian regions, and has been an experimental member of Rome\'s NaMeX internet exchange since 2013.',
-        'url'     => 'https://ninux.org/',
-        'urlLabel'=> 'ninux.org',
+        'url'     => 'https://en.wikipedia.org/wiki/Ninux',
+        'urlLabel'=> 'Ninux (Wikipedia)',
     ],
     [
         'name'    => 'AlterMundi / LibreRouter',
