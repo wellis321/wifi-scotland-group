@@ -486,3 +486,25 @@ CREATE TABLE IF NOT EXISTS do_not_contact (
   PRIMARY KEY (id),
   UNIQUE KEY uq_do_not_contact_email (email)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ─── One-off stakeholder notification (bin/send-stakeholder-notifications.php) ───────
+-- A courtesy heads-up to sympathetic sector organisations about the accountability
+-- campaign — not an ongoing mail-merge campaign like the tables above, just a small,
+-- one-time send with the same audit-trail discipline.
+
+CREATE TABLE IF NOT EXISTS stakeholder_notifications (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  organisation VARCHAR(160) NOT NULL,
+  contact_type VARCHAR(120) DEFAULT NULL COMMENT 'e.g. "media enquiries", "general info" — what kind of inbox this is',
+  email VARCHAR(255) NOT NULL,
+  status ENUM('sent','failed') NOT NULL DEFAULT 'sent',
+  resend_id VARCHAR(100) DEFAULT NULL,
+  error_message TEXT DEFAULT NULL,
+  subject VARCHAR(255) DEFAULT NULL,
+  body_text MEDIUMTEXT DEFAULT NULL,
+  sent_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  replied_at DATE DEFAULT NULL,
+  reply_notes TEXT DEFAULT NULL COMMENT 'Not shown publicly',
+  PRIMARY KEY (id),
+  UNIQUE KEY uq_stakeholder_notifications_email (email)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
