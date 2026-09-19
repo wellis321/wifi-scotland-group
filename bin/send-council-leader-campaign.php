@@ -170,14 +170,33 @@ function already_sent_councils(): array
     return $stmt->fetchAll(PDO::FETCH_COLUMN);
 }
 
+/**
+ * A few councils have Co-Leaders (two people, both genuinely sent this letter) —
+ * council_contacts only has one leader_name/leader_email slot per council, so if one's
+ * already recorded from an earlier row in this same run, combine rather than overwrite,
+ * so both names end up shown on /council-replies instead of just whoever sent last.
+ */
 function log_send_result(array $row, string $subject, string $bodyText): void
 {
-    $stmt = campaign_db()->prepare(
+    $pdo = campaign_db();
+
+    $existing = $pdo->prepare('SELECT leader_name, leader_email FROM council_contacts WHERE council_area = ?');
+    $existing->execute([$row['council_area']]);
+    $current = $existing->fetch();
+
+    $leaderName = $row['leader_name'];
+    $leaderEmail = $row['leader_email'];
+    if ($current && !empty($current['leader_name']) && $current['leader_name'] !== $leaderName) {
+        $leaderName = $current['leader_name'] . ' and ' . $leaderName;
+        $leaderEmail = $current['leader_email'] . '; ' . $leaderEmail;
+    }
+
+    $stmt = $pdo->prepare(
         'UPDATE council_contacts
          SET leader_sent_at = CURRENT_DATE, leader_name = ?, leader_email = ?, leader_subject = ?, leader_body_text = ?
          WHERE council_area = ?'
     );
-    $stmt->execute([$row['leader_name'], $row['leader_email'], $subject, $bodyText, $row['council_area']]);
+    $stmt->execute([$leaderName, $leaderEmail, $subject, $bodyText, $row['council_area']]);
 }
 
 // ─── Main ────────────────────────────────────────────────────────────────────
