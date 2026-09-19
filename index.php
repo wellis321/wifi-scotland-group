@@ -218,6 +218,29 @@ require_once __DIR__ . '/includes/header.php';
     </div>
 </section>
 
+<section class="section" aria-labelledby="campaign-scale-heading">
+    <div class="wrap">
+        <p class="paths-kicker">Rather than wait for someone else to act</p>
+        <h2 id="campaign-scale-heading" class="paths-heading">We're writing to everyone who can do something about it</h2>
+        <p class="section-intro">Every councillor, every council Chief Executive, every council Leader, and every MSP at Holyrood — over 1,300 people in total, each asked directly what they're doing to close this gap and to say so publicly.</p>
+        <div class="stat-strip">
+            <div class="stat-item">
+                <span class="stat-value">~1,200</span>
+                <span class="stat-label">councillors</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value">32</span>
+                <span class="stat-label">councils — Chief Executive and Leader</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value">129</span>
+                <span class="stat-label">MSPs at Holyrood</span>
+            </div>
+        </div>
+        <p style="margin-top:1.5rem"><a class="btn btn-primary" href="/accountability-campaign">See the full picture, and every reply &rarr;</a></p>
+    </div>
+</section>
+
 <section class="section alt" aria-labelledby="news-heading">
     <div class="wrap">
         <h2 id="news-heading">Latest from the campaign</h2>

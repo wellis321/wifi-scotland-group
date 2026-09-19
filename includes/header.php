@@ -62,6 +62,7 @@ $navStructure = [
         'label' => 'Take action',
         'items' => [
             ['id' => 'involved',    'href' => '/get-involved',       'label' => 'Get involved'],
+            ['id' => 'accountabilitycampaign', 'href' => '/accountability-campaign', 'label' => 'Our accountability campaign'],
             ['id' => 'councillor',  'href' => '/write-to-councillor','label' => 'Write to your councillor'],
             ['id' => 'councillorstatements', 'href' => '/councillor-statements', 'label' => 'Councillor statements'],
             ['id' => 'councilreplies', 'href' => '/council-replies', 'label' => 'Council replies'],
