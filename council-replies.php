@@ -109,7 +109,7 @@ require_once __DIR__ . '/includes/header.php';
                 <div class="letter-preview__body">
                     <p class="letter-preview__subject"><strong>Subject:</strong> <?= e($letterSubject) ?></p>
                     <pre class="letter-preview__text"><?= e($letterBody) ?></pre>
-                    <p class="meta">Every Chief Executive gets this same letter with their name and council merged in — rendered here from the exact same code that sends it, not a separate copy.</p>
+                    <p class="meta">Every Chief Executive and every Leader gets this same letter, addressed to them by name — rendered here from the exact same code that sends it, not a separate copy.</p>
                 </div>
             </details>
 
