@@ -182,6 +182,6 @@ declare(strict_types=1);
     });
 })();
 </script>
-<script src="/js/animations.js" defer></script>
+<script src="<?= e(asset_url('/js/animations.js')) ?>" defer></script>
 </body>
 </html>

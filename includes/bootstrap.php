@@ -85,6 +85,19 @@ function image_asset(string $filename): string
     return '/images/' . $filename;
 }
 
+/**
+ * A CSS/JS path with a cache-busting ?v= based on the file's own mtime, so a browser
+ * that cached an old copy before a deploy picks up the new one immediately rather than
+ * serving stale content until its cache naturally expires (bit us once already, on
+ * wifi-map.js after a data/behaviour change).
+ */
+function asset_url(string $path): string
+{
+    $file = PROJECT_ROOT . $path;
+    $version = is_file($file) ? (string) filemtime($file) : (string) time();
+    return $path . '?v=' . $version;
+}
+
 /** Absolute URL when `APP_BASE_URL` is set; for Open Graph etc. */
 function absolute_url_for_path(string $path): ?string
 {

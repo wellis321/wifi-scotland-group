@@ -12,9 +12,10 @@ $pageExtraHead = <<<'HTML'
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 HTML;
 
-$pageExtraScripts = <<<'HTML'
+$wifiMapJsUrl = e(asset_url('/js/wifi-map.js'));
+$pageExtraScripts = <<<HTML
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    <script src="/js/wifi-map.js" defer></script>
+    <script src="{$wifiMapJsUrl}" defer></script>
 HTML;
 
 require_once __DIR__ . '/includes/header.php';
