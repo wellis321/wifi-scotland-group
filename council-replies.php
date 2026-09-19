@@ -25,7 +25,6 @@ $sidebarRelated = [
     ['href' => '/accountability-campaign', 'label' => 'Full campaign overview'],
     ['href' => '/councillor-statements', 'label' => 'Councillor statements'],
     ['href' => '/accountability',        'label' => 'Who is acting?'],
-    ['href' => '/figures',               'label' => 'Figures & sources'],
 ];
 
 $councils = [];
