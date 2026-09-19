@@ -12,6 +12,8 @@ $pageOgImage    = image_asset('card-community.jpg');
 $pageOgImageAlt = 'Person writing at a table — representing constituent contact with elected representatives.';
 
 $sidebarRelated = [
+    ['href' => '/accountability-campaign', 'label' => 'Full campaign overview'],
+    ['href' => '/councillor-statements', 'label' => 'Councillor statements'],
     ['href' => '/council-replies','label' => 'Council replies'],
     ['href' => '/get-involved',  'label' => 'Get involved'],
     ['href' => '/scotland',      'label' => 'Scotland policy'],

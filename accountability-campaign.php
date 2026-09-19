@@ -20,6 +20,7 @@ $pageOgImageAlt = 'Person writing at a table — representing constituent and ca
 $sidebarRelated = [
     ['href' => '/councillor-statements', 'label' => 'Councillor statements'],
     ['href' => '/council-replies',       'label' => 'Council replies'],
+    ['href' => '/write-to-councillor',   'label' => 'Write to your councillor'],
     ['href' => '/accountability',        'label' => 'Who is acting?'],
 ];
 

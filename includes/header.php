@@ -58,14 +58,21 @@ $navStructure = [
     ],
     [
         'type'  => 'group',
+        'id'    => 'accountabilitycampaigngroup',
+        'label' => 'Accountability campaign',
+        'items' => [
+            ['id' => 'accountabilitycampaign', 'href' => '/accountability-campaign', 'label' => 'Campaign overview'],
+            ['id' => 'councillorstatements', 'href' => '/councillor-statements', 'label' => 'Councillor statements'],
+            ['id' => 'councilreplies', 'href' => '/council-replies', 'label' => 'Council replies'],
+            ['id' => 'councillor',  'href' => '/write-to-councillor','label' => 'Write to your councillor'],
+        ],
+    ],
+    [
+        'type'  => 'group',
         'id'    => 'takeaction',
         'label' => 'Take action',
         'items' => [
             ['id' => 'involved',    'href' => '/get-involved',       'label' => 'Get involved'],
-            ['id' => 'accountabilitycampaign', 'href' => '/accountability-campaign', 'label' => 'Our accountability campaign'],
-            ['id' => 'councillor',  'href' => '/write-to-councillor','label' => 'Write to your councillor'],
-            ['id' => 'councillorstatements', 'href' => '/councillor-statements', 'label' => 'Councillor statements'],
-            ['id' => 'councilreplies', 'href' => '/council-replies', 'label' => 'Council replies'],
             ['id' => 'groups',      'href' => '/groups',             'label' => 'Local groups'],
             ['id' => 'startgroup',  'href' => '/start-a-group',      'label' => 'Start a group'],
         ],

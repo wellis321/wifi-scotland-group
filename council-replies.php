@@ -22,6 +22,7 @@ $pageOgImage    = image_asset('card-community.jpg');
 $pageOgImageAlt = 'Person writing at a table — representing constituent and campaign contact with elected representatives.';
 
 $sidebarRelated = [
+    ['href' => '/accountability-campaign', 'label' => 'Full campaign overview'],
     ['href' => '/write-to-councillor',   'label' => 'Write to your councillor'],
     ['href' => '/councillor-statements', 'label' => 'Councillor statements'],
     ['href' => '/accountability',        'label' => 'Who is acting?'],
