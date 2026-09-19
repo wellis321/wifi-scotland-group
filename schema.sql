@@ -449,6 +449,31 @@ CREATE TABLE IF NOT EXISTS councillor_campaign_sends (
 -- ALTER TABLE councillor_campaign_sends ADD COLUMN body_text MEDIUMTEXT DEFAULT NULL AFTER subject;
 -- ALTER TABLE councillor_campaign_sends ADD COLUMN public_quote TEXT DEFAULT NULL AFTER reply_notes;
 
+-- ─── MSP accountability campaign (bin/send-msp-campaign.php) ────────────────────────
+-- Tracks per-person sends, same shape and purpose as councillor_campaign_sends above,
+-- for the 129 MSPs at Holyrood — a separate national/devolved-legislature audience
+-- from the council-level campaigns.
+
+CREATE TABLE IF NOT EXISTS msp_campaign_sends (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  campaign_slug VARCHAR(100) NOT NULL COMMENT 'Identifies which mail-merge send this belongs to, e.g. msp-accountability-2026-09',
+  full_name VARCHAR(160) NOT NULL,
+  party VARCHAR(120) DEFAULT NULL,
+  role VARCHAR(160) DEFAULT NULL COMMENT 'e.g. "MSP for Paisley (Constituency)" or "MSP for North East Scotland (Region)"',
+  email VARCHAR(255) NOT NULL,
+  status ENUM('sent','failed') NOT NULL DEFAULT 'sent' COMMENT 'sent = accepted by Resend for delivery, not a confirmed open/click',
+  resend_id VARCHAR(100) DEFAULT NULL COMMENT 'Email id returned by Resend, for tracing a specific delivery',
+  error_message TEXT DEFAULT NULL,
+  subject VARCHAR(255) DEFAULT NULL COMMENT 'Exact rendered subject line this person was sent',
+  body_text MEDIUMTEXT DEFAULT NULL COMMENT 'Exact rendered plain-text body this person was sent',
+  sent_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  replied_at DATE DEFAULT NULL COMMENT 'Auto-set by bin/check-campaign-replies.php when a reply is detected, or manually via /admin',
+  reply_notes TEXT DEFAULT NULL COMMENT 'What the MSP said — auto-filled with a body snippet on detection, or manually via /admin. Not shown publicly',
+  public_quote TEXT DEFAULT NULL COMMENT 'A short line curated FROM reply_notes for public display — deliberately separate from reply_notes so a raw auto-captured email snippet is never shown publicly without a human choosing to feature it',
+  PRIMARY KEY (id),
+  UNIQUE KEY uq_msp_campaign_sends (campaign_slug, email)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- People who have asked not to be contacted again, checked before every campaign send
 -- (bin/send-councillor-campaign.php, bin/send-council-ceo-campaign.php) — independent of
 -- any single campaign_slug, so an opt-out is honoured across every future campaign, not
