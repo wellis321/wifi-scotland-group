@@ -16,10 +16,8 @@ function render_subject(array $row): string
 
 function render_text_body(array $row): string
 {
-    $org = $row['organisation'];
-
     return <<<TXT
-Hi {$org},
+Hello,
 
 Quick heads-up rather than an ask. WIRES has spent the last few weeks writing
 directly to everyone in Scotland with a lever to pull on digital exclusion:
@@ -43,11 +41,9 @@ TXT;
 
 function render_html_body(array $row): string
 {
-    $org = e($row['organisation']);
-
     return <<<HTML
 <div style="font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:15px;line-height:1.6;color:#1a1a1a;max-width:600px">
-<p>Hi {$org},</p>
+<p>Hello,</p>
 <p>Quick heads-up rather than an ask. WIRES has spent the last few weeks writing directly to everyone in Scotland with a lever to pull on digital exclusion: around 1,200 councillors, every council Chief Executive, every council Leader, and all 129 MSPs at Holyrood. Each was asked to address the gap Audit Scotland identified in August 2024 — no delivery plan, no one named accountable — and to say publicly where they stand.</p>
 <p>Replies are starting to come in, and we're tracking all of it publicly and in real time: <a href="https://wires.org.uk/accountability-campaign">wires.org.uk/accountability-campaign</a></p>
 <p>Given your own work in this space, thought it was worth flagging directly rather than you finding out secondhand. Happy to share more detail, data, or sourcing if useful to you.</p>
