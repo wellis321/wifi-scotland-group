@@ -3272,39 +3272,20 @@ a.stat-item--link:hover .stat-value {
     color: var(--accent-dark);
 }
 
-/* ─── Reply tally — a standalone headline stat, not another grid cell ──────── */
+/* ─── Balanced stat strip — for 5 items as 3-over-2, both rows full width ──── */
 
-.reply-tally {
-    display: flex;
-    align-items: baseline;
-    flex-wrap: wrap;
-    gap: 0.7rem 1rem;
-    border-top: 1.5px solid var(--ink);
-    border-bottom: 1.5px solid var(--ink);
-    padding: 1.1rem 0.1rem;
-    margin: 1.5rem 0 2.25rem;
+.stat-strip--balanced {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
 }
 
-.reply-tally__value {
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 5vw, 2.85rem);
-    font-weight: 800;
-    color: var(--signal-dark);
-    line-height: 1;
-    letter-spacing: -0.02em;
-    white-space: nowrap;
-}
+.stat-strip--balanced .stat-item:nth-child(-n+3) { grid-column: span 2; }
+.stat-strip--balanced .stat-item:nth-child(n+4)  { grid-column: span 3; }
 
-.reply-tally__text {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--ink);
-}
-
-.reply-tally__text a {
-    color: inherit;
-    text-decoration: underline;
-    text-underline-offset: 3px;
+@media (max-width: 640px) {
+    .stat-strip--balanced { grid-template-columns: repeat(2, 1fr); }
+    .stat-strip--balanced .stat-item:nth-child(-n+4) { grid-column: span 1; }
+    .stat-strip--balanced .stat-item:nth-child(5)    { grid-column: 1 / -1; }
 }
 
 

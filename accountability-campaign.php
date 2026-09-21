@@ -83,7 +83,7 @@ require_once __DIR__ . '/includes/header.php';
         <div class="page-layout" style="padding-top:0">
         <div class="prose">
 
-            <div class="stat-strip">
+            <div class="stat-strip stat-strip--balanced">
                 <div class="stat-item">
                     <span class="stat-value"><?= $councillorSent ?>/<?= COUNCILLOR_TARGET_COUNT ?></span>
                     <span class="stat-label">councillors emailed</span>
@@ -100,12 +100,11 @@ require_once __DIR__ . '/includes/header.php';
                     <span class="stat-value"><?= $mpSent ?>/<?= MP_TARGET_COUNT ?></span>
                     <span class="stat-label">MPs emailed (Westminster)</span>
                 </div>
+                <div class="stat-item">
+                    <span class="stat-value"><?= $councillorReplied + $councilReplied + $mspReplied + $mpReplied ?></span>
+                    <span class="stat-label">replies logged so far</span>
+                </div>
             </div>
-
-            <p class="reply-tally">
-                <span class="reply-tally__value"><?= $councillorReplied + $councilReplied + $mspReplied + $mpReplied ?></span>
-                <span class="reply-tally__text">replies logged so far — <a href="/accountability">see who's said what</a></span>
-            </p>
 
             <h2>Individual councillors</h2>
             <p>We're writing to every one of Scotland's ~1,200 confirmed councillors, asking them to say publicly that everyone in their ward deserves reliable, affordable connectivity.</p>
