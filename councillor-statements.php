@@ -25,10 +25,11 @@ $pageOgImageAlt = 'Person writing at a table — representing constituent and ca
 
 $sidebarRelated = [
     ['href' => '/accountability-campaign', 'label' => 'Full campaign overview'],
-    ['href' => '/council-replies',     'label' => 'Council replies'],
-    ['href' => '/msp-statements',      'label' => 'MSP statements'],
-    ['href' => '/mp-statements',       'label' => 'MP statements'],
-    ['href' => '/accountability',      'label' => 'Who is acting?'],
+    ['href' => '/councillor-statements',   'label' => 'Councillor statements'],
+    ['href' => '/council-replies',         'label' => 'Council replies'],
+    ['href' => '/msp-statements',          'label' => 'MSP statements'],
+    ['href' => '/mp-statements',           'label' => 'MP statements'],
+    ['href' => '/accountability',          'label' => 'Who is acting?'],
 ];
 
 // Target size: confirmed, emailable rows in the live roster (not the 32-council figure —

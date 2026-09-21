@@ -17,11 +17,12 @@ $pageOgImage    = image_asset('card-community.jpg');
 $pageOgImageAlt = 'Person writing at a table — representing constituent and campaign contact with elected representatives.';
 
 $sidebarRelated = [
-    ['href' => '/councillor-statements', 'label' => 'Councillor statements'],
-    ['href' => '/council-replies',       'label' => 'Council replies'],
-    ['href' => '/msp-statements',        'label' => 'MSP statements'],
-    ['href' => '/mp-statements',         'label' => 'MP statements'],
-    ['href' => '/accountability',        'label' => 'Who is acting?'],
+    ['href' => '/accountability-campaign', 'label' => 'Full campaign overview'],
+    ['href' => '/councillor-statements',   'label' => 'Councillor statements'],
+    ['href' => '/council-replies',         'label' => 'Council replies'],
+    ['href' => '/msp-statements',          'label' => 'MSP statements'],
+    ['href' => '/mp-statements',           'label' => 'MP statements'],
+    ['href' => '/accountability',          'label' => 'Who is acting?'],
 ];
 
 $councillorSent = 0;
