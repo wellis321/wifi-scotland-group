@@ -64,6 +64,8 @@ $navStructure = [
             ['id' => 'accountabilitycampaign', 'href' => '/accountability-campaign', 'label' => 'Campaign overview'],
             ['id' => 'councillorstatements', 'href' => '/councillor-statements', 'label' => 'Councillor statements'],
             ['id' => 'councilreplies', 'href' => '/council-replies', 'label' => 'Council replies'],
+            ['id' => 'mspstatements', 'href' => '/msp-statements', 'label' => 'MSP statements'],
+            ['id' => 'mpstatements', 'href' => '/mp-statements', 'label' => 'MP statements'],
         ],
     ],
     [
