@@ -10,6 +10,7 @@ overview.txt
 /data/council-leader-roster.csv
 /data/msp-roster.csv
 /data/stakeholder-contacts.csv
+/data/mp-roster.csv
 
 # /files/ is the admin-managed public downloads folder (admin/files.php) — it only ever
 # lists flat top-level files, never subdirectories, so anything dropped in a subfolder

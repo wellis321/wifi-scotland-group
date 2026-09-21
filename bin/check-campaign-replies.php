@@ -5,13 +5,14 @@ declare(strict_types=1);
 
 /**
  * Checks the hello@wires.org.uk inbox (via the Hostinger Mail API) for replies from
- * anyone any campaign has emailed — councillors, MSPs, or stakeholder notifications —
- * and auto-logs them against whichever table they came from.
+ * anyone any campaign has emailed — councillors, MSPs, MPs, or stakeholder
+ * notifications — and auto-logs them against whichever table they came from.
  *
  * Matching is by sender address only — a real reply's From: address has to match an
  * email already logged as sent, with no reply logged yet, in one of:
  *   - councillor_campaign_sends
  *   - msp_campaign_sends
+ *   - mp_campaign_sends
  *   - stakeholder_notifications
  * Not thread-aware (no In-Reply-To checking), which is a deliberate simplification:
  * good enough to catch real replies, not meant to be exact.
@@ -77,6 +78,19 @@ foreach ($stmt->fetchAll() as $row) {
         'id'    => $row['id'],
         'email' => $row['email'],
         'label' => "{$row['full_name']} ({$row['role']})",
+    ];
+}
+
+$stmt = campaign_db()->query(
+    "SELECT id, full_name, constituency, email
+     FROM mp_campaign_sends WHERE status = 'sent' AND replied_at IS NULL"
+);
+foreach ($stmt->fetchAll() as $row) {
+    $pending[strtolower($row['email'])] = [
+        'table' => 'mp_campaign_sends',
+        'id'    => $row['id'],
+        'email' => $row['email'],
+        'label' => "{$row['full_name']} ({$row['constituency']})",
     ];
 }
 
