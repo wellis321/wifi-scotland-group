@@ -4,13 +4,17 @@
 declare(strict_types=1);
 
 /**
- * Checks the hello@wires.org.uk inbox (via the Hostinger Mail API) for replies
- * from anyone the councillor campaign has emailed, and auto-logs them.
+ * Checks the hello@wires.org.uk inbox (via the Hostinger Mail API) for replies from
+ * anyone any campaign has emailed — councillors, MSPs, or stakeholder notifications —
+ * and auto-logs them against whichever table they came from.
  *
- * Matching is by sender address only — a real reply's From: address has to match
- * an email already in councillor_campaign_sends with status='sent' and no reply
- * logged yet. Not thread-aware (no In-Reply-To checking), which is a deliberate
- * simplification: good enough to catch real replies, not meant to be exact.
+ * Matching is by sender address only — a real reply's From: address has to match an
+ * email already logged as sent, with no reply logged yet, in one of:
+ *   - councillor_campaign_sends
+ *   - msp_campaign_sends
+ *   - stakeholder_notifications
+ * Not thread-aware (no In-Reply-To checking), which is a deliberate simplification:
+ * good enough to catch real replies, not meant to be exact.
  *
  * RUN THIS ONLY FROM THE COMMAND LINE.
  *
@@ -45,14 +49,48 @@ if (!campaign_db_available()) {
 }
 
 // ─── Who are we waiting to hear back from? ───────────────────────────────────
+// Pulled from every table a reply could land against, each tagged with its own
+// source table + a display label, so one pass over the inbox covers all of them.
+
+$pending = [];
 
 $stmt = campaign_db()->query(
-    "SELECT id, campaign_slug, full_name, council_area, email
+    "SELECT id, full_name, council_area, email
      FROM councillor_campaign_sends WHERE status = 'sent' AND replied_at IS NULL"
 );
-$pending = [];
 foreach ($stmt->fetchAll() as $row) {
-    $pending[strtolower($row['email'])] = $row;
+    $pending[strtolower($row['email'])] = [
+        'table' => 'councillor_campaign_sends',
+        'id'    => $row['id'],
+        'email' => $row['email'],
+        'label' => "{$row['full_name']} ({$row['council_area']})",
+    ];
+}
+
+$stmt = campaign_db()->query(
+    "SELECT id, full_name, role, email
+     FROM msp_campaign_sends WHERE status = 'sent' AND replied_at IS NULL"
+);
+foreach ($stmt->fetchAll() as $row) {
+    $pending[strtolower($row['email'])] = [
+        'table' => 'msp_campaign_sends',
+        'id'    => $row['id'],
+        'email' => $row['email'],
+        'label' => "{$row['full_name']} ({$row['role']})",
+    ];
+}
+
+$stmt = campaign_db()->query(
+    "SELECT id, organisation, email
+     FROM stakeholder_notifications WHERE status = 'sent' AND replied_at IS NULL"
+);
+foreach ($stmt->fetchAll() as $row) {
+    $pending[strtolower($row['email'])] = [
+        'table' => 'stakeholder_notifications',
+        'id'    => $row['id'],
+        'email' => $row['email'],
+        'label' => $row['organisation'],
+    ];
 }
 
 if (empty($pending)) {
@@ -141,10 +179,10 @@ foreach ($messages as $msg) {
 
     $note = "Auto-detected reply — subject: \"$subject\"\n\n" . $snippet;
 
-    fwrite(STDOUT, "MATCH  {$row['full_name']} <{$row['email']}> ({$row['council_area']}) — replied $repliedDate\n");
+    fwrite(STDOUT, "MATCH  {$row['label']} <{$row['email']}> [{$row['table']}] — replied $repliedDate\n");
 
     if (!$dryRun) {
-        campaign_db()->prepare('UPDATE councillor_campaign_sends SET replied_at = :replied_at, reply_notes = :reply_notes WHERE id = :id')
+        campaign_db()->prepare("UPDATE {$row['table']} SET replied_at = :replied_at, reply_notes = :reply_notes WHERE id = :id")
             ->execute(['replied_at' => $repliedDate, 'reply_notes' => $note, 'id' => $row['id']]);
         // Don't match this address again this run even if there are multiple messages from them.
         unset($pending[$fromAddress]);
