@@ -153,7 +153,7 @@ function load_figures(): array
         ],
         [
             'claim'   => 'The Scottish Government published a refreshed "Digital Strategy for Scotland: vision statement" (with COSLA) in November 2025, alongside the first in a promised series of delivery plans — but that plan covers sustainable digital public services, not digital exclusion, which still has no delivery plan or named accountable lead',
-            'used_on' => [['label' => 'Home', 'href' => '/'], ['label' => 'Who is acting?', 'href' => '/accountability'], ['label' => 'Scotland policy', 'href' => '/scotland']],
+            'used_on' => [['label' => 'Home', 'href' => '/'], ['label' => 'Who is acting?', 'href' => '/accountability'], ['label' => 'Scottish policy', 'href' => '/scotland']],
             'source'  => 'Scottish Government — Digital strategy for Scotland: vision statement',
             'url'     => 'https://www.gov.scot/publications/digital-strategy-scotland-vision-statement/',
             'date'    => '18 Nov 2025',
@@ -292,7 +292,7 @@ function load_figures(): array
     'Glasgow, Scottish councils & Audit Scotland' => [
         [
             'claim'   => '35% of households in Glasgow\'s social rented housing (circa 38,500) do not use home broadband; 32 RSLs, covering 75% of social housing stock, back the strategy',
-            'used_on' => [['label' => 'Scotland policy', 'href' => '/scotland'], ['label' => 'Who is acting?', 'href' => '/accountability']],
+            'used_on' => [['label' => 'Scottish policy', 'href' => '/scotland'], ['label' => 'Who is acting?', 'href' => '/accountability']],
             'source'  => 'Glasgow City Council — Digital Housing Strategy 2022–2028',
             'url'     => 'https://glasgow.gov.uk/media/1717/Glasgow-s-Digital-Housing-Strategy/pdf/Glasgows_Digital_Housing_Strategy.pdf',
             'date'    => 'Nov 2022',

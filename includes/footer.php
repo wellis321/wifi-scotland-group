@@ -34,7 +34,7 @@ declare(strict_types=1);
             <div>
                 <h2 class="footer-heading">Evidence &amp; info</h2>
                 <ul class="footer-links">
-                    <li><a href="/scotland">Scotland policy</a></li>
+                    <li><a href="/scotland">Scottish policy</a></li>
                     <li><a href="/resources">Resources</a></li>
                     <li><a href="/figures">Figures &amp; sources</a></li>
                     <li><a href="/corrections">Corrections</a></li>

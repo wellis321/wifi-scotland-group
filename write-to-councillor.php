@@ -16,7 +16,7 @@ $sidebarRelated = [
     ['href' => '/councillor-statements', 'label' => 'Councillor statements'],
     ['href' => '/council-replies','label' => 'Council replies'],
     ['href' => '/get-involved',  'label' => 'Get involved'],
-    ['href' => '/scotland',      'label' => 'Scotland policy'],
+    ['href' => '/scotland',      'label' => 'Scottish policy'],
     ['href' => '/why-it-matters','label' => 'Why it matters'],
     ['href' => '/resources',     'label' => 'Resources & references'],
 ];

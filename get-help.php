@@ -11,7 +11,7 @@ $currentNav = 'gethelp';
 
 $sidebarRelated = [
     ['href' => '/why-it-matters', 'label' => 'Why it matters'],
-    ['href' => '/scotland',       'label' => 'Scotland policy'],
+    ['href' => '/scotland',       'label' => 'Scottish policy'],
     ['href' => '/get-involved',   'label' => 'Get involved'],
     ['href' => '/resources',      'label' => 'Resources & references'],
 ];

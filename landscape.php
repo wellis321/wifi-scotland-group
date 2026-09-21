@@ -15,7 +15,7 @@ $sidebarRelated = [
     ['href' => '/about',        'label' => 'About WIRES'],
     ['href' => '/get-involved', 'label' => 'Get involved'],
     ['href' => '/supporters',   'label' => 'Organisational supporters'],
-    ['href' => '/scotland',     'label' => 'Scotland policy'],
+    ['href' => '/scotland',     'label' => 'Scottish policy'],
 ];
 
 require_once __DIR__ . '/includes/header.php';

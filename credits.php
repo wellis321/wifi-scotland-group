@@ -62,7 +62,7 @@ require_once __DIR__ . '/includes/header.php';
                 <tr>
                     <td><code>scotland-landscape.jpg</code></td>
                     <td><code>photo-1506905925346-21bda4d32df4</code></td>
-                    <td>Scotland policy page</td>
+                    <td>Scottish policy page</td>
                 </tr>
                 <tr>
                     <td><code>glasses-clarity.jpg</code></td>

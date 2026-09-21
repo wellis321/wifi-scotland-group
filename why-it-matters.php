@@ -226,7 +226,7 @@ require_once __DIR__ . '/includes/header.php';
             </div>
             <div class="info-card__body">
                 <ul class="sidebar-nav" style="margin:0">
-                    <li><a href="/scotland">Scotland policy &amp; programmes</a></li>
+                    <li><a href="/scotland">Scottish policy &amp; programmes</a></li>
                     <li><a href="/get-involved">Get involved — turn evidence into local questions</a></li>
                     <li><a href="/resources">Resources — primary sources we cite</a></li>
                     <li><a href="/get-help">Help getting online — practical schemes</a></li>

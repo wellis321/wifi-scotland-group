@@ -13,7 +13,7 @@ $pageOgImageAlt = 'Network cabling in a rack—symbolising the physical layer be
 
 $sidebarRelated = [
     ['href' => '/figures',        'label' => 'Figures & sources — the fact-check log'],
-    ['href' => '/scotland',       'label' => 'Scotland policy'],
+    ['href' => '/scotland',       'label' => 'Scottish policy'],
     ['href' => '/why-it-matters', 'label' => 'Why it matters'],
     ['href' => '/get-help',       'label' => 'Help getting online'],
     ['href' => '/news',           'label' => 'Campaign news'],

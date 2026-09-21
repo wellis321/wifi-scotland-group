@@ -75,7 +75,7 @@ $counts = array_count_values(array_column($councils, 'status'));
 
 $sidebarRelated = [
     ['href' => '/council-replies', 'label' => 'Council replies'],
-    ['href' => '/scotland',        'label' => 'Scotland policy'],
+    ['href' => '/scotland',        'label' => 'Scottish policy'],
     ['href' => '/landscape',       'label' => 'Why WIRES exists'],
     ['href' => '/get-involved',    'label' => 'Get involved'],
     ['href' => '/contact',         'label' => 'Tell us what you know'],

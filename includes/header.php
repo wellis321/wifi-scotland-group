@@ -51,7 +51,7 @@ $navStructure = [
         'items' => [
             ['id' => 'gethelp',         'href' => '/get-help',        'label' => 'Get help online'],
             ['id' => 'accountability',  'href' => '/accountability',  'label' => 'Who is acting?'],
-            ['id' => 'scotlandpolicy',  'href' => '/scotland',        'label' => 'Scotland policy'],
+            ['id' => 'scotlandpolicy',  'href' => '/scotland',        'label' => 'Scottish policy'],
             ['id' => 'scotlandstories', 'href' => '/scotland-stories','label' => 'Scottish stories'],
             ['id' => 'wifimap',         'href' => '/wifi-map',        'label' => 'WiFi map'],
         ],

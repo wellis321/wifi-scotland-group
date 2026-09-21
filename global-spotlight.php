@@ -12,7 +12,7 @@ $pageOgImage    = image_asset('card-global-network.jpg');
 $pageOgImageAlt = 'Illuminated view of Earth from space — symbolising global networks and shared infrastructure.';
 
 $sidebarRelated = [
-    ['href' => '/scotland',      'label' => 'Scotland policy'],
+    ['href' => '/scotland',      'label' => 'Scottish policy'],
     ['href' => '/why-it-matters','label' => 'Why it matters'],
     ['href' => '/resources',     'label' => 'Resources & references'],
 ];

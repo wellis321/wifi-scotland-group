@@ -160,7 +160,7 @@ require_once __DIR__ . '/includes/header.php';
                 <p class="path-label">Researchers &amp; press</p>
                 <h3 class="path-heading">Verify the evidence</h3>
                 <p class="path-body">Policy documents, official programmes, and cited sources—everything linked so you can check claims and go deeper.</p>
-                <span class="path-link" aria-hidden="true">Scotland policy →</span>
+                <span class="path-link" aria-hidden="true">Scottish policy →</span>
             </a></li>
         </ul>
     </div>
