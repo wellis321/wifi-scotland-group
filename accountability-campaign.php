@@ -4,14 +4,17 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/includes/bootstrap.php';
 require_once __DIR__ . '/includes/campaign-templates/msp-accountability.php';
+require_once __DIR__ . '/includes/campaign-templates/mp-accountability.php';
 
 const MSP_CAMPAIGN_SLUG = 'msp-accountability-2026-09';
 const MSP_TARGET_COUNT  = 129;
+const MP_CAMPAIGN_SLUG  = 'mp-accountability-2026-09';
+const MP_TARGET_COUNT   = 57;
 const COUNCIL_TARGET_COUNT = 32;
 const COUNCILLOR_TARGET_COUNT = 1208;
 
 $pageTitle       = "We're writing to everyone who can act on this";
-$pageDescription = 'WIRES is writing to every councillor, council Chief Executive, council Leader, and MSP in Scotland — asking them to back connectivity as essential infrastructure. Here is the full picture.';
+$pageDescription = 'WIRES is writing to every councillor, council Chief Executive, council Leader, MSP, and Scottish MP — asking them to back connectivity as essential infrastructure. Here is the full picture.';
 $currentNav      = 'accountabilitycampaign';
 
 $pageOgImage    = image_asset('card-community.jpg');
@@ -23,10 +26,14 @@ $sidebarRelated = [
     ['href' => '/accountability',        'label' => 'Who is acting?'],
 ];
 
-// Rendered from the exact same template code the real MSP sender uses.
+// Rendered from the exact same template code the real senders use.
 $mspLetterPreview = ['name' => "[MSP's name]", 'role' => 'MSP for [constituency] (Constituency)'];
-$mspLetterSubject = render_subject($mspLetterPreview);
-$mspLetterBody    = render_text_body($mspLetterPreview);
+$mspLetterSubject = \Wires\MspTemplate\render_subject($mspLetterPreview);
+$mspLetterBody    = \Wires\MspTemplate\render_text_body($mspLetterPreview);
+
+$mpLetterPreview = ['name' => "[MP's name]", 'constituency' => '[constituency]'];
+$mpLetterSubject = \Wires\MpTemplate\render_subject($mpLetterPreview);
+$mpLetterBody    = \Wires\MpTemplate\render_text_body($mpLetterPreview);
 
 $councillorSent = 0;
 $councillorReplied = 0;
@@ -38,6 +45,10 @@ $mspSent = 0;
 $mspReplied = 0;
 $mspByParty = [];
 $mspQuotes = [];
+$mpSent = 0;
+$mpReplied = 0;
+$mpByParty = [];
+$mpQuotes = [];
 
 if (db_available()) {
     try {
@@ -79,6 +90,23 @@ if (db_available()) {
             }
             $mspByParty[$m['party']][] = ['name' => $m['full_name'], 'role' => $m['role'], 'replied' => !empty($m['replied_at'])];
         }
+
+        $mpRows = $pdo->prepare(
+            "SELECT full_name, party, constituency, replied_at, public_quote
+             FROM mp_campaign_sends WHERE campaign_slug = ? AND status = 'sent'
+             ORDER BY party ASC, full_name ASC"
+        );
+        $mpRows->execute([MP_CAMPAIGN_SLUG]);
+        $mpRows = $mpRows->fetchAll();
+
+        $mpSent = count($mpRows);
+        foreach ($mpRows as $m) {
+            if (!empty($m['replied_at'])) $mpReplied++;
+            if (!empty($m['public_quote'])) {
+                $mpQuotes[] = ['name' => $m['full_name'], 'role' => $m['constituency'], 'quote' => $m['public_quote']];
+            }
+            $mpByParty[$m['party']][] = ['name' => $m['full_name'], 'role' => $m['constituency'], 'replied' => !empty($m['replied_at'])];
+        }
     } catch (Throwable) {}
 }
 
@@ -87,7 +115,7 @@ require_once __DIR__ . '/includes/header.php';
 <header class="page-header">
     <div class="wrap">
         <h1>We're writing to everyone who can act on this</h1>
-        <p>Audit Scotland found no plan and no one accountable for closing Scotland's digital exclusion gap. Rather than wait, we're writing directly to everyone with a lever to pull: every councillor, every council Chief Executive, every council Leader, and every MSP at Holyrood — over 1,300 people in total. This page is the full picture of that effort.</p>
+        <p>Audit Scotland found no plan and no one accountable for closing Scotland's digital exclusion gap. Rather than wait, we're writing directly to everyone with a lever to pull: every councillor, every council Chief Executive, every council Leader, every MSP at Holyrood, and every Scottish MP at Westminster — over 1,450 people in total. This page is the full picture of that effort.</p>
     </div>
 </header>
 
@@ -107,10 +135,14 @@ require_once __DIR__ . '/includes/header.php';
                 </div>
                 <div class="stat-item">
                     <span class="stat-value"><?= $mspSent ?>/<?= MSP_TARGET_COUNT ?></span>
-                    <span class="stat-label">MSPs emailed</span>
+                    <span class="stat-label">MSPs emailed (Holyrood)</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-value"><?= $councillorReplied + $councilReplied + $mspReplied ?></span>
+                    <span class="stat-value"><?= $mpSent ?>/<?= MP_TARGET_COUNT ?></span>
+                    <span class="stat-label">MPs emailed (Westminster)</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value"><?= $councillorReplied + $councilReplied + $mspReplied + $mpReplied ?></span>
                     <span class="stat-label">replies logged so far</span>
                 </div>
             </div>
@@ -123,7 +155,7 @@ require_once __DIR__ . '/includes/header.php';
             <p>Separately, we've written to the Chief Executive and the political Leader of every one of Scotland's 32 councils, asking four practical questions about staff training, affordability, service resilience, and who's accountable for a published digital inclusion plan.</p>
             <p><a class="btn btn-ghost btn-sm" href="/council-replies">Full council tracker &rarr;</a></p>
 
-            <h2 style="margin-top:2.5rem">MSPs at Holyrood</h2>
+            <h2 style="margin-top:2.5rem" id="msps">MSPs at Holyrood</h2>
             <p>The gap Audit Scotland identified is a devolved, national one — so we're also writing to all 129 MSPs, asking them to raise it in Parliament: a written question to the Scottish Government, public backing, and committee scrutiny where relevant.</p>
 
             <details class="letter-preview">
@@ -232,6 +264,123 @@ require_once __DIR__ . '/includes/header.php';
                 <p class="meta">Only shown here when an MSP has been happy for their reply to be shared publicly.</p>
                 <div class="figure-log">
                     <?php foreach ($mspQuotes as $q): ?>
+                        <div class="figure-log__item">
+                            <p class="figure-log__claim">&ldquo;<?= e($q['quote']) ?>&rdquo;</p>
+                            <p class="figure-log__meta"><?= e($q['name']) ?>, <?= e($q['role']) ?></p>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
+
+            <h2 style="margin-top:2.5rem" id="mps">MPs at Westminster</h2>
+            <p>Digital inclusion policy itself is devolved — but telecoms regulation, Ofcom's Universal Service Obligation, and UK-wide funding programmes like Project Gigabit and the Shared Rural Network are reserved to Westminster. So we're also writing to all 57 Scottish MPs, asking them to press on those specifically.</p>
+
+            <details class="letter-preview">
+                <summary>Read the letter we sent MPs</summary>
+                <div class="letter-preview__body">
+                    <p class="letter-preview__subject"><strong>Subject:</strong> <?= e($mpLetterSubject) ?></p>
+                    <pre class="letter-preview__text"><?= e($mpLetterBody) ?></pre>
+                    <p class="meta">Every MP gets this same letter with their own name and constituency merged in — rendered here from the exact same code that sends it.</p>
+                </div>
+            </details>
+
+            <div class="stat-strip">
+                <div class="stat-item">
+                    <span class="stat-value"><?= $mpSent ?>/<?= MP_TARGET_COUNT ?></span>
+                    <span class="stat-label">MPs emailed</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value"><?= $mpReplied ?></span>
+                    <span class="stat-label">replies logged</span>
+                </div>
+            </div>
+
+            <?php if (!empty($mpByParty)): ?>
+                <h3 style="margin-top:2rem">Did your MP reply?</h3>
+                <p class="meta">Search by name to see who we've written to so far, and whether they've replied.</p>
+
+                <div class="callout" style="margin-bottom:1.25rem">
+                    <label for="mp-search" style="font-weight:700;display:block;margin-bottom:0.5rem">Search MPs</label>
+                    <input type="search" id="mp-search" class="councillor-search-input" placeholder="e.g. a name or party" autocomplete="off">
+                    <p class="meta" id="mp-search-count" style="margin:0.5rem 0 0"></p>
+                </div>
+
+                <div id="mp-list">
+                    <?php foreach ($mpByParty as $party => $mps):
+                        $partyReplied = count(array_filter($mps, static fn($m) => $m['replied']));
+                        ?>
+                        <details class="councillor-council-group" data-council="<?= e(strtolower($party)) ?>">
+                            <summary>
+                                <span><?= e($party) ?></span>
+                                <span class="councillor-council-group__count">
+                                    <?= count($mps) ?> contacted<?= $partyReplied > 0 ? ', ' . $partyReplied . ' replied' : '' ?>
+                                </span>
+                            </summary>
+                            <ul class="councillor-name-list">
+                                <?php foreach ($mps as $m): ?>
+                                    <li data-name="<?= e(strtolower($m['name'])) ?>">
+                                        <span><?= e($m['name']) ?> <span class="meta">— <?= e($m['role']) ?></span></span>
+                                        <?php if ($m['replied']): ?>
+                                            <span class="pill pill--active">Replied</span>
+                                        <?php else: ?>
+                                            <span class="pill pill--forming">Awaiting reply</span>
+                                        <?php endif; ?>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </details>
+                    <?php endforeach; ?>
+                </div>
+
+                <script>
+                (function () {
+                    var input = document.getElementById('mp-search');
+                    var count = document.getElementById('mp-search-count');
+                    var groups = document.querySelectorAll('#mp-list .councillor-council-group');
+                    if (!input || !groups.length) return;
+
+                    input.addEventListener('input', function () {
+                        var q = input.value.trim().toLowerCase();
+                        var totalVisible = 0;
+
+                        groups.forEach(function (group) {
+                            var partyMatch = q !== '' && (group.dataset.council || '').indexOf(q) !== -1;
+                            var items = group.querySelectorAll('li');
+                            var anyItemMatch = false;
+
+                            items.forEach(function (li) {
+                                var match = q === '' || partyMatch || (li.dataset.name || '').indexOf(q) !== -1;
+                                li.hidden = !match;
+                                if (match) {
+                                    anyItemMatch = true;
+                                    totalVisible++;
+                                }
+                            });
+
+                            if (q === '') {
+                                group.hidden = false;
+                                group.open = false;
+                            } else {
+                                group.hidden = !anyItemMatch;
+                                group.open = anyItemMatch;
+                            }
+                        });
+
+                        count.textContent = q === ''
+                            ? ''
+                            : totalVisible + ' match' + (totalVisible === 1 ? '' : 'es') + ' for "' + input.value.trim() + '"';
+                    });
+                })();
+                </script>
+            <?php else: ?>
+                <p>Sending is about to begin — check back soon to see who's been contacted.</p>
+            <?php endif; ?>
+
+            <?php if (!empty($mpQuotes)): ?>
+                <h3 style="margin-top:2rem">What MPs are saying</h3>
+                <p class="meta">Only shown here when an MP has been happy for their reply to be shared publicly.</p>
+                <div class="figure-log">
+                    <?php foreach ($mpQuotes as $q): ?>
                         <div class="figure-log__item">
                             <p class="figure-log__claim">&ldquo;<?= e($q['quote']) ?>&rdquo;</p>
                             <p class="figure-log__meta"><?= e($q['name']) ?>, <?= e($q['role']) ?></p>

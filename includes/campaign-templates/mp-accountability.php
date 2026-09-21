@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace Wires\MpTemplate;
+
 /**
  * Email template for the MP accountability campaign — shared between
  * bin/send-mp-campaign.php (the real sender) and any public preview of the same

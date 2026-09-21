@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace Wires\MspTemplate;
+
 /**
  * Email template for the MSP accountability campaign — shared between
  * bin/send-msp-campaign.php (the real sender) and any public page that renders this

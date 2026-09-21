@@ -3,6 +3,10 @@
 
 declare(strict_types=1);
 
+use function Wires\MpTemplate\render_subject;
+use function Wires\MpTemplate\render_text_body;
+use function Wires\MpTemplate\render_html_body;
+
 /**
  * Mail-merge sender for the MP accountability campaign.
  *
@@ -73,7 +77,9 @@ if ($testTo !== null && !filter_var($testTo, FILTER_VALIDATE_EMAIL)) {
 
 // ─── Email template ──────────────────────────────────────────────────────────
 // render_subject()/render_text_body()/render_html_body() live in
-// includes/campaign-templates/mp-accountability.php.
+// includes/campaign-templates/mp-accountability.php, under the Wires\MpTemplate
+// namespace (so this file and send-msp-campaign.php can coexist without a name clash
+// when both templates are rendered on the same page, e.g. accountability-campaign.php).
 
 require_once __DIR__ . '/../includes/campaign-templates/mp-accountability.php';
 
