@@ -26,6 +26,7 @@ $sidebarRelated = [
     ['href' => '/councillor-statements',   'label' => 'Councillor statements'],
     ['href' => '/council-replies',         'label' => 'Council replies'],
     ['href' => '/mp-statements',           'label' => 'MP statements'],
+    ['href' => '/accountability',          'label' => 'Who is acting?'],
 ];
 
 $sentCount    = 0;

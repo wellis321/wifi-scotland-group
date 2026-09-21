@@ -3215,8 +3215,8 @@ a:hover {
 /* ─── Stat callouts ──────────────────────────────────────────────────────── */
 
 .stat-strip {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 1px;
     background: var(--line);
     border: 1px solid var(--line);
@@ -3228,6 +3228,7 @@ a:hover {
 .prose .stat-strip { max-width: none !important; margin-inline: 0 !important; }
 
 .stat-item {
+    flex: 1 1 170px;
     background: var(--cream);
     padding: 1.25rem 1rem;
     text-align: center;
@@ -3237,12 +3238,13 @@ a:hover {
 .stat-value {
     display: block;
     font-family: var(--font-display);
-    font-size: clamp(1.5rem, 4vw, 2.85rem);
+    font-size: clamp(1.35rem, 3.4vw, 2.85rem);
     font-weight: 800;
     color: var(--signal-dark);
     line-height: 1;
     letter-spacing: -0.02em;
-    overflow-wrap: break-word;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
 }
 
 .stat-label {
@@ -3268,6 +3270,41 @@ a.stat-item--link:hover {
 
 a.stat-item--link:hover .stat-value {
     color: var(--accent-dark);
+}
+
+/* ─── Reply tally — a standalone headline stat, not another grid cell ──────── */
+
+.reply-tally {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.7rem 1rem;
+    border-top: 1.5px solid var(--ink);
+    border-bottom: 1.5px solid var(--ink);
+    padding: 1.1rem 0.1rem;
+    margin: 1.5rem 0 2.25rem;
+}
+
+.reply-tally__value {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 2.85rem);
+    font-weight: 800;
+    color: var(--signal-dark);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+}
+
+.reply-tally__text {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink);
+}
+
+.reply-tally__text a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
 }
 
 
