@@ -39,7 +39,18 @@ require_once __DIR__ . '/includes/header.php';
             <p class="campaign-statement-card__line2">A right,<br>not a privilege.</p>
         </div>
 
-        <h2>Internet access is a right, not a privilege</h2>
+        <nav class="callout" aria-label="Jump to a section on this page">
+            <p class="callout__eyebrow">Jump to</p>
+            <p>
+                <a href="#the-issue">Why it matters</a> &middot;
+                <a href="#under-connected">What &ldquo;under-connected&rdquo; looks like</a> &middot;
+                <a href="#who-affected">Who is most affected</a> &middot;
+                <a href="#homelessness">No fixed address</a> &middot;
+                <a href="#data-note">Our data sources</a>
+            </p>
+        </nav>
+
+        <h2 id="the-issue">Internet access is a right, not a privilege</h2>
         <p>
             Life admin has moved online, whether or not your connection is ready for it. Public services, employers, schools, banks, and landlords now assume you can bank, apply, and upload from home — on a connection stable enough for forms, video calls, and file uploads.
         </p>
@@ -70,7 +81,7 @@ require_once __DIR__ . '/includes/header.php';
             <cite>WIRES campaign position</cite>
         </div>
 
-        <h2>What "under-connected" actually looks like</h2>
+        <h2 id="under-connected">What "under-connected" actually looks like</h2>
         <p>
             It's not a lifestyle choice or a "digital detox." Being under-connected usually means one of a few things: relying on a single expensive mobile bundle, sharing someone else's connection, or losing hours to dropped calls and failed uploads.
         </p>
@@ -104,7 +115,7 @@ require_once __DIR__ . '/includes/header.php';
             For the bigger picture — coverage, quality of service, and affordability at national scale — Ofcom's <a href="https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/infrastructure-research"<?= external_link_attrs('https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/infrastructure-research') ?>>Connected Nations</a> research is the authoritative source. Figures there update each release, so we link to the hub rather than quoting a number that will soon be out of date.
         </p>
 
-        <h2>Who is most affected</h2>
+        <h2 id="who-affected">Who is most affected</h2>
         <p>
             Access and confidence online are uneven — by age, income, disability, and geography. The same 2020 ONS data that showed 80% of over-65 households connected also showed that figure was rising but still lagging behind other household types.
         </p>
@@ -218,21 +229,6 @@ require_once __DIR__ . '/includes/header.php';
         </div>
 
         <p class="meta">Figures and programme rules change. If a link breaks or a series gets renamed, <a href="/contact">tell us</a> so we can fix it.</p>
-
-        <div class="info-card">
-            <div class="info-card__header">
-                <h3 class="info-card__heading">Where to go next</h3>
-                <p class="info-card__sub">More on this site</p>
-            </div>
-            <div class="info-card__body">
-                <ul class="sidebar-nav" style="margin:0">
-                    <li><a href="/scotland">Scottish policy &amp; programmes</a></li>
-                    <li><a href="/get-involved">Get involved — turn evidence into local questions</a></li>
-                    <li><a href="/resources">Resources — primary sources we cite</a></li>
-                    <li><a href="/get-help">Help getting online — practical schemes</a></li>
-                </ul>
-            </div>
-        </div>
         </div><!-- /prose -->
 
         <?php require __DIR__ . '/includes/sidebar-campaign.php'; ?>
