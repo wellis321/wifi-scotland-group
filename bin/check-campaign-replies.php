@@ -24,6 +24,7 @@ declare(strict_types=1);
  * Usage:
  *   php bin/check-campaign-replies.php            Check inbox, auto-log matches.
  *   php bin/check-campaign-replies.php --dry-run   Show what would be logged, write nothing.
+ *   php bin/check-campaign-replies.php --days=21   Look further back than the default 4 days.
  */
 
 if (php_sapi_name() !== 'cli') {
@@ -39,6 +40,13 @@ const LOOKBACK_DAYS        = 4; // overlap window so a slow/missed run never los
 const REPLY_NOTE_MAX_CHARS = 2000;
 
 $dryRun = in_array('--dry-run', $argv, true);
+
+$lookbackDays = LOOKBACK_DAYS;
+foreach ($argv as $arg) {
+    if (preg_match('/^--days=(\d+)$/', $arg, $m)) {
+        $lookbackDays = max(1, (int) $m[1]);
+    }
+}
 
 $token = env_raw('HOSTINGER_MAIL_API_TOKEN');
 if ($token === null || $token === '') {
@@ -126,18 +134,23 @@ function mail_api_request(string $token, string $method, string $path, ?array $b
 }
 
 // The Mail API's `since` filter only accepts a plain Y-m-d date, not a full timestamp.
-$since = (new DateTime('-' . LOOKBACK_DAYS . ' days'))->format('Y-m-d');
+$since = (new DateTime('-' . $lookbackDays . ' days'))->format('Y-m-d');
 
-$searchPath = '/api/v1/mailboxes/' . MAILBOX_RESOURCE_ID . '/folders/' . rawurlencode('INBOX') . '/messages/search?perPage=100&sort=-date';
-$result = mail_api_request($token, 'POST', $searchPath, ['since' => $since]);
+$messages = [];
+$page = 1;
+do {
+    $searchPath = '/api/v1/mailboxes/' . MAILBOX_RESOURCE_ID . '/folders/' . rawurlencode('INBOX') . "/messages/search?perPage=100&page=$page&sort=-date";
+    $result = mail_api_request($token, 'POST', $searchPath, ['since' => $since]);
+    if (!$result['ok']) {
+        fwrite(STDERR, "Failed to search inbox: {$result['error']}\n");
+        exit(1);
+    }
+    $messages = array_merge($messages, $result['data']['data'] ?? []);
+    $totalPages = (int) ($result['data']['pagination']['totalPages'] ?? 1);
+    $page++;
+} while ($page <= $totalPages);
 
-if (!$result['ok']) {
-    fwrite(STDERR, "Failed to search inbox: {$result['error']}\n");
-    exit(1);
-}
-
-$messages = $result['data']['data'] ?? [];
-fwrite(STDERR, sprintf("Found %d inbox message(s) in the last %d days.\n", count($messages), LOOKBACK_DAYS));
+fwrite(STDERR, sprintf("Found %d inbox message(s) in the last %d days.\n", count($messages), $lookbackDays));
 
 // ─── Match senders against pending replies ───────────────────────────────────
 

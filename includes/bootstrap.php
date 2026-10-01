@@ -245,17 +245,19 @@ function do_not_contact_emails(): array
 
 /**
  * True for out-of-office notices and "thank you, your email has been received"
- * acknowledgements. A real reply comes back on the thread ("RE: …"); anything else
- * — "Automatic reply: …", "X has received your e-mail" — is treated as automatic.
+ * acknowledgements, judged on positive signs in the subject or opening lines. Anything
+ * without them counts as a real reply — including ones sent under a fresh subject
+ * line rather than "RE: …", which is how some MSP offices reply.
  */
 function is_auto_reply(string $subject, string $body): bool
 {
-    if (preg_match('/^\s*(re|fw|fwd)\s*:/i', $subject) !== 1) {
+    if (preg_match('/^\s*(automatic reply|auto[- ]?(reply|response)|out of (the )?office)\b|has received your e-?mail/i', $subject) === 1) {
         return true;
     }
     return preg_match(
-        '/\b(automatic(ally)?|automated|auto[- ]?(reply|response|acknowledge?ment)|out of (the )?office|on (annual )?leave)\b/i',
-        mb_substr($body, 0, 300)
+        '/\b(automatic(ally)?|automated|auto[- ]?(reply|response|acknowledge?ment)|out of (the )?office|on (annual )?leave)\b'
+        . '|dear sir\s*(\/|or)\s*madam|if you are (a )?constituent/i',
+        mb_substr($body, 0, 400)
     ) === 1;
 }
 
