@@ -161,6 +161,14 @@ function load_figures(): array
             'corrected_on' => '2026-09-14',
         ],
         [
+            'claim'   => 'In written answers on 18 September 2026, the Scottish Government said it is developing a Digital Inclusion Delivery Plan "to be published later this year", setting out clear actions and "how progress will be measured and reported" — the answers do not say who will be accountable for delivering it',
+            'used_on' => [['label' => 'Home', 'href' => '/'], ['label' => 'Who is acting?', 'href' => '/accountability']],
+            'source'  => 'Scottish Parliament — written answers S7W-03032 and S7W-03034 (Carol Mochan MSP), answered by Tom Arthur',
+            'url'     => 'https://www.parliament.scot/chamber-and-committees/questions-and-answers/question?ref=S7W-03034',
+            'date'    => '18 Sep 2026',
+            'note'    => 'Confirmed against the published answers (S7W-03032 to S7W-03035 all repeat the commitment).',
+        ],
+        [
             'claim'   => 'Glasgow Council for the Voluntary Sector (GCVS) was awarded grant funding to host the Digital Inclusion Alliance',
             'used_on' => [['label' => 'Why WIRES exists', 'href' => '/landscape'], ['label' => 'Who is acting?', 'href' => '/accountability']],
             'source'  => 'GCVS',

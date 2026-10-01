@@ -209,6 +209,17 @@ INSERT INTO news_items (title, slug, summary, body, published_at) VALUES
 )
 ON DUPLICATE KEY UPDATE title = VALUES(title);
 
+-- 2026-10-01 — Scottish Government written answers on a Digital Inclusion Delivery Plan
+INSERT INTO news_items (title, slug, summary, body, published_at) VALUES
+(
+  'Scottish Government promises a digital inclusion delivery plan ''later this year''',
+  'scottish-government-promises-digital-inclusion-delivery-plan',
+  'Answering written questions from Carol Mochan MSP, the Scottish Government says it is developing a Digital Inclusion Delivery Plan, to be published later this year — the plan Audit Scotland called for in August 2024. It will set out actions and how progress will be measured. It doesn''t yet say who will be accountable.',
+  '<p>On 8 September 2026, Carol Mochan, Scottish Labour MSP for South Scotland, lodged a set of written questions drawing on Family Fund research: 56% of surveyed families raising disabled children experienced digital exclusion, and only 7% met the criteria for digital inclusion. The Scottish Government''s answers, given by Tom Arthur on 18 September, contain the line this campaign has been waiting two years to read: "we are developing a Digital Inclusion Delivery Plan, which will be published later this year."</p><p>The plan "will set out clear actions to address the wider barriers that prevent people from participating digitally and how we will work with partners, including local government," and, in a separate answer, "how progress will be measured and reported" — the measurable outcomes Audit Scotland found missing. The same answers say the Government has committed more than £870,000 since 2024 to over 50 local digital inclusion projects, and has no current plans for a statutory duty on public services to identify and respond to digital exclusion.</p><p>Two things to watch. First, timing: "later this year" means by the end of December — after a 2024/25 deadline Audit Scotland set that has already passed. Second, ownership: Audit Scotland''s finding wasn''t only that there was no plan, but that it was unclear who was responsible. None of the answers says who will be accountable for delivering this one.</p><p>Our letters to all 129 MSPs, sent less than two weeks after these questions were lodged, asked them to press for exactly this — when the plan would be published. Now there''s a date to hold the Government to. We''ve updated our <a href="/accountability">accountability tracker</a>, and we''ll report back when the plan is published, or when "later this year" runs out.</p><p class="meta">Source: <a href="https://www.parliament.scot/chamber-and-committees/questions-and-answers/question?ref=S7W-03032">Scottish Parliament written answer S7W-03032 (18 September 2026)</a> &middot; <a href="https://www.parliament.scot/chamber-and-committees/questions-and-answers/question?ref=S7W-03034">S7W-03034</a> &middot; <a href="https://www.parliament.scot/chamber-and-committees/questions-and-answers/question?ref=S7W-03033">S7W-03033</a> &middot; <a href="https://audit.scot/publications/tackling-digital-exclusion">Audit Scotland: Tackling digital exclusion (August 2024)</a></p>',
+  '2026-10-01'
+)
+ON DUPLICATE KEY UPDATE title = VALUES(title);
+
 -- ─── Local groups ────────────────────────────────────────────────────────────
 
 CREATE TABLE IF NOT EXISTS local_groups (
