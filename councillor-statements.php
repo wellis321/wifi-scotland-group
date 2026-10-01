@@ -58,6 +58,7 @@ if (is_readable($csvPath)) {
 
 $sentCount      = 0;
 $repliedCount   = 0;
+$ackCount       = 0;
 $councilsReached = 0;
 $firstSentDate  = null;
 $quotes         = [];
@@ -67,7 +68,7 @@ if (db_available()) {
     try {
         // Names + reply status only — never email addresses on the public list.
         $stmt = db()->prepare(
-            "SELECT council_area, full_name, replied_at, public_quote
+            "SELECT council_area, full_name, replied_at, reply_is_auto, public_quote
              FROM councillor_campaign_sends WHERE campaign_slug = ? AND status = 'sent'
              ORDER BY council_area ASC, full_name ASC"
         );
@@ -78,12 +79,13 @@ if (db_available()) {
         $councilSet   = [];
         foreach ($rows as $r) {
             $councilSet[$r['council_area']] = true;
-            $replied = !empty($r['replied_at']);
-            if ($replied) $repliedCount++;
+            $state = reply_state($r);
+            if ($state === 'replied') $repliedCount++;
+            if ($state === 'acknowledged') $ackCount++;
             if (!empty($r['public_quote'])) {
                 $quotes[] = ['name' => $r['full_name'], 'council' => $r['council_area'], 'quote' => $r['public_quote']];
             }
-            $byCouncil[$r['council_area']][] = ['name' => $r['full_name'], 'replied' => $replied];
+            $byCouncil[$r['council_area']][] = ['name' => $r['full_name'], 'state' => $state];
         }
         $councilsReached = count($councilSet);
 
@@ -134,9 +136,14 @@ require_once __DIR__ . '/includes/header.php';
                 </div>
                 <div class="stat-item">
                     <span class="stat-value"><?= $repliedCount ?></span>
-                    <span class="stat-label">replies logged</span>
+                    <span class="stat-label">replied</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value"><?= $ackCount ?></span>
+                    <span class="stat-label">automatic acknowledgements</span>
                 </div>
             </div>
+            <p class="meta">An automatic acknowledgement is an out-of-office or "your email has been received" message. It tells us the email arrived — not that anyone has responded — so we count it separately and keep waiting for a real reply.</p>
 
             <details class="letter-preview">
                 <summary>Read the letter we sent</summary>
@@ -159,7 +166,7 @@ require_once __DIR__ . '/includes/header.php';
 
                 <div id="councillor-list">
                     <?php foreach ($byCouncil as $council => $people):
-                        $councilReplied = count(array_filter($people, static fn($p) => $p['replied']));
+                        $councilReplied = count(array_filter($people, static fn($p) => $p['state'] === 'replied'));
                         ?>
                         <details class="councillor-council-group" data-council="<?= e(strtolower($council)) ?>">
                             <summary>
@@ -172,11 +179,7 @@ require_once __DIR__ . '/includes/header.php';
                                 <?php foreach ($people as $p): ?>
                                     <li data-name="<?= e(strtolower($p['name'])) ?>">
                                         <span><?= e($p['name']) ?></span>
-                                        <?php if ($p['replied']): ?>
-                                            <span class="pill pill--active">Replied</span>
-                                        <?php else: ?>
-                                            <span class="pill pill--forming">Awaiting reply</span>
-                                        <?php endif; ?>
+                                        <?= reply_state_pill($p['state']) ?>
                                     </li>
                                 <?php endforeach; ?>
                             </ul>

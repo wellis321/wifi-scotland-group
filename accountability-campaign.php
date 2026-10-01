@@ -39,7 +39,7 @@ if (db_available()) {
         $pdo = db();
 
         $row = $pdo->query(
-            "SELECT COUNT(*) AS sent, SUM(replied_at IS NOT NULL) AS replied
+            "SELECT COUNT(*) AS sent, SUM(replied_at IS NOT NULL AND reply_is_auto = 0) AS replied
              FROM councillor_campaign_sends WHERE campaign_slug = 'councillor-public-statement-2026-09' AND status = 'sent'"
         )->fetch();
         $councillorSent    = (int) ($row['sent'] ?? 0);
@@ -55,14 +55,14 @@ if (db_available()) {
         $councilReplied  = (int) ($row['ceo_replied'] ?? 0) + (int) ($row['leader_replied'] ?? 0);
 
         $row = $pdo->query(
-            "SELECT COUNT(*) AS sent, SUM(replied_at IS NOT NULL) AS replied
+            "SELECT COUNT(*) AS sent, SUM(replied_at IS NOT NULL AND reply_is_auto = 0) AS replied
              FROM msp_campaign_sends WHERE campaign_slug = 'msp-accountability-2026-09' AND status = 'sent'"
         )->fetch();
         $mspSent    = (int) ($row['sent'] ?? 0);
         $mspReplied = (int) ($row['replied'] ?? 0);
 
         $row = $pdo->query(
-            "SELECT COUNT(*) AS sent, SUM(replied_at IS NOT NULL) AS replied
+            "SELECT COUNT(*) AS sent, SUM(replied_at IS NOT NULL AND reply_is_auto = 0) AS replied
              FROM mp_campaign_sends WHERE campaign_slug = 'mp-accountability-2026-09' AND status = 'sent'"
         )->fetch();
         $mpSent    = (int) ($row['sent'] ?? 0);
@@ -103,7 +103,7 @@ require_once __DIR__ . '/includes/header.php';
                 </div>
                 <div class="stat-item">
                     <span class="stat-value"><?= $councillorReplied + $councilReplied + $mspReplied + $mpReplied ?></span>
-                    <span class="stat-label">replies logged so far</span>
+                    <span class="stat-label">real replies so far</span>
                 </div>
             </div>
 

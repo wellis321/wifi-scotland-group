@@ -42,9 +42,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $replyNotes   = trim((string) ($_POST['reply_notes'] ?? '')) ?: null;
     $publicQuote  = trim((string) ($_POST['public_quote'] ?? '')) ?: null;
     $doNotContact = !empty($_POST['do_not_contact']);
+    $isAuto       = $repliedAt !== null && !empty($_POST['reply_is_auto']);
 
-    db()->prepare('UPDATE councillor_campaign_sends SET replied_at = :replied_at, reply_notes = :reply_notes, public_quote = :public_quote WHERE id = :id')
-        ->execute(['replied_at' => $repliedAt, 'reply_notes' => $replyNotes, 'public_quote' => $publicQuote, 'id' => $send['id']]);
+    db()->prepare('UPDATE councillor_campaign_sends SET replied_at = :replied_at, reply_is_auto = :is_auto, reply_notes = :reply_notes, public_quote = :public_quote WHERE id = :id')
+        ->execute(['replied_at' => $repliedAt, 'is_auto' => $isAuto ? 1 : 0, 'reply_notes' => $replyNotes, 'public_quote' => $publicQuote, 'id' => $send['id']]);
 
     if ($doNotContact) {
         db()->prepare('INSERT INTO do_not_contact (email, reason) VALUES (:email, :reason) ON DUPLICATE KEY UPDATE reason = VALUES(reason)')
@@ -86,6 +87,14 @@ require_once __DIR__ . '/includes/admin_header.php';
         <label for="replied_at">Reply received on</label>
         <input id="replied_at" name="replied_at" type="date" value="<?= e((string) ($send['replied_at'] ?? '')) ?>">
         <p class="admin-hint">Leave blank to mark as not yet replied.</p>
+    </div>
+
+    <div class="admin-field">
+        <label style="display:flex;align-items:center;gap:0.5rem;text-transform:none;font-weight:400">
+            <input type="checkbox" name="reply_is_auto" value="1" style="width:auto"<?= !empty($send['reply_is_auto']) ? ' checked' : '' ?>>
+            Only an automatic acknowledgement (out-of-office / "your email has been received")
+        </label>
+        <p class="admin-hint">Shown publicly as "Acknowledged", not "Replied", and the reply checker keeps watching for a real reply.</p>
     </div>
 
     <div class="admin-field">

@@ -450,8 +450,9 @@ CREATE TABLE IF NOT EXISTS councillor_campaign_sends (
   error_message TEXT DEFAULT NULL,
   subject VARCHAR(255) DEFAULT NULL COMMENT 'Exact rendered subject line this person was sent — template wording changes over time, this is what they actually got',
   body_text MEDIUMTEXT DEFAULT NULL COMMENT 'Exact rendered plain-text body this person was sent',
-  sent_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  sent_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   replied_at DATE DEFAULT NULL COMMENT 'Auto-set by bin/check-campaign-replies.php when a reply is detected, or manually via /admin',
+  reply_is_auto TINYINT(1) NOT NULL DEFAULT 0 COMMENT '1 = only an out-of-office / automatic acknowledgement so far — shown publicly as "Acknowledged", not "Replied", and still watched for a real reply',
   reply_notes TEXT DEFAULT NULL COMMENT 'What the councillor said — auto-filled with a body snippet on detection, or manually via /admin. Not shown publicly',
   public_quote TEXT DEFAULT NULL COMMENT 'A short line curated FROM reply_notes for public display on /councillor-statements — deliberately separate from reply_notes so a raw auto-captured email snippet is never shown publicly without a human choosing to feature it',
   PRIMARY KEY (id),
@@ -484,8 +485,9 @@ CREATE TABLE IF NOT EXISTS msp_campaign_sends (
   error_message TEXT DEFAULT NULL,
   subject VARCHAR(255) DEFAULT NULL COMMENT 'Exact rendered subject line this person was sent',
   body_text MEDIUMTEXT DEFAULT NULL COMMENT 'Exact rendered plain-text body this person was sent',
-  sent_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  sent_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   replied_at DATE DEFAULT NULL COMMENT 'Auto-set by bin/check-campaign-replies.php when a reply is detected, or manually via /admin',
+  reply_is_auto TINYINT(1) NOT NULL DEFAULT 0 COMMENT '1 = only an out-of-office / automatic acknowledgement so far — shown publicly as "Acknowledged", not "Replied", and still watched for a real reply',
   reply_notes TEXT DEFAULT NULL COMMENT 'What the MSP said — auto-filled with a body snippet on detection, or manually via /admin. Not shown publicly',
   public_quote TEXT DEFAULT NULL COMMENT 'A short line curated FROM reply_notes for public display — deliberately separate from reply_notes so a raw auto-captured email snippet is never shown publicly without a human choosing to feature it',
   PRIMARY KEY (id),
@@ -508,8 +510,9 @@ CREATE TABLE IF NOT EXISTS mp_campaign_sends (
   error_message TEXT DEFAULT NULL,
   subject VARCHAR(255) DEFAULT NULL COMMENT 'Exact rendered subject line this person was sent',
   body_text MEDIUMTEXT DEFAULT NULL COMMENT 'Exact rendered plain-text body this person was sent',
-  sent_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  sent_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   replied_at DATE DEFAULT NULL COMMENT 'Auto-set by bin/check-campaign-replies.php when a reply is detected, or manually via /admin',
+  reply_is_auto TINYINT(1) NOT NULL DEFAULT 0 COMMENT '1 = only an out-of-office / automatic acknowledgement so far — shown publicly as "Acknowledged", not "Replied", and still watched for a real reply',
   reply_notes TEXT DEFAULT NULL COMMENT 'What the MP said — auto-filled with a body snippet on detection, or manually via /admin. Not shown publicly',
   public_quote TEXT DEFAULT NULL COMMENT 'A short line curated FROM reply_notes for public display — deliberately separate from reply_notes so a raw auto-captured email snippet is never shown publicly without a human choosing to feature it',
   PRIMARY KEY (id),
@@ -544,9 +547,18 @@ CREATE TABLE IF NOT EXISTS stakeholder_notifications (
   error_message TEXT DEFAULT NULL,
   subject VARCHAR(255) DEFAULT NULL,
   body_text MEDIUMTEXT DEFAULT NULL,
-  sent_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  sent_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   replied_at DATE DEFAULT NULL,
+  reply_is_auto TINYINT(1) NOT NULL DEFAULT 0 COMMENT '1 = only an out-of-office / automatic acknowledgement so far — shown publicly as "Acknowledged", not "Replied", and still watched for a real reply',
   reply_notes TEXT DEFAULT NULL COMMENT 'Not shown publicly',
   PRIMARY KEY (id),
   UNIQUE KEY uq_stakeholder_notifications_email (email)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Existing installs (Oct 2026): sent_at previously had ON UPDATE CURRENT_TIMESTAMP, so
+-- logging a reply overwrote the real send time. Drop that, and add reply_is_auto so
+-- out-of-office/acknowledgement emails aren't counted as replies. Run these four lines:
+-- ALTER TABLE councillor_campaign_sends MODIFY sent_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, ADD COLUMN reply_is_auto TINYINT(1) NOT NULL DEFAULT 0 AFTER replied_at;
+-- ALTER TABLE msp_campaign_sends MODIFY sent_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, ADD COLUMN reply_is_auto TINYINT(1) NOT NULL DEFAULT 0 AFTER replied_at;
+-- ALTER TABLE mp_campaign_sends MODIFY sent_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, ADD COLUMN reply_is_auto TINYINT(1) NOT NULL DEFAULT 0 AFTER replied_at;
+-- ALTER TABLE stakeholder_notifications MODIFY sent_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, ADD COLUMN reply_is_auto TINYINT(1) NOT NULL DEFAULT 0 AFTER replied_at;

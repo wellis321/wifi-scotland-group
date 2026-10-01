@@ -46,7 +46,7 @@ $rows = [];
 $councilOptions = [];
 if (db_available() && $campaignFilter !== '') {
     $stmt = db()->prepare(
-        'SELECT id, full_name, council_area, email, status, resend_id, error_message, sent_at, replied_at, reply_notes
+        'SELECT id, full_name, council_area, email, status, resend_id, error_message, sent_at, replied_at, reply_is_auto, reply_notes
          FROM councillor_campaign_sends WHERE campaign_slug = ? ORDER BY council_area ASC, full_name ASC'
     );
     $stmt->execute([$campaignFilter]);
@@ -57,8 +57,10 @@ if (db_available() && $campaignFilter !== '') {
     $rows = array_filter($allRows, function (array $r) use ($councilFilter, $statusFilter, $repliedFilter, $search): bool {
         if ($councilFilter !== '' && $r['council_area'] !== $councilFilter) return false;
         if ($statusFilter !== '' && $r['status'] !== $statusFilter) return false;
-        if ($repliedFilter === 'yes' && empty($r['replied_at'])) return false;
-        if ($repliedFilter === 'no' && !empty($r['replied_at'])) return false;
+        $state = reply_state($r);
+        if ($repliedFilter === 'yes' && $state !== 'replied') return false;
+        if ($repliedFilter === 'ack' && $state !== 'acknowledged') return false;
+        if ($repliedFilter === 'no' && $state === 'replied') return false;
         if ($search !== '' && stripos($r['full_name'] . ' ' . $r['email'], $search) === false) return false;
         return true;
     });
@@ -70,7 +72,7 @@ $repliedCount = 0;
 foreach ($rows as $r) {
     if ($r['status'] === 'sent') $sentCount++;
     if ($r['status'] === 'failed') $failedCount++;
-    if (!empty($r['replied_at'])) $repliedCount++;
+    if (reply_state($r) === 'replied') $repliedCount++;
 }
 $totalMatched = count($rows);
 
@@ -124,8 +126,9 @@ require_once __DIR__ . '/includes/admin_header.php';
     </select>
     <select name="replied" onchange="this.form.submit()">
         <option value="">Replied + not replied</option>
-        <option value="yes" <?= $repliedFilter === 'yes' ? 'selected' : '' ?>>Replied only</option>
-        <option value="no" <?= $repliedFilter === 'no' ? 'selected' : '' ?>>Not replied yet</option>
+        <option value="yes" <?= $repliedFilter === 'yes' ? 'selected' : '' ?>>Real replies only</option>
+        <option value="ack" <?= $repliedFilter === 'ack' ? 'selected' : '' ?>>Automatic acknowledgements only</option>
+        <option value="no" <?= $repliedFilter === 'no' ? 'selected' : '' ?>>No real reply yet</option>
     </select>
     <input type="text" name="q" placeholder="Search name or email" value="<?= e($search) ?>">
     <button type="submit" class="btn btn-secondary">Filter</button>
@@ -151,7 +154,7 @@ require_once __DIR__ . '/includes/admin_header.php';
                     <td class="meta"><?= e(format_date(substr((string) $r['sent_at'], 0, 10))) ?></td>
                     <td class="meta">
                         <?php if (!empty($r['replied_at'])): ?>
-                            Replied <?= e(format_date((string) $r['replied_at'])) ?>
+                            <?= reply_state($r) === 'acknowledged' ? 'Auto-acknowledged' : 'Replied' ?> <?= e(format_date((string) $r['replied_at'])) ?>
                         <?php else: ?>
                             &mdash;
                         <?php endif; ?>

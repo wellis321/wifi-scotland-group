@@ -32,13 +32,14 @@ $sidebarRelated = [
 
 $sentCount    = 0;
 $repliedCount = 0;
+$ackCount     = 0;
 $quotes       = [];
 $byParty      = [];
 
 if (db_available()) {
     try {
         $stmt = db()->prepare(
-            "SELECT full_name, party, constituency, replied_at, public_quote
+            "SELECT full_name, party, constituency, replied_at, reply_is_auto, public_quote
              FROM mp_campaign_sends WHERE campaign_slug = ? AND status = 'sent'
              ORDER BY party ASC, full_name ASC"
         );
@@ -47,12 +48,13 @@ if (db_available()) {
 
         $sentCount = count($rows);
         foreach ($rows as $r) {
-            $replied = !empty($r['replied_at']);
-            if ($replied) $repliedCount++;
+            $state = reply_state($r);
+            if ($state === 'replied') $repliedCount++;
+            if ($state === 'acknowledged') $ackCount++;
             if (!empty($r['public_quote'])) {
                 $quotes[] = ['name' => $r['full_name'], 'role' => $r['constituency'], 'quote' => $r['public_quote']];
             }
-            $byParty[$r['party']][] = ['name' => $r['full_name'], 'role' => $r['constituency'], 'replied' => $replied];
+            $byParty[$r['party']][] = ['name' => $r['full_name'], 'role' => $r['constituency'], 'state' => $state];
         }
     } catch (Throwable) {}
 }
@@ -91,9 +93,14 @@ require_once __DIR__ . '/includes/header.php';
                 </div>
                 <div class="stat-item">
                     <span class="stat-value"><?= $repliedCount ?></span>
-                    <span class="stat-label">replies logged</span>
+                    <span class="stat-label">replied</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value"><?= $ackCount ?></span>
+                    <span class="stat-label">automatic acknowledgements</span>
                 </div>
             </div>
+            <p class="meta">An automatic acknowledgement is the "thank you, your email has been received" message many offices send straight away. It tells us the email arrived — not that anyone has responded — so we count it separately and keep waiting for a real reply.</p>
 
             <details class="letter-preview">
                 <summary>Read the letter we sent</summary>
@@ -116,7 +123,7 @@ require_once __DIR__ . '/includes/header.php';
 
                 <div id="mp-list">
                     <?php foreach ($byParty as $party => $mps):
-                        $partyReplied = count(array_filter($mps, static fn($m) => $m['replied']));
+                        $partyReplied = count(array_filter($mps, static fn($m) => $m['state'] === 'replied'));
                         ?>
                         <details class="councillor-council-group" data-council="<?= e(strtolower($party)) ?>">
                             <summary>
@@ -129,11 +136,7 @@ require_once __DIR__ . '/includes/header.php';
                                 <?php foreach ($mps as $m): ?>
                                     <li data-name="<?= e(strtolower($m['name'])) ?>">
                                         <span><?= e($m['name']) ?> <span class="meta">— <?= e($m['role']) ?></span></span>
-                                        <?php if ($m['replied']): ?>
-                                            <span class="pill pill--active">Replied</span>
-                                        <?php else: ?>
-                                            <span class="pill pill--forming">Awaiting reply</span>
-                                        <?php endif; ?>
+                                        <?= reply_state_pill($m['state']) ?>
                                     </li>
                                 <?php endforeach; ?>
                             </ul>

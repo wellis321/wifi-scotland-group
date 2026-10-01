@@ -244,6 +244,40 @@ function do_not_contact_emails(): array
 }
 
 /**
+ * True for out-of-office notices and "thank you, your email has been received"
+ * acknowledgements. A real reply comes back on the thread ("RE: …"); anything else
+ * — "Automatic reply: …", "X has received your e-mail" — is treated as automatic.
+ */
+function is_auto_reply(string $subject, string $body): bool
+{
+    if (preg_match('/^\s*(re|fw|fwd)\s*:/i', $subject) !== 1) {
+        return true;
+    }
+    return preg_match(
+        '/\b(automatic(ally)?|automated|auto[- ]?(reply|response|acknowledge?ment)|out of (the )?office|on (annual )?leave)\b/i',
+        mb_substr($body, 0, 300)
+    ) === 1;
+}
+
+/** 'replied' | 'acknowledged' | 'awaiting', from a campaign-sends row's replied_at + reply_is_auto. */
+function reply_state(array $row): string
+{
+    if (empty($row['replied_at'])) {
+        return 'awaiting';
+    }
+    return !empty($row['reply_is_auto']) ? 'acknowledged' : 'replied';
+}
+
+function reply_state_pill(string $state): string
+{
+    return match ($state) {
+        'replied'      => '<span class="pill pill--active">Replied</span>',
+        'acknowledged' => '<span class="pill pill--acknowledged">Acknowledged</span>',
+        default        => '<span class="pill pill--forming">Awaiting reply</span>',
+    };
+}
+
+/**
  * The CEO and Leader letters both say "we're writing in parallel to all councillors" —
  * only true for councils the councillor campaign has actually reached. Keeps all three
  * campaigns in sync: as more daily councillor batches go out, more councils become

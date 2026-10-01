@@ -8,8 +8,10 @@ declare(strict_types=1);
  * anyone any campaign has emailed — councillors, MSPs, MPs, or stakeholder
  * notifications — and auto-logs them against whichever table they came from.
  *
- * Matching is by sender address only — a real reply's From: address has to match an
- * email already logged as sent, with no reply logged yet, in one of:
+ * Matching is by sender address only — a reply's From: address has to match an email
+ * already logged as sent, with no real reply logged yet, in one of the tables below.
+ * Out-of-office and "your email has been received" messages (see is_auto_reply()) are
+ * logged with reply_is_auto = 1 and the person stays watched for a genuine reply:
  *   - councillor_campaign_sends
  *   - msp_campaign_sends
  *   - mp_campaign_sends
@@ -53,62 +55,35 @@ if (!campaign_db_available()) {
 // Pulled from every table a reply could land against, each tagged with its own
 // source table + a display label, so one pass over the inbox covers all of them.
 
+// People who've only sent an automatic acknowledgement stay on the watch list, so a
+// real reply that arrives days later still gets picked up.
+$sources = [
+    'councillor_campaign_sends' => "CONCAT(full_name, ' (', council_area, ')')",
+    'msp_campaign_sends'        => "CONCAT(full_name, ' (', COALESCE(role, ''), ')')",
+    'mp_campaign_sends'         => "CONCAT(full_name, ' (', COALESCE(constituency, ''), ')')",
+    'stakeholder_notifications' => 'organisation',
+];
+
 $pending = [];
 
-$stmt = campaign_db()->query(
-    "SELECT id, full_name, council_area, email
-     FROM councillor_campaign_sends WHERE status = 'sent' AND replied_at IS NULL"
-);
-foreach ($stmt->fetchAll() as $row) {
-    $pending[strtolower($row['email'])] = [
-        'table' => 'councillor_campaign_sends',
-        'id'    => $row['id'],
-        'email' => $row['email'],
-        'label' => "{$row['full_name']} ({$row['council_area']})",
-    ];
-}
-
-$stmt = campaign_db()->query(
-    "SELECT id, full_name, role, email
-     FROM msp_campaign_sends WHERE status = 'sent' AND replied_at IS NULL"
-);
-foreach ($stmt->fetchAll() as $row) {
-    $pending[strtolower($row['email'])] = [
-        'table' => 'msp_campaign_sends',
-        'id'    => $row['id'],
-        'email' => $row['email'],
-        'label' => "{$row['full_name']} ({$row['role']})",
-    ];
-}
-
-$stmt = campaign_db()->query(
-    "SELECT id, full_name, constituency, email
-     FROM mp_campaign_sends WHERE status = 'sent' AND replied_at IS NULL"
-);
-foreach ($stmt->fetchAll() as $row) {
-    $pending[strtolower($row['email'])] = [
-        'table' => 'mp_campaign_sends',
-        'id'    => $row['id'],
-        'email' => $row['email'],
-        'label' => "{$row['full_name']} ({$row['constituency']})",
-    ];
-}
-
-$stmt = campaign_db()->query(
-    "SELECT id, organisation, email
-     FROM stakeholder_notifications WHERE status = 'sent' AND replied_at IS NULL"
-);
-foreach ($stmt->fetchAll() as $row) {
-    $pending[strtolower($row['email'])] = [
-        'table' => 'stakeholder_notifications',
-        'id'    => $row['id'],
-        'email' => $row['email'],
-        'label' => $row['organisation'],
-    ];
+foreach ($sources as $table => $labelSql) {
+    $stmt = campaign_db()->query(
+        "SELECT id, email, replied_at, $labelSql AS label
+         FROM $table WHERE status = 'sent' AND (replied_at IS NULL OR reply_is_auto = 1)"
+    );
+    foreach ($stmt->fetchAll() as $row) {
+        $pending[strtolower($row['email'])] = [
+            'table'        => $table,
+            'id'           => $row['id'],
+            'email'        => $row['email'],
+            'label'        => $row['label'],
+            'has_auto_ack' => $row['replied_at'] !== null,
+        ];
+    }
 }
 
 if (empty($pending)) {
-    fwrite(STDOUT, "Nothing pending a reply — every sent email is already marked replied (or nothing's been sent yet).\n");
+    fwrite(STDOUT, "Nothing pending a reply — every sent email already has a real reply logged (or nothing's been sent yet).\n");
     exit(0);
 }
 
@@ -191,14 +166,28 @@ foreach ($messages as $msg) {
         }
     }
 
-    $note = "Auto-detected reply — subject: \"$subject\"\n\n" . $snippet;
+    $isAuto = is_auto_reply($subject, $snippet);
 
-    fwrite(STDOUT, "MATCH  {$row['label']} <{$row['email']}> [{$row['table']}] — replied $repliedDate\n");
+    // Already have an acknowledgement on file — another one adds nothing.
+    if ($isAuto && $row['has_auto_ack']) {
+        continue;
+    }
+
+    $note = "Auto-detected reply — subject: \"$subject\"\n\n" . $snippet;
+    $kind = $isAuto ? 'ACK  ' : 'REPLY';
+
+    fwrite(STDOUT, "$kind  {$row['label']} <{$row['email']}> [{$row['table']}] — $repliedDate\n");
 
     if (!$dryRun) {
-        campaign_db()->prepare("UPDATE {$row['table']} SET replied_at = :replied_at, reply_notes = :reply_notes WHERE id = :id")
-            ->execute(['replied_at' => $repliedDate, 'reply_notes' => $note, 'id' => $row['id']]);
-        // Don't match this address again this run even if there are multiple messages from them.
+        campaign_db()->prepare(
+            "UPDATE {$row['table']} SET replied_at = :replied_at, reply_is_auto = :is_auto, reply_notes = :reply_notes WHERE id = :id"
+        )->execute(['replied_at' => $repliedDate, 'is_auto' => $isAuto ? 1 : 0, 'reply_notes' => $note, 'id' => $row['id']]);
+    }
+
+    if ($isAuto) {
+        $pending[$fromAddress]['has_auto_ack'] = true;
+    } else {
+        // A real reply closes this person out; ignore any further messages from them this run.
         unset($pending[$fromAddress]);
     }
 
