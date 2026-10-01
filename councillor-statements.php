@@ -32,29 +32,10 @@ $sidebarRelated = [
     ['href' => '/accountability',          'label' => 'Who is acting?'],
 ];
 
-// Target size: confirmed, emailable rows in the live roster (not the 32-council figure —
-// this campaign writes to individual elected councillors, roughly 1,200 of them).
-$csvPath = __DIR__ . '/data/councillors-roster.csv';
-$targetCount = 0;
-if (is_readable($csvPath)) {
-    $fh = fopen($csvPath, 'r');
-    if ($fh !== false) {
-        $header = fgetcsv($fh, 0, ',', '"', '\\');
-        $headerCount = count($header);
-        while (($line = fgetcsv($fh, 0, ',', '"', '\\')) !== false) {
-            if (count($line) < $headerCount) continue;
-            if (count($line) > $headerCount) {
-                $overflow = array_splice($line, $headerCount - 1);
-                $line[] = implode(',', $overflow);
-            }
-            $row = array_combine($header, $line);
-            if (($row['confidence'] ?? '') === 'confirmed' && trim((string) ($row['email'] ?? '')) !== '') {
-                $targetCount++;
-            }
-        }
-        fclose($fh);
-    }
-}
+// Confirmed, emailable councillors in the roster at send time. Fixed rather than read from
+// data/councillors-roster.csv, which is gitignored (it holds email addresses) and so isn't
+// on the live server.
+$targetCount = 1208;
 
 $sentCount      = 0;
 $repliedCount   = 0;
