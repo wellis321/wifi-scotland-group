@@ -121,5 +121,19 @@ function load_schemes(): array
             'scope'        => 'uk',
             'note'         => '',
         ],
+        [
+            'slug'         => 'scottish-broadband-voucher',
+            'name'         => 'Scottish Broadband Voucher Scheme — up to £5,000 to get connected',
+            'summary'      => 'A Scottish Government subsidy of up to £5,000 that covers the direct installation cost of a faster connection for homes and businesses the R100 contracts and commercial rollouts aren\'t going to reach. Around 30 registered suppliers offer full fibre, fixed wireless, 4G/5G or satellite, depending on where you live.',
+            'who'          => 'Homes and businesses where both are true: your current connection is slower than 30 Mbps, and there are no plans for a superfast connection through the R100 contracts or commercial build.',
+            'what'         => 'A subsidy of up to £5,000 per property, covering all direct installation costs carried out by a registered supplier. The type of connection depends on what suppliers can offer at your location.',
+            'how'          => 'Check your address on the Scottish Government\'s broadband address checker, linked from the official page. If you\'re eligible, the official guidance explains how to engage a registered supplier, and what to do if a supplier contacts you first.',
+            'url'          => 'https://digitalconnectivity.campaign.gov.scot/sbvs',
+            'source_label' => 'Scottish Government: Scottish Broadband Voucher Scheme',
+            'updated'      => '2026-10',
+            'status'       => 'active',
+            'scope'        => 'scotland',
+            'note'         => 'Open for individual properties. Group applications for several properties with a gigabit-capable connection have been paused since 19 August 2024 while Project Gigabit contracts roll out. The rules have changed before, so check the official page.',
+        ],
     ];
 }

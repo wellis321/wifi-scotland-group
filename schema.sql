@@ -340,6 +340,17 @@ INSERT INTO schemes (slug, name, summary, who_for, what_you_get, how_to_apply, u
   'https://www.goodthingsfoundation.org/our-services/national-databank/',
   'Good Things Foundation: National Databank',
   '2026-07', 'check', 'uk', 'New partner applications were closed at the time we last checked, reopening later in the year — existing network partners still distribute SIMs regardless. Check the official page for current status.', 50
+),
+(
+  'scottish-broadband-voucher',
+  'Scottish Broadband Voucher Scheme — up to £5,000 to get connected',
+  'A Scottish Government subsidy of up to £5,000 that covers the direct installation cost of a faster connection for homes and businesses the R100 contracts and commercial rollouts aren''t going to reach. Around 30 registered suppliers offer full fibre, fixed wireless, 4G/5G or satellite, depending on where you live.',
+  'Homes and businesses where both are true: your current connection is slower than 30 Mbps, and there are no plans for a superfast connection through the R100 contracts or commercial build.',
+  'A subsidy of up to £5,000 per property, covering all direct installation costs carried out by a registered supplier. The type of connection depends on what suppliers can offer at your location.',
+  'Check your address on the Scottish Government''s broadband address checker, linked from the official page. If you''re eligible, the official guidance explains how to engage a registered supplier, and what to do if a supplier contacts you first.',
+  'https://digitalconnectivity.campaign.gov.scot/sbvs',
+  'Scottish Government: Scottish Broadband Voucher Scheme',
+  '2026-10', 'active', 'scotland', 'Open for individual properties. Group applications for several properties with a gigabit-capable connection have been paused since 19 August 2024 while Project Gigabit contracts roll out. The rules have changed before, so check the official page.', 25
 )
 ON DUPLICATE KEY UPDATE name = VALUES(name);
 
