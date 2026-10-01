@@ -76,7 +76,7 @@ $pending = [];
 
 foreach ($sources as $table => $labelSql) {
     $stmt = campaign_db()->query(
-        "SELECT id, email, replied_at, $labelSql AS label
+        "SELECT id, email, replied_at, reply_notes, $labelSql AS label
          FROM $table WHERE status = 'sent' AND (replied_at IS NULL OR reply_is_auto = 1)"
     );
     foreach ($stmt->fetchAll() as $row) {
@@ -86,6 +86,7 @@ foreach ($sources as $table => $labelSql) {
             'email'        => $row['email'],
             'label'        => $row['label'],
             'has_auto_ack' => $row['replied_at'] !== null,
+            'notes'        => (string) $row['reply_notes'],
         ];
     }
 }
@@ -166,6 +167,13 @@ foreach ($messages as $msg) {
     $uid = (int) ($msg['uid'] ?? 0);
     $subject = (string) ($msg['subject'] ?? '(no subject)');
     $repliedDate = isset($msg['date']) ? substr((string) $msg['date'], 0, 10) : date('Y-m-d');
+    $messageId = (string) ($msg['messageId'] ?? '');
+
+    // Already filed (by an earlier run, or by hand) — leave it alone, so a manual
+    // "this is only an acknowledgement" decision isn't overwritten by a later sweep.
+    if ($messageId !== '' && str_contains($row['notes'], $messageId)) {
+        continue;
+    }
 
     $snippet = '';
     if ($uid > 0) {
@@ -186,7 +194,8 @@ foreach ($messages as $msg) {
         continue;
     }
 
-    $note = "Auto-detected reply — subject: \"$subject\"\n\n" . $snippet;
+    $note = "Auto-detected reply — subject: \"$subject\"\n\n" . $snippet
+        . ($messageId !== '' ? "\n\n[message-id: $messageId]" : '');
     $kind = $isAuto ? 'ACK  ' : 'REPLY';
 
     fwrite(STDOUT, "$kind  {$row['label']} <{$row['email']}> [{$row['table']}] — $repliedDate\n");
