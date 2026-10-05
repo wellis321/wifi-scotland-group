@@ -60,6 +60,15 @@ function load_figures(): array
     ],
     'Scottish broadband coverage (R100)' => [
         [
+            'claim'   => 'Ofcom\'s Telecoms Access Review 2026-31 set the full-fibre repair standard for "Area 3" (places with no realistic prospect of a rival network) at 81% of repairs within one working day and 96% within 11 working days; Consumer Scotland had asked for 83% and 98%. More than 30% of Scottish postcodes are in Area 3, against 18% across the UK',
+            'used_on' => [['label' => 'News: Ofcom\'s rural repair target', 'href' => '/news-item?slug=ofcom-telecoms-access-review-rural-repair-target']],
+            'source'  => 'Ofcom — Telecoms Access Review 2026-31 statement, Volume 5: Quality of service (paras 3.116-3.119, Table 3.4); Consumer Scotland response',
+            'url'     => 'https://www.ofcom.org.uk/siteassets/resources/documents/consultations/statement-promoting-competition-and-investment-in-fibre-networks-telecoms-access-review-2026-31/main-documents/volume-5-quality-of-service.pdf',
+            'date'    => '17 Mar 2026',
+            'note'    => 'Corrected: our news item of 27 September 2026 said Ofcom\'s final rules kept the one-working-day repair target at 79%, and that Scotland accounts for more than 30% of the UK\'s Area 3 postcodes. Both were wrong. 79% was Ofcom\'s consultation proposal; its final decision was 81%, the level Openreach was already achieving, with Ofcom declining the higher standards Consumer Scotland and Sky asked for. The 30% figure is the share of Scottish postcodes that fall within Area 3, not Scotland\'s share of the UK total. The article\'s headline, summary and text have been corrected.',
+            'corrected_on' => '2026-10-05',
+        ],
+        [
             'claim'   => 'R100 is a £697m programme; over 100,000 premises connected',
             'used_on' => [['label' => 'Get help', 'href' => '/get-help']],
             'source'  => 'Scottish Government — Reaching 100%',
