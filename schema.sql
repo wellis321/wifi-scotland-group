@@ -231,6 +231,17 @@ INSERT INTO news_items (title, slug, summary, body, published_at) VALUES
 )
 ON DUPLICATE KEY UPDATE title = VALUES(title);
 
+-- 2026-10-06 — Findings from checking all 32 councils' published digital inclusion plans
+INSERT INTO news_items (title, slug, summary, body, published_at) VALUES
+(
+  'Only one of 24 Scottish councils we checked has a standalone plan to get residents online',
+  'council-digital-inclusion-plans-checked',
+  'We read the published digital strategies of Scotland''s 32 councils. Of the 24 we could verify, only Glasgow has a standalone strategy on digital exclusion. In 22, it is a theme inside a plan about the council''s own services. Eight we couldn''t confirm.',
+  '<p>Audit Scotland found in 2024 that Scotland had no clear plan for reducing digital exclusion and no one clearly responsible. We wanted to know whether that holds at council level, so we read what each of Scotland''s 32 councils has published. Not summaries of it: the strategies, delivery plans and committee papers themselves.</p><p>We could verify 24. Only one, Glasgow, has a standalone strategy: its Digital Housing Strategy 2022–2028. In 22 others, digital inclusion or connectivity appears inside a wider plan, usually a "digital strategy" that is mostly about the council''s own systems and online services. In Clackmannanshire, a council report covering 2019–21 said a Digital Inclusion Strategy was "being developed"; we could not find one in the council''s list of published strategies.</p><p>The gap between words and delivery is clearest in Dumfries and Galloway. Its new strategy names "Digital Inclusion: bridging the digital divide" as a core theme, but its delivery plan lists only internal actions: staff skills, AI guidance, automation and cyber security. Aberdeenshire''s strategy promised "no one is left behind" and ran out in 2025, with no successor published that we could find. In Orkney and the Western Isles, the plans we found are about cables and masts, not whether people can afford a connection or use it.</p><p>Some councils are doing real work. Falkirk offers free SIM cards with up to six months of data and lends devices. Perth and Kinross has a Local Digital Inclusion Fund. East Ayrshire and Renfrewshire back local networks of organisations working on digital inclusion. What almost none has is a plan of its own. The Scottish Government says its promised Digital Inclusion Delivery Plan will set out how it will work with local government. That will need to reach all 32.</p><p>Every finding is on our <a href="/accountability#councils-verified">accountability tracker</a>, with a link to the council''s own document. Eight councils we could not confirm: Aberdeen City, East Lothian, East Renfrewshire, Fife, Moray, Shetland, South Ayrshire and West Lothian. If you work for or live in one of them, or think we have a council wrong, <a href="/contact">tell us</a> and we will correct it.</p><p class="meta">Source: <a href="/accountability#councils-verified">WIRES accountability tracker</a> (each entry links to the council''s published document, checked October 2026) &middot; <a href="https://audit.scot/publications/tackling-digital-exclusion">Audit Scotland: Tackling digital exclusion (August 2024)</a></p>',
+  '2026-10-06'
+)
+ON DUPLICATE KEY UPDATE title = VALUES(title);
+
 -- ─── Local groups ────────────────────────────────────────────────────────────
 
 CREATE TABLE IF NOT EXISTS local_groups (
