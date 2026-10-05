@@ -220,6 +220,17 @@ INSERT INTO news_items (title, slug, summary, body, published_at) VALUES
 )
 ON DUPLICATE KEY UPDATE title = VALUES(title);
 
+-- 2026-10-05 — BT acquires TalkTalk; CMA invitation to comment closes 9 October
+INSERT INTO news_items (title, slug, summary, body, published_at) VALUES
+(
+  'BT has bought TalkTalk. The regulator wants your view by Friday 9 October',
+  'bt-buys-talktalk-cma-comment-deadline',
+  'BT has acquired TalkTalk''s broadband and wholesale businesses out of administration, keeping 2.5 million customers connected. It also leaves one company owning BT, EE, Plusnet, TalkTalk and Openreach. The competition regulator is taking comments until Friday 9 October.',
+  '<p>On 5 October 2026, BT acquired TalkTalk Telecommunications and its wholesale arm, PlatformX, out of administration, at an estimated cost of around £400m. BT says the deal protects 1.5 million retail and 1 million wholesale customers, including vulnerable households and connections used by health and emergency services, and calls it "the only viable option to keep millions of customers connected and supported."</p><p>A rescue is better than a collapse. But look at what it leaves. BT already owns BT, EE and Plusnet, as well as Openreach, the network most other providers rent their lines from. TalkTalk has long sold itself on price. Folding it into the largest group in the market removes one of the cheaper alternatives for households watching every pound — the people this campaign exists for.</p><p>The UK Government has intervened. The Culture Secretary issued a public interest intervention notice the same day, citing among its grounds the "supply to customers who are or may be vulnerable." The Competition and Markets Authority must report by 19 October. BT says the two companies will operate separately and continue to compete until the review concludes.</p><p>The CMA is inviting comments from any interested party until <strong>Friday 9 October</strong>, by email to <a href="mailto:bt.talktalk@cma.gov.uk">bt.talktalk@cma.gov.uk</a>. WIRES is sending a short submission asking that any approval protects low-cost tariffs, makes sure TalkTalk customers on qualifying benefits are offered a <a href="/get-help#social-tariffs">social tariff</a>, and rules out forced price rises for vulnerable households. If you are a TalkTalk customer in Scotland, your experience is exactly the evidence the regulator should hear. A few lines is enough.</p><p class="meta">Source: <a href="https://newsroom.bt.com/bt-group-has-acquired-talktalk-and-platformx-ensuring-continuity-of-service-for-millions-of-customers/">BT Group announcement (5 October 2026)</a> &middot; <a href="https://www.gov.uk/cma-cases/bt-slash-talktalk-merger-inquiry">CMA: BT / TalkTalk merger inquiry</a></p>',
+  '2026-10-05'
+)
+ON DUPLICATE KEY UPDATE title = VALUES(title);
+
 -- ─── Local groups ────────────────────────────────────────────────────────────
 
 CREATE TABLE IF NOT EXISTS local_groups (
