@@ -9,6 +9,8 @@ require_admin();
 $adminTitle   = 'Contact messages';
 $adminSection = 'messages';
 
+const MESSAGE_PREVIEW_CHARS = 280;
+
 /* Mark a message as read */
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && csrf_validate($_POST['csrf_token'] ?? null)) {
     $id     = (int) ($_POST['id'] ?? 0);
@@ -67,6 +69,13 @@ require_once __DIR__ . '/includes/admin_header.php';
     <div style="display:flex;flex-direction:column;gap:1rem">
         <?php foreach ($messages as $msg):
             $read = (int) $msg['is_read'];
+            $body = (string) $msg['body'];
+            // Long messages show a short preview so more of the inbox fits on screen.
+            $preview = null;
+            if (mb_strlen($body) > MESSAGE_PREVIEW_CHARS + 60) {
+                $flat = trim((string) preg_replace('/\s+/u', ' ', $body));
+                $preview = rtrim((string) preg_replace('/\s+\S*$/u', '', mb_substr($flat, 0, MESSAGE_PREVIEW_CHARS)), " ,;:.-");
+            }
         ?>
         <div class="admin-form" style="padding:1.35rem 1.5rem;<?= !$read ? 'border-left:3px solid var(--signal)' : 'border-left:3px solid var(--line)' ?>">
             <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:0.75rem">
@@ -80,7 +89,15 @@ require_once __DIR__ . '/includes/admin_header.php';
                 <p class="meta" style="margin:0;white-space:nowrap"><?= e(format_date(substr((string) $msg['created_at'], 0, 10))) ?></p>
             </div>
             <p style="font-weight:700;margin:0 0 0.5rem;font-size:0.95rem"><?= e((string) $msg['subject']) ?></p>
-            <p style="margin:0;color:var(--muted);font-size:0.9rem;line-height:1.65;white-space:pre-wrap"><?= e((string) $msg['body']) ?></p>
+            <?php if ($preview === null): ?>
+                <p style="margin:0;color:var(--muted);font-size:0.9rem;line-height:1.65;white-space:pre-wrap"><?= e($body) ?></p>
+            <?php else: ?>
+                <div class="msg-body">
+                    <p class="msg-preview" style="margin:0;color:var(--muted);font-size:0.9rem;line-height:1.65"><?= e($preview) ?>&hellip;</p>
+                    <p class="msg-full" hidden style="margin:0;color:var(--muted);font-size:0.9rem;line-height:1.65;white-space:pre-wrap"><?= e($body) ?></p>
+                    <button class="admin-link msg-toggle" type="button" aria-expanded="false" style="background:none;border:0;cursor:pointer;margin-top:0.35rem;padding-left:0">Read more</button>
+                </div>
+            <?php endif; ?>
             <div style="margin-top:1rem;display:flex;gap:0.5rem">
                 <a class="btn btn-primary btn-sm" href="mailto:<?= e((string) $msg['email']) ?>?subject=Re: <?= e(rawurlencode((string) $msg['subject'])) ?>">Reply by email</a>
                 <form method="post" style="margin:0">
@@ -94,6 +111,18 @@ require_once __DIR__ . '/includes/admin_header.php';
         </div>
         <?php endforeach; ?>
     </div>
+    <script>
+    document.querySelectorAll('.msg-toggle').forEach(function (button) {
+        button.addEventListener('click', function () {
+            var box = button.closest('.msg-body');
+            var open = button.getAttribute('aria-expanded') === 'true';
+            box.querySelector('.msg-preview').hidden = !open;
+            box.querySelector('.msg-full').hidden = open;
+            button.setAttribute('aria-expanded', open ? 'false' : 'true');
+            button.textContent = open ? 'Read more' : 'Show less';
+        });
+    });
+    </script>
 <?php endif; ?>
 
 <?php require_once __DIR__ . '/includes/admin_footer.php'; ?>
