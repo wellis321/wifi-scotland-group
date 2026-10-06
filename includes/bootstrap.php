@@ -194,10 +194,12 @@ function db_available(): bool
  * to be running under. Falls back to db()'s connection when CAMPAIGN_DB_HOST is unset,
  * so local testing without production credentials still works unchanged.
  */
-function campaign_db(): PDO
+function campaign_db(bool $reconnect = false): PDO
 {
     static $pdo = null;
-    if ($pdo instanceof PDO) {
+    // $reconnect: the remote server drops connections left idle (e.g. during a long run
+    // of mail API calls), so a script can ask for a fresh one before it writes.
+    if ($pdo instanceof PDO && !$reconnect) {
         return $pdo;
     }
 

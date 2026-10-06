@@ -645,3 +645,31 @@ CREATE TABLE IF NOT EXISTS stakeholder_notifications (
 -- ALTER TABLE msp_campaign_sends MODIFY sent_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, ADD COLUMN reply_is_auto TINYINT(1) NOT NULL DEFAULT 0 AFTER replied_at;
 -- ALTER TABLE mp_campaign_sends MODIFY sent_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, ADD COLUMN reply_is_auto TINYINT(1) NOT NULL DEFAULT 0 AFTER replied_at;
 -- ALTER TABLE stakeholder_notifications MODIFY sent_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, ADD COLUMN reply_is_auto TINYINT(1) NOT NULL DEFAULT 0 AFTER replied_at;
+
+-- ─── Correspondence log (/admin/correspondence.php) ─────────────────────────────────
+-- One row per meaningful email, in or out: who it was, what it said, what we did about
+-- it, and whether anything is still outstanding. Automatic replies are never logged.
+-- Rows are imported from the hello@wires.org.uk Inbox and Sent folders by
+-- import_correspondence() (includes/correspondence.php) with status 'review', then
+-- summarised by a person in /admin. Entries can also be added by hand (calls, meetings).
+
+CREATE TABLE IF NOT EXISTS correspondence_log (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  occurred_on DATE NOT NULL,
+  direction ENUM('in','out') NOT NULL COMMENT 'in = they wrote to us, out = we wrote to them',
+  person VARCHAR(160) NOT NULL,
+  organisation VARCHAR(200) DEFAULT NULL COMMENT 'Role or organisation, e.g. "Councillor, North Lanarkshire"',
+  category ENUM('councillor','council','msp','mp','stakeholder','regulator','public','other') NOT NULL DEFAULT 'other',
+  email VARCHAR(255) DEFAULT NULL COMMENT 'The other party''s address — also what groups entries into one conversation',
+  subject VARCHAR(255) DEFAULT NULL,
+  summary TEXT DEFAULT NULL COMMENT 'One or two lines, written by a person',
+  body_text MEDIUMTEXT DEFAULT NULL COMMENT 'Full text of the email',
+  action_taken TEXT DEFAULT NULL COMMENT 'What we did about it',
+  status ENUM('review','open','done') NOT NULL DEFAULT 'review' COMMENT 'review = imported, not yet looked at; open = something still to do; done = nothing outstanding',
+  message_id VARCHAR(255) DEFAULT NULL COMMENT 'Email Message-ID, so the importer never logs the same email twice',
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  UNIQUE KEY uq_correspondence_message_id (message_id),
+  KEY idx_correspondence_occurred (occurred_on),
+  KEY idx_correspondence_email (email)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

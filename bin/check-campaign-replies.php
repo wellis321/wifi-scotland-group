@@ -33,6 +33,7 @@ if (php_sapi_name() !== 'cli') {
 }
 
 require_once __DIR__ . '/../includes/bootstrap.php';
+require_once __DIR__ . '/../includes/correspondence.php';
 
 const MAIL_API_BASE        = 'https://api.mail.hostinger.com';
 const MAILBOX_RESOURCE_ID  = 'ACc3439df9a45aede1974574892aef'; // hello@wires.org.uk
@@ -57,6 +58,15 @@ if ($token === null || $token === '') {
 if (!campaign_db_available()) {
     fwrite(STDERR, "Campaign database is not reachable.\n");
     exit(1);
+}
+
+// Keep /admin/correspondence.php up to date on the same schedule. Covers everyone who
+// writes in, not only campaign recipients, and must never stop the reply check below.
+try {
+    $logged = import_correspondence(max($lookbackDays, 7), $dryRun);
+    fwrite(STDERR, sprintf("Correspondence log: %s%d new entr%s.\n", $dryRun ? 'would add ' : 'added ', $logged, $logged === 1 ? 'y' : 'ies'));
+} catch (Throwable $e) {
+    fwrite(STDERR, "Correspondence log import failed: {$e->getMessage()}\n");
 }
 
 // ─── Who are we waiting to hear back from? ───────────────────────────────────

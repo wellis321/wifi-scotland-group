@@ -20,6 +20,7 @@ $adminNavStructure = [
             ['id' => 'members',  'href' => '/admin/members.php',  'label' => 'Members'],
             ['id' => 'messages', 'href' => '/admin/messages.php', 'label' => 'Messages'],
             ['id' => 'tips',     'href' => '/admin/tips.php',     'label' => 'Tips'],
+            ['id' => 'correspondence', 'href' => '/admin/correspondence.php', 'label' => 'Correspondence'],
         ],
     ],
     [
