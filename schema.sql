@@ -281,6 +281,16 @@ https://wires.org.uk</pre><p class="meta">Sent by email to the CMA''s BT / TalkT
 )
 ON DUPLICATE KEY UPDATE title = VALUES(title);
 
+-- Scottish Broadband Voucher Scheme closing to new applications (8 Oct 2026)
+INSERT INTO news_items (title, slug, summary, body, published_at) VALUES (
+  'Scotland''s rural broadband voucher closes to new applications on 20 November',
+  'scottish-broadband-voucher-scheme-closes-20-november',
+  'The Scottish Broadband Voucher Scheme, worth up to £5,000 towards a faster connection, closes to new applications on 20 November 2026. In Aberdeenshire alone, 2,089 premises are still eligible and have not used it.',
+  '<p>The Scottish Government is closing the Scottish Broadband Voucher Scheme. The official page now says: "The Scottish Broadband Voucher Scheme (SBVS) will close to new applications on 20 November 2026." That leaves six weeks.</p><p>The voucher pays up to £5,000 towards installing a faster connection, and covers all direct installation costs carried out by a registered supplier. It is for homes and businesses where the current connection is slower than 30 Mbps and there are no plans for a superfast connection through the R100 contracts or commercial build. These are the properties that R100 and commercial rollout are not going to reach.</p><h2>If you might be eligible, apply now</h2><p>The Government says requests submitted before the closing date "will continue to be processed against the SBVS eligibility criteria", and that "existing connections and approved applications are unaffected". So the date that matters is when your request goes in, not when the work is done.</p><p>Check your address on the Scottish Government''s broadband address checker, linked from the <a href="https://digitalconnectivity.campaign.gov.scot/sbvs">official scheme page</a>. If you are eligible, the next step is to contact one of the roughly 30 registered suppliers. Our <a href="/get-help#scottish-broadband-voucher">help page</a> has the details.</p><h2>In one council area, more than 2,000 eligible premises have not used it</h2><p>Aberdeenshire Council''s officer for digital connectivity told us this week that the area has had the highest take-up of the scheme in Scotland for some time. As of October 2026, residents there had used 1,189 vouchers. Another 2,089 premises in Aberdeenshire are still eligible and have not.</p><p>That is one council area, and by the council''s account the one where the scheme has worked best. We do not have figures for the rest of Scotland.</p><h2>What we do not know</h2><p>Neither official page gives a reason for the closure, or says what an eligible household should do after 20 November. For a property with no superfast connection planned, the voucher has been the main route to a subsidised one. We will report what replaces it, if anything does.</p><p class="meta">Sources: <a href="https://digitalconnectivity.campaign.gov.scot/sbvs">Scottish Government, Scottish Broadband Voucher Scheme</a> and <a href="https://www.mygov.scot/scottish-broadband-voucher-scheme">mygov.scot</a>, both checked 8 October 2026. Aberdeenshire figures from Aberdeenshire Council, in correspondence with WIRES, October 2026.</p>',
+  '2026-10-08'
+)
+ON DUPLICATE KEY UPDATE title = VALUES(title);
+
 -- ─── Local groups ────────────────────────────────────────────────────────────
 
 CREATE TABLE IF NOT EXISTS local_groups (
@@ -404,14 +414,14 @@ INSERT INTO schemes (slug, name, summary, who_for, what_you_get, how_to_apply, u
 ),
 (
   'scottish-broadband-voucher',
-  'Scottish Broadband Voucher Scheme — up to £5,000 to get connected',
+  'Scottish Broadband Voucher Scheme — up to £5,000 to get connected (closes 20 November 2026)',
   'A Scottish Government subsidy of up to £5,000 that covers the direct installation cost of a faster connection for homes and businesses the R100 contracts and commercial rollouts aren''t going to reach. Around 30 registered suppliers offer full fibre, fixed wireless, 4G/5G or satellite, depending on where you live.',
   'Homes and businesses where both are true: your current connection is slower than 30 Mbps, and there are no plans for a superfast connection through the R100 contracts or commercial build.',
   'A subsidy of up to £5,000 per property, covering all direct installation costs carried out by a registered supplier. The type of connection depends on what suppliers can offer at your location.',
   'Check your address on the Scottish Government''s broadband address checker, linked from the official page. If you''re eligible, the official guidance explains how to engage a registered supplier, and what to do if a supplier contacts you first.',
   'https://digitalconnectivity.campaign.gov.scot/sbvs',
   'Scottish Government: Scottish Broadband Voucher Scheme',
-  '2026-10', 'active', 'scotland', 'Open for individual properties. Group applications for several properties with a gigabit-capable connection have been paused since 19 August 2024 while Project Gigabit contracts roll out. The rules have changed before, so check the official page.', 25
+  '2026-10', 'active', 'scotland', 'Closes to new applications on 20 November 2026. Requests submitted before that date will still be processed, so apply now if you are eligible. Open for individual properties. Group applications for several properties with a gigabit-capable connection have been paused since 19 August 2024 while Project Gigabit contracts roll out.', 25
 )
 ON DUPLICATE KEY UPDATE name = VALUES(name);
 

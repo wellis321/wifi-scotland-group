@@ -375,6 +375,22 @@ function load_figures(): array
     ],
     'Get Help scheme details' => [
         [
+            'claim'   => 'The Scottish Broadband Voucher Scheme closes to new applications on 20 November 2026',
+            'used_on' => [['label' => 'Get help', 'href' => '/get-help'], ['label' => 'News', 'href' => '/news-item?slug=scottish-broadband-voucher-scheme-closes-20-november']],
+            'source'  => 'Scottish Government — Scottish Broadband Voucher Scheme',
+            'url'     => 'https://digitalconnectivity.campaign.gov.scot/sbvs',
+            'date'    => 'Checked 8 Oct 2026',
+            'note'    => 'The same notice appears on mygov.scot. Requests submitted before the closing date will still be processed.',
+        ],
+        [
+            'claim'   => 'Aberdeenshire: 1,189 Scottish Broadband Voucher Scheme vouchers used, with 2,089 premises still eligible (October 2026)',
+            'used_on' => [['label' => 'News', 'href' => '/news-item?slug=scottish-broadband-voucher-scheme-closes-20-november'], ['label' => 'Who is acting?', 'href' => '/accountability']],
+            'source'  => 'Aberdeenshire Council, in correspondence with WIRES (October 2026)',
+            'url'     => 'https://www.aberdeenshire.gov.uk/business/business-support/communities/digital-connectivity/',
+            'date'    => 'Oct 2026',
+            'note'    => 'Figures supplied by a council officer, who agreed to their being cited; they are not in a published document we could link to. The council also says Aberdeenshire has the highest take-up of the scheme in Scotland, which we report as its claim. The link is to the council\'s digital connectivity page.',
+        ],
+        [
             'claim'   => 'National Databank cards are available through over 4,000 Digital Inclusion Hubs',
             'used_on' => [['label' => 'Get help', 'href' => '/get-help']],
             'source'  => 'Good Things Foundation — National Databank',
